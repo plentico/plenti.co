@@ -1,0 +1,16 @@
+{
+	"intro": {
+		"title": "<span class='text-primary'>Websites</span> that are easier for <span class='text-accent-dark'>everyone</span>.",
+		"body": "Stop mixing site builders with your content editor experience. It's confusing for your content editors and extra work for your developers.",
+		"cta": {
+			"link": "/download",
+			"text": "Download"
+		}
+	},
+	"components": [
+		{
+			"component": "template",
+			"fields": {"type": "index"}
+		}
+	]
+}
