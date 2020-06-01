@@ -1,11 +1,17 @@
 {
 	"intro": {
-		"title": "<span class='text-primary'>Websites</span> that are easier for <span class='text-accent-dark'>everyone</span>.",
-		"body": "Stop mixing site builders with your content editor experience. It's confusing for your content editors and extra work for your developers.",
-		"cta": {
-			"link": "/download",
-			"text": "Download"
-		}
+		"title": "Websites that are easier<br />for <span class='text-accent-dark'>everyone</span>.",
+		"body": "Your \"site builder\" confusing editors and frustrating devs? Time to try tools designed specifically for your area of focus.",
+		"cta": [
+			{
+				"link": "/download",
+				"text": "Give it to me"
+			},
+			{
+				"link": "/why",
+				"text": "Tell me more"
+			}
+		]
 	},
 	"components": [
 		{

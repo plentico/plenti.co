@@ -7,7 +7,9 @@
 <section id="intro">
 	<h1>{@html intro.title}</h1>
 	<p>{@html intro.body}</p>
-	<a href="{intro.cta.link}" class="button">{intro.cta.text}</a>
+	{#each intro.cta as cta}
+		<a href="{cta.link}" class="button">{cta.text}</a>
+	{/each}
 </section>
 
 <div>
@@ -27,3 +29,11 @@
 		{/await}
 	{/each}
 {/if}
+
+<style>
+	#intro {
+		max-width: 50%;
+		font-size: 2rem;
+		line-height: 3rem;
+	}
+</style>
