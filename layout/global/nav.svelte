@@ -13,7 +13,7 @@
   }
   nav {
     min-height: 60px;
-    box-shadow: 0px 2px 3px var(--base);
+    box-shadow: 0px 2px 3px var(--base-light);
   }
   #brand {
     flex: 1;
