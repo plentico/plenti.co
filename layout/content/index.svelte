@@ -5,13 +5,15 @@
 	import { loadComponent } from '../scripts/load_component.svelte';
 </script>
 
-<section id="intro">
-	<h1>{@html intro.title}</h1>
-	<p>{@html intro.body}</p>
-	{#each intro.cta as cta}
-		<a href="{cta.link}" class="button">{cta.text}</a>
-	{/each}
-</section>
+<div class="container">
+	<section id="intro">
+		<h1>{@html intro.title}</h1>
+		<p>{@html intro.body}</p>
+		{#each intro.cta as cta}
+			<a href="{cta.link}" class="button">{cta.text}</a>
+		{/each}
+	</section>
+</div>
 
 <Waves />
 

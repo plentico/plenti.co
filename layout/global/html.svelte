@@ -12,10 +12,8 @@
 <body>
   <Nav />
   <main>
-    <div class="container">
-      <svelte:component this={route} {...node.fields} {allNodes} />
-      <br />
-    </div>
+    <svelte:component this={route} {...node.fields} {allNodes} />
+    <br />
   </main>
   <Footer {allNodes} />
 </body>
