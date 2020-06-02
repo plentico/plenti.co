@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "Websites that are easier<br />for <span class='text-accent-dark'>everyone</span>.",
-		"body": "Your \"site builder\" confusing editors and frustrating devs? Time to try tools designed specifically for your area of focus.",
+		"body": "Is your \"site builder\" confusing editors and frustrating devs? Time to try tools designed specifically for your area of focus.",
 		"cta": [
 			{
 				"link": "/download",
@@ -12,6 +12,10 @@
 				"text": "Tell me more"
 			}
 		]
+	},
+	"editor": {
+		"title": "Edit right on the page",
+		"body": "Seriously, give it a shot! You can edit this text directly. That's how easy it is to maintain the content on your site."
 	},
 	"components": [
 		{

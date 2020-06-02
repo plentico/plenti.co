@@ -6,6 +6,7 @@
     padding: 0 20px;
   }
   :global(:root) {
+    --primary-light: rgb(68, 175, 232);
     --primary: rgb(34, 166, 237);
     --primary-dark: rgb(16, 92, 133);
     --accent: rgb(254, 211, 48);
@@ -13,7 +14,7 @@
     --base-lightest: white;
     --base-light: rgb(245, 245, 245);
     --base: rgb(212, 212, 212);
-    --base-dark: rgb(17, 17, 17);
+    --base-dark: rgb(60, 60, 60);
   }
   :global(main a) {
     position: relative;
@@ -33,7 +34,7 @@
   :global(.text-accent-dark) {
     color: var(--accent-dark);
   }
-  :global(h1) {
+  :global(h1, h2, h3) {
     font-family: 'Heebo', sans-serif;
   }
 </style>

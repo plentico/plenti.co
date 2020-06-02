@@ -17,7 +17,6 @@
   }
   #brand {
     flex: 1;
-    font-weight: bold;
     font-size: 1.75rem;
     letter-spacing: 1px;
   }
