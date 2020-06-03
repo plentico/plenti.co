@@ -20,7 +20,7 @@
 <section id="editor">
 	<div class="container">
 		<div class="editor-graphic">
-			<img src="/assets/edit.gif" />
+			<img src="/assets/edit_animation.gif" />
 		</div>
 		<div class="editor-content">
 			<h3>{editor.title}</h3>
