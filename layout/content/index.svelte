@@ -20,7 +20,7 @@
 <section id="editor">
 	<div class="container">
 		<div class="editor-graphic">
-			<img src="/assets/pencil.png" />
+			<img src="/assets/edit.gif" />
 		</div>
 		<div class="editor-content">
 			<h3>{editor.title}</h3>
@@ -78,5 +78,8 @@
 	.editor-content {
 		flex-basis: 0;
 		flex-grow: 1;
+	}
+	img {
+		max-width: 385px;
 	}
 </style>
