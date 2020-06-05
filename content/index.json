@@ -17,10 +17,30 @@
 		"title": "Edit right on the page",
 		"body": "Seriously, give it a shot! You can edit this text directly. That's how easy it is to maintain the content on your site."
 	},
-	"components": [
+	"features": [
 		{
-			"component": "template",
-			"fields": {"type": "index"}
+			"title": "No Security Updates",
+			"img": "/assets/security.svg"
+		},
+		{
+			"title": "Cheap / Free Hosting",
+			"img": "/assets/hosting.svg"
+		},
+		{
+			"title": "Fast Page Loads",
+			"img": "/assets/speed.svg"
+		},
+		{
+			"title": "Fast Build Times",
+			"img": "/assets/builds.svg"
+		},
+		{
+			"title": "Distributed Sites",
+			"img": "/assets/cdn.svg"
+		},
+		{
+			"title": "No Vendor Lock-In",
+			"img": "/assets/vendor.svg"
 		}
 	]
 }

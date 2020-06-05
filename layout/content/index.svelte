@@ -1,5 +1,5 @@
 <script>
-	export let intro, editor, components, allNodes;
+	export let intro, editor, features, allNodes;
 	import Grid from '../components/grid.svelte';
 	import Waves from '../components/waves.svelte';
 	import { loadComponent } from '../scripts/load_component.svelte';
@@ -20,7 +20,7 @@
 <section id="editor">
 	<div class="container">
 		<div class="editor-graphic">
-			<img src="/assets/edit.gif" />
+			<img src="/assets/edit.gif" alt="Animation of typing on a computer" />
 		</div>
 		<div class="editor-content">
 			<h3>{editor.title}</h3>
@@ -29,23 +29,18 @@
 	</div>
 </section>
 
+<section id="features">
+	{#each features as feature}
+		<img src="{feature.img}" alt="{feature.title}" />
+		<div>{feature.title}</div>
+	{/each}
+</section>
+
 <div>
 	<h3>Recent blog posts:</h3>
 	<Grid items={allNodes} filter="blog" />
 	<br />
 </div>
-
-{#if components}
-	{#each components as { component, fields }}
-		{#await loadComponent(component)}
-			loading component...
-		{:then compClass}
-			<svelte:component this="{compClass}" {...fields} />
-		{:catch error}
-			{console.log(error.message)}
-		{/await}
-	{/each}
-{/if}
 
 <style>
 	#intro {
@@ -81,5 +76,9 @@
 	}
 	img {
 		max-width: 385px;
+	}
+	#features {
+		background-image: url("/assets/deep-water.svg");
+		background-size: cover;
 	}
 </style>
