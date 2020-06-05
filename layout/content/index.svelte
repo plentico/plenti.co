@@ -31,8 +31,10 @@
 
 <section id="features">
 	{#each features as feature}
-		<img src="{feature.img}" alt="{feature.title}" />
-		<div>{feature.title}</div>
+		<div class="feature">
+			<img src="{feature.img}" alt="{feature.title}" />
+			<div class="title">{feature.title}</div>
+		</div>
 	{/each}
 </section>
 
@@ -74,11 +76,23 @@
 		flex-basis: 0;
 		flex-grow: 1;
 	}
-	img {
-		max-width: 385px;
-	}
 	#features {
 		background-image: url("/assets/deep-water.svg");
 		background-size: cover;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 100px 0;
+	}
+	.feature {
+		flex: 0 0 33.333333%;
+		text-align: center;
+		align-self: center;
+		margin: 40px 0;
+	}
+	.feature .title {
+		font-weight: bold;
+		color: var(--base-lightest);
+		font-size: 2rem;
+		margin: 20px 0;
 	}
 </style>
