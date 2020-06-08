@@ -45,7 +45,7 @@
 	],
 	"setup": [
 		{
-			"title": "Included Out-Of-The-Box",
+			"title": "Out-of-the-Box",
 			"title_accent": "Content Editing",
 			"body": "Plenti comes with a lightweight Content Management System for editing your content. No third party software needed to handoff to a client.",
 			"img": "/assets/"
@@ -53,7 +53,7 @@
 		{
 			"title": "Git Backend",
 			"title_accent": "No Database",
-			"body": "Ditch the SQL headaches and simply connect your site to GitHub, GitLab, or Gogs. Finally content editors and developers can speak the same language (even if they don't know it).",
+			"body": "Ditch the SQL headaches and simply connect your site to GitHub, GitLab, or Gogs. Finally content editors and developers will be speaking the same language.",
 			"img": "/assets/"
 		},
 		{
@@ -64,9 +64,16 @@
 		},
 		{
 			"title": "Svelte Components",
-			"title_accent": "Dynamic / Reactive",
+			"title_accent": "Reactive",
 			"body": "Build your User Interface with a lightweight and easy to understand component framework. We'll automatically give you HTML fallbacks for your pages and hydrate your single page apps.",
 			"img": "/assets/"
 		}
-	]
+	],
+	"cta": {
+		"title": "Plenti is 100% Free and Open Source",
+		"link": {
+			"text": "Show me the code",
+			"url": "https://github.com/plentico/plenti"
+		}
+	}
 }

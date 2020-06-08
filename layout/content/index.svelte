@@ -1,5 +1,5 @@
 <script>
-	export let intro, editor, features, setup, allNodes;
+	export let intro, editor, features, setup, cta, allNodes;
 	import Grid from '../components/grid.svelte';
 	import Waves from '../components/waves.svelte';
 	import { loadComponent } from '../scripts/load_component.svelte';
@@ -39,25 +39,30 @@
 </section>
 
 <section id="setup">
-	<h3>Minimal Setup Required</h3>
-	{#each setup as item}
-		<div class="item">
-			<div class="content">
-				<strong><span>{item.title_accent}</span>{item.title}</strong>
-				<p>{item.body}</p>
+	<div class="container">
+		<h3>Minimal Setup Required</h3>
+		{#each setup as item}
+			<div class="item">
+				<div class="content">
+					<strong><span>{item.title_accent}</span>&nbsp;{item.title}</strong>
+					<p>{item.body}</p>
+				</div>
+				<div class="img">
+					<img src="{item.img}" />
+				</div>
 			</div>
-			<div class="img">
-				<img src="{item.img}" />
-			</div>
-		</div>
-	{/each}
+		{/each}
+	</div>
 </section>
 
-<div>
-	<h3>Recent blog posts:</h3>
-	<Grid items={allNodes} filter="blog" />
-	<br />
-</div>
+<section id="cta-wrapper">
+	<div class="container">
+		<div id="cta">
+			<h3>{cta.title}</h3>
+			<a href="{cta.link.url}">{cta.link.text}</a>
+		</div>
+	</div>
+</section>
 
 <style>
 	#intro {
@@ -113,12 +118,42 @@
 	#setup {
 		font-size: 2rem;
 		line-height: 3rem;
+		padding: 100px 0;
 	}
 	#setup .item {
 		display: flex;
 	}
+	#setup .item:nth-child(odd) {
+		flex-direction: row-reverse;
+	}
+	#setup .item > div {
+		flex-basis: 0;
+    	flex-grow: 1;
+	}
 	#setup strong span {
 		font-family: 'Kalam', cursive;
 		color: var(--accent-dark);
+	}
+	#cta-wrapper {
+		text-align: center;
+	}
+	#cta {
+		background-image: linear-gradient(to right,var(--accent) , var(--accent-dark));
+		color: var(--base-lightest);
+		padding: 50px 100px 100px;
+		display: inline-block;
+		border-radius: 10px;
+		box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 30px;
+		text-align: center;
+		font-size: 2rem;
+		line-height: 3rem;
+	}
+	#cta a {
+		background-color: var(--base-lightest);
+		color: var(--accent-dark);
+		padding: 0 20px;
+		border-radius: 5px;
+		font-weight: bold;
+		font-size: 1.5rem;
 	}
 </style>
