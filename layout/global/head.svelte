@@ -8,7 +8,7 @@
 
   <title>{ title }</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel='stylesheet' href='/spa/bundle.css'>
 </head>

@@ -42,5 +42,31 @@
 			"title": "No Vendor Lock-In",
 			"img": "/assets/vendor.svg"
 		}
+	],
+	"setup": [
+		{
+			"title": "Included Out-Of-The-Box",
+			"title_accent": "Content Editing",
+			"body": "Plenti comes with a lightweight Content Management System for editing your content. No third party software needed to handoff to a client.",
+			"img": "/assets/"
+		},
+		{
+			"title": "Git Backend",
+			"title_accent": "No Database",
+			"body": "Ditch the SQL headaches and simply connect your site to GitHub, GitLab, or Gogs. Finally content editors and developers can speak the same language (even if they don't know it).",
+			"img": "/assets/"
+		},
+		{
+			"title": "Content Structure",
+			"title_accent": "Flexible",
+			"body": "There are no required fields or content types in Plenti. You define whatever structure works best for you and your project.",
+			"img": "/assets/"
+		},
+		{
+			"title": "Svelte Components",
+			"title_accent": "Dynamic / Reactive",
+			"body": "Build your User Interface with a lightweight and easy to understand component framework. We'll automatically give you HTML fallbacks for your pages and hydrate your single page apps.",
+			"img": "/assets/"
+		}
 	]
 }

@@ -1,5 +1,5 @@
 <script>
-	export let intro, editor, features, allNodes;
+	export let intro, editor, features, setup, allNodes;
 	import Grid from '../components/grid.svelte';
 	import Waves from '../components/waves.svelte';
 	import { loadComponent } from '../scripts/load_component.svelte';
@@ -34,6 +34,21 @@
 		<div class="feature">
 			<img src="{feature.img}" alt="{feature.title}" />
 			<div class="title">{feature.title}</div>
+		</div>
+	{/each}
+</section>
+
+<section id="setup">
+	<h3>Minimal Setup Required</h3>
+	{#each setup as item}
+		<div class="item">
+			<div class="content">
+				<strong><span>{item.title_accent}</span>{item.title}</strong>
+				<p>{item.body}</p>
+			</div>
+			<div class="img">
+				<img src="{item.img}" />
+			</div>
 		</div>
 	{/each}
 </section>
@@ -94,5 +109,16 @@
 		color: var(--base-lightest);
 		font-size: 2rem;
 		margin: 20px 0;
+	}
+	#setup {
+		font-size: 2rem;
+		line-height: 3rem;
+	}
+	#setup .item {
+		display: flex;
+	}
+	#setup strong span {
+		font-family: 'Kalam', cursive;
+		color: var(--accent-dark);
 	}
 </style>
