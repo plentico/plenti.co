@@ -31,7 +31,7 @@
 </section>
 
 <svelte:window bind:scrollY={by}/>
-<section id="features" style="background-position-y:-{by/5}px;">
+<section id="features" style="background-position-y:{by/5 - 300}px;">
 	{#each features as feature}
 		<div class="feature">
 			<img src="{feature.img}" alt="{feature.title}" />
