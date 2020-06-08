@@ -3,6 +3,7 @@
 	import Grid from '../components/grid.svelte';
 	import Waves from '../components/waves.svelte';
 	import { loadComponent } from '../scripts/load_component.svelte';
+	export let by=0;
 </script>
 
 <div class="container">
@@ -29,7 +30,8 @@
 	</div>
 </section>
 
-<section id="features">
+<svelte:window bind:scrollY={by}/>
+<section id="features" style="background-position-y:-{by/5}px;">
 	{#each features as feature}
 		<div class="feature">
 			<img src="{feature.img}" alt="{feature.title}" />
@@ -98,7 +100,6 @@
 	}
 	#features {
 		background-image: url("/assets/deep-water.svg");
-		background-size: cover;
 		display: flex;
 		flex-wrap: wrap;
 		padding: 100px 0;
