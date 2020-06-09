@@ -15,7 +15,7 @@
     <svelte:component this={route} {...node.fields} {allNodes} />
     <br />
   </main>
-  <Footer {allNodes} />
+  <Footer />
 </body>
 </html>
 

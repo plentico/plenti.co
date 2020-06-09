@@ -6,6 +6,8 @@
     padding: 0 20px;
   }
   :global(:root) {
+    --primary-lightest: rgb(235, 249, 255);
+    --primary-lighter: rgb(171, 226, 255);
     --primary-light: rgb(68, 175, 232);
     --primary: rgb(34, 166, 237);
     --primary-dark: rgb(16, 92, 133);

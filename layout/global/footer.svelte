@@ -1,14 +1,28 @@
 <script>
-  export let allNodes;
   import { makeTitle } from '../scripts/make_title.svelte';
 </script>
 
 <footer>
   <div class="container">
-    <span>All nodes:</span>
-    {#each allNodes as node}
-      <a href="{node.path}">{makeTitle(node.filename)}</a>
-    {/each}
+    <section id="plentico">
+      <strong>Plentico</strong>
+      <div><a href="/about">About</a></div>
+      <div><a href="/contact">Contact</a></div>
+    </section>
+    <section id="products">
+      <strong>Products</strong>
+      <div><a href="/plenti">Plenti</a></div>
+      <div><a href="https://plentiform.com">Plentiform</a></div>
+    </section>
+    <section id="resources">
+      <strong>Resources</strong>
+      <div><a href="/docs">Documentation</a></div>
+      <div><a href="/themes">Themes</a></div>
+    </section>
+    <section id="copyright">
+      <div id="copyright">© Plentico 2020</div>
+      <a href="https://jantcu.com">By Jantcu LLC</a>
+    </section>
   </div>
 </footer>
 
@@ -17,16 +31,29 @@
     min-height: 200px;
     display: flex;
     align-items: center;
-    background-color: var(--base-dark);
+    background-color: var(--primary-lightest);
+    border-top: 1px solid var(--primary-lighter);
     margin-top: 100px;
+    flex-wrap: wrap;
+    padding-top: 50px;
   }
-  span {
-    color: var(--primary);
-    font-weight: bold;
+  footer > div {
+    display: flex;
+    flex: 100%;
+  }
+  section {
+    flex: 0 0 25%
+  }
+  strong {
+    display: inline-block;
+    border-bottom: 2px solid;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
   }
   a {
-    color: white;
+    color: var(--base-dark);
     text-decoration: none;
-    margin-left: 10px;
+    margin: 5px 0;
+    display: inline-block;
   }
 </style>

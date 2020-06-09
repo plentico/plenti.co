@@ -26,6 +26,10 @@
     color: var(--base-dark);
     text-decoration: none;
   }
+  a.nav-link.button {
+    color: var(--base-lightest);
+    font-weight: bold;
+  }
   img {
     margin-right: 10px;
   }

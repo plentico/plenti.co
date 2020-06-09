@@ -1,5 +1,5 @@
 <script>
-	export let intro, editor, features, setup, cta, allNodes;
+	export let intro, editor, features, setup, cta;
 	import Grid from '../components/grid.svelte';
 	import Waves from '../components/waves.svelte';
 	import { loadComponent } from '../scripts/load_component.svelte';
