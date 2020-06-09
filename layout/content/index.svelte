@@ -71,6 +71,7 @@
 		max-width: 50%;
 		font-size: 2rem;
 		line-height: 3rem;
+		padding: 60px 0;
 	}
 	a.button {
 		font-size: 1.5rem;
