@@ -20,6 +20,7 @@
       <div><a href="/themes">Themes</a></div>
     </section>
     <section id="copyright">
+      <div id="social"><a href="https://twitter.com/jantcutech"><img src="/assets/twitter.svg"></a><a href="https://youtube.com/jantcu"><img src="/assets/youtube.svg"></a><a href="https://github.com/plentico/plenti"><img src="/assets/github.svg"></a></div>
       <div id="copyright">© Plentico 2020</div>
       <a href="https://jantcu.com">By Jantcu LLC</a>
     </section>
@@ -35,7 +36,7 @@
     border-top: 1px solid var(--primary-lighter);
     margin-top: 100px;
     flex-wrap: wrap;
-    padding-top: 50px;
+    padding: 50px 0;
   }
   footer > div {
     display: flex;
@@ -55,5 +56,8 @@
     text-decoration: none;
     margin: 5px 0;
     display: inline-block;
+  }
+  #social a {
+    margin: 0 10px 10px 0;
   }
 </style>
