@@ -1,2 +1,4 @@
-<h1>Oops... 404 not found</h1>
-<a href="/">Go home?</a>
+<div class="container">
+    <h1>Oops... 404 not found</h1>
+    <a href="/">Go home?</a>
+</div>
