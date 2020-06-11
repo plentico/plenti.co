@@ -1,0 +1,28 @@
+{
+    "title": "Installation",
+    "group": "Getting Started",
+    "order": 1,
+    "sections": [
+        {
+            "title": "Requirements",
+            "body": [
+                {
+                    "p": [
+                        "You must have <a href='https://nodejs.org' target='_blank' rel='noopener noreferrer'>NodeJS</a> version 13 or newer"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Homebrew",
+            "body": [
+                {
+                    "p": [
+                        "1. Add the tap: brew tap plentico/homebrew-plenti",
+                        "<br />2. Install: brew install plenti"
+                    ]
+                }
+            ]
+        }
+    ]
+}

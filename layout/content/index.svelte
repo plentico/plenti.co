@@ -138,6 +138,7 @@
 	}
 	#cta-wrapper {
 		text-align: center;
+		margin-bottom: 50px;
 	}
 	#cta {
 		background-image: linear-gradient(to right,var(--accent) , var(--accent-dark));

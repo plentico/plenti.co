@@ -1,5 +1,7 @@
 {
     "title": "Introduction",
+    "group": "Getting Started",
+    "order": 0,
     "sections": [
         {
             "title": "What is Plenti?",
@@ -30,7 +32,7 @@
                         "We also use a simple JSON data source instead of markdown, because we don't intend for you to edit content directly through files.",
                         "We expect this will be done completely through the website user interface. It should also require minimum setup.",
                         "There are no shortage of excellent headless CMS options on the market for JAMstack, but most require purchasing a license for",
-                        "a proprietary product, the take significant developer time to connect to your website, they lack on features like live displays,",
+                        "a proprietary product, take significant developer time to connect to your website, lack on features like live displays,",
                         "and there is often duplicate work to match your data source structure with the CMS fields."
                     ]
                 }
