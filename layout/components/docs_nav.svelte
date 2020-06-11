@@ -24,8 +24,12 @@
         border: 1px solid var(--base);
         border-top-style: none;
     }
+    strong {
+        display: block;
+        margin: 20px 20px 10px 20px; 
+    }
     .nav-link {
         display: block;
-        margin: 5px 20px;
+        margin: 5px 20px 5px 40px;
     }
 </style>

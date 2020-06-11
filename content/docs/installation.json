@@ -14,12 +14,44 @@
             ]
         },
         {
-            "title": "Homebrew",
+            "title": "Homebrew (Mac)",
             "body": [
                 {
                     "p": [
                         "1. Add the tap: brew tap plentico/homebrew-plenti",
                         "<br />2. Install: brew install plenti"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Snap (Linux)",
+            "body": [
+                {
+                    "p": [
+                        "1. Install: snap install plenti"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Scoop (Windows)",
+            "body": [
+                {
+                    "p": [
+                        "1. Add the bucket: scoop bucket add org https://github.com/plentico/scoop-plenti.git",
+                        "<br />2. Install: scoop install plentico/scoop-plenti"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Manual",
+            "body": [
+                {
+                    "p": [
+                        "1. Download the latest <a href='https://github.com/plentico/plenti/releases'>release</a>",
+                        "<br />2. Move it somewhere in your PATH (most likely /usr/local/bin)"
                     ]
                 }
             ]
