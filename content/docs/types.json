@@ -40,7 +40,9 @@
                     "p": [
                         "There is an optional, special named file that goes inside your individual type folders named <code>_blueprint.json</code>.",
                         "This defines the default field schema for that specific type.",
-                        "The keys of the blueprint correspond to field names used in the content files and the values tell the kind of field that is being used."
+                        "The keys of the blueprint correspond to field names used in the content files and the values tell the kind of field that is being used.",
+                        "<strong>TODO:</strong> Currently the blueprint doesn't do much and there is no list of standardized values, but in the future this will",
+                        "be fleshed out and it will aid in generating scaffoling and tying into the cms (see <a href='https://github.com/plentico/plenti/issues/15'>this issue</a>)."
                     ]
                 }
             ]

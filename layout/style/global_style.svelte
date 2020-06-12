@@ -40,7 +40,7 @@
     font-family: 'Heebo', sans-serif;
   }
   :global(code) {
-    font-size: .75rem;
+    font-size: 1rem;
     color: var(--accent-dark);
     background-color: var(--base-light);
     padding: 5px;
