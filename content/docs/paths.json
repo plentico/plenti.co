@@ -25,7 +25,8 @@
                     "p": [
                         "You can overide the default path structure in the site's configuration file (<code>plenti.json</code>).",
                         "For example if you had a Type called <code>pages</code> and you wanted it to appear at the top level of the",
-                        "site and not in the format https://example.com/pages/page1, you could add the following to <code>plenti.json</code>:"
+                        "site and not in the format https://example.com/pages/page1, you could add the following to <code>plenti.json</code>:",
+                        "<br /><br /><codeblock>\"types\": {<br />  \"pages\": \"/:filename\"<br />}</codeblock>"
                     ]
                 }
             ]

@@ -18,8 +18,8 @@
             "body": [
                 {
                     "p": [
-                        "1. Add the tap: brew tap plentico/homebrew-plenti",
-                        "<br />2. Install: brew install plenti"
+                        "1. Add the tap: <code>brew tap plentico/homebrew-plenti</code>",
+                        "<br />2. Install: <code>brew install plenti</code>"
                     ]
                 }
             ]
@@ -29,7 +29,7 @@
             "body": [
                 {
                     "p": [
-                        "1. Install: snap install plenti"
+                        "1. Install: <code>snap install plenti</code>"
                     ]
                 }
             ]
@@ -39,8 +39,8 @@
             "body": [
                 {
                     "p": [
-                        "1. Add the bucket: scoop bucket add org https://github.com/plentico/scoop-plenti.git",
-                        "<br />2. Install: scoop install plentico/scoop-plenti"
+                        "1. Add the bucket: <code>scoop bucket add org https://github.com/plentico/scoop-plenti.git</code>",
+                        "<br />2. Install: <code>scoop install plentico/scoop-plenti</code>"
                     ]
                 }
             ]
@@ -51,7 +51,7 @@
                 {
                     "p": [
                         "1. Download the latest <a href='https://github.com/plentico/plenti/releases'>release</a>",
-                        "<br />2. Move it somewhere in your PATH (most likely /usr/local/bin)"
+                        "<br />2. Move it somewhere in your <code>PATH</code> (most likely <code>/usr/local/bin</code>)"
                     ]
                 }
             ]
