@@ -1,0 +1,34 @@
+{
+    "title": "Paths",
+    "group": "Content",
+    "order": 3,
+    "sections": [
+        {
+            "title": "Endpoints",
+            "body": [
+                {
+                    "p": [
+                        "The endpoint nodes for your pages (of whatever Type) will be defined by your data source.",
+                        "By default this corresponds to the structure of folders and files in your <code>content/</code> folder,",
+                        "for example:<ul>",
+                        "<li><code>content/index.json</code> = <code>https://example.com/</code></li>",
+                        "<li><code>content/blog/post1.json</code> = <code>https://example.com/blog/post1</code></li>",
+                        "<li><code>content/events/event1.json</code> = <code>https://example.com/events/event1</code></li>"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Overriding Paths",
+            "body": [
+                {
+                    "p": [
+                        "You can overide the default path structure in the site's configuration file (<code>plenti.json</code>).",
+                        "For example if you had a Type called <code>pages</code> and you wanted it to appear at the top level of the",
+                        "site and not in the format https://example.com/pages/page1, you could add the following to <code>plenti.json</code>:"
+                    ]
+                }
+            ]
+        }
+    ]
+}

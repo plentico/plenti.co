@@ -5,9 +5,15 @@
         group.push(newGroup);
         return newGroup;
     }
+    const sortNav = (a, b) => {
+        if (typeof a.fields.order !== "undefined" && typeof b.fields.order !== "undefined") {
+            return a.fields.order - b.fields.order;
+        }
+        return -1;
+    }
 </script>
 <div class="sidebar">
-    {#each allNodes as node}
+    {#each allNodes.sort(sortNav) as node}
         {#if node.type == "docs"}
             {#if !group.includes(node.fields.group)}
                 <strong>{addGroup(node.fields.group)}</strong>

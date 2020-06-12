@@ -1,0 +1,49 @@
+{
+    "title": "Types",
+    "group": "Content",
+    "order": 2,
+    "sections": [
+        {
+            "title": "Data Source",
+            "body": [
+                {
+                    "p": [
+                        "The <code>content/</code> folder in a project is where all your data lives (in JSON format).",
+                        "This is typically divided into multiple subfolders that define your types.",
+                        "Types are just a way to group content of a similar structure.",
+                        "Individual files inside a type are very flexible,",
+                        "in fact you can define any field schema you'd like and there are no required keys.",
+                        "Even though files may be grouped together as a type,",
+                        "they can actually have variability between them in terms of their field structure - just",
+                        "make sure you account for this in your corresponding <code>layout/content/</code> files!"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Single file types",
+            "body": [
+                {
+                    "p": [
+                        "Anything that appears at the first level within the content folder is a type.",
+                        "This can include single files such as <code>index.json</code> and <code>404.json</code>,",
+                        "which are also types, but only have a one-off data source.",
+                        "You can define your own single file types this way if you'd like."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Blueprints",
+            "body": [
+                {
+                    "p": [
+                        "There is an optional, special named file that goes inside your individual type folders named <code>_blueprint.json</code>.",
+                        "This defines the default field schema for that specific type.",
+                        "The keys of the blueprint correspond to field names used in the content files and the values tell the kind of field that is being used."
+                    ]
+                }
+            ]
+        }
+    ]
+}
