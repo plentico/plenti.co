@@ -1,0 +1,26 @@
+{
+    "title": "Assets",
+    "group": "Structure",
+    "order": 5,
+    "sections": [
+        {
+            "title": "Static Files",
+            "body": [
+                {
+                    "p": [
+                        "Static files like images and PDFs can be stored in the top level <code>assets/</code> directory.",
+                        "You can reference these assets from any template from the root of the site, for example:",
+                        "<code>&lt;img src=&quot;/assets/my-image.jpg&quot; /&gt;</code>."
+                    ]
+                },
+                {
+                    "p": [
+                        "You can also use a path relative to the specific template. For instance if you were adding an image to",
+                        "<code>layout/components/my-component.svelte</code>, you could reference the same image like",
+                        "<code>&lt;img src=&quot;../../assets/my-image.jpg&quot; /&gt;</code> if you'd like."
+                    ]
+                }
+            ]
+        }
+    ]
+}
