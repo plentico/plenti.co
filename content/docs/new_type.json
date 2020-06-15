@@ -1,0 +1,47 @@
+{
+    "title": "New Type",
+    "group": "Commands",
+    "order": 6,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "This command will automatically create a folder in your <code>content/</code> directory with the",
+                        "Type name, a <code>_blueprint.json</code> file inside that folder that describes the Type's field",
+                        "structure, and a corresponding template in <code>layout/content/</code> that has the same name as the Type."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "You can create a new content type by running <code>plenti new type YOUR_NEW_TYPE</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Flags",
+            "body": [
+                {
+                    "t": {
+                        "head": ["Long", "Short", "Default", "Description"],
+                        "data": [
+                            [
+                                "<code>--endpoint=false</code>",
+                                "<code>-e=false</code>",
+                                "<code>true</code>",
+                                "Pass \"false\" if you don't want your new Type to have an endpoint that site visitors can access directly"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
