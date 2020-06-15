@@ -1,0 +1,52 @@
+{
+    "title": "Build",
+    "group": "Commands",
+    "order": 7,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "The build command creates the static assets that can be deployed to hosting provider.",
+                        "It contains the generated Svelte code that hydrates into a Single Page Application (SPA),",
+                        "As well as the HTML fallbacks that allow you to navigate the site without JavaScript enabled,",
+                        "improve Search Engine Optimization (SEO), and speed up the initial page load of your app."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "How to use",
+            "body": [
+                {
+                    "p": [
+                        "The following command will create a folder called \"public\" that contains your website: <code>plenti build</code>"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Flags",
+            "body": [
+                {
+                    "t": {
+                        "head": ["Long", "Short", "Description"],
+                        "data": [
+                            [
+                                "<code>--dir=whatever</code>",
+                                "<code>-d=whatever</code>",
+                                "Change the name of the \"public\" build directory to something else."
+                            ],
+                            [
+                                "<code>--benchmar</code>",
+                                "<code>-b</code>",
+                                "Display build time statistics"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -13,9 +13,31 @@
             <strong class="title">{section.title}</strong>
             {#each section.body as paragraph}
                 <p class="section-body">
-                    {#each paragraph.p as line}
-                        {@html line}&nbsp;
-                    {/each}
+                    {#if paragraph.p}
+                        {#each paragraph.p as line}
+                            {@html line}&nbsp;
+                        {/each}
+                    {/if}
+                    {#if paragraph.t}
+                        <table>
+                            <thead>
+                                <tr>
+                                {#each paragraph.t.head as th}
+                                    <th>{@html th}</th>
+                                {/each}
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {#each paragraph.t.data as tr}
+                                <tr>
+                                    {#each tr as td}
+                                        <td>{@html td}</td>
+                                    {/each}
+                                </tr>
+                                {/each}
+                            </tbody>
+                        </table>
+                    {/if}
                 </p>
             {/each}
         {/each}
@@ -29,6 +51,10 @@
     .section-body :global(a) {
         font-weight: bold;
         color: var(--primary);
+    }
+    .section-body :global(table) {
+        width: 100%;
+        text-align: left;
     }
     .container {
         padding-top: 20px;

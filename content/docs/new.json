@@ -21,7 +21,11 @@
                         "You can create a new content type by running <code>plenti new type YOUR_NEW_TYPE</code>.",
                         "This command will automatically create a folder in your <code>content/</code> directory with the",
                         "Type name, a <code>_blueprint.json</code> file inside that folder that describes the Type's field",
-                        "structure, and a corresponding template in <code>layout/content/</code> that has the same name as the Type.",
+                        "structure, and a corresponding template in <code>layout/content/</code> that has the same name as the Type."
+                    ]
+                },
+                {
+                    "p": [
                         "If you don't want your new Type to have an endpoint that site visitors can access directly,",
                         "pass the <code>--endpoint=false</code> flag."
                     ]
