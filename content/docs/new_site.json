@@ -1,0 +1,50 @@
+{
+    "title": "New Site",
+    "group": "Commands",
+    "order": 6,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "This is the first command you'll want to run for a new project.",
+                        "It creates the default folders and files for your website."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "You can create a new project by running <code>plenti new site YOUR_SITE_NAME</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Flags",
+            "body": [
+                {
+                    "t": {
+                        "head": ["Long", "Short", "Description"],
+                        "data": [
+                            [
+                                "<code>--bare</code>",
+                                "<code>-b</code>",
+                                "(Coming Soon) Creates a minimalist site scaffolding with less default content."
+                            ],
+                            [
+                                "<code>--theme=\"git@github.com:jimafisk/repo.git\"</code>",
+                                "<code>-t=\"git@github.com:jimafisk/repo.git\"</code>",
+                                "(Coming Soon) Point to a Git repository to use a base theme for your site."
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
