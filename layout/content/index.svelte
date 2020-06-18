@@ -133,6 +133,7 @@
 		flex-basis: 0;
     	flex-grow: 1;
 	}
+	/*
 	#setup .item .img::before {
 		background-color: var(--accent-dark);
 		content: "";
@@ -141,13 +142,14 @@
 		height: 300px;
 		position: absolute;
 	}
+	*/
 	#setup strong span {
 		font-family: 'Kalam', cursive;
 		color: var(--accent-dark);
 	}
 	#setup img {
 		box-shadow: 0 10px 36px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.06);
-    	transform: rotate(-6deg);
+    	transform: rotate(-3deg);
 	}
 	#setup .img {
 		align-items: center;
@@ -157,7 +159,7 @@
     	justify-content: flex-end;
 	}
 	#setup .item:nth-child(even) img {
-    	transform: rotate(6deg);
+    	transform: rotate(3deg);
 	}
 	#cta-wrapper {
 		text-align: center;

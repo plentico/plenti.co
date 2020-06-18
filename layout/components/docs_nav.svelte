@@ -25,17 +25,12 @@
 
 <style>
     .sidebar {
-        background-color: var(--base-light);
-        border-bottom-right-radius: 5px;
-        border: 1px solid var(--base);
-        border-top-style: none;
+        border-right: 1px solid var(--base);
+        padding: 0 40px;
+        margin: 40px 0;
     }
-    strong {
+    strong, .nav-link {
         display: block;
-        margin: 20px 20px 10px 20px; 
-    }
-    .nav-link {
-        display: block;
-        margin: 5px 20px 5px 40px;
+        margin-bottom: 10px;
     }
 </style>
