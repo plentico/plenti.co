@@ -32,8 +32,7 @@
     min-height: 200px;
     display: flex;
     align-items: center;
-    background-color: var(--primary-lightest);
-    border-top: 1px solid var(--primary-lighter);
+    background-color: var(--base-light);
     margin-top: 50px;
     flex-wrap: wrap;
     padding: 50px 0;
@@ -47,9 +46,7 @@
   }
   strong {
     display: inline-block;
-    border-bottom: 2px solid;
     padding-bottom: 5px;
-    margin-bottom: 15px;
   }
   a {
     color: var(--base-dark);

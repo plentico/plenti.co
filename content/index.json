@@ -54,13 +54,13 @@
 			"title": "Git Backend",
 			"title_accent": "No Database",
 			"body": "Ditch the SQL headaches and simply connect to a Git backend. Finally content editors and developers can speak the same language.",
-			"img": "/assets/"
+			"img": "/assets/git.png"
 		},
 		{
 			"title": "Content Structure",
 			"title_accent": "Flexible",
 			"body": "There are no required fields or content types in Plenti. You define whatever structure works best for you and your project.",
-			"img": "/assets/"
+			"img": "/assets/json.png"
 		},
 		{
 			"title": "Svelte Components",

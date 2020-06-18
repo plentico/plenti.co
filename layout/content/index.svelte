@@ -124,6 +124,7 @@
 	}
 	#setup .item {
 		display: flex;
+		margin: 100px 0;
 	}
 	#setup .item:nth-child(odd) {
 		flex-direction: row-reverse;
@@ -132,9 +133,31 @@
 		flex-basis: 0;
     	flex-grow: 1;
 	}
+	#setup .item .img::before {
+		background-color: var(--accent-dark);
+		content: "";
+		display: block;
+		width: 500px;
+		height: 300px;
+		position: absolute;
+	}
 	#setup strong span {
 		font-family: 'Kalam', cursive;
 		color: var(--accent-dark);
+	}
+	#setup img {
+		box-shadow: 0 10px 36px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.06);
+    	transform: rotate(-6deg);
+	}
+	#setup .img {
+		align-items: center;
+	}
+	#setup .item:nth-child(even) .img {
+		display: flex;
+    	justify-content: flex-end;
+	}
+	#setup .item:nth-child(even) img {
+    	transform: rotate(6deg);
 	}
 	#cta-wrapper {
 		text-align: center;

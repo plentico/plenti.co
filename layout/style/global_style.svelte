@@ -14,6 +14,7 @@
     --accent: rgb(254, 211, 48);
     --accent-dark: rgb(254, 139, 48);
     --base-lightest: white;
+    --base-lighter: rgb(249, 249, 249);
     --base-light: rgb(245, 245, 245);
     --base: rgb(212, 212, 212);
     --base-dark: rgb(60, 60, 60);
