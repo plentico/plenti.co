@@ -30,12 +30,11 @@
             "body": [
                 {
                     "t": {
-                        "head": ["Long", "Short", "Default", "Description"],
+                        "head": ["Long", "Short", "Description"],
                         "data": [
                             [
-                                "<code>--endpoint=false</code>",
-                                "<code>-e=false</code>",
-                                "<code>true</code>",
+                                "<code>--endpoint=true</code>",
+                                "<code>-e=true</code>",
                                 "Pass \"false\" if you don't want your new Type to have an endpoint that site visitors can access directly"
                             ]
                         ]

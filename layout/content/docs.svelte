@@ -4,9 +4,10 @@
 </script>
 
 <div class="docs-container">
-    <DocsNav allNodes={allNodes} />
 
     <div class="container">
+    <DocsNav allNodes={allNodes} />
+    <div class="docs">
         <h1>{title}</h1>
 
         {#each sections as section}
@@ -42,6 +43,7 @@
             {/each}
         {/each}
     </div>
+    </div>
 </div>
 
 <style>
@@ -58,6 +60,7 @@
     }
     .container {
         padding-top: 20px;
+        display: flex;
     }
     .title {
         font-size: 2rem;

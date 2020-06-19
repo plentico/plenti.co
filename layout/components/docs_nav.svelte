@@ -26,11 +26,13 @@
 <style>
     .sidebar {
         border-right: 1px solid var(--base);
-        padding: 0 40px;
-        margin: 40px 0;
+        padding-right: 40px;
+        margin-right: 40px;
+        margin-top: 20px;
     }
     strong, .nav-link {
         display: block;
         margin-bottom: 10px;
+        white-space: nowrap;
     }
 </style>

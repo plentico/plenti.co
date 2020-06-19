@@ -8,11 +8,14 @@
 
 <div class="container">
 	<section id="intro">
+		<div id="intro-text">
 		<h1>{@html intro.title}</h1>
 		<p>{@html intro.body}</p>
 		{#each intro.cta as cta}
 			<a href="{cta.link}" class="button">{cta.text}</a>
 		{/each}
+		</div>
+		<div id="intro-hero"><img src="/assets/hero.svg" alt="planarian looking at screen" /></div>
 	</section>
 </div>
 
@@ -68,10 +71,15 @@
 
 <style>
 	#intro {
-		max-width: 50%;
+		display: flex;
+		padding: 60px 0;
+	}
+	#intro-text {
 		font-size: 2rem;
 		line-height: 3rem;
-		padding: 60px 0;
+	}
+	#intro-hero {
+		align-self: center;
 	}
 	a.button {
 		font-size: 1.5rem;
