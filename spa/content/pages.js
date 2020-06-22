@@ -132,7 +132,7 @@ function create_if_block_1(ctx) {
 			}
 
 			attr(section, "id", "themes");
-			attr(section, "class", "svelte-q1er6g");
+			attr(section, "class", "svelte-8llr8a");
 		},
 		m(target, anchor) {
 			insert(target, section, anchor);
@@ -181,7 +181,7 @@ function create_each_block_1(ctx) {
 		c() {
 			img = element("img");
 			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[8])) attr(img, "src", img_src_value);
-			attr(img, "class", "svelte-q1er6g");
+			attr(img, "class", "svelte-8llr8a");
 		},
 		m(target, anchor) {
 			insert(target, img, anchor);
@@ -216,7 +216,7 @@ function create_if_block(ctx) {
 			}
 
 			attr(section, "id", "download");
-			attr(section, "class", "svelte-q1er6g");
+			attr(section, "class", "svelte-8llr8a");
 		},
 		m(target, anchor) {
 			insert(target, section, anchor);
@@ -258,34 +258,38 @@ function create_if_block(ctx) {
 
 // (44:4) {#each os as currentOs}
 function create_each_block(ctx) {
-	let div;
+	let div1;
 	let img;
 	let img_src_value;
 	let t0;
+	let div0;
 	let t1_value = /*currentOs*/ ctx[5].title + "";
 	let t1;
 	let t2;
-	let div_class_value;
+	let div1_class_value;
 
 	return {
 		c() {
-			div = element("div");
+			div1 = element("div");
 			img = element("img");
 			t0 = space();
+			div0 = element("div");
 			t1 = text(t1_value);
 			t2 = space();
 			if (img.src !== (img_src_value = "/assets/os/" + /*currentOs*/ ctx[5].img)) attr(img, "src", img_src_value);
+			attr(div0, "class", "os-name svelte-8llr8a");
 
-			attr(div, "class", div_class_value = "os" + (/*currentOs*/ ctx[5].title == /*OSName*/ ctx[4]
+			attr(div1, "class", div1_class_value = "os" + (/*currentOs*/ ctx[5].title == /*OSName*/ ctx[4]
 			? " primary"
-			: "") + " svelte-q1er6g");
+			: "") + " svelte-8llr8a");
 		},
 		m(target, anchor) {
-			insert(target, div, anchor);
-			append(div, img);
-			append(div, t0);
-			append(div, t1);
-			append(div, t2);
+			insert(target, div1, anchor);
+			append(div1, img);
+			append(div1, t0);
+			append(div1, div0);
+			append(div0, t1);
+			append(div1, t2);
 		},
 		p(ctx, dirty) {
 			if (dirty & /*os*/ 8 && img.src !== (img_src_value = "/assets/os/" + /*currentOs*/ ctx[5].img)) {
@@ -294,14 +298,14 @@ function create_each_block(ctx) {
 
 			if (dirty & /*os*/ 8 && t1_value !== (t1_value = /*currentOs*/ ctx[5].title + "")) set_data(t1, t1_value);
 
-			if (dirty & /*os, OSName*/ 24 && div_class_value !== (div_class_value = "os" + (/*currentOs*/ ctx[5].title == /*OSName*/ ctx[4]
+			if (dirty & /*os, OSName*/ 24 && div1_class_value !== (div1_class_value = "os" + (/*currentOs*/ ctx[5].title == /*OSName*/ ctx[4]
 			? " primary"
-			: "") + " svelte-q1er6g")) {
-				attr(div, "class", div_class_value);
+			: "") + " svelte-8llr8a")) {
+				attr(div1, "class", div1_class_value);
 			}
 		},
 		d(detaching) {
-			if (detaching) detach(div);
+			if (detaching) detach(div1);
 		}
 	};
 }
@@ -333,7 +337,7 @@ function create_fragment(ctx) {
 			t4 = space();
 			p = element("p");
 			p.innerHTML = `<a href="/">Back home</a>`;
-			attr(h1, "class", "svelte-q1er6g");
+			attr(h1, "class", "svelte-8llr8a");
 			attr(div, "class", "container");
 		},
 		m(target, anchor) {
@@ -422,7 +426,7 @@ function instance($$self, $$props, $$invalidate) {
 			$$invalidate(4, OSName = "Mac");
 		}
 
-		if (usersOS.indexOf("Linux") != -1) {
+		if (usersOS.indexOf("Linux") != -1 || usersOS.indexOf("5.0 (X11)") != -1) {
 			$$invalidate(4, OSName = "Linux");
 		}
 	});
