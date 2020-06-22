@@ -168,7 +168,7 @@ const nodes = [{
     ]
 }
 },{
-"path": "/docs/",
+"path": "/docs",
 "type": "docs",
 "filename": "index.json",
 "fields": {
@@ -713,6 +713,27 @@ const nodes = [{
 		"You can fork it for your own purposes, or help us out by reporting bugs / contributing code on <a href='https://github.com/plentico/plenti' target='blank' rel='noopener noreferrer'>Our GitHub</a>."
 	],
 	"author": "Jim Fisk"
+}
+},{
+"path": "/download",
+"type": "pages",
+"filename": "download.json",
+"fields": {
+    "title": "Download",
+    "os": [
+        {
+            "title": "Mac",
+            "img": "mac.svg"
+        },
+        {
+            "title": "Windows",
+            "img": "windows.svg"
+        },
+        {
+            "title": "Linux",
+            "img": "linux.svg"
+        }
+    ]
 }
 },{
 "path": "/themes",
