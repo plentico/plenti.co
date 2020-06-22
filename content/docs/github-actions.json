@@ -15,40 +15,7 @@
                 },
                 {
                     "p": [
-                        "<codeblock>name: github pages<br>",
-                        "on:<br>",
-                        "push:<br>",
-                        "branches:<br>",
-                        "- main<br>",
-                        "<br>",
-                        "jobs:<br>",
-                        "deploy:<br>",
-                        "runs-on: ubuntu-18.04<br>",
-                        "steps:<br>",
-                        "- uses: actions/checkout@v2<br>",
-                        "<br>",
-                        "- name: Setup Node<br>",
-                        "uses: actions/setup-node@v2-beta<br>",
-                        "with:<br>",
-                        "node-version: '13'<br>",
-                        "<br>",
-                        "- name: Download Plenti<br>",
-                        "run: wget -c $(curl -s https://api.github.com/repos/plentico/plenti/releases/latest | grep -o 'http.*Linux_64-bit.tar.gz')<br>",
-                        "<br>",
-                        "- name: Unpack Plenti<br>",
-                        "run: tar -zxvf *_Linux_64-bit.tar.gz<br/>",
-                        "<br>",
-                        "- name: Install node packages<br>",
-                        "run: npm install<br>",
-                        "<br>",
-                        "- name: Build<br>",
-                        "run: ./plenti build<br>",
-                        "<br>",
-                        "- name: Deploy<br>",
-                        "uses: peaceiris/actions-gh-pages@v3<br>",
-                        "with:<br>",
-                        "github_token: ${{ secrets.GITHUB_TOKEN }}<br>",
-                        "publish_dir: ./public</codeblock>"
+                        "<codeblock>name: github pages<br><br>on:<br>&nbsp;&nbsp;push:<br>&nbsp;&nbsp;&nbsp;&nbsp;branches:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main<br><br>jobs:<br>&nbsp;&nbsp;deploy:<br>&nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-18.04<br>&nbsp;&nbsp;&nbsp;&nbsp;steps:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v2<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Setup Node<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: actions/setup-node@v2-beta<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node-version: '13'<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Download Plenti<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: wget -c $(curl -s https://api.github.com/repos/plentico/plenti/releases/latest | grep -o 'http.*Linux_64-bit.tar.gz')<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Unpack Plenti<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: tar -zxvf *_Linux_64-bit.tar.gz<br/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Install node packages<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: npm install<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Build<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: ./plenti build<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Deploy<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: peaceiris/actions-gh-pages@v3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;github_token: ${{ secrets.GITHUB_TOKEN }}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;publish_dir: ./public</codeblock>"
                     ]
                 }
             ]
