@@ -1,0 +1,17 @@
+{
+    "title": "Download",
+    "os": [
+        {
+            "title": "Mac",
+            "img": "mac.svg"
+        },
+        {
+            "title": "Windows",
+            "img": "windows.svg"
+        },
+        {
+            "title": "Linux",
+            "img": "linux.svg"
+        }
+    ]
+}
