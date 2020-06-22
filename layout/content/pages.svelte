@@ -13,7 +13,7 @@
     if (usersOS.indexOf("Mac")!=-1) {
       OSName="Mac";
     }
-    if (usersOS.indexOf("Linux")!=-1) {
+    if (usersOS.indexOf("Linux")!=-1 || usersOS.indexOf("5.0 (X11)")!=-1) {
       OSName="Linux";
     }
 	});
@@ -44,7 +44,7 @@
     {#each os as currentOs}
       <div class="os{currentOs.title == OSName ? ' primary' : ''}">
         <img src="/assets/os/{currentOs.img}" />
-        {currentOs.title}
+        <div class="os-name">{currentOs.title}</div>
       </div>
     {/each}
     </section>
@@ -76,6 +76,8 @@
   .os {
     flex-grow: 1;
     margin: 0 100px;
+    padding: 50px 50px 100px 50px;
+    position: relative;
   }
   .os:first-of-type,
   .os:last-of-type {
@@ -84,5 +86,14 @@
   .os.primary {
     background-color: var(--primary);
     border-radius: 5px;
+  }
+  .os-name {
+    position: absolute;
+    bottom: 35px;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    left: 0;
   }
 </style>

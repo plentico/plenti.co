@@ -1,0 +1,57 @@
+{
+    "title": "GitHub Actions",
+    "group": "Deployment",
+    "order": 13,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "<a href='https://pages.github.com/'>GitHub Pages</a> is a <em>free</em> hosting service integrated directly with GitHub.",
+                        "You can have your Plenti websites automatically deploy to GitHub Pages by adding a <code>.github/workflows/gh-pages.yml</code>",
+                        "file to your project to automatically build and deploy your website every time you push to your main branch on GitHub."
+                    ]
+                },
+                {
+                    "p": [
+                        "<codeblock>name: github pages<br>",
+                        "on:<br>",
+                        "push:<br>",
+                        "branches:<br>",
+                        "- main<br>",
+                        "<br>",
+                        "jobs:<br>",
+                        "deploy:<br>",
+                        "runs-on: ubuntu-18.04<br>",
+                        "steps:<br>",
+                        "- uses: actions/checkout@v2<br>",
+                        "<br>",
+                        "- name: Setup Node<br>",
+                        "uses: actions/setup-node@v2-beta<br>",
+                        "with:<br>",
+                        "node-version: '13'<br>",
+                        "<br>",
+                        "- name: Download Plenti<br>",
+                        "run: wget -c $(curl -s https://api.github.com/repos/plentico/plenti/releases/latest | grep -o 'http.*Linux_64-bit.tar.gz')<br>",
+                        "<br>",
+                        "- name: Unpack Plenti<br>",
+                        "run: tar -zxvf *_Linux_64-bit.tar.gz<br/>",
+                        "<br>",
+                        "- name: Install node packages<br>",
+                        "run: npm install<br>",
+                        "<br>",
+                        "- name: Build<br>",
+                        "run: ./plenti build<br>",
+                        "<br>",
+                        "- name: Deploy<br>",
+                        "uses: peaceiris/actions-gh-pages@v3<br>",
+                        "with:<br>",
+                        "github_token: ${{ secrets.GITHUB_TOKEN }}<br>",
+                        "publish_dir: ./public</codeblock>"
+                    ]
+                }
+            ]
+        }
+    ]
+}
