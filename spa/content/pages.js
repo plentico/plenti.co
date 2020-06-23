@@ -46,7 +46,7 @@ function get_each_context_2(ctx, list, i) {
 }
 
 // (30:2) {#if description}
-function create_if_block_4(ctx) {
+function create_if_block_7(ctx) {
 	let div;
 	let each_value_2 = /*description*/ ctx[1];
 	let each_blocks = [];
@@ -124,7 +124,7 @@ function create_each_block_2(ctx) {
 }
 
 // (38:2) {#if themes}
-function create_if_block_3(ctx) {
+function create_if_block_6(ctx) {
 	let section;
 	let each_value_1 = /*themes*/ ctx[2];
 	let each_blocks = [];
@@ -142,7 +142,7 @@ function create_if_block_3(ctx) {
 			}
 
 			attr(section, "id", "themes");
-			attr(section, "class", "svelte-17glpc2");
+			attr(section, "class", "svelte-165hqgn");
 		},
 		m(target, anchor) {
 			insert(target, section, anchor);
@@ -191,7 +191,7 @@ function create_each_block_1(ctx) {
 		c() {
 			img = element("img");
 			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[9])) attr(img, "src", img_src_value);
-			attr(img, "class", "svelte-17glpc2");
+			attr(img, "class", "svelte-165hqgn");
 		},
 		m(target, anchor) {
 			insert(target, img, anchor);
@@ -209,7 +209,17 @@ function create_each_block_1(ctx) {
 
 // (46:2) {#if os}
 function create_if_block(ctx) {
-	let section;
+	let section0;
+	let t0;
+	let section1;
+	let div0;
+	let t1;
+	let t2;
+	let t3;
+	let t4;
+	let div1;
+	let t6;
+	let section2;
 	let current;
 	let each_value = /*os*/ ctx[3];
 	let each_blocks = [];
@@ -222,24 +232,62 @@ function create_if_block(ctx) {
 		each_blocks[i] = null;
 	});
 
+	function select_block_type_1(ctx, dirty) {
+		if (/*OSName*/ ctx[4] == "Linux") return create_if_block_1;
+		if (/*OSName*/ ctx[4] == "Mac") return create_if_block_2;
+		if (/*OSName*/ ctx[4] == "Windows") return create_if_block_3;
+		return create_else_block;
+	}
+
+	let current_block_type = select_block_type_1(ctx, -1);
+	let if_block = current_block_type(ctx);
+
 	return {
 		c() {
-			section = element("section");
+			section0 = element("section");
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
 
-			attr(section, "id", "download");
-			attr(section, "class", "svelte-17glpc2");
+			t0 = space();
+			section1 = element("section");
+			div0 = element("div");
+			t1 = text("It looks like you're using a ");
+			t2 = text(/*OSName*/ ctx[4]);
+			t3 = text(" computer.");
+			t4 = space();
+			div1 = element("div");
+			div1.textContent = "If that's not the case, choose a different Operating System above.";
+			t6 = space();
+			section2 = element("section");
+			if_block.c();
+			attr(section0, "id", "download");
+			attr(section0, "class", "svelte-165hqgn");
+			attr(div0, "class", "selected svelte-165hqgn");
+			attr(div1, "class", "instructions");
+			attr(section1, "id", "detection");
+			attr(section1, "class", "svelte-165hqgn");
+			attr(section2, "id", "instructions");
 		},
 		m(target, anchor) {
-			insert(target, section, anchor);
+			insert(target, section0, anchor);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].m(section, null);
+				each_blocks[i].m(section0, null);
 			}
 
+			insert(target, t0, anchor);
+			insert(target, section1, anchor);
+			append(section1, div0);
+			append(div0, t1);
+			append(div0, t2);
+			append(div0, t3);
+			append(section1, t4);
+			append(section1, div1);
+			insert(target, t6, anchor);
+			insert(target, section2, anchor);
+			if_block.m(section2, null);
 			current = true;
 		},
 		p(ctx, dirty) {
@@ -257,7 +305,7 @@ function create_if_block(ctx) {
 						each_blocks[i] = create_each_block(child_ctx);
 						each_blocks[i].c();
 						transition_in(each_blocks[i], 1);
-						each_blocks[i].m(section, null);
+						each_blocks[i].m(section0, null);
 					}
 				}
 
@@ -268,6 +316,18 @@ function create_if_block(ctx) {
 				}
 
 				check_outros();
+			}
+
+			if (!current || dirty & /*OSName*/ 16) set_data(t2, /*OSName*/ ctx[4]);
+
+			if (current_block_type !== (current_block_type = select_block_type_1(ctx, dirty))) {
+				if_block.d(1);
+				if_block = current_block_type(ctx);
+
+				if (if_block) {
+					if_block.c();
+					if_block.m(section2, null);
+				}
 			}
 		},
 		i(local) {
@@ -289,14 +349,19 @@ function create_if_block(ctx) {
 			current = false;
 		},
 		d(detaching) {
-			if (detaching) detach(section);
+			if (detaching) detach(section0);
 			destroy_each(each_blocks, detaching);
+			if (detaching) detach(t0);
+			if (detaching) detach(section1);
+			if (detaching) detach(t6);
+			if (detaching) detach(section2);
+			if_block.d();
 		}
 	};
 }
 
 // (54:8) {:else}
-function create_else_block(ctx) {
+function create_else_block_1(ctx) {
 	let current;
 	const windows = new Windows({});
 
@@ -324,7 +389,7 @@ function create_else_block(ctx) {
 }
 
 // (52:43) 
-function create_if_block_2(ctx) {
+function create_if_block_5(ctx) {
 	let current;
 	const mac = new Mac({});
 
@@ -352,7 +417,7 @@ function create_if_block_2(ctx) {
 }
 
 // (50:8) {#if currentOs.title == 'Linux'}
-function create_if_block_1(ctx) {
+function create_if_block_4(ctx) {
 	let current;
 	const linux = new Linux({});
 
@@ -393,7 +458,7 @@ function create_each_block(ctx) {
 	let current;
 	let mounted;
 	let dispose;
-	const if_block_creators = [create_if_block_1, create_if_block_2, create_else_block];
+	const if_block_creators = [create_if_block_4, create_if_block_5, create_else_block_1];
 	const if_blocks = [];
 
 	function select_block_type(ctx, dirty) {
@@ -417,11 +482,11 @@ function create_each_block(ctx) {
 			div0 = element("div");
 			t1 = text(t1_value);
 			t2 = space();
-			attr(div0, "class", "os-name svelte-17glpc2");
+			attr(div0, "class", "os-name svelte-165hqgn");
 
 			attr(div1, "class", div1_class_value = "os" + (/*currentOs*/ ctx[6].title == /*OSName*/ ctx[4]
 			? " primary"
-			: "") + " svelte-17glpc2");
+			: "") + " svelte-165hqgn");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -465,7 +530,7 @@ function create_each_block(ctx) {
 
 			if (!current || dirty & /*os, OSName*/ 24 && div1_class_value !== (div1_class_value = "os" + (/*currentOs*/ ctx[6].title == /*OSName*/ ctx[4]
 			? " primary"
-			: "") + " svelte-17glpc2")) {
+			: "") + " svelte-165hqgn")) {
 				attr(div1, "class", div1_class_value);
 			}
 		},
@@ -487,6 +552,137 @@ function create_each_block(ctx) {
 	};
 }
 
+// (83:6) {:else}
+function create_else_block(ctx) {
+	let div;
+
+	return {
+		c() {
+			div = element("div");
+			div.textContent = "Please select one of the Operating Systems above.";
+		},
+		m(target, anchor) {
+			insert(target, div, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(div);
+		}
+	};
+}
+
+// (77:36) 
+function create_if_block_3(ctx) {
+	let strong;
+	let br0;
+	let br1;
+	let t1;
+	let codeblock;
+
+	return {
+		c() {
+			strong = element("strong");
+			strong.textContent = "Or you can install using Scoop:";
+			br0 = element("br");
+			br1 = element("br");
+			t1 = space();
+			codeblock = element("codeblock");
+
+			codeblock.innerHTML = `
+          scoop bucket add org https://github.com/plentico/scoop-plenti.git
+          <br>scoop install plentico/scoop-plenti
+        `;
+		},
+		m(target, anchor) {
+			insert(target, strong, anchor);
+			insert(target, br0, anchor);
+			insert(target, br1, anchor);
+			insert(target, t1, anchor);
+			insert(target, codeblock, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(strong);
+			if (detaching) detach(br0);
+			if (detaching) detach(br1);
+			if (detaching) detach(t1);
+			if (detaching) detach(codeblock);
+		}
+	};
+}
+
+// (71:32) 
+function create_if_block_2(ctx) {
+	let strong;
+	let br0;
+	let br1;
+	let t1;
+	let codeblock;
+
+	return {
+		c() {
+			strong = element("strong");
+			strong.textContent = "Or you can install using Homebrew:";
+			br0 = element("br");
+			br1 = element("br");
+			t1 = space();
+			codeblock = element("codeblock");
+
+			codeblock.innerHTML = `
+          brew tap plentico/homebrew-plenti
+          <br>brew install plenti
+        `;
+		},
+		m(target, anchor) {
+			insert(target, strong, anchor);
+			insert(target, br0, anchor);
+			insert(target, br1, anchor);
+			insert(target, t1, anchor);
+			insert(target, codeblock, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(strong);
+			if (detaching) detach(br0);
+			if (detaching) detach(br1);
+			if (detaching) detach(t1);
+			if (detaching) detach(codeblock);
+		}
+	};
+}
+
+// (66:6) {#if OSName == 'Linux'}
+function create_if_block_1(ctx) {
+	let strong;
+	let br0;
+	let br1;
+	let t1;
+	let codeblock;
+
+	return {
+		c() {
+			strong = element("strong");
+			strong.textContent = "Or you can install using Snap:";
+			br0 = element("br");
+			br1 = element("br");
+			t1 = space();
+			codeblock = element("codeblock");
+			codeblock.textContent = "sudo snap install plenti";
+		},
+		m(target, anchor) {
+			insert(target, strong, anchor);
+			insert(target, br0, anchor);
+			insert(target, br1, anchor);
+			insert(target, t1, anchor);
+			insert(target, codeblock, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(strong);
+			if (detaching) detach(br0);
+			if (detaching) detach(br1);
+			if (detaching) detach(t1);
+			if (detaching) detach(codeblock);
+		}
+	};
+}
+
 function create_fragment(ctx) {
 	let div;
 	let h1;
@@ -497,8 +693,8 @@ function create_fragment(ctx) {
 	let t4;
 	let p;
 	let current;
-	let if_block0 = /*description*/ ctx[1] && create_if_block_4(ctx);
-	let if_block1 = /*themes*/ ctx[2] && create_if_block_3(ctx);
+	let if_block0 = /*description*/ ctx[1] && create_if_block_7(ctx);
+	let if_block1 = /*themes*/ ctx[2] && create_if_block_6(ctx);
 	let if_block2 = /*os*/ ctx[3] && create_if_block(ctx);
 
 	return {
@@ -515,7 +711,7 @@ function create_fragment(ctx) {
 			t4 = space();
 			p = element("p");
 			p.innerHTML = `<a href="/">Back home</a>`;
-			attr(h1, "class", "svelte-17glpc2");
+			attr(h1, "class", "svelte-165hqgn");
 			attr(div, "class", "container");
 		},
 		m(target, anchor) {
@@ -539,7 +735,7 @@ function create_fragment(ctx) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
-					if_block0 = create_if_block_4(ctx);
+					if_block0 = create_if_block_7(ctx);
 					if_block0.c();
 					if_block0.m(div, t2);
 				}
@@ -552,7 +748,7 @@ function create_fragment(ctx) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
-					if_block1 = create_if_block_3(ctx);
+					if_block1 = create_if_block_6(ctx);
 					if_block1.c();
 					if_block1.m(div, t3);
 				}
