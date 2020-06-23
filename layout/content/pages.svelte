@@ -10,7 +10,6 @@
   let OSName = "";
 	onMount(async () => {
     const usersOS = await navigator.appVersion;
-    console.log(usersOS);
     if (usersOS.indexOf("Win")!=-1) {
       OSName="Windows";
     }
@@ -19,6 +18,26 @@
     }
     if (usersOS.indexOf("Linux")!=-1 || usersOS.indexOf("5.0 (X11)")!=-1) {
       OSName="Linux";
+    }
+
+    // Get latest release version.
+    try {
+      let response = await fetch(`https://api.github.com/repos/plentico/plenti/releases`, {
+        mode: 'cors',
+        headers: {
+          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
+      });
+      if (response.ok) {
+        let json = await response.json();
+        let version = json[0].name;
+        //console.log(json);
+        console.log(version);
+      }  else {
+        alert("HTTP-Error: " + response.status);
+      }
+    } catch(err) {
+      console.log(err); // Failed to fetch
     }
 	});
 
