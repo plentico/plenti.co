@@ -18,6 +18,7 @@
       <strong>Resources</strong>
       <div><a href="/docs">Documentation</a></div>
       <div><a href="/themes">Themes</a></div>
+      <div><a href="/download">Download</a></div>
     </section>
     <section id="copyright">
       <div id="social"><a href="https://twitter.com/jantcutech"><img src="/assets/twitter.svg"></a><a href="https://youtube.com/jantcu"><img src="/assets/youtube.svg"></a><a href="https://github.com/plentico/plenti"><img src="/assets/github.svg"></a></div>

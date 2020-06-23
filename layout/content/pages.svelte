@@ -58,6 +58,32 @@
       </div>
     {/each}
     </section>
+    <section id="detection">
+      <div class="selected">It looks like you're using a {OSName} computer.</div>
+      <div class="instructions">If that's not the case, choose a different Operating System above.</div>
+    </section>
+    <section id="instructions">
+      {#if OSName == 'Linux'}
+        <strong>Or you can install using Snap:</strong><br><br>
+        <codeblock>
+          sudo snap install plenti
+        </codeblock>
+      {:else if OSName == 'Mac'}
+        <strong>Or you can install using Homebrew:</strong><br><br>
+        <codeblock>
+          brew tap plentico/homebrew-plenti
+          <br>brew install plenti
+        </codeblock>
+      {:else if OSName == 'Windows'}
+        <strong>Or you can install using Scoop:</strong><br><br>
+        <codeblock>
+          scoop bucket add org https://github.com/plentico/scoop-plenti.git
+          <br>scoop install plentico/scoop-plenti
+        </codeblock>
+      {:else}
+        <div>Please select one of the Operating Systems above.</div>
+      {/if}
+    </section>
   {/if}
 
   <p><a href="/">Back home</a></p>
@@ -123,5 +149,13 @@
   .os:hover.primary .os-name {
     fill: var(--base-dark);
     color: var(--base-dark);
+  }
+  #detection {
+    padding: 80px 0;
+    text-align: center;
+  }
+  #detection .selected {
+    font-size: 2rem;
+    line-height: 2rem;
   }
 </style>
