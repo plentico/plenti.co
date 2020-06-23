@@ -43,7 +43,7 @@
     <section id="download">
     {#each os as currentOs}
       <div class="os{currentOs.title == OSName ? ' primary' : ''}">
-        <img src="/assets/os/{currentOs.img}" />
+        <object type="image/svg+xml" data="/assets/os/{currentOs.img}" class="logo"></object>
         <div class="os-name">{currentOs.title}</div>
       </div>
     {/each}
@@ -75,9 +75,13 @@
   }
   .os {
     flex-grow: 1;
+    flex-basis: 0;
     margin: 0 100px;
     padding: 50px 50px 100px 50px;
     position: relative;
+  }
+  .os:hover {
+    background-color: var(--primary-lightest);
   }
   .os:first-of-type,
   .os:last-of-type {
