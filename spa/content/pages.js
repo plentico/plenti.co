@@ -45,7 +45,7 @@ function get_each_context_2(ctx, list, i) {
 	return child_ctx;
 }
 
-// (30:2) {#if description}
+// (49:2) {#if description}
 function create_if_block_7(ctx) {
 	let div;
 	let each_value_2 = /*description*/ ctx[1];
@@ -101,7 +101,7 @@ function create_if_block_7(ctx) {
 	};
 }
 
-// (32:4) {#each description as paragraph}
+// (51:4) {#each description as paragraph}
 function create_each_block_2(ctx) {
 	let p;
 	let raw_value = /*paragraph*/ ctx[12] + "";
@@ -123,7 +123,7 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (38:2) {#if themes}
+// (57:2) {#if themes}
 function create_if_block_6(ctx) {
 	let section;
 	let each_value_1 = /*themes*/ ctx[2];
@@ -182,7 +182,7 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (40:4) {#each themes as theme}
+// (59:4) {#each themes as theme}
 function create_each_block_1(ctx) {
 	let img;
 	let img_src_value;
@@ -207,7 +207,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (46:2) {#if os}
+// (65:2) {#if os}
 function create_if_block(ctx) {
 	let section0;
 	let t0;
@@ -360,7 +360,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (54:8) {:else}
+// (73:8) {:else}
 function create_else_block_1(ctx) {
 	let current;
 	const windows = new Windows({});
@@ -388,7 +388,7 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (52:43) 
+// (71:43) 
 function create_if_block_5(ctx) {
 	let current;
 	const mac = new Mac({});
@@ -416,7 +416,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (50:8) {#if currentOs.title == 'Linux'}
+// (69:8) {#if currentOs.title == 'Linux'}
 function create_if_block_4(ctx) {
 	let current;
 	const linux = new Linux({});
@@ -444,7 +444,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (48:4) {#each os as currentOs}
+// (67:4) {#each os as currentOs}
 function create_each_block(ctx) {
 	let div1;
 	let current_block_type_index;
@@ -552,7 +552,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (83:6) {:else}
+// (102:6) {:else}
 function create_else_block(ctx) {
 	let div;
 
@@ -570,7 +570,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (77:36) 
+// (96:36) 
 function create_if_block_3(ctx) {
 	let strong;
 	let br0;
@@ -609,7 +609,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (71:32) 
+// (90:32) 
 function create_if_block_2(ctx) {
 	let strong;
 	let br0;
@@ -648,7 +648,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (66:6) {#if OSName == 'Linux'}
+// (85:6) {#if OSName == 'Linux'}
 function create_if_block_1(ctx) {
 	let strong;
 	let br0;
@@ -808,7 +808,6 @@ function instance($$self, $$props, $$invalidate) {
 
 	onMount(async () => {
 		const usersOS = await navigator.appVersion;
-		console.log(usersOS);
 
 		if (usersOS.indexOf("Win") != -1) {
 			$$invalidate(4, OSName = "Windows");
@@ -820,6 +819,28 @@ function instance($$self, $$props, $$invalidate) {
 
 		if (usersOS.indexOf("Linux") != -1 || usersOS.indexOf("5.0 (X11)") != -1) {
 			$$invalidate(4, OSName = "Linux");
+		}
+
+		// Get latest release version.
+		try {
+			let response = await fetch(`https://api.github.com/repos/plentico/plenti/releases`, {
+				mode: "cors",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+				}
+			});
+
+			if (response.ok) {
+				let json = await response.json();
+				let version = json[0].name;
+
+				//console.log(json);
+				console.log(version);
+			} else {
+				alert("HTTP-Error: " + response.status);
+			}
+		} catch(err) {
+			console.log(err); // Failed to fetch
 		}
 	});
 
