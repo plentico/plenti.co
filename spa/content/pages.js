@@ -12,6 +12,7 @@ import {
 	group_outros,
 	init,
 	insert,
+	listen,
 	mount_component,
 	safe_not_equal,
 	set_data,
@@ -28,19 +29,19 @@ import { onMount } from '/spa/web_modules/svelte/internal/index.js';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[5] = list[i];
+	child_ctx[6] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[8] = list[i];
+	child_ctx[9] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[11] = list[i];
+	child_ctx[12] = list[i];
 	return child_ctx;
 }
 
@@ -103,7 +104,7 @@ function create_if_block_4(ctx) {
 // (32:4) {#each description as paragraph}
 function create_each_block_2(ctx) {
 	let p;
-	let raw_value = /*paragraph*/ ctx[11] + "";
+	let raw_value = /*paragraph*/ ctx[12] + "";
 
 	return {
 		c() {
@@ -114,7 +115,7 @@ function create_each_block_2(ctx) {
 			p.innerHTML = raw_value;
 		},
 		p(ctx, dirty) {
-			if (dirty & /*description*/ 2 && raw_value !== (raw_value = /*paragraph*/ ctx[11] + "")) p.innerHTML = raw_value;;
+			if (dirty & /*description*/ 2 && raw_value !== (raw_value = /*paragraph*/ ctx[12] + "")) p.innerHTML = raw_value;;
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -141,7 +142,7 @@ function create_if_block_3(ctx) {
 			}
 
 			attr(section, "id", "themes");
-			attr(section, "class", "svelte-exlux6");
+			attr(section, "class", "svelte-17glpc2");
 		},
 		m(target, anchor) {
 			insert(target, section, anchor);
@@ -189,14 +190,14 @@ function create_each_block_1(ctx) {
 	return {
 		c() {
 			img = element("img");
-			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[8])) attr(img, "src", img_src_value);
-			attr(img, "class", "svelte-exlux6");
+			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[9])) attr(img, "src", img_src_value);
+			attr(img, "class", "svelte-17glpc2");
 		},
 		m(target, anchor) {
 			insert(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*themes*/ 4 && img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[8])) {
+			if (dirty & /*themes*/ 4 && img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[9])) {
 				attr(img, "src", img_src_value);
 			}
 		},
@@ -230,7 +231,7 @@ function create_if_block(ctx) {
 			}
 
 			attr(section, "id", "download");
-			attr(section, "class", "svelte-exlux6");
+			attr(section, "class", "svelte-17glpc2");
 		},
 		m(target, anchor) {
 			insert(target, section, anchor);
@@ -385,22 +386,28 @@ function create_each_block(ctx) {
 	let if_block;
 	let t0;
 	let div0;
-	let t1_value = /*currentOs*/ ctx[5].title + "";
+	let t1_value = /*currentOs*/ ctx[6].title + "";
 	let t1;
 	let t2;
 	let div1_class_value;
 	let current;
+	let mounted;
+	let dispose;
 	const if_block_creators = [create_if_block_1, create_if_block_2, create_else_block];
 	const if_blocks = [];
 
 	function select_block_type(ctx, dirty) {
-		if (/*currentOs*/ ctx[5].title == "Linux") return 0;
-		if (/*currentOs*/ ctx[5].title == "Mac") return 1;
+		if (/*currentOs*/ ctx[6].title == "Linux") return 0;
+		if (/*currentOs*/ ctx[6].title == "Mac") return 1;
 		return 2;
 	}
 
 	current_block_type_index = select_block_type(ctx, -1);
 	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+	function click_handler(...args) {
+		return /*click_handler*/ ctx[5](/*currentOs*/ ctx[6], ...args);
+	}
 
 	return {
 		c() {
@@ -410,11 +417,11 @@ function create_each_block(ctx) {
 			div0 = element("div");
 			t1 = text(t1_value);
 			t2 = space();
-			attr(div0, "class", "os-name svelte-exlux6");
+			attr(div0, "class", "os-name svelte-17glpc2");
 
-			attr(div1, "class", div1_class_value = "os" + (/*currentOs*/ ctx[5].title == /*OSName*/ ctx[4]
+			attr(div1, "class", div1_class_value = "os" + (/*currentOs*/ ctx[6].title == /*OSName*/ ctx[4]
 			? " primary"
-			: "") + " svelte-exlux6");
+			: "") + " svelte-17glpc2");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -424,8 +431,14 @@ function create_each_block(ctx) {
 			append(div0, t1);
 			append(div1, t2);
 			current = true;
+
+			if (!mounted) {
+				dispose = listen(div1, "click", click_handler);
+				mounted = true;
+			}
 		},
-		p(ctx, dirty) {
+		p(new_ctx, dirty) {
+			ctx = new_ctx;
 			let previous_block_index = current_block_type_index;
 			current_block_type_index = select_block_type(ctx, dirty);
 
@@ -448,11 +461,11 @@ function create_each_block(ctx) {
 				if_block.m(div1, t0);
 			}
 
-			if ((!current || dirty & /*os*/ 8) && t1_value !== (t1_value = /*currentOs*/ ctx[5].title + "")) set_data(t1, t1_value);
+			if ((!current || dirty & /*os*/ 8) && t1_value !== (t1_value = /*currentOs*/ ctx[6].title + "")) set_data(t1, t1_value);
 
-			if (!current || dirty & /*os, OSName*/ 24 && div1_class_value !== (div1_class_value = "os" + (/*currentOs*/ ctx[5].title == /*OSName*/ ctx[4]
+			if (!current || dirty & /*os, OSName*/ 24 && div1_class_value !== (div1_class_value = "os" + (/*currentOs*/ ctx[6].title == /*OSName*/ ctx[4]
 			? " primary"
-			: "") + " svelte-exlux6")) {
+			: "") + " svelte-17glpc2")) {
 				attr(div1, "class", div1_class_value);
 			}
 		},
@@ -468,6 +481,8 @@ function create_each_block(ctx) {
 		d(detaching) {
 			if (detaching) detach(div1);
 			if_blocks[current_block_type_index].d();
+			mounted = false;
+			dispose();
 		}
 	};
 }
@@ -500,7 +515,7 @@ function create_fragment(ctx) {
 			t4 = space();
 			p = element("p");
 			p.innerHTML = `<a href="/">Back home</a>`;
-			attr(h1, "class", "svelte-exlux6");
+			attr(h1, "class", "svelte-17glpc2");
 			attr(div, "class", "container");
 		},
 		m(target, anchor) {
@@ -612,6 +627,8 @@ function instance($$self, $$props, $$invalidate) {
 		}
 	});
 
+	const click_handler = currentOs => $$invalidate(4, OSName = currentOs.title);
+
 	$$self.$set = $$props => {
 		if ("title" in $$props) $$invalidate(0, title = $$props.title);
 		if ("description" in $$props) $$invalidate(1, description = $$props.description);
@@ -619,7 +636,7 @@ function instance($$self, $$props, $$invalidate) {
 		if ("os" in $$props) $$invalidate(3, os = $$props.os);
 	};
 
-	return [title, description, themes, os, OSName];
+	return [title, description, themes, os, OSName, click_handler];
 }
 
 class Component extends SvelteComponent {
