@@ -1,6 +1,10 @@
 <script>
   export let title, description, themes, os;
 
+  import Linux from '../components/linux.svelte';
+  import Mac from '../components/mac.svelte';
+  import Windows from '../components/windows.svelte';
+
   import { onMount } from 'svelte/internal';
 
   let OSName = "";
@@ -43,7 +47,13 @@
     <section id="download">
     {#each os as currentOs}
       <div class="os{currentOs.title == OSName ? ' primary' : ''}">
-        <object type="image/svg+xml" data="/assets/os/{currentOs.img}" class="logo"></object>
+        {#if currentOs.title == 'Linux'}
+          <Linux />
+        {:else if currentOs.title == 'Mac'}
+          <Mac />
+        {:else}
+          <Windows />
+        {/if}
         <div class="os-name">{currentOs.title}</div>
       </div>
     {/each}
@@ -80,9 +90,6 @@
     padding: 50px 50px 100px 50px;
     position: relative;
   }
-  .os:hover {
-    background-color: var(--primary-lightest);
-  }
   .os:first-of-type,
   .os:last-of-type {
     margin: 0;
@@ -99,5 +106,14 @@
     text-align: center;
     width: 100%;
     left: 0;
+  }
+  .os:hover {
+    cursor: pointer;
+  }
+  .os:hover :global(g),
+  .os:hover :global(polygon),
+  .os:hover .os-name {
+    fill: var(--primary-light);
+    color: var(--primary-light);
   }
 </style>
