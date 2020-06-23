@@ -46,7 +46,7 @@
   {#if os}
     <section id="download">
     {#each os as currentOs}
-      <div class="os{currentOs.title == OSName ? ' primary' : ''}">
+      <div class="os{currentOs.title == OSName ? ' primary' : ''}" on:click="{() => OSName = currentOs.title}">
         {#if currentOs.title == 'Linux'}
           <Linux />
         {:else if currentOs.title == 'Mac'}
@@ -95,7 +95,7 @@
     margin: 0;
   }
   .os.primary {
-    background-color: var(--primary);
+    background-color: var(--primary-light);
     border-radius: 5px;
   }
   .os-name {
@@ -112,8 +112,16 @@
   }
   .os:hover :global(g),
   .os:hover :global(polygon),
+  .os:hover :global(path),
   .os:hover .os-name {
     fill: var(--primary-light);
     color: var(--primary-light);
+  }
+  .os:hover.primary :global(g),
+  .os:hover.primary :global(polygon),
+  .os:hover.primary :global(path),
+  .os:hover.primary .os-name {
+    fill: var(--base-dark);
+    color: var(--base-dark);
   }
 </style>
