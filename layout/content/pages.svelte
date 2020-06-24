@@ -8,6 +8,7 @@
   import { onMount } from 'svelte/internal';
 
   let OSName = "";
+  let version = "";
 	onMount(async () => {
     const usersOS = await navigator.appVersion;
     if (usersOS.indexOf("Win")!=-1) {
@@ -30,8 +31,7 @@
       });
       if (response.ok) {
         let json = await response.json();
-        let version = json[0].name;
-        //console.log(json);
+        version = json[0].name.substr(1);
         console.log(version);
       }  else {
         alert("HTTP-Error: " + response.status);
@@ -80,6 +80,8 @@
     <section id="detection">
       <div class="selected">It looks like you're using a {OSName} computer.</div>
       <div class="instructions">If that's not the case, choose a different Operating System above.</div>
+      <a class="cta" href="https://github.com/plentico/plenti/releases/download/v{version}/plenti_{version}_{OSName}_64-bit.tar.gz">Download<br><strong>version {version}</strong><br>for 64-bit {OSName}</a>
+      <div>(<a href="https://github.com/plentico/plenti/releases/latest">See more options</a>)</div>
     </section>
     <section id="instructions">
       {#if OSName == 'Linux'}
@@ -105,7 +107,6 @@
     </section>
   {/if}
 
-  <p><a href="/">Back home</a></p>
 </div>
 
 <style>
@@ -177,4 +178,17 @@
     font-size: 2rem;
     line-height: 2rem;
   }
+  .cta {
+    background-image: linear-gradient(to right,var(--accent) , var(--accent-dark));
+    color: var(--base-lightest);
+    padding: 50px 100px;
+    margin: 50px 0 25px;
+    display: inline-block;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 30px;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  a {color: var(--primary);}
 </style>
