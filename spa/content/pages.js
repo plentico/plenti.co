@@ -29,19 +29,19 @@ import { onMount } from '/spa/web_modules/svelte/internal/index.js';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[6] = list[i];
+	child_ctx[7] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[9] = list[i];
+	child_ctx[10] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[12] = list[i];
+	child_ctx[13] = list[i];
 	return child_ctx;
 }
 
@@ -104,7 +104,7 @@ function create_if_block_7(ctx) {
 // (51:4) {#each description as paragraph}
 function create_each_block_2(ctx) {
 	let p;
-	let raw_value = /*paragraph*/ ctx[12] + "";
+	let raw_value = /*paragraph*/ ctx[13] + "";
 
 	return {
 		c() {
@@ -115,7 +115,7 @@ function create_each_block_2(ctx) {
 			p.innerHTML = raw_value;
 		},
 		p(ctx, dirty) {
-			if (dirty & /*description*/ 2 && raw_value !== (raw_value = /*paragraph*/ ctx[12] + "")) p.innerHTML = raw_value;;
+			if (dirty & /*description*/ 2 && raw_value !== (raw_value = /*paragraph*/ ctx[13] + "")) p.innerHTML = raw_value;;
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -142,7 +142,7 @@ function create_if_block_6(ctx) {
 			}
 
 			attr(section, "id", "themes");
-			attr(section, "class", "svelte-165hqgn");
+			attr(section, "class", "svelte-1tjd1i3");
 		},
 		m(target, anchor) {
 			insert(target, section, anchor);
@@ -190,14 +190,14 @@ function create_each_block_1(ctx) {
 	return {
 		c() {
 			img = element("img");
-			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[9])) attr(img, "src", img_src_value);
-			attr(img, "class", "svelte-165hqgn");
+			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[10])) attr(img, "src", img_src_value);
+			attr(img, "class", "svelte-1tjd1i3");
 		},
 		m(target, anchor) {
 			insert(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*themes*/ 4 && img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[9])) {
+			if (dirty & /*themes*/ 4 && img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[10])) {
 				attr(img, "src", img_src_value);
 			}
 		},
@@ -219,6 +219,19 @@ function create_if_block(ctx) {
 	let t4;
 	let div1;
 	let t6;
+	let a0;
+	let t7;
+	let br0;
+	let strong;
+	let t8;
+	let t9;
+	let br1;
+	let t10;
+	let t11;
+	let a0_href_value;
+	let t12;
+	let div2;
+	let t16;
 	let section2;
 	let current;
 	let each_value = /*os*/ ctx[3];
@@ -260,14 +273,29 @@ function create_if_block(ctx) {
 			div1 = element("div");
 			div1.textContent = "If that's not the case, choose a different Operating System above.";
 			t6 = space();
+			a0 = element("a");
+			t7 = text("Download");
+			br0 = element("br");
+			strong = element("strong");
+			t8 = text("version ");
+			t9 = text(/*version*/ ctx[5]);
+			br1 = element("br");
+			t10 = text("for 64-bit ");
+			t11 = text(/*OSName*/ ctx[4]);
+			t12 = space();
+			div2 = element("div");
+			div2.innerHTML = `(<a href="https://github.com/plentico/plenti/releases/latest" class="svelte-1tjd1i3">See more options</a>)`;
+			t16 = space();
 			section2 = element("section");
 			if_block.c();
 			attr(section0, "id", "download");
-			attr(section0, "class", "svelte-165hqgn");
-			attr(div0, "class", "selected svelte-165hqgn");
+			attr(section0, "class", "svelte-1tjd1i3");
+			attr(div0, "class", "selected svelte-1tjd1i3");
 			attr(div1, "class", "instructions");
+			attr(a0, "class", "cta svelte-1tjd1i3");
+			attr(a0, "href", a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[5] + "/plenti_" + /*version*/ ctx[5] + "_" + /*OSName*/ ctx[4] + "_64-bit.tar.gz");
 			attr(section1, "id", "detection");
-			attr(section1, "class", "svelte-165hqgn");
+			attr(section1, "class", "svelte-1tjd1i3");
 			attr(section2, "id", "instructions");
 		},
 		m(target, anchor) {
@@ -285,7 +313,19 @@ function create_if_block(ctx) {
 			append(div0, t3);
 			append(section1, t4);
 			append(section1, div1);
-			insert(target, t6, anchor);
+			append(section1, t6);
+			append(section1, a0);
+			append(a0, t7);
+			append(a0, br0);
+			append(a0, strong);
+			append(strong, t8);
+			append(strong, t9);
+			append(a0, br1);
+			append(a0, t10);
+			append(a0, t11);
+			append(section1, t12);
+			append(section1, div2);
+			insert(target, t16, anchor);
 			insert(target, section2, anchor);
 			if_block.m(section2, null);
 			current = true;
@@ -319,6 +359,12 @@ function create_if_block(ctx) {
 			}
 
 			if (!current || dirty & /*OSName*/ 16) set_data(t2, /*OSName*/ ctx[4]);
+			if (!current || dirty & /*version*/ 32) set_data(t9, /*version*/ ctx[5]);
+			if (!current || dirty & /*OSName*/ 16) set_data(t11, /*OSName*/ ctx[4]);
+
+			if (!current || dirty & /*version, OSName*/ 48 && a0_href_value !== (a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[5] + "/plenti_" + /*version*/ ctx[5] + "_" + /*OSName*/ ctx[4] + "_64-bit.tar.gz")) {
+				attr(a0, "href", a0_href_value);
+			}
 
 			if (current_block_type !== (current_block_type = select_block_type_1(ctx, dirty))) {
 				if_block.d(1);
@@ -353,7 +399,7 @@ function create_if_block(ctx) {
 			destroy_each(each_blocks, detaching);
 			if (detaching) detach(t0);
 			if (detaching) detach(section1);
-			if (detaching) detach(t6);
+			if (detaching) detach(t16);
 			if (detaching) detach(section2);
 			if_block.d();
 		}
@@ -451,7 +497,7 @@ function create_each_block(ctx) {
 	let if_block;
 	let t0;
 	let div0;
-	let t1_value = /*currentOs*/ ctx[6].title + "";
+	let t1_value = /*currentOs*/ ctx[7].title + "";
 	let t1;
 	let t2;
 	let div1_class_value;
@@ -462,8 +508,8 @@ function create_each_block(ctx) {
 	const if_blocks = [];
 
 	function select_block_type(ctx, dirty) {
-		if (/*currentOs*/ ctx[6].title == "Linux") return 0;
-		if (/*currentOs*/ ctx[6].title == "Mac") return 1;
+		if (/*currentOs*/ ctx[7].title == "Linux") return 0;
+		if (/*currentOs*/ ctx[7].title == "Mac") return 1;
 		return 2;
 	}
 
@@ -471,7 +517,7 @@ function create_each_block(ctx) {
 	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
 
 	function click_handler(...args) {
-		return /*click_handler*/ ctx[5](/*currentOs*/ ctx[6], ...args);
+		return /*click_handler*/ ctx[6](/*currentOs*/ ctx[7], ...args);
 	}
 
 	return {
@@ -482,11 +528,11 @@ function create_each_block(ctx) {
 			div0 = element("div");
 			t1 = text(t1_value);
 			t2 = space();
-			attr(div0, "class", "os-name svelte-165hqgn");
+			attr(div0, "class", "os-name svelte-1tjd1i3");
 
-			attr(div1, "class", div1_class_value = "os" + (/*currentOs*/ ctx[6].title == /*OSName*/ ctx[4]
+			attr(div1, "class", div1_class_value = "os" + (/*currentOs*/ ctx[7].title == /*OSName*/ ctx[4]
 			? " primary"
-			: "") + " svelte-165hqgn");
+			: "") + " svelte-1tjd1i3");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -526,11 +572,11 @@ function create_each_block(ctx) {
 				if_block.m(div1, t0);
 			}
 
-			if ((!current || dirty & /*os*/ 8) && t1_value !== (t1_value = /*currentOs*/ ctx[6].title + "")) set_data(t1, t1_value);
+			if ((!current || dirty & /*os*/ 8) && t1_value !== (t1_value = /*currentOs*/ ctx[7].title + "")) set_data(t1, t1_value);
 
-			if (!current || dirty & /*os, OSName*/ 24 && div1_class_value !== (div1_class_value = "os" + (/*currentOs*/ ctx[6].title == /*OSName*/ ctx[4]
+			if (!current || dirty & /*os, OSName*/ 24 && div1_class_value !== (div1_class_value = "os" + (/*currentOs*/ ctx[7].title == /*OSName*/ ctx[4]
 			? " primary"
-			: "") + " svelte-165hqgn")) {
+			: "") + " svelte-1tjd1i3")) {
 				attr(div1, "class", div1_class_value);
 			}
 		},
@@ -552,7 +598,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (102:6) {:else}
+// (104:6) {:else}
 function create_else_block(ctx) {
 	let div;
 
@@ -570,7 +616,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (96:36) 
+// (98:36) 
 function create_if_block_3(ctx) {
 	let strong;
 	let br0;
@@ -609,7 +655,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (90:32) 
+// (92:32) 
 function create_if_block_2(ctx) {
 	let strong;
 	let br0;
@@ -648,7 +694,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (85:6) {#if OSName == 'Linux'}
+// (87:6) {#if OSName == 'Linux'}
 function create_if_block_1(ctx) {
 	let strong;
 	let br0;
@@ -690,8 +736,6 @@ function create_fragment(ctx) {
 	let t1;
 	let t2;
 	let t3;
-	let t4;
-	let p;
 	let current;
 	let if_block0 = /*description*/ ctx[1] && create_if_block_7(ctx);
 	let if_block1 = /*themes*/ ctx[2] && create_if_block_6(ctx);
@@ -708,10 +752,7 @@ function create_fragment(ctx) {
 			if (if_block1) if_block1.c();
 			t3 = space();
 			if (if_block2) if_block2.c();
-			t4 = space();
-			p = element("p");
-			p.innerHTML = `<a href="/">Back home</a>`;
-			attr(h1, "class", "svelte-165hqgn");
+			attr(h1, "class", "svelte-1tjd1i3");
 			attr(div, "class", "container");
 		},
 		m(target, anchor) {
@@ -724,8 +765,6 @@ function create_fragment(ctx) {
 			if (if_block1) if_block1.m(div, null);
 			append(div, t3);
 			if (if_block2) if_block2.m(div, null);
-			append(div, t4);
-			append(div, p);
 			current = true;
 		},
 		p(ctx, [dirty]) {
@@ -768,7 +807,7 @@ function create_fragment(ctx) {
 					if_block2 = create_if_block(ctx);
 					if_block2.c();
 					transition_in(if_block2, 1);
-					if_block2.m(div, t4);
+					if_block2.m(div, null);
 				}
 			} else if (if_block2) {
 				group_outros();
@@ -805,6 +844,7 @@ function instance($$self, $$props, $$invalidate) {
 		{ os } = $$props;
 
 	let OSName = "";
+	let version = "";
 
 	onMount(async () => {
 		const usersOS = await navigator.appVersion;
@@ -832,9 +872,7 @@ function instance($$self, $$props, $$invalidate) {
 
 			if (response.ok) {
 				let json = await response.json();
-				let version = json[0].name;
-
-				//console.log(json);
+				$$invalidate(5, version = json[0].name.substr(1));
 				console.log(version);
 			} else {
 				alert("HTTP-Error: " + response.status);
@@ -853,7 +891,7 @@ function instance($$self, $$props, $$invalidate) {
 		if ("os" in $$props) $$invalidate(3, os = $$props.os);
 	};
 
-	return [title, description, themes, os, OSName, click_handler];
+	return [title, description, themes, os, OSName, version, click_handler];
 }
 
 class Component extends SvelteComponent {
