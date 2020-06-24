@@ -686,7 +686,7 @@ const nodes = [{
 			"title": "Out-of-the-Box",
 			"title_accent": "Content Editing",
 			"body": "Ship sites with a lightweight Content Management System. No extra software is needed to handoff to editors.",
-			"img": "/assets/"
+			"img": "/assets/edit.png"
 		},
 		{
 			"title": "Git Backend",
@@ -704,7 +704,7 @@ const nodes = [{
 			"title": "Svelte Components",
 			"title_accent": "Reactive",
 			"body": "Build with a fast and easy to understand component framework. Enjoy automatic HTML fallbacks for your single page apps.",
-			"img": "/assets/"
+			"img": "/assets/svelte.png"
 		}
 	],
 	"cta": {
