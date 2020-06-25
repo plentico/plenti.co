@@ -56,7 +56,7 @@ function create_each_block_2(ctx) {
 			a = element("a");
 			t = text(t_value);
 			attr(a, "href", a_href_value = /*cta*/ ctx[5].link);
-			attr(a, "class", "button svelte-8s7u34");
+			attr(a, "class", "button svelte-1m6fu2a");
 		},
 		m(target, anchor) {
 			insert(target, a, anchor);
@@ -97,8 +97,9 @@ function create_each_block_1(ctx) {
 			t2 = space();
 			if (img.src !== (img_src_value = /*feature*/ ctx[10].img)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*feature*/ ctx[10].title);
-			attr(div0, "class", "title svelte-8s7u34");
-			attr(div1, "class", "feature svelte-8s7u34");
+			attr(img, "class", "svelte-1m6fu2a");
+			attr(div0, "class", "title svelte-1m6fu2a");
+			attr(div1, "class", "feature svelte-1m6fu2a");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -162,12 +163,13 @@ function create_each_block(ctx) {
 			div1 = element("div");
 			img = element("img");
 			t6 = space();
-			attr(span, "class", "svelte-8s7u34");
-			attr(div0, "class", "content svelte-8s7u34");
+			attr(span, "class", "svelte-1m6fu2a");
+			attr(p, "class", "svelte-1m6fu2a");
+			attr(div0, "class", "content svelte-1m6fu2a");
 			if (img.src !== (img_src_value = /*item*/ ctx[7].img)) attr(img, "src", img_src_value);
-			attr(img, "class", "svelte-8s7u34");
-			attr(div1, "class", "img svelte-8s7u34");
-			attr(div2, "class", "item svelte-8s7u34");
+			attr(img, "class", "svelte-1m6fu2a");
+			attr(div1, "class", "img svelte-1m6fu2a");
+			attr(div2, "class", "item svelte-1m6fu2a");
 		},
 		m(target, anchor) {
 			insert(target, div2, anchor);
@@ -294,14 +296,14 @@ function create_fragment(ctx) {
 
 			t2 = space();
 			div1 = element("div");
-			div1.innerHTML = `<img src="/assets/hero.svg" alt="planarian looking at screen">`;
+			div1.innerHTML = `<img src="/assets/hero.svg" alt="planarian looking at screen" class="svelte-1m6fu2a">`;
 			t3 = space();
 			create_component(waves.$$.fragment);
 			t4 = space();
 			section1 = element("section");
 			div5 = element("div");
 			div3 = element("div");
-			div3.innerHTML = `<img src="/assets/edit.gif" alt="Animation of typing on a computer">`;
+			div3.innerHTML = `<img src="/assets/edit.gif" alt="Animation of typing on a computer" class="svelte-1m6fu2a">`;
 			t5 = space();
 			div4 = element("div");
 			h30 = element("h3");
@@ -337,31 +339,31 @@ function create_fragment(ctx) {
 			a = element("a");
 			t16 = text(t16_value);
 			attr(div0, "id", "intro-text");
-			attr(div0, "class", "svelte-8s7u34");
+			attr(div0, "class", "svelte-1m6fu2a");
 			attr(div1, "id", "intro-hero");
-			attr(div1, "class", "svelte-8s7u34");
+			attr(div1, "class", "svelte-1m6fu2a");
 			attr(section0, "id", "intro");
-			attr(section0, "class", "svelte-8s7u34");
-			attr(div2, "class", "container svelte-8s7u34");
-			attr(div3, "class", "editor-graphic svelte-8s7u34");
+			attr(section0, "class", "svelte-1m6fu2a");
+			attr(div2, "class", "container svelte-1m6fu2a");
+			attr(div3, "class", "editor-graphic svelte-1m6fu2a");
 			attr(p1, "contenteditable", "true");
-			attr(div4, "class", "editor-content svelte-8s7u34");
-			attr(div5, "class", "container svelte-8s7u34");
+			attr(div4, "class", "editor-content svelte-1m6fu2a");
+			attr(div5, "class", "container svelte-1m6fu2a");
 			attr(section1, "id", "editor");
-			attr(section1, "class", "svelte-8s7u34");
+			attr(section1, "class", "svelte-1m6fu2a");
 			attr(section2, "id", "features");
 			set_style(section2, "background-position-y", /*by*/ ctx[0] / 5 - 300 + "px");
-			attr(section2, "class", "svelte-8s7u34");
+			attr(section2, "class", "svelte-1m6fu2a");
 			attr(div6, "class", "container");
 			attr(section3, "id", "setup");
-			attr(section3, "class", "svelte-8s7u34");
+			attr(section3, "class", "svelte-1m6fu2a");
 			attr(a, "href", a_href_value = /*cta*/ ctx[5].link.url);
-			attr(a, "class", "svelte-8s7u34");
+			attr(a, "class", "svelte-1m6fu2a");
 			attr(div7, "id", "cta");
-			attr(div7, "class", "svelte-8s7u34");
+			attr(div7, "class", "svelte-1m6fu2a");
 			attr(div8, "class", "container");
 			attr(section4, "id", "cta-wrapper");
-			attr(section4, "class", "svelte-8s7u34");
+			attr(section4, "class", "svelte-1m6fu2a");
 		},
 		m(target, anchor) {
 			insert(target, div2, anchor);
