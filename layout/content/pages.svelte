@@ -32,7 +32,6 @@
       if (response.ok) {
         let json = await response.json();
         version = json[0].name.substr(1);
-        console.log(version);
       }  else {
         alert("HTTP-Error: " + response.status);
       }

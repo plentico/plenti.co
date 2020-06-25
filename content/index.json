@@ -20,27 +20,27 @@
 	"features": [
 		{
 			"title": "No Security Updates",
-			"img": "/assets/security.svg"
+			"img": "/assets/features/security.svg"
 		},
 		{
 			"title": "Cheap / Free Hosting",
-			"img": "/assets/hosting.svg"
+			"img": "/assets/features/hosting.svg"
 		},
 		{
 			"title": "Fast Page Loads",
-			"img": "/assets/speed.svg"
+			"img": "/assets/features/speed.svg"
 		},
 		{
 			"title": "Fast Build Times",
-			"img": "/assets/builds.svg"
+			"img": "/assets/features/builds.svg"
 		},
 		{
 			"title": "Distributed Sites",
-			"img": "/assets/cdn.svg"
+			"img": "/assets/features/cdn.svg"
 		},
 		{
 			"title": "No Vendor Lock-In",
-			"img": "/assets/vendor.svg"
+			"img": "/assets/features/vendor.svg"
 		}
 	],
 	"setup": [
@@ -48,25 +48,25 @@
 			"title": "Out-of-the-Box",
 			"title_accent": "Content Editing",
 			"body": "Ship sites with a lightweight Content Management System. No extra software is needed to handoff to editors.",
-			"img": "/assets/edit.png"
+			"img": "/assets/setup/edit.png"
 		},
 		{
 			"title": "Git Backend",
 			"title_accent": "No Database",
 			"body": "Ditch the SQL headaches and simply connect to a Git backend. Finally content editors and developers can speak the same language.",
-			"img": "/assets/git.png"
+			"img": "/assets/setup/git.png"
 		},
 		{
 			"title": "Content Structure",
 			"title_accent": "Flexible",
 			"body": "There are no required fields or content types in Plenti. You define whatever structure works best for you and your project.",
-			"img": "/assets/json.png"
+			"img": "/assets/setup/json.png"
 		},
 		{
 			"title": "Svelte Components",
 			"title_accent": "Reactive",
 			"body": "Build with a fast and easy to understand component framework. Enjoy automatic HTML fallbacks for your single page apps.",
-			"img": "/assets/svelte.png"
+			"img": "/assets/setup/svelte.png"
 		}
 	],
 	"cta": {
