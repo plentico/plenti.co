@@ -646,7 +646,7 @@ const nodes = [{
 				"text": "Give it to me"
 			},
 			{
-				"link": "/why",
+				"link": "https://youtu.be/Vjz2A7_ShWA",
 				"text": "Tell me more"
 			}
 		]

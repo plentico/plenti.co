@@ -23,8 +23,8 @@ function create_fragment(ctx) {
       <div><a href="/about" class="svelte-uxci90">About</a></div> 
       <div><a href="/contact" class="svelte-uxci90">Contact</a></div></section> 
     <section id="products" class="svelte-uxci90"><strong class="svelte-uxci90">Products</strong> 
-      <div><a href="/plenti" class="svelte-uxci90">Plenti</a></div> 
-      <div><a href="https://plentiform.com" class="svelte-uxci90">Plentiform</a></div></section> 
+      <div><a href="https://github.com/plentico/plenti" class="svelte-uxci90">Plenti</a></div> 
+      <div><a href="https://plentiform.com" class="svelte-uxci90">Plentiform</a> (coming soon)</div></section> 
     <section id="resources" class="svelte-uxci90"><strong class="svelte-uxci90">Resources</strong> 
       <div><a href="/docs" class="svelte-uxci90">Documentation</a></div> 
       <div><a href="/themes" class="svelte-uxci90">Themes</a></div> 

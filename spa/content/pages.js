@@ -142,7 +142,7 @@ function create_if_block_6(ctx) {
 			}
 
 			attr(section, "id", "themes");
-			attr(section, "class", "svelte-1kbv8yo");
+			attr(section, "class", "svelte-1oxlflm");
 		},
 		m(target, anchor) {
 			insert(target, section, anchor);
@@ -191,7 +191,7 @@ function create_each_block_1(ctx) {
 		c() {
 			img = element("img");
 			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[10])) attr(img, "src", img_src_value);
-			attr(img, "class", "svelte-1kbv8yo");
+			attr(img, "class", "svelte-1oxlflm");
 		},
 		m(target, anchor) {
 			insert(target, img, anchor);
@@ -284,18 +284,18 @@ function create_if_block(ctx) {
 			t11 = text(/*OSName*/ ctx[4]);
 			t12 = space();
 			div2 = element("div");
-			div2.innerHTML = `(<a href="https://github.com/plentico/plenti/releases/latest" class="svelte-1kbv8yo">See more options</a>)`;
+			div2.innerHTML = `(<a href="https://github.com/plentico/plenti/releases/latest" class="svelte-1oxlflm">See more options</a>)`;
 			t16 = space();
 			section2 = element("section");
 			if_block.c();
 			attr(section0, "id", "download");
-			attr(section0, "class", "svelte-1kbv8yo");
-			attr(div0, "class", "selected svelte-1kbv8yo");
-			attr(div1, "class", "instructions svelte-1kbv8yo");
-			attr(a0, "class", "cta svelte-1kbv8yo");
+			attr(section0, "class", "svelte-1oxlflm");
+			attr(div0, "class", "selected svelte-1oxlflm");
+			attr(div1, "class", "instructions svelte-1oxlflm");
+			attr(a0, "class", "cta svelte-1oxlflm");
 			attr(a0, "href", a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[5] + "/plenti_" + /*version*/ ctx[5] + "_" + /*OSName*/ ctx[4] + "_64-bit.tar.gz");
 			attr(section1, "id", "detection");
-			attr(section1, "class", "svelte-1kbv8yo");
+			attr(section1, "class", "svelte-1oxlflm");
 			attr(section2, "id", "instructions");
 		},
 		m(target, anchor) {
@@ -528,11 +528,11 @@ function create_each_block(ctx) {
 			div0 = element("div");
 			t1 = text(t1_value);
 			t2 = space();
-			attr(div0, "class", "os-name svelte-1kbv8yo");
+			attr(div0, "class", "os-name svelte-1oxlflm");
 
 			attr(div1, "class", div1_class_value = "os" + (/*currentOs*/ ctx[7].title == /*OSName*/ ctx[4]
 			? " primary"
-			: "") + " svelte-1kbv8yo");
+			: "") + " svelte-1oxlflm");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -576,7 +576,7 @@ function create_each_block(ctx) {
 
 			if (!current || dirty & /*os, OSName*/ 24 && div1_class_value !== (div1_class_value = "os" + (/*currentOs*/ ctx[7].title == /*OSName*/ ctx[4]
 			? " primary"
-			: "") + " svelte-1kbv8yo")) {
+			: "") + " svelte-1oxlflm")) {
 				attr(div1, "class", div1_class_value);
 			}
 		},
@@ -752,7 +752,7 @@ function create_fragment(ctx) {
 			if (if_block1) if_block1.c();
 			t3 = space();
 			if (if_block2) if_block2.c();
-			attr(h1, "class", "svelte-1kbv8yo");
+			attr(h1, "class", "svelte-1oxlflm");
 			attr(div, "class", "container");
 		},
 		m(target, anchor) {

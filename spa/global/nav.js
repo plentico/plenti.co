@@ -20,7 +20,8 @@ function create_fragment(ctx) {
 			nav.innerHTML = `<div class="container svelte-edz9n5"><span id="brand" class="svelte-edz9n5"><a href="/" class="svelte-edz9n5"><img alt="planarian" src="/assets/planarian.svg" class="svelte-edz9n5">Plenti</a></span> 
     <a class="nav-link svelte-edz9n5" href="/docs">Docs</a> 
     <a class="nav-link svelte-edz9n5" href="/themes">Themes</a> 
-    <a class="nav-link button svelte-edz9n5" href="/download">Download</a></div>`;
+    <a class="nav-link button svelte-edz9n5" href="/download">Download</a> 
+    <a class="nav-link svelte-edz9n5" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" class="svelte-edz9n5"></a></div>`;
 
 			attr(nav, "class", "svelte-edz9n5");
 		},
