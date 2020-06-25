@@ -45,7 +45,7 @@ function get_each_context_2(ctx, list, i) {
 	return child_ctx;
 }
 
-// (49:2) {#if description}
+// (48:2) {#if description}
 function create_if_block_7(ctx) {
 	let div;
 	let each_value_2 = /*description*/ ctx[1];
@@ -101,7 +101,7 @@ function create_if_block_7(ctx) {
 	};
 }
 
-// (51:4) {#each description as paragraph}
+// (50:4) {#each description as paragraph}
 function create_each_block_2(ctx) {
 	let p;
 	let raw_value = /*paragraph*/ ctx[13] + "";
@@ -123,7 +123,7 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (57:2) {#if themes}
+// (56:2) {#if themes}
 function create_if_block_6(ctx) {
 	let section;
 	let each_value_1 = /*themes*/ ctx[2];
@@ -182,7 +182,7 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (59:4) {#each themes as theme}
+// (58:4) {#each themes as theme}
 function create_each_block_1(ctx) {
 	let img;
 	let img_src_value;
@@ -207,7 +207,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (65:2) {#if os}
+// (64:2) {#if os}
 function create_if_block(ctx) {
 	let section0;
 	let t0;
@@ -406,7 +406,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (73:8) {:else}
+// (72:8) {:else}
 function create_else_block_1(ctx) {
 	let current;
 	const windows = new Windows({});
@@ -434,7 +434,7 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (71:43) 
+// (70:43) 
 function create_if_block_5(ctx) {
 	let current;
 	const mac = new Mac({});
@@ -462,7 +462,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (69:8) {#if currentOs.title == 'Linux'}
+// (68:8) {#if currentOs.title == 'Linux'}
 function create_if_block_4(ctx) {
 	let current;
 	const linux = new Linux({});
@@ -490,7 +490,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (67:4) {#each os as currentOs}
+// (66:4) {#each os as currentOs}
 function create_each_block(ctx) {
 	let div1;
 	let current_block_type_index;
@@ -598,7 +598,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (104:6) {:else}
+// (103:6) {:else}
 function create_else_block(ctx) {
 	let div;
 
@@ -616,7 +616,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (98:36) 
+// (97:36) 
 function create_if_block_3(ctx) {
 	let strong;
 	let br0;
@@ -655,7 +655,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (92:32) 
+// (91:32) 
 function create_if_block_2(ctx) {
 	let strong;
 	let br0;
@@ -694,7 +694,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (87:6) {#if OSName == 'Linux'}
+// (86:6) {#if OSName == 'Linux'}
 function create_if_block_1(ctx) {
 	let strong;
 	let br0;
@@ -873,7 +873,6 @@ function instance($$self, $$props, $$invalidate) {
 			if (response.ok) {
 				let json = await response.json();
 				$$invalidate(5, version = json[0].name.substr(1));
-				console.log(version);
 			} else {
 				alert("HTTP-Error: " + response.status);
 			}
