@@ -134,6 +134,9 @@
 		display: flex;
 		margin: 100px 0;
 	}
+	#setup .item:first-of-type {
+		margin-top: 0;
+	}
 	#setup .item:nth-child(odd) {
 		flex-direction: row-reverse;
 	}
