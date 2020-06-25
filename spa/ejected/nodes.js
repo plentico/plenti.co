@@ -705,6 +705,12 @@ const nodes = [{
 			"title_accent": "Reactive",
 			"body": "Build with a fast and easy to understand component framework. Enjoy automatic HTML fallbacks for your single page apps.",
 			"img": "/assets/setup/svelte.png"
+		},
+		{
+			"title": "Commandline Tool",
+			"title_accent": "Fast",
+			"body": "Save time with automatic scaffolding for repetitive tasks. The CLI tool doesn't require internet access or dependencies.",
+			"img": "/assets/setup/cli.png"
 		}
 	],
 	"cta": {

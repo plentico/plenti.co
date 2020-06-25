@@ -56,7 +56,7 @@ function create_each_block_2(ctx) {
 			a = element("a");
 			t = text(t_value);
 			attr(a, "href", a_href_value = /*cta*/ ctx[5].link);
-			attr(a, "class", "button svelte-1pl0sf1");
+			attr(a, "class", "button svelte-8s7u34");
 		},
 		m(target, anchor) {
 			insert(target, a, anchor);
@@ -97,8 +97,8 @@ function create_each_block_1(ctx) {
 			t2 = space();
 			if (img.src !== (img_src_value = /*feature*/ ctx[10].img)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*feature*/ ctx[10].title);
-			attr(div0, "class", "title svelte-1pl0sf1");
-			attr(div1, "class", "feature svelte-1pl0sf1");
+			attr(div0, "class", "title svelte-8s7u34");
+			attr(div1, "class", "feature svelte-8s7u34");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -162,12 +162,12 @@ function create_each_block(ctx) {
 			div1 = element("div");
 			img = element("img");
 			t6 = space();
-			attr(span, "class", "svelte-1pl0sf1");
-			attr(div0, "class", "content svelte-1pl0sf1");
+			attr(span, "class", "svelte-8s7u34");
+			attr(div0, "class", "content svelte-8s7u34");
 			if (img.src !== (img_src_value = /*item*/ ctx[7].img)) attr(img, "src", img_src_value);
-			attr(img, "class", "svelte-1pl0sf1");
-			attr(div1, "class", "img svelte-1pl0sf1");
-			attr(div2, "class", "item svelte-1pl0sf1");
+			attr(img, "class", "svelte-8s7u34");
+			attr(div1, "class", "img svelte-8s7u34");
+			attr(div2, "class", "item svelte-8s7u34");
 		},
 		m(target, anchor) {
 			insert(target, div2, anchor);
@@ -337,31 +337,31 @@ function create_fragment(ctx) {
 			a = element("a");
 			t16 = text(t16_value);
 			attr(div0, "id", "intro-text");
-			attr(div0, "class", "svelte-1pl0sf1");
+			attr(div0, "class", "svelte-8s7u34");
 			attr(div1, "id", "intro-hero");
-			attr(div1, "class", "svelte-1pl0sf1");
+			attr(div1, "class", "svelte-8s7u34");
 			attr(section0, "id", "intro");
-			attr(section0, "class", "svelte-1pl0sf1");
-			attr(div2, "class", "container svelte-1pl0sf1");
-			attr(div3, "class", "editor-graphic svelte-1pl0sf1");
+			attr(section0, "class", "svelte-8s7u34");
+			attr(div2, "class", "container svelte-8s7u34");
+			attr(div3, "class", "editor-graphic svelte-8s7u34");
 			attr(p1, "contenteditable", "true");
-			attr(div4, "class", "editor-content svelte-1pl0sf1");
-			attr(div5, "class", "container svelte-1pl0sf1");
+			attr(div4, "class", "editor-content svelte-8s7u34");
+			attr(div5, "class", "container svelte-8s7u34");
 			attr(section1, "id", "editor");
-			attr(section1, "class", "svelte-1pl0sf1");
+			attr(section1, "class", "svelte-8s7u34");
 			attr(section2, "id", "features");
 			set_style(section2, "background-position-y", /*by*/ ctx[0] / 5 - 300 + "px");
-			attr(section2, "class", "svelte-1pl0sf1");
+			attr(section2, "class", "svelte-8s7u34");
 			attr(div6, "class", "container");
 			attr(section3, "id", "setup");
-			attr(section3, "class", "svelte-1pl0sf1");
+			attr(section3, "class", "svelte-8s7u34");
 			attr(a, "href", a_href_value = /*cta*/ ctx[5].link.url);
-			attr(a, "class", "svelte-1pl0sf1");
+			attr(a, "class", "svelte-8s7u34");
 			attr(div7, "id", "cta");
-			attr(div7, "class", "svelte-1pl0sf1");
+			attr(div7, "class", "svelte-8s7u34");
 			attr(div8, "class", "container");
 			attr(section4, "id", "cta-wrapper");
-			attr(section4, "class", "svelte-1pl0sf1");
+			attr(section4, "class", "svelte-8s7u34");
 		},
 		m(target, anchor) {
 			insert(target, div2, anchor);
