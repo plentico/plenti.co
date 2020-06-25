@@ -11,8 +11,8 @@
     </section>
     <section id="products">
       <strong>Products</strong>
-      <div><a href="/plenti">Plenti</a></div>
-      <div><a href="https://plentiform.com">Plentiform</a></div>
+      <div><a href="https://github.com/plentico/plenti">Plenti</a></div>
+      <div><a href="https://plentiform.com">Plentiform</a> (coming soon)</div>
     </section>
     <section id="resources">
       <strong>Resources</strong>

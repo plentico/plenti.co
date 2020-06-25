@@ -4,6 +4,7 @@
     <a class="nav-link" href="/docs">Docs</a>
     <a class="nav-link" href="/themes">Themes</a>
     <a class="nav-link button" href="/download">Download</a>
+    <a class="nav-link" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" /></a>
   </div>
 </nav>
 

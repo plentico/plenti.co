@@ -112,6 +112,7 @@
 
   h1 {
     margin-top: 40px;
+    line-height: 1;
   }
   #themes {
     justify-content: center;
