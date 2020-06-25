@@ -195,4 +195,54 @@
 		font-weight: bold;
 		font-size: 1.5rem;
 	}
+	@media (max-width: 999px) {
+		img {
+			max-width: 100%;
+		}
+		#intro {
+			flex-direction: column;
+			padding: 0;
+		}
+		#intro-hero {
+			padding-top: 50px;
+		}
+		#editor .container {
+			flex-direction: column;
+			padding: 20px;
+		}
+		.editor-graphic {
+			text-align: center;
+		}
+		.feature {
+			flex: 0 0 50%;
+		}
+		#setup {
+			padding: 40px 0;
+		}
+		#setup .item,
+		#setup .item:nth-child(odd) {
+			flex-direction: column;
+			margin: 60px 0;
+		}
+		#setup .item p {
+			margin: 0 0 20px 0;
+		}
+		#setup .item:nth-child(even) img,
+		#setup .item:nth-child(odd) img {
+			transform: rotate(0deg);
+		}
+		#setup .item .img,
+		#setup .item:nth-child(even) .img {
+			text-align: center;
+			justify-content: center;
+		}
+	}
+	@media (max-width: 599px) {
+		#cta {
+			padding: 0 0 40px;
+		}
+		.feature {
+			flex: 0 0 100%;
+		}
+	}
 </style>
