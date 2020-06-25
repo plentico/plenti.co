@@ -190,4 +190,20 @@
     line-height: 3rem;
   }
   a {color: var(--primary);}
+  @media (max-width: 999px) {
+    .os {
+      margin: 0;
+    }
+  }
+  @media (max-width: 699px) {
+    #download {
+      flex-direction: column;
+    }
+    .os, .instructions {
+      display: none;
+    }
+    .os.primary {
+      display: block;
+    }
+  }
 </style>
