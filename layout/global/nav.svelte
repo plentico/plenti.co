@@ -1,7 +1,13 @@
+<script>
+  let checked=false;
+  const uncheck = () => {
+    checked=false;
+  }
+</script>
 <nav>
   <div class="container">
     <span id="brand"><a href="/"><img alt="planarian" src="/assets/planarian.svg" />Plenti</a></span>
-    <input type="checkbox" id="toggle" class="hidden">
+    <input type="checkbox" id="toggle" class="hidden" bind:checked={checked}>
     <label for="toggle" id="hamburger">
       <span></span>
       <span></span>
@@ -9,9 +15,9 @@
       <span></span>
     </label>
     <div id="menu">
-      <a class="nav-link" href="/docs">Docs</a>
-      <a class="nav-link" href="/themes">Themes</a>
-      <a class="nav-link button" href="/download">Download</a>
+      <a on:click={uncheck} class="nav-link" href="/docs">Docs</a>
+      <a on:click={uncheck} class="nav-link" href="/themes">Themes</a>
+      <a on:click={uncheck} class="nav-link button" href="/download">Download</a>
       <a class="nav-link" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" /></a>
     </div>
   </div>
@@ -126,10 +132,10 @@
       overflow: hidden;
       max-height: 0;
       box-shadow: 0 5px 6px -4px rgba(0,0,0,.2);
-      -webkit-transition: max-height .5s ease-in-out;
-      -moz-transition: max-height .5s ease-in-out;
-      -o-transition: max-height .5s ease-in-out;
-      transition: max-height .5s ease-in-out;
+      -webkit-transition: max-height .4s ease-in-out;
+      -moz-transition: max-height .4s ease-in-out;
+      -o-transition: max-height .4s ease-in-out;
+      transition: max-height .4s ease-in-out;
     }
     #toggle:checked~#menu {
       max-height: 300px;
