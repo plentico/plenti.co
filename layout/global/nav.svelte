@@ -1,10 +1,6 @@
 <nav>
   <div class="container">
     <span id="brand"><a href="/"><img alt="planarian" src="/assets/planarian.svg" />Plenti</a></span>
-    <a class="nav-link" href="/docs">Docs</a>
-    <a class="nav-link" href="/themes">Themes</a>
-    <a class="nav-link button" href="/download">Download</a>
-    <a class="nav-link" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" /></a>
     <input type="checkbox" id="toggle" class="hidden">
     <label for="toggle" id="hamburger">
       <span></span>
@@ -12,6 +8,12 @@
       <span></span>
       <span></span>
     </label>
+    <div id="menu">
+      <a class="nav-link" href="/docs">Docs</a>
+      <a class="nav-link" href="/themes">Themes</a>
+      <a class="nav-link button" href="/download">Download</a>
+      <a class="nav-link" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" /></a>
+    </div>
   </div>
 </nav>
 
@@ -27,6 +29,9 @@
     flex: 1;
     font-size: 1.75rem;
     letter-spacing: 1px;
+  }
+  #menu {
+    display: flex;
   }
   a {
     align-self: center;
@@ -108,6 +113,29 @@
   @media (max-width: 600px) {
     #hamburger {
       display: block;
+    }
+    #menu {
+      position: absolute;
+      top: 62px;
+      left: 0;
+      width: 100%;
+      background: var(--base-lightest);
+      flex-direction: column;
+      z-index: 1;
+      max-height: 0;
+      overflow: hidden;
+      max-height: 0;
+      box-shadow: 0 5px 6px -4px rgba(0,0,0,.2);
+      -webkit-transition: max-height .5s ease-in-out;
+      -moz-transition: max-height .5s ease-in-out;
+      -o-transition: max-height .5s ease-in-out;
+      transition: max-height .5s ease-in-out;
+    }
+    #toggle:checked~#menu {
+      max-height: 300px;
+    }
+    #menu a {
+      padding: 10px;
     }
   }
 </style>
