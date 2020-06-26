@@ -17,18 +17,18 @@ function create_fragment(ctx) {
 		c() {
 			nav = element("nav");
 
-			nav.innerHTML = `<div class="container svelte-1hks6yg"><span id="brand" class="svelte-1hks6yg"><a href="/" class="svelte-1hks6yg"><img alt="planarian" src="/assets/planarian.svg" class="svelte-1hks6yg">Plenti</a></span> 
-    <a class="nav-link svelte-1hks6yg" href="/docs">Docs</a> 
-    <a class="nav-link svelte-1hks6yg" href="/themes">Themes</a> 
-    <a class="nav-link button svelte-1hks6yg" href="/download">Download</a> 
-    <a class="nav-link svelte-1hks6yg" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" class="svelte-1hks6yg"></a> 
-    <input type="checkbox" id="toggle" class="hidden svelte-1hks6yg"> 
-    <label for="toggle" id="hamburger" class="svelte-1hks6yg"><span class="svelte-1hks6yg"></span> 
-      <span class="svelte-1hks6yg"></span> 
-      <span class="svelte-1hks6yg"></span> 
-      <span class="svelte-1hks6yg"></span></label></div>`;
+			nav.innerHTML = `<div class="container svelte-1p5ly6u"><span id="brand" class="svelte-1p5ly6u"><a href="/" class="svelte-1p5ly6u"><img alt="planarian" src="/assets/planarian.svg" class="svelte-1p5ly6u">Plenti</a></span> 
+    <input type="checkbox" id="toggle" class="hidden svelte-1p5ly6u"> 
+    <label for="toggle" id="hamburger" class="svelte-1p5ly6u"><span class="svelte-1p5ly6u"></span> 
+      <span class="svelte-1p5ly6u"></span> 
+      <span class="svelte-1p5ly6u"></span> 
+      <span class="svelte-1p5ly6u"></span></label> 
+    <div id="menu" class="svelte-1p5ly6u"><a class="nav-link svelte-1p5ly6u" href="/docs">Docs</a> 
+      <a class="nav-link svelte-1p5ly6u" href="/themes">Themes</a> 
+      <a class="nav-link button svelte-1p5ly6u" href="/download">Download</a> 
+      <a class="nav-link svelte-1p5ly6u" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" class="svelte-1p5ly6u"></a></div></div>`;
 
-			attr(nav, "class", "svelte-1hks6yg");
+			attr(nav, "class", "svelte-1p5ly6u");
 		},
 		m(target, anchor) {
 			insert(target, nav, anchor);
