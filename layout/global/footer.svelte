@@ -12,7 +12,7 @@
     <section id="products">
       <strong>Products</strong>
       <div><a href="https://github.com/plentico/plenti">Plenti</a></div>
-      <div><a href="https://plentiform.com">Plentiform</a> (coming soon)</div>
+      <div><a href="https://plentiform.com">Plentiform</a></div>
     </section>
     <section id="resources">
       <strong>Resources</strong>
@@ -57,5 +57,19 @@
   }
   #social a {
     margin: 0 10px 10px 0;
+  }
+  @media (max-width: 649px) {
+    footer > .container {
+      flex-wrap: wrap;
+    }
+    footer section {
+      flex: 0 0 50%;
+      margin-bottom: 40px;
+    }
+  }
+  @media (max-width: 349px) {
+    footer section {
+      flex: 0 0 100%;
+    }
   }
 </style>
