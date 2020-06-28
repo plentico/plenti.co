@@ -9,27 +9,32 @@ import {
 	empty,
 	init,
 	insert,
+	is_function,
+	listen,
 	noop,
 	safe_not_equal,
 	set_data,
 	space,
-	text
+	text,
+	toggle_class
 } from '/spa/web_modules/svelte/internal/index.js';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[4] = list[i];
+	child_ctx[6] = list[i];
 	return child_ctx;
 }
 
-// (17:8) {#if node.type == "docs"}
+// (27:8) {#if node.type == "docs"}
 function create_if_block(ctx) {
-	let show_if = !/*group*/ ctx[1].includes(/*node*/ ctx[4].fields.group);
+	let show_if = !/*group*/ ctx[2].includes(/*node*/ ctx[6].fields.group);
 	let t0;
 	let a;
-	let t1_value = /*node*/ ctx[4].fields.title + "";
+	let t1_value = /*node*/ ctx[6].fields.title + "";
 	let t1;
 	let a_href_value;
+	let mounted;
+	let dispose;
 	let if_block = show_if && create_if_block_1(ctx);
 
 	return {
@@ -38,17 +43,27 @@ function create_if_block(ctx) {
 			t0 = space();
 			a = element("a");
 			t1 = text(t1_value);
-			attr(a, "href", a_href_value = /*node*/ ctx[4].path);
-			attr(a, "class", "nav-link svelte-jm71kp");
+			attr(a, "href", a_href_value = /*node*/ ctx[6].path);
+			attr(a, "class", "nav-link svelte-pciu1g");
+			toggle_class(a, "active", /*active*/ ctx[1][/*node*/ ctx[6].path]);
 		},
 		m(target, anchor) {
 			if (if_block) if_block.m(target, anchor);
 			insert(target, t0, anchor);
 			insert(target, a, anchor);
 			append(a, t1);
+
+			if (!mounted) {
+				dispose = listen(a, "click", function () {
+					if (is_function(/*setActive*/ ctx[5](/*node*/ ctx[6].path))) /*setActive*/ ctx[5](/*node*/ ctx[6].path).apply(this, arguments);
+				});
+
+				mounted = true;
+			}
 		},
-		p(ctx, dirty) {
-			if (dirty & /*allNodes*/ 1) show_if = !/*group*/ ctx[1].includes(/*node*/ ctx[4].fields.group);
+		p(new_ctx, dirty) {
+			ctx = new_ctx;
+			if (dirty & /*allNodes*/ 1) show_if = !/*group*/ ctx[2].includes(/*node*/ ctx[6].fields.group);
 
 			if (show_if) {
 				if (if_block) {
@@ -63,38 +78,44 @@ function create_if_block(ctx) {
 				if_block = null;
 			}
 
-			if (dirty & /*allNodes*/ 1 && t1_value !== (t1_value = /*node*/ ctx[4].fields.title + "")) set_data(t1, t1_value);
+			if (dirty & /*allNodes*/ 1 && t1_value !== (t1_value = /*node*/ ctx[6].fields.title + "")) set_data(t1, t1_value);
 
-			if (dirty & /*allNodes*/ 1 && a_href_value !== (a_href_value = /*node*/ ctx[4].path)) {
+			if (dirty & /*allNodes*/ 1 && a_href_value !== (a_href_value = /*node*/ ctx[6].path)) {
 				attr(a, "href", a_href_value);
+			}
+
+			if (dirty & /*active, allNodes, sortNav*/ 19) {
+				toggle_class(a, "active", /*active*/ ctx[1][/*node*/ ctx[6].path]);
 			}
 		},
 		d(detaching) {
 			if (if_block) if_block.d(detaching);
 			if (detaching) detach(t0);
 			if (detaching) detach(a);
+			mounted = false;
+			dispose();
 		}
 	};
 }
 
-// (18:12) {#if !group.includes(node.fields.group)}
+// (28:12) {#if !group.includes(node.fields.group)}
 function create_if_block_1(ctx) {
 	let strong;
-	let t_value = /*addGroup*/ ctx[2](/*node*/ ctx[4].fields.group) + "";
+	let t_value = /*addGroup*/ ctx[3](/*node*/ ctx[6].fields.group) + "";
 	let t;
 
 	return {
 		c() {
 			strong = element("strong");
 			t = text(t_value);
-			attr(strong, "class", "svelte-jm71kp");
+			attr(strong, "class", "svelte-pciu1g");
 		},
 		m(target, anchor) {
 			insert(target, strong, anchor);
 			append(strong, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*allNodes*/ 1 && t_value !== (t_value = /*addGroup*/ ctx[2](/*node*/ ctx[4].fields.group) + "")) set_data(t, t_value);
+			if (dirty & /*allNodes*/ 1 && t_value !== (t_value = /*addGroup*/ ctx[3](/*node*/ ctx[6].fields.group) + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(strong);
@@ -102,10 +123,10 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (16:4) {#each allNodes.sort(sortNav) as node}
+// (26:4) {#each allNodes.sort(sortNav) as node}
 function create_each_block(ctx) {
 	let if_block_anchor;
-	let if_block = /*node*/ ctx[4].type == "docs" && create_if_block(ctx);
+	let if_block = /*node*/ ctx[6].type == "docs" && create_if_block(ctx);
 
 	return {
 		c() {
@@ -117,7 +138,7 @@ function create_each_block(ctx) {
 			insert(target, if_block_anchor, anchor);
 		},
 		p(ctx, dirty) {
-			if (/*node*/ ctx[4].type == "docs") {
+			if (/*node*/ ctx[6].type == "docs") {
 				if (if_block) {
 					if_block.p(ctx, dirty);
 				} else {
@@ -139,7 +160,7 @@ function create_each_block(ctx) {
 
 function create_fragment(ctx) {
 	let div;
-	let each_value = /*allNodes*/ ctx[0].sort(/*sortNav*/ ctx[3]);
+	let each_value = /*allNodes*/ ctx[0].sort(/*sortNav*/ ctx[4]);
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -154,7 +175,7 @@ function create_fragment(ctx) {
 				each_blocks[i].c();
 			}
 
-			attr(div, "class", "sidebar svelte-jm71kp");
+			attr(div, "class", "sidebar svelte-pciu1g");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -164,8 +185,8 @@ function create_fragment(ctx) {
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*allNodes, sortNav, addGroup, group*/ 15) {
-				each_value = /*allNodes*/ ctx[0].sort(/*sortNav*/ ctx[3]);
+			if (dirty & /*allNodes, sortNav, active, setActive, addGroup, group*/ 63) {
+				each_value = /*allNodes*/ ctx[0].sort(/*sortNav*/ ctx[4]);
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -213,11 +234,26 @@ function instance($$self, $$props, $$invalidate) {
 		return -1;
 	};
 
+	let active = [];
+
+	const setActive = path => {
+		$$invalidate(1, active = []);
+
+		setTimeout(
+			function () {
+				if (path == window.location.pathname) {
+					$$invalidate(1, active[path] = true, active);
+				}
+			},
+			100
+		);
+	};
+
 	$$self.$set = $$props => {
 		if ("allNodes" in $$props) $$invalidate(0, allNodes = $$props.allNodes);
 	};
 
-	return [allNodes, group, addGroup, sortNav];
+	return [allNodes, active, group, addGroup, sortNav, setActive];
 }
 
 class Component extends SvelteComponent {
