@@ -11,14 +11,31 @@
         }
         return -1;
     }
+
+    
+    let active = [];
+    const setActive = (i, path) => {
+        if (path == window.location.pathname) {
+            active[i] = true;
+        }
+    }
+    
+    let currentPage = "";
+    //const getUrl = async () => {
+    const getUrl = () => {
+        //currentPage = await window.location.pathname;
+        currentPage = window.location.pathname;
+        console.log(currentPage);
+    }
 </script>
 <div class="sidebar">
-    {#each allNodes.sort(sortNav) as node}
+    {#each allNodes.sort(sortNav) as node, i}
         {#if node.type == "docs"}
             {#if !group.includes(node.fields.group)}
                 <strong>{addGroup(node.fields.group)}</strong>
             {/if}
-            <a href="{node.path}" class="nav-link">{node.fields.title}</a>
+            <a on:click={setActive(i, node.path)} class:active={active[i]} href="{node.path}" class="nav-link">{node.fields.title}</a>
+            <!-- <a on:click={() => getUrl()} href="{node.path}" class="nav-link{node.path == currentPage ? ' active' : ''}">{node.fields.title}</a> -->
         {/if}
     {/each}
 </div>
@@ -34,5 +51,8 @@
         display: block;
         margin-bottom: 10px;
         white-space: nowrap;
+    }
+    .active {
+        color: var(--accent-dark);
     }
 </style>
