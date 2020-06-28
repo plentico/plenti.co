@@ -15,9 +15,11 @@
     let active = [];
     const setActive = (path) => {
         active = [];
-        if (path == window.location.pathname) {
-            active[path] = true;
-        }
+        setTimeout(function(){
+            if (path == window.location.pathname) {
+                active[path] = true;
+            }
+        }, 100);
     }
 </script>
 <div class="sidebar">
