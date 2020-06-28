@@ -19,21 +19,21 @@ function create_fragment(ctx) {
 		c() {
 			footer = element("footer");
 
-			footer.innerHTML = `<div class="container svelte-uxci90"><section id="plentico" class="svelte-uxci90"><strong class="svelte-uxci90">Plentico</strong> 
-      <div><a href="/about" class="svelte-uxci90">About</a></div> 
-      <div><a href="/contact" class="svelte-uxci90">Contact</a></div></section> 
-    <section id="products" class="svelte-uxci90"><strong class="svelte-uxci90">Products</strong> 
-      <div><a href="https://github.com/plentico/plenti" class="svelte-uxci90">Plenti</a></div> 
-      <div><a href="https://plentiform.com" class="svelte-uxci90">Plentiform</a> (coming soon)</div></section> 
-    <section id="resources" class="svelte-uxci90"><strong class="svelte-uxci90">Resources</strong> 
-      <div><a href="/docs" class="svelte-uxci90">Documentation</a></div> 
-      <div><a href="/themes" class="svelte-uxci90">Themes</a></div> 
-      <div><a href="/download" class="svelte-uxci90">Download</a></div></section> 
-    <section id="copyright" class="svelte-uxci90"><div id="social" class="svelte-uxci90"><a href="https://twitter.com/jantcutech" class="svelte-uxci90"><img src="/assets/social/twitter.svg"></a><a href="https://youtube.com/jantcu" class="svelte-uxci90"><img src="/assets/social/youtube.svg"></a><a href="https://github.com/plentico/plenti" class="svelte-uxci90"><img src="/assets/social/github.svg"></a></div> 
+			footer.innerHTML = `<div class="container svelte-1v9u363"><section id="plentico" class="svelte-1v9u363"><strong class="svelte-1v9u363">Plentico</strong> 
+      <div><a href="/about" class="svelte-1v9u363">About</a></div> 
+      <div><a href="/contact" class="svelte-1v9u363">Contact</a></div></section> 
+    <section id="products" class="svelte-1v9u363"><strong class="svelte-1v9u363">Products</strong> 
+      <div><a href="https://github.com/plentico/plenti" class="svelte-1v9u363">Plenti</a></div> 
+      <div><a href="https://plentiform.com" class="svelte-1v9u363">Plentiform</a></div></section> 
+    <section id="resources" class="svelte-1v9u363"><strong class="svelte-1v9u363">Resources</strong> 
+      <div><a href="/docs" class="svelte-1v9u363">Documentation</a></div> 
+      <div><a href="/themes" class="svelte-1v9u363">Themes</a></div> 
+      <div><a href="/download" class="svelte-1v9u363">Download</a></div></section> 
+    <section id="copyright" class="svelte-1v9u363"><div id="social" class="svelte-1v9u363"><a href="https://twitter.com/jantcutech" class="svelte-1v9u363"><img src="/assets/social/twitter.svg"></a><a href="https://youtube.com/jantcu" class="svelte-1v9u363"><img src="/assets/social/youtube.svg"></a><a href="https://github.com/plentico/plenti" class="svelte-1v9u363"><img src="/assets/social/github.svg"></a></div> 
       <div id="copyright">© Plentico 2020</div> 
-      <a href="https://jantcu.com" class="svelte-uxci90">By Jantcu LLC</a></section></div>`;
+      <a href="https://jantcu.com" class="svelte-1v9u363">By Jantcu LLC</a></section></div>`;
 
-			attr(footer, "class", "svelte-uxci90");
+			attr(footer, "class", "svelte-1v9u363");
 		},
 		m(target, anchor) {
 			insert(target, footer, anchor);
