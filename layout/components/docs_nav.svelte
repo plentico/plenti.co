@@ -23,12 +23,12 @@
     }
 </script>
 <div class="sidebar">
-    {#each allNodes.sort(sortNav) as node}
+    {#each allNodes.sort(sortNav) as node (node.path)}
         {#if node.type == "docs"}
             {#if !group.includes(node.fields.group)}
                 <strong>{addGroup(node.fields.group)}</strong>
             {/if}
-            <a on:click={setActive(node.path)} class:active={active[node.path]} href="{node.path}" class="nav-link">{node.fields.title}</a>
+            <a on:click={() => setActive(node.path)} class:active={active[node.path]} href="{node.path}" class="nav-link">{node.fields.title}</a>
         {/if}
     {/each}
 </div>
