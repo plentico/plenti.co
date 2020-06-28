@@ -3,39 +3,43 @@ import {
 	SvelteComponent,
 	append,
 	attr,
-	destroy_each,
+	destroy_block,
 	detach,
 	element,
 	empty,
 	init,
 	insert,
-	is_function,
 	listen,
 	noop,
 	safe_not_equal,
 	set_data,
 	space,
 	text,
-	toggle_class
+	toggle_class,
+	update_keyed_each
 } from '/spa/web_modules/svelte/internal/index.js';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[6] = list[i];
+	child_ctx[7] = list[i];
 	return child_ctx;
 }
 
 // (27:8) {#if node.type == "docs"}
 function create_if_block(ctx) {
-	let show_if = !/*group*/ ctx[2].includes(/*node*/ ctx[6].fields.group);
+	let show_if = !/*group*/ ctx[2].includes(/*node*/ ctx[7].fields.group);
 	let t0;
 	let a;
-	let t1_value = /*node*/ ctx[6].fields.title + "";
+	let t1_value = /*node*/ ctx[7].fields.title + "";
 	let t1;
 	let a_href_value;
 	let mounted;
 	let dispose;
 	let if_block = show_if && create_if_block_1(ctx);
+
+	function click_handler(...args) {
+		return /*click_handler*/ ctx[6](/*node*/ ctx[7], ...args);
+	}
 
 	return {
 		c() {
@@ -43,9 +47,9 @@ function create_if_block(ctx) {
 			t0 = space();
 			a = element("a");
 			t1 = text(t1_value);
-			attr(a, "href", a_href_value = /*node*/ ctx[6].path);
+			attr(a, "href", a_href_value = /*node*/ ctx[7].path);
 			attr(a, "class", "nav-link svelte-pciu1g");
-			toggle_class(a, "active", /*active*/ ctx[1][/*node*/ ctx[6].path]);
+			toggle_class(a, "active", /*active*/ ctx[1][/*node*/ ctx[7].path]);
 		},
 		m(target, anchor) {
 			if (if_block) if_block.m(target, anchor);
@@ -54,16 +58,13 @@ function create_if_block(ctx) {
 			append(a, t1);
 
 			if (!mounted) {
-				dispose = listen(a, "click", function () {
-					if (is_function(/*setActive*/ ctx[5](/*node*/ ctx[6].path))) /*setActive*/ ctx[5](/*node*/ ctx[6].path).apply(this, arguments);
-				});
-
+				dispose = listen(a, "click", click_handler);
 				mounted = true;
 			}
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
-			if (dirty & /*allNodes*/ 1) show_if = !/*group*/ ctx[2].includes(/*node*/ ctx[6].fields.group);
+			if (dirty & /*allNodes*/ 1) show_if = !/*group*/ ctx[2].includes(/*node*/ ctx[7].fields.group);
 
 			if (show_if) {
 				if (if_block) {
@@ -78,14 +79,14 @@ function create_if_block(ctx) {
 				if_block = null;
 			}
 
-			if (dirty & /*allNodes*/ 1 && t1_value !== (t1_value = /*node*/ ctx[6].fields.title + "")) set_data(t1, t1_value);
+			if (dirty & /*allNodes*/ 1 && t1_value !== (t1_value = /*node*/ ctx[7].fields.title + "")) set_data(t1, t1_value);
 
-			if (dirty & /*allNodes*/ 1 && a_href_value !== (a_href_value = /*node*/ ctx[6].path)) {
+			if (dirty & /*allNodes*/ 1 && a_href_value !== (a_href_value = /*node*/ ctx[7].path)) {
 				attr(a, "href", a_href_value);
 			}
 
 			if (dirty & /*active, allNodes, sortNav*/ 19) {
-				toggle_class(a, "active", /*active*/ ctx[1][/*node*/ ctx[6].path]);
+				toggle_class(a, "active", /*active*/ ctx[1][/*node*/ ctx[7].path]);
 			}
 		},
 		d(detaching) {
@@ -101,7 +102,7 @@ function create_if_block(ctx) {
 // (28:12) {#if !group.includes(node.fields.group)}
 function create_if_block_1(ctx) {
 	let strong;
-	let t_value = /*addGroup*/ ctx[3](/*node*/ ctx[6].fields.group) + "";
+	let t_value = /*addGroup*/ ctx[3](/*node*/ ctx[7].fields.group) + "";
 	let t;
 
 	return {
@@ -115,7 +116,7 @@ function create_if_block_1(ctx) {
 			append(strong, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*allNodes*/ 1 && t_value !== (t_value = /*addGroup*/ ctx[3](/*node*/ ctx[6].fields.group) + "")) set_data(t, t_value);
+			if (dirty & /*allNodes*/ 1 && t_value !== (t_value = /*addGroup*/ ctx[3](/*node*/ ctx[7].fields.group) + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(strong);
@@ -123,22 +124,28 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (26:4) {#each allNodes.sort(sortNav) as node}
-function create_each_block(ctx) {
+// (26:4) {#each allNodes.sort(sortNav) as node (node.path)}
+function create_each_block(key_1, ctx) {
+	let first;
 	let if_block_anchor;
-	let if_block = /*node*/ ctx[6].type == "docs" && create_if_block(ctx);
+	let if_block = /*node*/ ctx[7].type == "docs" && create_if_block(ctx);
 
 	return {
+		key: key_1,
+		first: null,
 		c() {
+			first = empty();
 			if (if_block) if_block.c();
 			if_block_anchor = empty();
+			this.first = first;
 		},
 		m(target, anchor) {
+			insert(target, first, anchor);
 			if (if_block) if_block.m(target, anchor);
 			insert(target, if_block_anchor, anchor);
 		},
 		p(ctx, dirty) {
-			if (/*node*/ ctx[6].type == "docs") {
+			if (/*node*/ ctx[7].type == "docs") {
 				if (if_block) {
 					if_block.p(ctx, dirty);
 				} else {
@@ -152,6 +159,7 @@ function create_each_block(ctx) {
 			}
 		},
 		d(detaching) {
+			if (detaching) detach(first);
 			if (if_block) if_block.d(detaching);
 			if (detaching) detach(if_block_anchor);
 		}
@@ -160,11 +168,15 @@ function create_each_block(ctx) {
 
 function create_fragment(ctx) {
 	let div;
-	let each_value = /*allNodes*/ ctx[0].sort(/*sortNav*/ ctx[4]);
 	let each_blocks = [];
+	let each_1_lookup = new Map();
+	let each_value = /*allNodes*/ ctx[0].sort(/*sortNav*/ ctx[4]);
+	const get_key = ctx => /*node*/ ctx[7].path;
 
 	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+		let child_ctx = get_each_context(ctx, each_value, i);
+		let key = get_key(child_ctx);
+		each_1_lookup.set(key, each_blocks[i] = create_each_block(key, child_ctx));
 	}
 
 	return {
@@ -186,33 +198,18 @@ function create_fragment(ctx) {
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*allNodes, sortNav, active, setActive, addGroup, group*/ 63) {
-				each_value = /*allNodes*/ ctx[0].sort(/*sortNav*/ ctx[4]);
-				let i;
-
-				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context(ctx, each_value, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-					} else {
-						each_blocks[i] = create_each_block(child_ctx);
-						each_blocks[i].c();
-						each_blocks[i].m(div, null);
-					}
-				}
-
-				for (; i < each_blocks.length; i += 1) {
-					each_blocks[i].d(1);
-				}
-
-				each_blocks.length = each_value.length;
+				const each_value = /*allNodes*/ ctx[0].sort(/*sortNav*/ ctx[4]);
+				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, destroy_block, create_each_block, null, get_each_context);
 			}
 		},
 		i: noop,
 		o: noop,
 		d(detaching) {
 			if (detaching) detach(div);
-			destroy_each(each_blocks, detaching);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].d();
+			}
 		}
 	};
 }
@@ -249,11 +246,13 @@ function instance($$self, $$props, $$invalidate) {
 		);
 	};
 
+	const click_handler = node => setActive(node.path);
+
 	$$self.$set = $$props => {
 		if ("allNodes" in $$props) $$invalidate(0, allNodes = $$props.allNodes);
 	};
 
-	return [allNodes, active, group, addGroup, sortNav, setActive];
+	return [allNodes, active, group, addGroup, sortNav, setActive, click_handler];
 }
 
 class Component extends SvelteComponent {
