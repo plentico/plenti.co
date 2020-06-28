@@ -11,21 +11,13 @@
         }
         return -1;
     }
-
     
     let active = [];
     const setActive = (i, path) => {
+        active = [];
         if (path == window.location.pathname) {
             active[i] = true;
         }
-    }
-    
-    let currentPage = "";
-    //const getUrl = async () => {
-    const getUrl = () => {
-        //currentPage = await window.location.pathname;
-        currentPage = window.location.pathname;
-        console.log(currentPage);
     }
 </script>
 <div class="sidebar">
@@ -35,7 +27,6 @@
                 <strong>{addGroup(node.fields.group)}</strong>
             {/if}
             <a on:click={setActive(i, node.path)} class:active={active[i]} href="{node.path}" class="nav-link">{node.fields.title}</a>
-            <!-- <a on:click={() => getUrl()} href="{node.path}" class="nav-link{node.path == currentPage ? ' active' : ''}">{node.fields.title}</a> -->
         {/if}
     {/each}
 </div>
