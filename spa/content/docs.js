@@ -12,6 +12,7 @@ import {
 	empty,
 	init,
 	insert,
+	listen,
 	mount_component,
 	safe_not_equal,
 	set_data,
@@ -25,44 +26,44 @@ import DocsNav from '/spa/content/../components/docs_nav.js';
 
 function get_each_context_3(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[12] = list[i];
+	child_ctx[14] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[9] = list[i];
+	child_ctx[11] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_4(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[15] = list[i];
+	child_ctx[17] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_5(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[18] = list[i];
+	child_ctx[20] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[6] = list[i];
+	child_ctx[8] = list[i];
 	return child_ctx;
 }
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[3] = list[i];
+	child_ctx[5] = list[i];
 	return child_ctx;
 }
 
-// (17:20) {#if paragraph.p}
+// (27:20) {#if paragraph.p}
 function create_if_block_1(ctx) {
 	let each_1_anchor;
-	let each_value_5 = /*paragraph*/ ctx[6].p;
+	let each_value_5 = /*paragraph*/ ctx[8].p;
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_5.length; i += 1) {
@@ -86,7 +87,7 @@ function create_if_block_1(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty & /*sections*/ 2) {
-				each_value_5 = /*paragraph*/ ctx[6].p;
+				each_value_5 = /*paragraph*/ ctx[8].p;
 				let i;
 
 				for (i = 0; i < each_value_5.length; i += 1) {
@@ -115,10 +116,10 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (18:24) {#each paragraph.p as line}
+// (28:24) {#each paragraph.p as line}
 function create_each_block_5(ctx) {
 	let html_tag;
-	let raw_value = /*line*/ ctx[18] + "";
+	let raw_value = /*line*/ ctx[20] + "";
 	let t;
 
 	return {
@@ -131,7 +132,7 @@ function create_each_block_5(ctx) {
 			insert(target, t, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*line*/ ctx[18] + "")) html_tag.p(raw_value);
+			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*line*/ ctx[20] + "")) html_tag.p(raw_value);
 		},
 		d(detaching) {
 			if (detaching) html_tag.d();
@@ -140,21 +141,21 @@ function create_each_block_5(ctx) {
 	};
 }
 
-// (22:20) {#if paragraph.t}
+// (32:20) {#if paragraph.t}
 function create_if_block(ctx) {
 	let table;
 	let thead;
 	let tr;
 	let t;
 	let tbody;
-	let each_value_4 = /*paragraph*/ ctx[6].t.head;
+	let each_value_4 = /*paragraph*/ ctx[8].t.head;
 	let each_blocks_1 = [];
 
 	for (let i = 0; i < each_value_4.length; i += 1) {
 		each_blocks_1[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
 	}
 
-	let each_value_2 = /*paragraph*/ ctx[6].t.data;
+	let each_value_2 = /*paragraph*/ ctx[8].t.data;
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_2.length; i += 1) {
@@ -196,7 +197,7 @@ function create_if_block(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty & /*sections*/ 2) {
-				each_value_4 = /*paragraph*/ ctx[6].t.head;
+				each_value_4 = /*paragraph*/ ctx[8].t.head;
 				let i;
 
 				for (i = 0; i < each_value_4.length; i += 1) {
@@ -219,7 +220,7 @@ function create_if_block(ctx) {
 			}
 
 			if (dirty & /*sections*/ 2) {
-				each_value_2 = /*paragraph*/ ctx[6].t.data;
+				each_value_2 = /*paragraph*/ ctx[8].t.data;
 				let i;
 
 				for (i = 0; i < each_value_2.length; i += 1) {
@@ -249,10 +250,10 @@ function create_if_block(ctx) {
 	};
 }
 
-// (26:32) {#each paragraph.t.head as th}
+// (36:32) {#each paragraph.t.head as th}
 function create_each_block_4(ctx) {
 	let th;
-	let raw_value = /*th*/ ctx[15] + "";
+	let raw_value = /*th*/ ctx[17] + "";
 
 	return {
 		c() {
@@ -263,7 +264,7 @@ function create_each_block_4(ctx) {
 			th.innerHTML = raw_value;
 		},
 		p(ctx, dirty) {
-			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*th*/ ctx[15] + "")) th.innerHTML = raw_value;;
+			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*th*/ ctx[17] + "")) th.innerHTML = raw_value;;
 		},
 		d(detaching) {
 			if (detaching) detach(th);
@@ -271,10 +272,10 @@ function create_each_block_4(ctx) {
 	};
 }
 
-// (34:36) {#each tr as td}
+// (44:36) {#each tr as td}
 function create_each_block_3(ctx) {
 	let td;
-	let raw_value = /*td*/ ctx[12] + "";
+	let raw_value = /*td*/ ctx[14] + "";
 
 	return {
 		c() {
@@ -285,7 +286,7 @@ function create_each_block_3(ctx) {
 			td.innerHTML = raw_value;
 		},
 		p(ctx, dirty) {
-			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*td*/ ctx[12] + "")) td.innerHTML = raw_value;;
+			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*td*/ ctx[14] + "")) td.innerHTML = raw_value;;
 		},
 		d(detaching) {
 			if (detaching) detach(td);
@@ -293,11 +294,11 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (32:32) {#each paragraph.t.data as tr}
+// (42:32) {#each paragraph.t.data as tr}
 function create_each_block_2(ctx) {
 	let tr;
 	let t;
-	let each_value_3 = /*tr*/ ctx[9];
+	let each_value_3 = /*tr*/ ctx[11];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_3.length; i += 1) {
@@ -325,7 +326,7 @@ function create_each_block_2(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty & /*sections*/ 2) {
-				each_value_3 = /*tr*/ ctx[9];
+				each_value_3 = /*tr*/ ctx[11];
 				let i;
 
 				for (i = 0; i < each_value_3.length; i += 1) {
@@ -354,13 +355,13 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (15:12) {#each section.body as paragraph}
+// (25:12) {#each section.body as paragraph}
 function create_each_block_1(ctx) {
 	let p;
 	let t0;
 	let t1;
-	let if_block0 = /*paragraph*/ ctx[6].p && create_if_block_1(ctx);
-	let if_block1 = /*paragraph*/ ctx[6].t && create_if_block(ctx);
+	let if_block0 = /*paragraph*/ ctx[8].p && create_if_block_1(ctx);
+	let if_block1 = /*paragraph*/ ctx[8].t && create_if_block(ctx);
 
 	return {
 		c() {
@@ -369,7 +370,7 @@ function create_each_block_1(ctx) {
 			t0 = space();
 			if (if_block1) if_block1.c();
 			t1 = space();
-			attr(p, "class", "section-body svelte-xzd43t");
+			attr(p, "class", "section-body svelte-4nm92l");
 		},
 		m(target, anchor) {
 			insert(target, p, anchor);
@@ -379,7 +380,7 @@ function create_each_block_1(ctx) {
 			append(p, t1);
 		},
 		p(ctx, dirty) {
-			if (/*paragraph*/ ctx[6].p) {
+			if (/*paragraph*/ ctx[8].p) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -392,7 +393,7 @@ function create_each_block_1(ctx) {
 				if_block0 = null;
 			}
 
-			if (/*paragraph*/ ctx[6].t) {
+			if (/*paragraph*/ ctx[8].t) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -413,14 +414,14 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (13:8) {#each sections as section}
+// (23:8) {#each sections as section}
 function create_each_block(ctx) {
 	let strong;
-	let t0_value = /*section*/ ctx[3].title + "";
+	let t0_value = /*section*/ ctx[5].title + "";
 	let t0;
 	let t1;
 	let each_1_anchor;
-	let each_value_1 = /*section*/ ctx[3].body;
+	let each_value_1 = /*section*/ ctx[5].body;
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -438,7 +439,7 @@ function create_each_block(ctx) {
 			}
 
 			each_1_anchor = empty();
-			attr(strong, "class", "title svelte-xzd43t");
+			attr(strong, "class", "title svelte-4nm92l");
 		},
 		m(target, anchor) {
 			insert(target, strong, anchor);
@@ -452,10 +453,10 @@ function create_each_block(ctx) {
 			insert(target, each_1_anchor, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*sections*/ 2 && t0_value !== (t0_value = /*section*/ ctx[3].title + "")) set_data(t0, t0_value);
+			if (dirty & /*sections*/ 2 && t0_value !== (t0_value = /*section*/ ctx[5].title + "")) set_data(t0, t0_value);
 
 			if (dirty & /*sections*/ 2) {
-				each_value_1 = /*section*/ ctx[3].body;
+				each_value_1 = /*section*/ ctx[5].body;
 				let i;
 
 				for (i = 0; i < each_value_1.length; i += 1) {
@@ -487,14 +488,21 @@ function create_each_block(ctx) {
 }
 
 function create_fragment(ctx) {
+	let div3;
 	let div2;
-	let div1;
-	let t0;
 	let div0;
+	let input;
+	let t0;
+	let label;
+	let t4;
+	let t5;
+	let div1;
 	let h1;
-	let t1;
-	let t2;
+	let t6;
+	let t7;
 	let current;
+	let mounted;
+	let dispose;
 	const docsnav = new DocsNav({ props: { allNodes: /*allNodes*/ ctx[2] } });
 	let each_value = /*sections*/ ctx[1];
 	let each_blocks = [];
@@ -505,44 +513,76 @@ function create_fragment(ctx) {
 
 	return {
 		c() {
+			div3 = element("div");
 			div2 = element("div");
-			div1 = element("div");
-			create_component(docsnav.$$.fragment);
-			t0 = space();
 			div0 = element("div");
+			input = element("input");
+			t0 = space();
+			label = element("label");
+
+			label.innerHTML = `<span class="svelte-4nm92l"></span> 
+            <span class="svelte-4nm92l"></span> 
+            <span class="svelte-4nm92l"></span> 
+            <span class="svelte-4nm92l"></span>`;
+
+			t4 = space();
+			create_component(docsnav.$$.fragment);
+			t5 = space();
+			div1 = element("div");
 			h1 = element("h1");
-			t1 = text(/*title*/ ctx[0]);
-			t2 = space();
+			t6 = text(/*title*/ ctx[0]);
+			t7 = space();
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
 
-			attr(div0, "class", "docs");
-			attr(div1, "class", "container svelte-xzd43t");
-			attr(div2, "class", "docs-container svelte-xzd43t");
+			attr(input, "type", "checkbox");
+			attr(input, "id", "nav-toggle");
+			attr(input, "class", "hidden svelte-4nm92l");
+			attr(label, "for", "nav-toggle");
+			attr(label, "id", "hamburger");
+			attr(label, "class", "svelte-4nm92l");
+			attr(div1, "class", "docs");
+			attr(div2, "class", "container svelte-4nm92l");
+			attr(div3, "class", "docs-container svelte-4nm92l");
 		},
 		m(target, anchor) {
-			insert(target, div2, anchor);
+			insert(target, div3, anchor);
+			append(div3, div2);
+			append(div2, div0);
+			append(div0, input);
+			input.checked = /*checked*/ ctx[3];
+			append(div0, t0);
+			append(div0, label);
+			append(div0, t4);
+			mount_component(docsnav, div0, null);
+			append(div2, t5);
 			append(div2, div1);
-			mount_component(docsnav, div1, null);
-			append(div1, t0);
-			append(div1, div0);
-			append(div0, h1);
-			append(h1, t1);
-			append(div0, t2);
+			append(div1, h1);
+			append(h1, t6);
+			append(div1, t7);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].m(div0, null);
+				each_blocks[i].m(div1, null);
 			}
 
 			current = true;
+
+			if (!mounted) {
+				dispose = listen(input, "change", /*input_change_handler*/ ctx[4]);
+				mounted = true;
+			}
 		},
 		p(ctx, [dirty]) {
+			if (dirty & /*checked*/ 8) {
+				input.checked = /*checked*/ ctx[3];
+			}
+
 			const docsnav_changes = {};
 			if (dirty & /*allNodes*/ 4) docsnav_changes.allNodes = /*allNodes*/ ctx[2];
 			docsnav.$set(docsnav_changes);
-			if (!current || dirty & /*title*/ 1) set_data(t1, /*title*/ ctx[0]);
+			if (!current || dirty & /*title*/ 1) set_data(t6, /*title*/ ctx[0]);
 
 			if (dirty & /*sections*/ 2) {
 				each_value = /*sections*/ ctx[1];
@@ -556,7 +596,7 @@ function create_fragment(ctx) {
 					} else {
 						each_blocks[i] = create_each_block(child_ctx);
 						each_blocks[i].c();
-						each_blocks[i].m(div0, null);
+						each_blocks[i].m(div1, null);
 					}
 				}
 
@@ -577,15 +617,23 @@ function create_fragment(ctx) {
 			current = false;
 		},
 		d(detaching) {
-			if (detaching) detach(div2);
+			if (detaching) detach(div3);
 			destroy_component(docsnav);
 			destroy_each(each_blocks, detaching);
+			mounted = false;
+			dispose();
 		}
 	};
 }
 
 function instance($$self, $$props, $$invalidate) {
 	let { title } = $$props, { sections } = $$props, { allNodes } = $$props;
+	let checked = false;
+
+	function input_change_handler() {
+		checked = this.checked;
+		$$invalidate(3, checked);
+	}
 
 	$$self.$set = $$props => {
 		if ("title" in $$props) $$invalidate(0, title = $$props.title);
@@ -593,7 +641,7 @@ function instance($$self, $$props, $$invalidate) {
 		if ("allNodes" in $$props) $$invalidate(2, allNodes = $$props.allNodes);
 	};
 
-	return [title, sections, allNodes];
+	return [title, sections, allNodes, checked, input_change_handler];
 }
 
 class Component extends SvelteComponent {
