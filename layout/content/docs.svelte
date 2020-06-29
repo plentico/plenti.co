@@ -1,6 +1,7 @@
 <script>
     export let title, sections, allNodes;
     import DocsNav from "../components/docs_nav.svelte";
+    let checked=false;
 </script>
 
 <div class="docs-container">
@@ -8,6 +9,13 @@
     <div class="container">
     <DocsNav allNodes={allNodes} />
     <div class="docs">
+        <input type="checkbox" id="nav-toggle" class="hidden" bind:checked={checked}>
+        <label for="nav-toggle" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
         <h1>{title}</h1>
 
         {#each sections as section}
@@ -69,5 +77,91 @@
     }
     p {
         line-height: 1.75rem;
+    }
+    .hidden {
+        display: none;
+    }
+    #hamburger {
+        display: none;
+        width: 35px;
+        height: 30px;
+        position: relative;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+        cursor: pointer;
+        align-self: center;
+    }
+    #hamburger span {
+        display: block;
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background-image: linear-gradient(to right,var(--primary),var(--primary-dark));
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
+    #hamburger span:nth-child(2),
+    #hamburger span:nth-child(3) {
+        top: 12px;
+    }
+    #hamburger span:nth-child(4) {
+        top: 24px;
+    }
+    #nav-toggle:checked~#hamburger span:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    #nav-toggle:checked~#hamburger span:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    #nav-toggle:checked~#hamburger span:nth-child(1),
+    #nav-toggle:checked~#hamburger span:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+    @media (max-width: 600px) {
+        #hamburger {
+            display: block;
+        }
+        .docs-container :global(.sidebar) {
+            position: absolute;
+            background-color: var(--base-lightest);
+            max-width: 0;
+            overflow: hidden;
+            left: 0;
+            padding: 0;
+            border: none;
+            box-shadow: 0 5px 6px -4px rgba(0,0,0,.2);
+            -webkit-transition: max-width .4s ease-in-out;
+            -moz-transition: max-width .4s ease-in-out;
+            -o-transition: max-width .4s ease-in-out;
+            transition: max-width .4s ease-in-out;
+        }
+        #nav-toggle:checked~:global(.sidebar) {
+            max-width: 300px;
+        }
+        :global(.sidebar) a {
+            padding: 10px;
+        }
     }
 </style>
