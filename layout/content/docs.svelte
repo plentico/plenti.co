@@ -7,8 +7,7 @@
 <div class="docs-container">
 
     <div class="container">
-    <DocsNav allNodes={allNodes} />
-    <div class="docs">
+    <div>
         <input type="checkbox" id="nav-toggle" class="hidden" bind:checked={checked}>
         <label for="nav-toggle" id="hamburger">
             <span></span>
@@ -16,6 +15,9 @@
             <span></span>
             <span></span>
         </label>
+        <DocsNav allNodes={allNodes} />
+    </div>
+    <div class="docs">
         <h1>{title}</h1>
 
         {#each sections as section}
@@ -140,6 +142,9 @@
         left: 50%;
     }
     @media (max-width: 600px) {
+        .docs-container .container {
+            flex-direction: column;
+        }
         #hamburger {
             display: block;
         }
