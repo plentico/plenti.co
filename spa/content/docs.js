@@ -70,7 +70,7 @@ function create_if_block_2(ctx) {
 	return {
 		c() {
 			div = element("div");
-			attr(div, "class", "sidebar-overlay svelte-kb7d75");
+			attr(div, "class", "sidebar-overlay svelte-mqcoi3");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -399,7 +399,7 @@ function create_each_block_1(ctx) {
 			t0 = space();
 			if (if_block1) if_block1.c();
 			t1 = space();
-			attr(p, "class", "section-body svelte-kb7d75");
+			attr(p, "class", "section-body svelte-mqcoi3");
 		},
 		m(target, anchor) {
 			insert(target, p, anchor);
@@ -468,7 +468,7 @@ function create_each_block(ctx) {
 			}
 
 			each_1_anchor = empty();
-			attr(strong, "class", "title svelte-kb7d75");
+			attr(strong, "class", "title svelte-mqcoi3");
 		},
 		m(target, anchor) {
 			insert(target, strong, anchor);
@@ -551,10 +551,10 @@ function create_fragment(ctx) {
 			t0 = space();
 			label = element("label");
 
-			label.innerHTML = `<span class="svelte-kb7d75"></span> 
-            <span class="svelte-kb7d75"></span> 
-            <span class="svelte-kb7d75"></span> 
-            <span class="svelte-kb7d75"></span>`;
+			label.innerHTML = `<span class="svelte-mqcoi3"></span> 
+            <span class="svelte-mqcoi3"></span> 
+            <span class="svelte-mqcoi3"></span> 
+            <span class="svelte-mqcoi3"></span>`;
 
 			t4 = space();
 			create_component(docsnav.$$.fragment);
@@ -572,13 +572,13 @@ function create_fragment(ctx) {
 
 			attr(input, "type", "checkbox");
 			attr(input, "id", "nav-toggle");
-			attr(input, "class", "hidden svelte-kb7d75");
+			attr(input, "class", "hidden svelte-mqcoi3");
 			attr(label, "for", "nav-toggle");
 			attr(label, "id", "hamburger");
-			attr(label, "class", "svelte-kb7d75");
+			attr(label, "class", "svelte-mqcoi3");
 			attr(div1, "class", "docs");
-			attr(div2, "class", "container svelte-kb7d75");
-			attr(div3, "class", "docs-container svelte-kb7d75");
+			attr(div2, "class", "container svelte-mqcoi3");
+			attr(div3, "class", "docs-container svelte-mqcoi3");
 		},
 		m(target, anchor) {
 			insert(target, div3, anchor);
