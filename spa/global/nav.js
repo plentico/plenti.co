@@ -31,6 +31,8 @@ function create_fragment(ctx) {
 	let a3;
 	let t12;
 	let a4;
+	let t14;
+	let a5;
 	let mounted;
 	let dispose;
 
@@ -59,10 +61,13 @@ function create_fragment(ctx) {
 			a2.textContent = "Themes";
 			t10 = space();
 			a3 = element("a");
-			a3.textContent = "Download";
+			a3.textContent = "Donate";
 			t12 = space();
 			a4 = element("a");
-			a4.innerHTML = `<img src="/assets/social/github.svg" class="svelte-34czqc">`;
+			a4.textContent = "Download";
+			t14 = space();
+			a5 = element("a");
+			a5.innerHTML = `<img src="/assets/social/github.svg" class="svelte-34czqc">`;
 			attr(span0, "id", "brand");
 			attr(span0, "class", "svelte-34czqc");
 			attr(input, "type", "checkbox");
@@ -75,10 +80,12 @@ function create_fragment(ctx) {
 			attr(a1, "href", "/docs");
 			attr(a2, "class", "nav-link svelte-34czqc");
 			attr(a2, "href", "/themes");
-			attr(a3, "class", "nav-link button svelte-34czqc");
-			attr(a3, "href", "/download");
-			attr(a4, "class", "nav-link svelte-34czqc");
-			attr(a4, "href", "https://github.com/plentico/plenti");
+			attr(a3, "class", "nav-link svelte-34czqc");
+			attr(a3, "href", "https://github.com/sponsors/plentico");
+			attr(a4, "class", "nav-link button svelte-34czqc");
+			attr(a4, "href", "/download");
+			attr(a5, "class", "nav-link svelte-34czqc");
+			attr(a5, "href", "https://github.com/plentico/plenti");
 			attr(div0, "id", "menu");
 			attr(div0, "class", "svelte-34czqc");
 			attr(div1, "class", "container svelte-34czqc");
@@ -102,13 +109,16 @@ function create_fragment(ctx) {
 			append(div0, a3);
 			append(div0, t12);
 			append(div0, a4);
+			append(div0, t14);
+			append(div0, a5);
 
 			if (!mounted) {
 				dispose = [
 					listen(input, "change", /*input_change_handler*/ ctx[2]),
 					listen(a1, "click", /*uncheck*/ ctx[1]),
 					listen(a2, "click", /*uncheck*/ ctx[1]),
-					listen(a3, "click", /*uncheck*/ ctx[1])
+					listen(a3, "click", /*uncheck*/ ctx[1]),
+					listen(a4, "click", /*uncheck*/ ctx[1])
 				];
 
 				mounted = true;
