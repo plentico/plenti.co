@@ -183,5 +183,8 @@
             position: absolute;
             z-index: 1;
         }
+        :global(body) {
+            position: relative;
+        }
     }
 </style>
