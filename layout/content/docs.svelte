@@ -163,7 +163,7 @@
             left: -40px;
             border: none;
             padding: 20px;
-            z-index: 1;
+            z-index: 2;
             box-shadow: 0 5px 6px -4px rgba(0,0,0,.2);
             -webkit-transition: all .4s ease-in-out;
             -moz-transition: all .4s ease-in-out;
@@ -181,6 +181,7 @@
             left: 0;
             top: 0;
             position: absolute;
+            z-index: 1;
         }
     }
 </style>
