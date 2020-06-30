@@ -19,13 +19,15 @@ import {
 	update_keyed_each
 } from '/spa/web_modules/svelte/internal/index.js';
 
+import { onMount } from '/spa/web_modules/svelte/internal/index.js';
+
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
 	child_ctx[7] = list[i];
 	return child_ctx;
 }
 
-// (27:8) {#if node.type == "docs"}
+// (34:8) {#if node.type == "docs"}
 function create_if_block(ctx) {
 	let show_if = !/*group*/ ctx[2].includes(/*node*/ ctx[7].fields.group);
 	let t0;
@@ -99,7 +101,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (28:12) {#if !group.includes(node.fields.group)}
+// (35:12) {#if !group.includes(node.fields.group)}
 function create_if_block_1(ctx) {
 	let strong;
 	let t_value = /*addGroup*/ ctx[3](/*node*/ ctx[7].fields.group) + "";
@@ -124,7 +126,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (26:4) {#each allNodes.sort(sortNav) as node (node.path)}
+// (33:4) {#each allNodes.sort(sortNav) as node (node.path)}
 function create_each_block(key_1, ctx) {
 	let first;
 	let if_block_anchor;
@@ -245,6 +247,11 @@ function instance($$self, $$props, $$invalidate) {
 			100
 		);
 	};
+
+	onMount(async () => {
+		let initialPath = await window.location.pathname;
+		$$invalidate(1, active[initialPath] = true, active);
+	});
 
 	const click_handler = node => setActive(node.path);
 
