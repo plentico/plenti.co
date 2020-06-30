@@ -69,18 +69,25 @@
           <Linux />
         {:else if currentOs.title == 'Mac'}
           <Mac />
-        {:else}
+        {:else if currentOs.title == 'Windows'}
           <Windows />
+        {:else}
+          <strong>We can't determine what Operating System you're on.</strong>
         {/if}
         <div class="os-name">{currentOs.title}</div>
       </div>
     {/each}
     </section>
     <section id="detection">
-      <div class="selected">It looks like you're using a {OSName} computer.</div>
-      <div class="instructions">If that's not the case, choose a different Operating System above.</div>
-      <a class="cta" href="https://github.com/plentico/plenti/releases/download/v{version}/plenti_{version}_{OSName}_64-bit.tar.gz">Download<br><strong>version {version}</strong><br>for 64-bit {OSName}</a>
-      <div>(<a href="https://github.com/plentico/plenti/releases/latest">See more options</a>)</div>
+      {#if OSName}
+        <div class="selected">It looks like you're using a {OSName} computer.</div>
+        <div class="instructions">If that's not the case, choose a different Operating System above.</div>
+        <a class="cta" href="https://github.com/plentico/plenti/releases/download/v{version}/plenti_{version}_{OSName}_64-bit.tar.gz">Download<br><strong>version {version}</strong><br>for 64-bit {OSName}</a>
+        <div>(<a href="https://github.com/plentico/plenti/releases/latest">See more options</a>)</div>
+      {:else}
+        <div class="selected"><a href="https://github.com/plentico/plenti/releases/latest">See the latest releases</a></div>
+        <div class="instructions">Or use one of the package managers below...</div>
+      {/if}
     </section>
     <section id="instructions">
       {#if OSName == 'Linux'}
@@ -101,7 +108,20 @@
           <br>scoop install plentico/scoop-plenti
         </codeblock>
       {:else}
-        <div>Please select one of the Operating Systems above.</div>
+        <strong>Install using Snap:</strong><br><br>
+        <codeblock>
+          sudo snap install plenti
+        </codeblock>
+        <strong>Install using Homebrew:</strong><br><br>
+        <codeblock>
+          brew tap plentico/homebrew-plenti
+          <br>brew install plenti
+        </codeblock>
+        <strong>Install using Scoop:</strong><br><br>
+        <codeblock>
+          scoop bucket add org https://github.com/plentico/scoop-plenti.git
+          <br>scoop install plentico/scoop-plenti
+        </codeblock>
       {/if}
     </section>
   {/if}
