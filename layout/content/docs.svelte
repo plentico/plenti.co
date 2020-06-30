@@ -2,6 +2,9 @@
     export let title, sections, allNodes;
     import DocsNav from "../components/docs_nav.svelte";
     let checked=false;
+    const uncheck = () => {
+        checked=false;
+    }
 </script>
 
 <div class="docs-container">
@@ -17,6 +20,9 @@
         </label>
         <DocsNav allNodes={allNodes} />
     </div>
+    {#if checked}
+        <div class="sidebar-overlay" on:click={uncheck}></div>
+    {/if}
     <div class="docs">
         <h1>{title}</h1>
 
@@ -157,6 +163,7 @@
             left: 0;
             padding: 0;
             border: none;
+            z-index: 1;
             box-shadow: 0 5px 6px -4px rgba(0,0,0,.2);
             -webkit-transition: max-width .4s ease-in-out;
             -moz-transition: max-width .4s ease-in-out;
@@ -165,6 +172,14 @@
         }
         #nav-toggle:checked~:global(.sidebar) {
             max-width: 200px;
+        }
+        .sidebar-overlay {
+            background: rgba(54, 25, 25, .5);
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            position: absolute;
         }
     }
 </style>
