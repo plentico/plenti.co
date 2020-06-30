@@ -21,6 +21,13 @@
             }
         }, 100);
     }
+
+    // Set active on initial page load.
+    import {onMount} from 'svelte/internal';
+    onMount(async () => {
+        let initialPath = await window.location.pathname;
+        active[initialPath] = true;
+    });
 </script>
 <div class="sidebar">
     {#each allNodes.sort(sortNav) as node (node.path)}
