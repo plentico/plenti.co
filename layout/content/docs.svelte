@@ -160,18 +160,19 @@
             background-color: var(--base-lightest);
             max-width: 0;
             overflow: hidden;
-            left: 0;
-            padding: 0;
+            left: -40px;
             border: none;
+            padding: 20px;
             z-index: 1;
             box-shadow: 0 5px 6px -4px rgba(0,0,0,.2);
-            -webkit-transition: max-width .4s ease-in-out;
-            -moz-transition: max-width .4s ease-in-out;
-            -o-transition: max-width .4s ease-in-out;
-            transition: max-width .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
         }
         #nav-toggle:checked~:global(.sidebar) {
             max-width: 200px;
+            left: 0;
         }
         .sidebar-overlay {
             background: rgba(54, 25, 25, .5);
