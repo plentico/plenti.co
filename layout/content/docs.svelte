@@ -102,9 +102,10 @@
     #hamburger span {
         display: block;
         position: absolute;
-        height: 5px;
+        height: 3px;
+        border-radius: 5px;
         width: 100%;
-        background-image: linear-gradient(to right,var(--primary),var(--primary-dark));
+        background-color: var(--base-dark);
         opacity: 1;
         left: 0;
         -webkit-transform: rotate(0deg);
@@ -163,10 +164,7 @@
             transition: max-width .4s ease-in-out;
         }
         #nav-toggle:checked~:global(.sidebar) {
-            max-width: 300px;
-        }
-        :global(.sidebar) a {
-            padding: 10px;
+            max-width: 200px;
         }
     }
 </style>
