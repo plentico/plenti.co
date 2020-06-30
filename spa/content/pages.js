@@ -14,6 +14,7 @@ import {
 	insert,
 	listen,
 	mount_component,
+	noop,
 	safe_not_equal,
 	set_data,
 	space,
@@ -46,7 +47,7 @@ function get_each_context_2(ctx, list, i) {
 }
 
 // (48:2) {#if description}
-function create_if_block_7(ctx) {
+function create_if_block_9(ctx) {
 	let div;
 	let each_value_2 = /*description*/ ctx[1];
 	let each_blocks = [];
@@ -124,7 +125,7 @@ function create_each_block_2(ctx) {
 }
 
 // (56:2) {#if themes}
-function create_if_block_6(ctx) {
+function create_if_block_8(ctx) {
 	let section;
 	let each_value_1 = /*themes*/ ctx[2];
 	let each_blocks = [];
@@ -212,26 +213,7 @@ function create_if_block(ctx) {
 	let section0;
 	let t0;
 	let section1;
-	let div0;
 	let t1;
-	let t2;
-	let t3;
-	let t4;
-	let div1;
-	let t6;
-	let a0;
-	let t7;
-	let br0;
-	let strong;
-	let t8;
-	let t9;
-	let br1;
-	let t10;
-	let t11;
-	let a0_href_value;
-	let t12;
-	let div2;
-	let t16;
 	let section2;
 	let current;
 	let each_value = /*os*/ ctx[3];
@@ -246,14 +228,22 @@ function create_if_block(ctx) {
 	});
 
 	function select_block_type_1(ctx, dirty) {
+		if (/*OSName*/ ctx[4]) return create_if_block_4;
+		return create_else_block_1;
+	}
+
+	let current_block_type = select_block_type_1(ctx, -1);
+	let if_block0 = current_block_type(ctx);
+
+	function select_block_type_2(ctx, dirty) {
 		if (/*OSName*/ ctx[4] == "Linux") return create_if_block_1;
 		if (/*OSName*/ ctx[4] == "Mac") return create_if_block_2;
 		if (/*OSName*/ ctx[4] == "Windows") return create_if_block_3;
 		return create_else_block;
 	}
 
-	let current_block_type = select_block_type_1(ctx, -1);
-	let if_block = current_block_type(ctx);
+	let current_block_type_1 = select_block_type_2(ctx, -1);
+	let if_block1 = current_block_type_1(ctx);
 
 	return {
 		c() {
@@ -265,35 +255,12 @@ function create_if_block(ctx) {
 
 			t0 = space();
 			section1 = element("section");
-			div0 = element("div");
-			t1 = text("It looks like you're using a ");
-			t2 = text(/*OSName*/ ctx[4]);
-			t3 = text(" computer.");
-			t4 = space();
-			div1 = element("div");
-			div1.textContent = "If that's not the case, choose a different Operating System above.";
-			t6 = space();
-			a0 = element("a");
-			t7 = text("Download");
-			br0 = element("br");
-			strong = element("strong");
-			t8 = text("version ");
-			t9 = text(/*version*/ ctx[5]);
-			br1 = element("br");
-			t10 = text("for 64-bit ");
-			t11 = text(/*OSName*/ ctx[4]);
-			t12 = space();
-			div2 = element("div");
-			div2.innerHTML = `(<a href="https://github.com/plentico/plenti/releases/latest" class="svelte-1oxlflm">See more options</a>)`;
-			t16 = space();
+			if_block0.c();
+			t1 = space();
 			section2 = element("section");
-			if_block.c();
+			if_block1.c();
 			attr(section0, "id", "download");
 			attr(section0, "class", "svelte-1oxlflm");
-			attr(div0, "class", "selected svelte-1oxlflm");
-			attr(div1, "class", "instructions svelte-1oxlflm");
-			attr(a0, "class", "cta svelte-1oxlflm");
-			attr(a0, "href", a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[5] + "/plenti_" + /*version*/ ctx[5] + "_" + /*OSName*/ ctx[4] + "_64-bit.tar.gz");
 			attr(section1, "id", "detection");
 			attr(section1, "class", "svelte-1oxlflm");
 			attr(section2, "id", "instructions");
@@ -307,27 +274,10 @@ function create_if_block(ctx) {
 
 			insert(target, t0, anchor);
 			insert(target, section1, anchor);
-			append(section1, div0);
-			append(div0, t1);
-			append(div0, t2);
-			append(div0, t3);
-			append(section1, t4);
-			append(section1, div1);
-			append(section1, t6);
-			append(section1, a0);
-			append(a0, t7);
-			append(a0, br0);
-			append(a0, strong);
-			append(strong, t8);
-			append(strong, t9);
-			append(a0, br1);
-			append(a0, t10);
-			append(a0, t11);
-			append(section1, t12);
-			append(section1, div2);
-			insert(target, t16, anchor);
+			if_block0.m(section1, null);
+			insert(target, t1, anchor);
 			insert(target, section2, anchor);
-			if_block.m(section2, null);
+			if_block1.m(section2, null);
 			current = true;
 		},
 		p(ctx, dirty) {
@@ -358,21 +308,25 @@ function create_if_block(ctx) {
 				check_outros();
 			}
 
-			if (!current || dirty & /*OSName*/ 16) set_data(t2, /*OSName*/ ctx[4]);
-			if (!current || dirty & /*version*/ 32) set_data(t9, /*version*/ ctx[5]);
-			if (!current || dirty & /*OSName*/ 16) set_data(t11, /*OSName*/ ctx[4]);
+			if (current_block_type === (current_block_type = select_block_type_1(ctx, dirty)) && if_block0) {
+				if_block0.p(ctx, dirty);
+			} else {
+				if_block0.d(1);
+				if_block0 = current_block_type(ctx);
 
-			if (!current || dirty & /*version, OSName*/ 48 && a0_href_value !== (a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[5] + "/plenti_" + /*version*/ ctx[5] + "_" + /*OSName*/ ctx[4] + "_64-bit.tar.gz")) {
-				attr(a0, "href", a0_href_value);
+				if (if_block0) {
+					if_block0.c();
+					if_block0.m(section1, null);
+				}
 			}
 
-			if (current_block_type !== (current_block_type = select_block_type_1(ctx, dirty))) {
-				if_block.d(1);
-				if_block = current_block_type(ctx);
+			if (current_block_type_1 !== (current_block_type_1 = select_block_type_2(ctx, dirty))) {
+				if_block1.d(1);
+				if_block1 = current_block_type_1(ctx);
 
-				if (if_block) {
-					if_block.c();
-					if_block.m(section2, null);
+				if (if_block1) {
+					if_block1.c();
+					if_block1.m(section2, null);
 				}
 			}
 		},
@@ -399,15 +353,36 @@ function create_if_block(ctx) {
 			destroy_each(each_blocks, detaching);
 			if (detaching) detach(t0);
 			if (detaching) detach(section1);
-			if (detaching) detach(t16);
+			if_block0.d();
+			if (detaching) detach(t1);
 			if (detaching) detach(section2);
-			if_block.d();
+			if_block1.d();
 		}
 	};
 }
 
-// (72:8) {:else}
-function create_else_block_1(ctx) {
+// (74:8) {:else}
+function create_else_block_2(ctx) {
+	let strong;
+
+	return {
+		c() {
+			strong = element("strong");
+			strong.textContent = "We can't determine what Operating System you're on.";
+		},
+		m(target, anchor) {
+			insert(target, strong, anchor);
+		},
+		i: noop,
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(strong);
+		}
+	};
+}
+
+// (72:47) 
+function create_if_block_7(ctx) {
 	let current;
 	const windows = new Windows({});
 
@@ -435,7 +410,7 @@ function create_else_block_1(ctx) {
 }
 
 // (70:43) 
-function create_if_block_5(ctx) {
+function create_if_block_6(ctx) {
 	let current;
 	const mac = new Mac({});
 
@@ -463,7 +438,7 @@ function create_if_block_5(ctx) {
 }
 
 // (68:8) {#if currentOs.title == 'Linux'}
-function create_if_block_4(ctx) {
+function create_if_block_5(ctx) {
 	let current;
 	const linux = new Linux({});
 
@@ -504,13 +479,14 @@ function create_each_block(ctx) {
 	let current;
 	let mounted;
 	let dispose;
-	const if_block_creators = [create_if_block_4, create_if_block_5, create_else_block_1];
+	const if_block_creators = [create_if_block_5, create_if_block_6, create_if_block_7, create_else_block_2];
 	const if_blocks = [];
 
 	function select_block_type(ctx, dirty) {
 		if (/*currentOs*/ ctx[7].title == "Linux") return 0;
 		if (/*currentOs*/ ctx[7].title == "Mac") return 1;
-		return 2;
+		if (/*currentOs*/ ctx[7].title == "Windows") return 2;
+		return 3;
 	}
 
 	current_block_type_index = select_block_type(ctx, -1);
@@ -598,25 +574,223 @@ function create_each_block(ctx) {
 	};
 }
 
-// (103:6) {:else}
-function create_else_block(ctx) {
-	let div;
+// (87:6) {:else}
+function create_else_block_1(ctx) {
+	let div0;
+	let t1;
+	let div1;
 
 	return {
 		c() {
-			div = element("div");
-			div.textContent = "Please select one of the Operating Systems above.";
+			div0 = element("div");
+			div0.innerHTML = `<a href="https://github.com/plentico/plenti/releases/latest" class="svelte-1oxlflm">See the latest releases</a>`;
+			t1 = space();
+			div1 = element("div");
+			div1.textContent = "Or use one of the package managers below...";
+			attr(div0, "class", "selected svelte-1oxlflm");
+			attr(div1, "class", "instructions svelte-1oxlflm");
 		},
 		m(target, anchor) {
-			insert(target, div, anchor);
+			insert(target, div0, anchor);
+			insert(target, t1, anchor);
+			insert(target, div1, anchor);
 		},
+		p: noop,
 		d(detaching) {
-			if (detaching) detach(div);
+			if (detaching) detach(div0);
+			if (detaching) detach(t1);
+			if (detaching) detach(div1);
 		}
 	};
 }
 
-// (97:36) 
+// (82:6) {#if OSName}
+function create_if_block_4(ctx) {
+	let div0;
+	let t0;
+	let t1;
+	let t2;
+	let t3;
+	let div1;
+	let t5;
+	let a0;
+	let t6;
+	let br0;
+	let strong;
+	let t7;
+	let t8;
+	let br1;
+	let t9;
+	let t10;
+	let a0_href_value;
+	let t11;
+	let div2;
+
+	return {
+		c() {
+			div0 = element("div");
+			t0 = text("It looks like you're using a ");
+			t1 = text(/*OSName*/ ctx[4]);
+			t2 = text(" computer.");
+			t3 = space();
+			div1 = element("div");
+			div1.textContent = "If that's not the case, choose a different Operating System above.";
+			t5 = space();
+			a0 = element("a");
+			t6 = text("Download");
+			br0 = element("br");
+			strong = element("strong");
+			t7 = text("version ");
+			t8 = text(/*version*/ ctx[5]);
+			br1 = element("br");
+			t9 = text("for 64-bit ");
+			t10 = text(/*OSName*/ ctx[4]);
+			t11 = space();
+			div2 = element("div");
+			div2.innerHTML = `(<a href="https://github.com/plentico/plenti/releases/latest" class="svelte-1oxlflm">See more options</a>)`;
+			attr(div0, "class", "selected svelte-1oxlflm");
+			attr(div1, "class", "instructions svelte-1oxlflm");
+			attr(a0, "class", "cta svelte-1oxlflm");
+			attr(a0, "href", a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[5] + "/plenti_" + /*version*/ ctx[5] + "_" + /*OSName*/ ctx[4] + "_64-bit.tar.gz");
+		},
+		m(target, anchor) {
+			insert(target, div0, anchor);
+			append(div0, t0);
+			append(div0, t1);
+			append(div0, t2);
+			insert(target, t3, anchor);
+			insert(target, div1, anchor);
+			insert(target, t5, anchor);
+			insert(target, a0, anchor);
+			append(a0, t6);
+			append(a0, br0);
+			append(a0, strong);
+			append(strong, t7);
+			append(strong, t8);
+			append(a0, br1);
+			append(a0, t9);
+			append(a0, t10);
+			insert(target, t11, anchor);
+			insert(target, div2, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*OSName*/ 16) set_data(t1, /*OSName*/ ctx[4]);
+			if (dirty & /*version*/ 32) set_data(t8, /*version*/ ctx[5]);
+			if (dirty & /*OSName*/ 16) set_data(t10, /*OSName*/ ctx[4]);
+
+			if (dirty & /*version, OSName*/ 48 && a0_href_value !== (a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[5] + "/plenti_" + /*version*/ ctx[5] + "_" + /*OSName*/ ctx[4] + "_64-bit.tar.gz")) {
+				attr(a0, "href", a0_href_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div0);
+			if (detaching) detach(t3);
+			if (detaching) detach(div1);
+			if (detaching) detach(t5);
+			if (detaching) detach(a0);
+			if (detaching) detach(t11);
+			if (detaching) detach(div2);
+		}
+	};
+}
+
+// (110:6) {:else}
+function create_else_block(ctx) {
+	let strong0;
+	let br0;
+	let br1;
+	let t1;
+	let codeblock0;
+	let t3;
+	let strong1;
+	let br2;
+	let br3;
+	let t5;
+	let codeblock1;
+	let t8;
+	let strong2;
+	let br5;
+	let br6;
+	let t10;
+	let codeblock2;
+
+	return {
+		c() {
+			strong0 = element("strong");
+			strong0.textContent = "Install using Snap:";
+			br0 = element("br");
+			br1 = element("br");
+			t1 = space();
+			codeblock0 = element("codeblock");
+			codeblock0.textContent = "sudo snap install plenti";
+			t3 = space();
+			strong1 = element("strong");
+			strong1.textContent = "Install using Homebrew:";
+			br2 = element("br");
+			br3 = element("br");
+			t5 = space();
+			codeblock1 = element("codeblock");
+
+			codeblock1.innerHTML = `
+          brew tap plentico/homebrew-plenti
+          <br>brew install plenti
+        `;
+
+			t8 = space();
+			strong2 = element("strong");
+			strong2.textContent = "Install using Scoop:";
+			br5 = element("br");
+			br6 = element("br");
+			t10 = space();
+			codeblock2 = element("codeblock");
+
+			codeblock2.innerHTML = `
+          scoop bucket add org https://github.com/plentico/scoop-plenti.git
+          <br>scoop install plentico/scoop-plenti
+        `;
+		},
+		m(target, anchor) {
+			insert(target, strong0, anchor);
+			insert(target, br0, anchor);
+			insert(target, br1, anchor);
+			insert(target, t1, anchor);
+			insert(target, codeblock0, anchor);
+			insert(target, t3, anchor);
+			insert(target, strong1, anchor);
+			insert(target, br2, anchor);
+			insert(target, br3, anchor);
+			insert(target, t5, anchor);
+			insert(target, codeblock1, anchor);
+			insert(target, t8, anchor);
+			insert(target, strong2, anchor);
+			insert(target, br5, anchor);
+			insert(target, br6, anchor);
+			insert(target, t10, anchor);
+			insert(target, codeblock2, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(strong0);
+			if (detaching) detach(br0);
+			if (detaching) detach(br1);
+			if (detaching) detach(t1);
+			if (detaching) detach(codeblock0);
+			if (detaching) detach(t3);
+			if (detaching) detach(strong1);
+			if (detaching) detach(br2);
+			if (detaching) detach(br3);
+			if (detaching) detach(t5);
+			if (detaching) detach(codeblock1);
+			if (detaching) detach(t8);
+			if (detaching) detach(strong2);
+			if (detaching) detach(br5);
+			if (detaching) detach(br6);
+			if (detaching) detach(t10);
+			if (detaching) detach(codeblock2);
+		}
+	};
+}
+
+// (104:36) 
 function create_if_block_3(ctx) {
 	let strong;
 	let br0;
@@ -655,7 +829,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (91:32) 
+// (98:32) 
 function create_if_block_2(ctx) {
 	let strong;
 	let br0;
@@ -694,7 +868,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (86:6) {#if OSName == 'Linux'}
+// (93:6) {#if OSName == 'Linux'}
 function create_if_block_1(ctx) {
 	let strong;
 	let br0;
@@ -737,8 +911,8 @@ function create_fragment(ctx) {
 	let t2;
 	let t3;
 	let current;
-	let if_block0 = /*description*/ ctx[1] && create_if_block_7(ctx);
-	let if_block1 = /*themes*/ ctx[2] && create_if_block_6(ctx);
+	let if_block0 = /*description*/ ctx[1] && create_if_block_9(ctx);
+	let if_block1 = /*themes*/ ctx[2] && create_if_block_8(ctx);
 	let if_block2 = /*os*/ ctx[3] && create_if_block(ctx);
 
 	return {
@@ -774,7 +948,7 @@ function create_fragment(ctx) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
-					if_block0 = create_if_block_7(ctx);
+					if_block0 = create_if_block_9(ctx);
 					if_block0.c();
 					if_block0.m(div, t2);
 				}
@@ -787,7 +961,7 @@ function create_fragment(ctx) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
-					if_block1 = create_if_block_6(ctx);
+					if_block1 = create_if_block_8(ctx);
 					if_block1.c();
 					if_block1.m(div, t3);
 				}
