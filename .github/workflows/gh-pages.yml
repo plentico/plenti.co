@@ -8,25 +8,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    container: docker://plentico/plenti:latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v2-beta
-        with:
-          node-version: '13'
-
-      - name: Download Plenti
-        run: wget -c $(curl -s https://api.github.com/repos/plentico/plenti/releases/latest | grep -o "http.*Linux_64-bit.tar.gz")
-
-      - name: Unpack Plenti
-        run: tar -zxvf *_Linux_64-bit.tar.gz
-
-      - name: Install node packages
-        run: npm install
-
       - name: Build
-        run: ./plenti build --nodejs=true
+        run: ./plenti build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
