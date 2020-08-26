@@ -1,5 +1,5 @@
 <script>
-    export let title, sections, allNodes;
+    export let title, sections, allContent;
     import DocsNav from "../components/docs_nav.svelte";
     let checked=false;
     const uncheck = () => {
@@ -18,7 +18,7 @@
             <span></span>
             <span></span>
         </label>
-        <DocsNav allNodes={allNodes} />
+        <DocsNav allContent={allContent} />
     </div>
     {#if checked}
         <div class="sidebar-overlay" on:click={uncheck}></div>

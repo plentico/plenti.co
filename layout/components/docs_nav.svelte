@@ -1,5 +1,5 @@
 <script>
-    export let allNodes;
+    export let allContent;
     let group = [];
     const addGroup = newGroup => {
         group.push(newGroup);
@@ -30,12 +30,12 @@
     });
 </script>
 <div class="sidebar">
-    {#each allNodes.sort(sortNav) as node (node.path)}
-        {#if node.type == "docs"}
-            {#if !group.includes(node.fields.group)}
-                <strong>{addGroup(node.fields.group)}</strong>
+    {#each allContent.sort(sortNav) as content (content.path)}
+        {#if content.type == "docs"}
+            {#if !group.includes(content.fields.group)}
+                <strong>{addGroup(content.fields.group)}</strong>
             {/if}
-            <a on:click={() => setActive(node.path)} class:active={active[node.path]} href="{node.path}" class="nav-link">{node.fields.title}</a>
+            <a on:click={() => setActive(content.path)} class:active={active[content.path]} href="{content.path}" class="nav-link">{content.fields.title}</a>
         {/if}
     {/each}
 </div>

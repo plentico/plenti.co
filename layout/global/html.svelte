@@ -4,15 +4,15 @@
   import Footer from './footer.svelte';
   import { makeTitle } from '../scripts/make_title.svelte';
 
-  export let route, node, allNodes;
+  export let route, content, allContent;
 </script>
 
 <html lang="en">
-<Head title={makeTitle(node.filename)} />
+<Head title={makeTitle(content.filename)} />
 <body>
   <Nav />
   <main>
-    <svelte:component this={route} {...node.fields} {allNodes} />
+    <svelte:component this={route} {...content.fields} {allContent} />
     <br />
   </main>
   <Footer />
