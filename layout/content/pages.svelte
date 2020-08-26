@@ -23,10 +23,10 @@
 
     // Get latest release version.
     try {
-      let response = await fetch(`https://api.github.com/repos/plentico/plenti/releases`, {
-        mode: 'cors',
+      let response = await fetch("https://api.github.com/repos/plentico/plenti/releases", {
+        mode: "cors",
         headers: {
-          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+          "Content-Type" : "application/x-www-form-urlencoded; charset=UTF-8"
         }
       });
       if (response.ok) {
