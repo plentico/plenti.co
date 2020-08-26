@@ -39,12 +39,12 @@ function create_fragment(ctx) {
 
 	const head = new Head({
 			props: {
-				title: makeTitle(/*node*/ ctx[1].filename)
+				title: makeTitle(/*content*/ ctx[1].filename)
 			}
 		});
 
 	const nav = new Nav({});
-	const switch_instance_spread_levels = [/*node*/ ctx[1].fields, { allNodes: /*allNodes*/ ctx[2] }];
+	const switch_instance_spread_levels = [/*content*/ ctx[1].fields, { allContent: /*allContent*/ ctx[2] }];
 	var switch_value = /*route*/ ctx[0];
 
 	function switch_props(ctx) {
@@ -102,13 +102,13 @@ function create_fragment(ctx) {
 		},
 		p(ctx, [dirty]) {
 			const head_changes = {};
-			if (dirty & /*node*/ 2) head_changes.title = makeTitle(/*node*/ ctx[1].filename);
+			if (dirty & /*content*/ 2) head_changes.title = makeTitle(/*content*/ ctx[1].filename);
 			head.$set(head_changes);
 
-			const switch_instance_changes = (dirty & /*node, allNodes*/ 6)
+			const switch_instance_changes = (dirty & /*content, allContent*/ 6)
 			? get_spread_update(switch_instance_spread_levels, [
-					dirty & /*node*/ 2 && get_spread_object(/*node*/ ctx[1].fields),
-					dirty & /*allNodes*/ 4 && { allNodes: /*allNodes*/ ctx[2] }
+					dirty & /*content*/ 2 && get_spread_object(/*content*/ ctx[1].fields),
+					dirty & /*allContent*/ 4 && { allContent: /*allContent*/ ctx[2] }
 				])
 			: {};
 
@@ -162,21 +162,21 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { route } = $$props, { node } = $$props, { allNodes } = $$props;
+	let { route } = $$props, { content } = $$props, { allContent } = $$props;
 
 	$$self.$set = $$props => {
 		if ("route" in $$props) $$invalidate(0, route = $$props.route);
-		if ("node" in $$props) $$invalidate(1, node = $$props.node);
-		if ("allNodes" in $$props) $$invalidate(2, allNodes = $$props.allNodes);
+		if ("content" in $$props) $$invalidate(1, content = $$props.content);
+		if ("allContent" in $$props) $$invalidate(2, allContent = $$props.allContent);
 	};
 
-	return [route, node, allNodes];
+	return [route, content, allContent];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { route: 0, node: 1, allNodes: 2 });
+		init(this, options, instance, create_fragment, safe_not_equal, { route: 0, content: 1, allContent: 2 });
 	}
 }
 

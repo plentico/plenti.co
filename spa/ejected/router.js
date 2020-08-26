@@ -11,7 +11,7 @@ import {
 } from '/spa/web_modules/svelte/internal/index.js';
 
 import Navaid from '/spa/web_modules/navaid/dist/navaid.js';
-import nodes from "./nodes.js";
+import contentSource from "./content.js";
 import Html from '/spa/ejected/../global/html.js';
 
 function create_fragment(ctx) {
@@ -20,8 +20,8 @@ function create_fragment(ctx) {
 	const html = new Html({
 			props: {
 				route: /*route*/ ctx[0],
-				node: /*node*/ ctx[1],
-				allNodes: /*allNodes*/ ctx[2]
+				content: /*content*/ ctx[1],
+				allContent: /*allContent*/ ctx[2]
 			}
 		});
 
@@ -36,8 +36,8 @@ function create_fragment(ctx) {
 		p(ctx, [dirty]) {
 			const html_changes = {};
 			if (dirty & /*route*/ 1) html_changes.route = /*route*/ ctx[0];
-			if (dirty & /*node*/ 2) html_changes.node = /*node*/ ctx[1];
-			if (dirty & /*allNodes*/ 4) html_changes.allNodes = /*allNodes*/ ctx[2];
+			if (dirty & /*content*/ 2) html_changes.content = /*content*/ ctx[1];
+			if (dirty & /*allContent*/ 4) html_changes.allContent = /*allContent*/ ctx[2];
 			html.$set(html_changes);
 		},
 		i(local) {
@@ -56,31 +56,31 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let route, node, allNodes;
+	let route, content, allContent;
 
-	const getNode = (uri, trailingSlash = "") => {
-		return nodes.find(node => node.path + trailingSlash == uri);
+	const getContent = (uri, trailingSlash = "") => {
+		return contentSource.find(content => content.path + trailingSlash == uri);
 	};
 
 	let uri = location.pathname;
-	node = getNode(uri);
+	content = getContent(uri);
 
-	if (node === undefined) {
-		node = getNode(uri, "/");
+	if (content === undefined) {
+		content = getContent(uri, "/");
 	}
 
-	allNodes = nodes;
+	allContent = contentSource;
 
 	function draw(m) {
-		$$invalidate(1, node = getNode(uri));
+		$$invalidate(1, content = getContent(uri));
 
-		if (node === undefined) {
+		if (content === undefined) {
 			// Check if there is a 404 data source.
-			$$invalidate(1, node = getNode("/404"));
+			$$invalidate(1, content = getContent("/404"));
 
-			if (node === undefined) {
+			if (content === undefined) {
 				// If no 404.json data source exists, pass placeholder values.
-				$$invalidate(1, node = {
+				$$invalidate(1, content = {
 					"path": "/404",
 					"type": "404",
 					"filename": "404.json",
@@ -111,20 +111,20 @@ function instance($$self, $$props, $$invalidate) {
 
 	const router = Navaid("/", handle404);
 
-	allNodes.forEach(node => {
-		router.on(node.path, () => {
+	allContent.forEach(content => {
+		router.on(content.path, () => {
 			// Check if the url visited ends in a trailing slash (besides the homepage).
 			if (uri.length > 1 && uri.slice(-1) == "/") {
 				// Redirect to the same path without the trailing slash.
-				router.route(node.path, false);
+				router.route(content.path, false);
 			} else {
-				import("../content/" + node.type + ".js").then(draw).catch(handle404);
+				import("../content/" + content.type + ".js").then(draw).catch(handle404);
 			}
 		});
 	});
 
 	router.listen();
-	return [route, node, allNodes];
+	return [route, content, allContent];
 }
 
 class Component extends SvelteComponent {

@@ -533,7 +533,11 @@ function create_fragment(ctx) {
 	let current;
 	let mounted;
 	let dispose;
-	const docsnav = new DocsNav({ props: { allNodes: /*allNodes*/ ctx[2] } });
+
+	const docsnav = new DocsNav({
+			props: { allContent: /*allContent*/ ctx[2] }
+		});
+
 	let if_block = /*checked*/ ctx[3] && create_if_block_2(ctx);
 	let each_value = /*sections*/ ctx[1];
 	let each_blocks = [];
@@ -615,7 +619,7 @@ function create_fragment(ctx) {
 			}
 
 			const docsnav_changes = {};
-			if (dirty & /*allNodes*/ 4) docsnav_changes.allNodes = /*allNodes*/ ctx[2];
+			if (dirty & /*allContent*/ 4) docsnav_changes.allContent = /*allContent*/ ctx[2];
 			docsnav.$set(docsnav_changes);
 
 			if (/*checked*/ ctx[3]) {
@@ -677,7 +681,7 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { title } = $$props, { sections } = $$props, { allNodes } = $$props;
+	let { title } = $$props, { sections } = $$props, { allContent } = $$props;
 	let checked = false;
 
 	const uncheck = () => {
@@ -692,16 +696,16 @@ function instance($$self, $$props, $$invalidate) {
 	$$self.$set = $$props => {
 		if ("title" in $$props) $$invalidate(0, title = $$props.title);
 		if ("sections" in $$props) $$invalidate(1, sections = $$props.sections);
-		if ("allNodes" in $$props) $$invalidate(2, allNodes = $$props.allNodes);
+		if ("allContent" in $$props) $$invalidate(2, allContent = $$props.allContent);
 	};
 
-	return [title, sections, allNodes, checked, uncheck, input_change_handler];
+	return [title, sections, allContent, checked, uncheck, input_change_handler];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { title: 0, sections: 1, allNodes: 2 });
+		init(this, options, instance, create_fragment, safe_not_equal, { title: 0, sections: 1, allContent: 2 });
 	}
 }
 

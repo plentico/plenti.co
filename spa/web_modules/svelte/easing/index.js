@@ -1,4 +1,4 @@
-export { identity as linear } from '../internal';
+export { identity as linear } from '/spa/web_modules/svelte/internal/index.js';
 
 /*
 Adapted from https://github.com/mattdesl
