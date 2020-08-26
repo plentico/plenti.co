@@ -1037,7 +1037,7 @@ function instance($$self, $$props, $$invalidate) {
 
 		// Get latest release version.
 		try {
-			let response = await fetch(`https://api.github.com/repos/plentico/plenti/releases`, {
+			let response = await fetch("https://api.github.com/repos/plentico/plenti/releases", {
 				mode: "cors",
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
