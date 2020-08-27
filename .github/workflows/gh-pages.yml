@@ -9,13 +9,12 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     container:
-      image: node:latest
-      #image: docker://plentico/plenti:latest
+      image: docker://plentico/plenti:latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Build
-        run: ./plenti build
+        run: plenti build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
