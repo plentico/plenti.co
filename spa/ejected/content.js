@@ -188,13 +188,24 @@ const contentSource = [{
                 },
                 {
                     "p": [
-                        "<codeblock>name: github pages<br><br>on:<br>&nbsp;&nbsp;push:<br>&nbsp;&nbsp;&nbsp;&nbsp;branches:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main<br><br>jobs:<br>&nbsp;&nbsp;deploy:<br>&nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-18.04<br>&nbsp;&nbsp;&nbsp;&nbsp;steps:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v2<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Setup Node<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: actions/setup-node@v2-beta<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node-version: '13'<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Download Plenti<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: wget -c $(curl -s https://api.github.com/repos/plentico/plenti/releases/latest | grep -o 'http.*Linux_64-bit.tar.gz')<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Unpack Plenti<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: tar -zxvf *_Linux_64-bit.tar.gz<br/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Install node packages<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: npm install<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Build<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: ./plenti build<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Deploy<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JamesIves/github-pages-deploy-action@releases/v3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRANCH: gh-pages<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOLDER: public</codeblock>"
+                        "<codeblock>name: github pages<br><br>on:<br>&nbsp;&nbsp;push:<br>&nbsp;&nbsp;&nbsp;&nbsp;branches:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main<br><br>jobs:<br>&nbsp;&nbsp;deploy:<br>&nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-18.04<br>&nbsp;&nbsp;&nbsp;&nbsp;steps:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v2<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Build<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: ./plenti build<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Deploy<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JamesIves/github-pages-deploy-action@releases/v3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRANCH: gh-pages<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOLDER: public</codeblock>"
+                    ]
+                },
+                {
+                    "p": [
+                        "Or if your project requires additional NPM packages, you can use the NodeJS required build instead:"
+                    ]
+                },
+                {
+                    "p": [
+                        "<codeblock>name: github pages<br><br>on:<br>&nbsp;&nbsp;push:<br>&nbsp;&nbsp;&nbsp;&nbsp;branches:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main<br><br>jobs:<br>&nbsp;&nbsp;deploy:<br>&nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-18.04<br>&nbsp;&nbsp;&nbsp;&nbsp;steps:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v2<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Setup Node<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: actions/setup-node@v2-beta<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node-version: '13'<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Download Plenti<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: wget -c $(curl -s https://api.github.com/repos/plentico/plenti/releases/latest | grep -o 'http.*Linux_64-bit.tar.gz')<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Unpack Plenti<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: tar -zxvf *_Linux_64-bit.tar.gz<br/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Install node packages<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: npm install<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Build<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run: ./plenti build --nodejs=true<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Deploy<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JamesIves/github-pages-deploy-action@releases/v3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRANCH: gh-pages<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOLDER: public</codeblock>"
                     ]
                 }
             ]
         }
     ]
 }
+
 },{
 "path": "/docs",
 "type": "docs",
