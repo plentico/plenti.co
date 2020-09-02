@@ -8,13 +8,14 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
-    container:
-      image: docker://plentico/plenti:latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Build
-        run: ./plenti build
+        uses: docker://plentico/plenti:latest
+        with:
+          entrypoint: /plenti
+          args: build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
