@@ -326,8 +326,8 @@ const contentSource = [{
             "body": [
                 {
                     "p": [
-                        "1. Add the bucket: <code>scoop bucket add org https://github.com/plentico/scoop-plenti.git</code>",
-                        "<br />2. Install: <code>scoop install plentico/scoop-plenti</code>"
+                        "1. Add the bucket: <code>scoop bucket add plenti https://github.com/plentico/scoop-plenti</code>",
+                        "<br />2. Install: <code>scoop install plenti</code>"
                     ]
                 }
             ]
@@ -345,6 +345,7 @@ const contentSource = [{
         }
     ]
 }
+
 },{
 "path": "/docs/layout",
 "type": "docs",
