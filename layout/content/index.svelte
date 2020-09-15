@@ -108,7 +108,7 @@
 		flex-grow: 1;
 	}
 	#features {
-		background-image: url("/assets/deep-water.svg");
+		background-image: url("/assets/planarian-background.svg");
 		display: flex;
 		flex-wrap: wrap;
 		padding: 100px 0;
@@ -121,7 +121,6 @@
 	}
 	.feature .title {
 		font-weight: bold;
-		color: var(--base-lightest);
 		font-size: 2rem;
 		margin: 20px 0;
 	}
