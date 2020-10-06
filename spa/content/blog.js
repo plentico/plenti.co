@@ -2,6 +2,11 @@
 import {
 	SvelteComponent,
 	append,
+	attr,
+	children,
+	claim_element,
+	claim_space,
+	claim_text,
 	destroy_each,
 	detach,
 	element,
@@ -31,6 +36,10 @@ function create_if_block_1(ctx) {
 			t0 = text("Written by ");
 			t1 = text(/*author*/ ctx[2]);
 		},
+		l(nodes) {
+			t0 = claim_text(nodes, "Written by ");
+			t1 = claim_text(nodes, /*author*/ ctx[2]);
+		},
 		m(target, anchor) {
 			insert(target, t0, anchor);
 			insert(target, t1, anchor);
@@ -55,6 +64,10 @@ function create_if_block(ctx) {
 			t0 = text(" on ");
 			t1 = text(/*date*/ ctx[3]);
 		},
+		l(nodes) {
+			t0 = claim_text(nodes, " on ");
+			t1 = claim_text(nodes, /*date*/ ctx[3]);
+		},
 		m(target, anchor) {
 			insert(target, t0, anchor);
 			insert(target, t1, anchor);
@@ -77,6 +90,11 @@ function create_each_block(ctx) {
 	return {
 		c() {
 			p = element("p");
+		},
+		l(nodes) {
+			p = claim_element(nodes, "P", {});
+			var p_nodes = children(p);
+			p_nodes.forEach(detach);
 		},
 		m(target, anchor) {
 			insert(target, p, anchor);
@@ -102,6 +120,8 @@ function create_fragment(ctx) {
 	let div;
 	let t3;
 	let p1;
+	let a;
+	let t4;
 	let if_block0 = /*author*/ ctx[2] && create_if_block_1(ctx);
 	let if_block1 = /*date*/ ctx[3] && create_if_block(ctx);
 	let each_value = /*body*/ ctx[1];
@@ -130,7 +150,46 @@ function create_fragment(ctx) {
 
 			t3 = space();
 			p1 = element("p");
-			p1.innerHTML = `<a href="/">Back home</a>`;
+			a = element("a");
+			t4 = text("Back home");
+			this.h();
+		},
+		l(nodes) {
+			h1 = claim_element(nodes, "H1", {});
+			var h1_nodes = children(h1);
+			t0 = claim_text(h1_nodes, /*title*/ ctx[0]);
+			h1_nodes.forEach(detach);
+			t1 = claim_space(nodes);
+			p0 = claim_element(nodes, "P", {});
+			var p0_nodes = children(p0);
+			em = claim_element(p0_nodes, "EM", {});
+			var em_nodes = children(em);
+			if (if_block0) if_block0.l(em_nodes);
+			if_block0_anchor = empty();
+			if (if_block1) if_block1.l(em_nodes);
+			em_nodes.forEach(detach);
+			p0_nodes.forEach(detach);
+			t2 = claim_space(nodes);
+			div = claim_element(nodes, "DIV", {});
+			var div_nodes = children(div);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div_nodes);
+			}
+
+			div_nodes.forEach(detach);
+			t3 = claim_space(nodes);
+			p1 = claim_element(nodes, "P", {});
+			var p1_nodes = children(p1);
+			a = claim_element(p1_nodes, "A", { href: true });
+			var a_nodes = children(a);
+			t4 = claim_text(a_nodes, "Back home");
+			a_nodes.forEach(detach);
+			p1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(a, "href", "/");
 		},
 		m(target, anchor) {
 			insert(target, h1, anchor);
@@ -150,6 +209,8 @@ function create_fragment(ctx) {
 
 			insert(target, t3, anchor);
 			insert(target, p1, anchor);
+			append(p1, a);
+			append(a, t4);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*title*/ 1) set_data(t0, /*title*/ ctx[0]);

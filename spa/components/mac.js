@@ -3,6 +3,9 @@ import {
 	SvelteComponent,
 	append,
 	attr,
+	children,
+	claim_element,
+	claim_text,
 	detach,
 	init,
 	insert,
@@ -40,6 +43,57 @@ function create_fragment(ctx) {
 			g0 = svg_element("g");
 			path0 = svg_element("path");
 			path1 = svg_element("path");
+			this.h();
+		},
+		l(nodes) {
+			svg = claim_element(
+				nodes,
+				"svg",
+				{
+					"enable-background": true,
+					version: true,
+					viewBox: true,
+					"xml:space": true,
+					xmlns: true,
+					"xmlns:cc": true,
+					"xmlns:dc": true,
+					"xmlns:rdf": true
+				},
+				1
+			);
+
+			var svg_nodes = children(svg);
+			metadata = claim_element(svg_nodes, "metadata", {}, 1);
+			var metadata_nodes = children(metadata);
+			rdf_RDF = claim_element(metadata_nodes, "rdf:RDF", {}, 1);
+			var rdf_RDF_nodes = children(rdf_RDF);
+			cc_Work = claim_element(rdf_RDF_nodes, "cc:Work", { "rdf:about": true }, 1);
+			var cc_Work_nodes = children(cc_Work);
+			dc_format = claim_element(cc_Work_nodes, "dc:format", {}, 1);
+			var dc_format_nodes = children(dc_format);
+			t = claim_text(dc_format_nodes, "image/svg+xml");
+			dc_format_nodes.forEach(detach);
+			dc_type = claim_element(cc_Work_nodes, "dc:type", { "rdf:resource": true }, 1);
+			children(dc_type).forEach(detach);
+			dc_title = claim_element(cc_Work_nodes, "dc:title", {}, 1);
+			children(dc_title).forEach(detach);
+			cc_Work_nodes.forEach(detach);
+			rdf_RDF_nodes.forEach(detach);
+			metadata_nodes.forEach(detach);
+			g1 = claim_element(svg_nodes, "g", { fill: true }, 1);
+			var g1_nodes = children(g1);
+			g0 = claim_element(g1_nodes, "g", { fill: true }, 1);
+			var g0_nodes = children(g0);
+			path0 = claim_element(g0_nodes, "path", { d: true }, 1);
+			children(path0).forEach(detach);
+			path1 = claim_element(g0_nodes, "path", { d: true }, 1);
+			children(path1).forEach(detach);
+			g0_nodes.forEach(detach);
+			g1_nodes.forEach(detach);
+			svg_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(dc_type, "rdf:resource", "http://purl.org/dc/dcmitype/StillImage");
 			attr(cc_Work, "rdf:about", "");
 			attr(path0, "d", "m10.668 7.333c-0.018-1.749 1.426-2.586 1.49-2.628-0.811-1.185-2.073-1.348-2.524-1.366-1.073-0.11-2.096 0.632-2.642 0.632-0.544 0-1.386-0.617-2.277-0.601-1.172 0.018-2.251 0.682-2.855 1.73-1.217 2.112-0.312 5.24 0.874 6.955 0.58 0.838 1.272 1.779 2.179 1.746 0.874-0.035 1.204-0.566 2.261-0.566s1.354 0.566 2.278 0.549c0.941-0.018 1.536-0.855 2.111-1.695 0.666-0.973 0.94-1.916 0.957-1.963-0.022-0.012-1.833-0.705-1.852-2.793z");

@@ -3,6 +3,9 @@ import {
 	SvelteComponent,
 	append,
 	attr,
+	children,
+	claim_element,
+	claim_text,
 	detach,
 	init,
 	insert,
@@ -36,6 +39,52 @@ function create_fragment(ctx) {
 			dc_title = svg_element("dc:title");
 			g = svg_element("g");
 			path = svg_element("path");
+			this.h();
+		},
+		l(nodes) {
+			svg = claim_element(
+				nodes,
+				"svg",
+				{
+					"enable-background": true,
+					version: true,
+					viewBox: true,
+					"xml:space": true,
+					xmlns: true,
+					"xmlns:cc": true,
+					"xmlns:dc": true,
+					"xmlns:rdf": true
+				},
+				1
+			);
+
+			var svg_nodes = children(svg);
+			metadata = claim_element(svg_nodes, "metadata", {}, 1);
+			var metadata_nodes = children(metadata);
+			rdf_RDF = claim_element(metadata_nodes, "rdf:RDF", {}, 1);
+			var rdf_RDF_nodes = children(rdf_RDF);
+			cc_Work = claim_element(rdf_RDF_nodes, "cc:Work", { "rdf:about": true }, 1);
+			var cc_Work_nodes = children(cc_Work);
+			dc_format = claim_element(cc_Work_nodes, "dc:format", {}, 1);
+			var dc_format_nodes = children(dc_format);
+			t = claim_text(dc_format_nodes, "image/svg+xml");
+			dc_format_nodes.forEach(detach);
+			dc_type = claim_element(cc_Work_nodes, "dc:type", { "rdf:resource": true }, 1);
+			children(dc_type).forEach(detach);
+			dc_title = claim_element(cc_Work_nodes, "dc:title", {}, 1);
+			children(dc_title).forEach(detach);
+			cc_Work_nodes.forEach(detach);
+			rdf_RDF_nodes.forEach(detach);
+			metadata_nodes.forEach(detach);
+			g = claim_element(svg_nodes, "g", { id: true, fill: true }, 1);
+			var g_nodes = children(g);
+			path = claim_element(g_nodes, "path", { id: true, d: true, fill: true }, 1);
+			children(path).forEach(detach);
+			g_nodes.forEach(detach);
+			svg_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(dc_type, "rdf:resource", "http://purl.org/dc/dcmitype/StillImage");
 			attr(cc_Work, "rdf:about", "");
 			attr(path, "id", "XMLID_92_");

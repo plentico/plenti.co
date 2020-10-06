@@ -3,6 +3,9 @@ import {
 	SvelteComponent,
 	append,
 	attr,
+	children,
+	claim_element,
+	claim_text,
 	detach,
 	init,
 	insert,
@@ -50,6 +53,70 @@ function create_fragment(ctx) {
 			polygon2 = svg_element("polygon");
 			g3 = svg_element("g");
 			polygon3 = svg_element("polygon");
+			this.h();
+		},
+		l(nodes) {
+			svg = claim_element(
+				nodes,
+				"svg",
+				{
+					"enable-background": true,
+					version: true,
+					viewBox: true,
+					"xml:space": true,
+					xmlns: true,
+					"xmlns:cc": true,
+					"xmlns:dc": true,
+					"xmlns:rdf": true
+				},
+				1
+			);
+
+			var svg_nodes = children(svg);
+			metadata = claim_element(svg_nodes, "metadata", {}, 1);
+			var metadata_nodes = children(metadata);
+			rdf_RDF = claim_element(metadata_nodes, "rdf:RDF", {}, 1);
+			var rdf_RDF_nodes = children(rdf_RDF);
+			cc_Work = claim_element(rdf_RDF_nodes, "cc:Work", { "rdf:about": true }, 1);
+			var cc_Work_nodes = children(cc_Work);
+			dc_format = claim_element(cc_Work_nodes, "dc:format", {}, 1);
+			var dc_format_nodes = children(dc_format);
+			t = claim_text(dc_format_nodes, "image/svg+xml");
+			dc_format_nodes.forEach(detach);
+			dc_type = claim_element(cc_Work_nodes, "dc:type", { "rdf:resource": true }, 1);
+			children(dc_type).forEach(detach);
+			dc_title = claim_element(cc_Work_nodes, "dc:title", {}, 1);
+			children(dc_title).forEach(detach);
+			cc_Work_nodes.forEach(detach);
+			rdf_RDF_nodes.forEach(detach);
+			metadata_nodes.forEach(detach);
+			g4 = claim_element(svg_nodes, "g", { fill: true }, 1);
+			var g4_nodes = children(g4);
+			g0 = claim_element(g4_nodes, "g", { fill: true }, 1);
+			var g0_nodes = children(g0);
+			polygon0 = claim_element(g0_nodes, "polygon", { points: true, fill: true }, 1);
+			children(polygon0).forEach(detach);
+			g0_nodes.forEach(detach);
+			g1 = claim_element(g4_nodes, "g", { fill: true }, 1);
+			var g1_nodes = children(g1);
+			polygon1 = claim_element(g1_nodes, "polygon", { points: true, fill: true }, 1);
+			children(polygon1).forEach(detach);
+			g1_nodes.forEach(detach);
+			g2 = claim_element(g4_nodes, "g", { fill: true }, 1);
+			var g2_nodes = children(g2);
+			polygon2 = claim_element(g2_nodes, "polygon", { points: true, fill: true }, 1);
+			children(polygon2).forEach(detach);
+			g2_nodes.forEach(detach);
+			g3 = claim_element(g4_nodes, "g", { fill: true }, 1);
+			var g3_nodes = children(g3);
+			polygon3 = claim_element(g3_nodes, "polygon", { points: true, fill: true }, 1);
+			children(polygon3).forEach(detach);
+			g3_nodes.forEach(detach);
+			g4_nodes.forEach(detach);
+			svg_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(dc_type, "rdf:resource", "http://purl.org/dc/dcmitype/StillImage");
 			attr(cc_Work, "rdf:about", "");
 			attr(polygon0, "points", "224 52 0 80 0 240 224 240");

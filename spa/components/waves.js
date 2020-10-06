@@ -3,6 +3,8 @@ import {
 	SvelteComponent,
 	append,
 	attr,
+	children,
+	claim_element,
 	detach,
 	init,
 	insert,
@@ -32,6 +34,96 @@ function create_fragment(ctx) {
 			use1 = svg_element("use");
 			use2 = svg_element("use");
 			use3 = svg_element("use");
+			this.h();
+		},
+		l(nodes) {
+			svg = claim_element(
+				nodes,
+				"svg",
+				{
+					class: true,
+					xmlns: true,
+					"xmlns:xlink": true,
+					viewBox: true,
+					preserveAspectRatio: true,
+					"shape-rendering": true
+				},
+				1
+			);
+
+			var svg_nodes = children(svg);
+			defs = claim_element(svg_nodes, "defs", {}, 1);
+			var defs_nodes = children(defs);
+			path = claim_element(defs_nodes, "path", { id: true, d: true }, 1);
+			children(path).forEach(detach);
+			defs_nodes.forEach(detach);
+			g = claim_element(svg_nodes, "g", { class: true }, 1);
+			var g_nodes = children(g);
+
+			use0 = claim_element(
+				g_nodes,
+				"use",
+				{
+					"xlink:href": true,
+					x: true,
+					y: true,
+					fill: true,
+					class: true
+				},
+				1
+			);
+
+			children(use0).forEach(detach);
+
+			use1 = claim_element(
+				g_nodes,
+				"use",
+				{
+					"xlink:href": true,
+					x: true,
+					y: true,
+					fill: true,
+					class: true
+				},
+				1
+			);
+
+			children(use1).forEach(detach);
+
+			use2 = claim_element(
+				g_nodes,
+				"use",
+				{
+					"xlink:href": true,
+					x: true,
+					y: true,
+					fill: true,
+					class: true
+				},
+				1
+			);
+
+			children(use2).forEach(detach);
+
+			use3 = claim_element(
+				g_nodes,
+				"use",
+				{
+					"xlink:href": true,
+					x: true,
+					y: true,
+					fill: true,
+					class: true
+				},
+				1
+			);
+
+			children(use3).forEach(detach);
+			g_nodes.forEach(detach);
+			svg_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(path, "id", "gentle-wave");
 			attr(path, "d", "M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z");
 			xlink_attr(use0, "xlink:href", "#gentle-wave");

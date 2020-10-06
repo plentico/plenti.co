@@ -4,6 +4,11 @@ import {
 	append,
 	attr,
 	check_outros,
+	children,
+	claim_component,
+	claim_element,
+	claim_space,
+	claim_text,
 	create_component,
 	destroy_component,
 	destroy_each,
@@ -64,6 +69,16 @@ function create_if_block_9(ctx) {
 				each_blocks[i].c();
 			}
 		},
+		l(nodes) {
+			div = claim_element(nodes, "DIV", {});
+			var div_nodes = children(div);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div_nodes);
+			}
+
+			div_nodes.forEach(detach);
+		},
 		m(target, anchor) {
 			insert(target, div, anchor);
 
@@ -111,6 +126,11 @@ function create_each_block_2(ctx) {
 		c() {
 			p = element("p");
 		},
+		l(nodes) {
+			p = claim_element(nodes, "P", {});
+			var p_nodes = children(p);
+			p_nodes.forEach(detach);
+		},
 		m(target, anchor) {
 			insert(target, p, anchor);
 			p.innerHTML = raw_value;
@@ -142,6 +162,20 @@ function create_if_block_8(ctx) {
 				each_blocks[i].c();
 			}
 
+			this.h();
+		},
+		l(nodes) {
+			section = claim_element(nodes, "SECTION", { id: true, class: true });
+			var section_nodes = children(section);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(section_nodes);
+			}
+
+			section_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(section, "id", "themes");
 			attr(section, "class", "svelte-1oxlflm");
 		},
@@ -191,6 +225,13 @@ function create_each_block_1(ctx) {
 	return {
 		c() {
 			img = element("img");
+			this.h();
+		},
+		l(nodes) {
+			img = claim_element(nodes, "IMG", { src: true, class: true });
+			this.h();
+		},
+		h() {
 			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[10])) attr(img, "src", img_src_value);
 			attr(img, "class", "svelte-1oxlflm");
 		},
@@ -259,6 +300,30 @@ function create_if_block(ctx) {
 			t1 = space();
 			section2 = element("section");
 			if_block1.c();
+			this.h();
+		},
+		l(nodes) {
+			section0 = claim_element(nodes, "SECTION", { id: true, class: true });
+			var section0_nodes = children(section0);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(section0_nodes);
+			}
+
+			section0_nodes.forEach(detach);
+			t0 = claim_space(nodes);
+			section1 = claim_element(nodes, "SECTION", { id: true, class: true });
+			var section1_nodes = children(section1);
+			if_block0.l(section1_nodes);
+			section1_nodes.forEach(detach);
+			t1 = claim_space(nodes);
+			section2 = claim_element(nodes, "SECTION", { id: true });
+			var section2_nodes = children(section2);
+			if_block1.l(section2_nodes);
+			section2_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(section0, "id", "download");
 			attr(section0, "class", "svelte-1oxlflm");
 			attr(section1, "id", "detection");
@@ -364,14 +429,22 @@ function create_if_block(ctx) {
 // (74:8) {:else}
 function create_else_block_2(ctx) {
 	let strong;
+	let t;
 
 	return {
 		c() {
 			strong = element("strong");
-			strong.textContent = "We can't determine what Operating System you're on.";
+			t = text("We can't determine what Operating System you're on.");
+		},
+		l(nodes) {
+			strong = claim_element(nodes, "STRONG", {});
+			var strong_nodes = children(strong);
+			t = claim_text(strong_nodes, "We can't determine what Operating System you're on.");
+			strong_nodes.forEach(detach);
 		},
 		m(target, anchor) {
 			insert(target, strong, anchor);
+			append(strong, t);
 		},
 		i: noop,
 		o: noop,
@@ -390,6 +463,9 @@ function create_if_block_7(ctx) {
 	return {
 		c() {
 			create_component(windows.$$.fragment);
+		},
+		l(nodes) {
+			claim_component(windows.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(windows, target, anchor);
@@ -420,6 +496,9 @@ function create_if_block_6(ctx) {
 		c() {
 			create_component(mac.$$.fragment);
 		},
+		l(nodes) {
+			claim_component(mac.$$.fragment, nodes);
+		},
 		m(target, anchor) {
 			mount_component(mac, target, anchor);
 			current = true;
@@ -448,6 +527,9 @@ function create_if_block_5(ctx) {
 	return {
 		c() {
 			create_component(linux.$$.fragment);
+		},
+		l(nodes) {
+			claim_component(linux.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(linux, target, anchor);
@@ -507,6 +589,22 @@ function create_each_block(ctx) {
 			div0 = element("div");
 			t1 = text(t1_value);
 			t2 = space();
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			if_block.l(div1_nodes);
+			t0 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			t1 = claim_text(div0_nodes, t1_value);
+			div0_nodes.forEach(detach);
+			t2 = claim_space(div1_nodes);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(div0, "class", "os-name svelte-1oxlflm");
 
 			attr(div1, "class", div1_class_value = "os" + (/*currentOs*/ ctx[7].title == /*OSName*/ ctx[4]
@@ -580,23 +678,50 @@ function create_each_block(ctx) {
 // (87:6) {:else}
 function create_else_block_1(ctx) {
 	let div0;
+	let a;
+	let t0;
 	let t1;
 	let div1;
+	let t2;
 
 	return {
 		c() {
 			div0 = element("div");
-			div0.innerHTML = `<a href="https://github.com/plentico/plenti/releases/latest" class="svelte-1oxlflm">See the latest releases</a>`;
+			a = element("a");
+			t0 = text("See the latest releases");
 			t1 = space();
 			div1 = element("div");
-			div1.textContent = "Or use one of the package managers below...";
+			t2 = text("Or use one of the package managers below...");
+			this.h();
+		},
+		l(nodes) {
+			div0 = claim_element(nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			a = claim_element(div0_nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t0 = claim_text(a_nodes, "See the latest releases");
+			a_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			t1 = claim_space(nodes);
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			t2 = claim_text(div1_nodes, "Or use one of the package managers below...");
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(a, "href", "https://github.com/plentico/plenti/releases/latest");
+			attr(a, "class", "svelte-1oxlflm");
 			attr(div0, "class", "selected svelte-1oxlflm");
 			attr(div1, "class", "instructions svelte-1oxlflm");
 		},
 		m(target, anchor) {
 			insert(target, div0, anchor);
+			append(div0, a);
+			append(a, t0);
 			insert(target, t1, anchor);
 			insert(target, div1, anchor);
+			append(div1, t2);
 		},
 		p: noop,
 		d(detaching) {
@@ -615,6 +740,7 @@ function create_if_block_4(ctx) {
 	let t2;
 	let t3;
 	let div1;
+	let t4;
 	let t5;
 	let a0;
 	let t6;
@@ -628,6 +754,10 @@ function create_if_block_4(ctx) {
 	let a0_href_value;
 	let t11;
 	let div2;
+	let t12;
+	let a1;
+	let t13;
+	let t14;
 
 	return {
 		c() {
@@ -637,7 +767,7 @@ function create_if_block_4(ctx) {
 			t2 = text(" computer.");
 			t3 = space();
 			div1 = element("div");
-			div1.textContent = "If that's not the case, choose a different Operating System above.";
+			t4 = text("If that's not the case, choose a different Operating System above.");
 			t5 = space();
 			a0 = element("a");
 			t6 = text("Download");
@@ -650,11 +780,57 @@ function create_if_block_4(ctx) {
 			t10 = text(/*OSName*/ ctx[4]);
 			t11 = space();
 			div2 = element("div");
-			div2.innerHTML = `(<a href="https://github.com/plentico/plenti/releases/latest" class="svelte-1oxlflm">See more options</a>)`;
+			t12 = text("(");
+			a1 = element("a");
+			t13 = text("See more options");
+			t14 = text(")");
+			this.h();
+		},
+		l(nodes) {
+			div0 = claim_element(nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			t0 = claim_text(div0_nodes, "It looks like you're using a ");
+			t1 = claim_text(div0_nodes, /*OSName*/ ctx[4]);
+			t2 = claim_text(div0_nodes, " computer.");
+			div0_nodes.forEach(detach);
+			t3 = claim_space(nodes);
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			t4 = claim_text(div1_nodes, "If that's not the case, choose a different Operating System above.");
+			div1_nodes.forEach(detach);
+			t5 = claim_space(nodes);
+			a0 = claim_element(nodes, "A", { class: true, href: true });
+			var a0_nodes = children(a0);
+			t6 = claim_text(a0_nodes, "Download");
+			br0 = claim_element(a0_nodes, "BR", {});
+			strong = claim_element(a0_nodes, "STRONG", {});
+			var strong_nodes = children(strong);
+			t7 = claim_text(strong_nodes, "version ");
+			t8 = claim_text(strong_nodes, /*version*/ ctx[5]);
+			strong_nodes.forEach(detach);
+			br1 = claim_element(a0_nodes, "BR", {});
+			t9 = claim_text(a0_nodes, "for 64-bit ");
+			t10 = claim_text(a0_nodes, /*OSName*/ ctx[4]);
+			a0_nodes.forEach(detach);
+			t11 = claim_space(nodes);
+			div2 = claim_element(nodes, "DIV", {});
+			var div2_nodes = children(div2);
+			t12 = claim_text(div2_nodes, "(");
+			a1 = claim_element(div2_nodes, "A", { href: true, class: true });
+			var a1_nodes = children(a1);
+			t13 = claim_text(a1_nodes, "See more options");
+			a1_nodes.forEach(detach);
+			t14 = claim_text(div2_nodes, ")");
+			div2_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(div0, "class", "selected svelte-1oxlflm");
 			attr(div1, "class", "instructions svelte-1oxlflm");
 			attr(a0, "class", "cta svelte-1oxlflm");
 			attr(a0, "href", a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[5] + "/plenti_" + /*version*/ ctx[5] + "_" + /*OSName*/ ctx[4] + "_64-bit.tar.gz");
+			attr(a1, "href", "https://github.com/plentico/plenti/releases/latest");
+			attr(a1, "class", "svelte-1oxlflm");
 		},
 		m(target, anchor) {
 			insert(target, div0, anchor);
@@ -663,6 +839,7 @@ function create_if_block_4(ctx) {
 			append(div0, t2);
 			insert(target, t3, anchor);
 			insert(target, div1, anchor);
+			append(div1, t4);
 			insert(target, t5, anchor);
 			insert(target, a0, anchor);
 			append(a0, t6);
@@ -675,6 +852,10 @@ function create_if_block_4(ctx) {
 			append(a0, t10);
 			insert(target, t11, anchor);
 			insert(target, div2, anchor);
+			append(div2, t12);
+			append(div2, a1);
+			append(a1, t13);
+			append(div2, t14);
 		},
 		p(ctx, dirty) {
 			if (dirty & /*OSName*/ 16) set_data(t1, /*OSName*/ ctx[4]);
@@ -700,76 +881,132 @@ function create_if_block_4(ctx) {
 // (110:6) {:else}
 function create_else_block(ctx) {
 	let strong0;
+	let t0;
 	let br0;
 	let br1;
 	let t1;
 	let codeblock0;
+	let t2;
 	let t3;
 	let strong1;
+	let t4;
 	let br2;
 	let br3;
 	let t5;
 	let codeblock1;
+	let t6;
+	let br4;
+	let t7;
 	let t8;
 	let strong2;
+	let t9;
 	let br5;
 	let br6;
 	let t10;
 	let codeblock2;
+	let t11;
+	let br7;
+	let t12;
 
 	return {
 		c() {
 			strong0 = element("strong");
-			strong0.textContent = "Install using Snap:";
+			t0 = text("Install using Snap:");
 			br0 = element("br");
 			br1 = element("br");
 			t1 = space();
 			codeblock0 = element("codeblock");
-			codeblock0.textContent = "sudo snap install plenti";
+			t2 = text("sudo snap install plenti");
 			t3 = space();
 			strong1 = element("strong");
-			strong1.textContent = "Install using Homebrew:";
+			t4 = text("Install using Homebrew:");
 			br2 = element("br");
 			br3 = element("br");
 			t5 = space();
 			codeblock1 = element("codeblock");
-
-			codeblock1.innerHTML = `
-          brew tap plentico/homebrew-plenti
-          <br>brew install plenti
-        `;
-
+			t6 = text("brew tap plentico/homebrew-plenti\n          ");
+			br4 = element("br");
+			t7 = text("brew install plenti");
 			t8 = space();
 			strong2 = element("strong");
-			strong2.textContent = "Install using Scoop:";
+			t9 = text("Install using Scoop:");
 			br5 = element("br");
 			br6 = element("br");
 			t10 = space();
 			codeblock2 = element("codeblock");
-
-			codeblock2.innerHTML = `
-          scoop bucket add org https://github.com/plentico/scoop-plenti.git
-          <br>scoop install plentico/scoop-plenti
-        `;
+			t11 = text("scoop bucket add org https://github.com/plentico/scoop-plenti.git\n          ");
+			br7 = element("br");
+			t12 = text("scoop install plentico/scoop-plenti");
+		},
+		l(nodes) {
+			strong0 = claim_element(nodes, "STRONG", {});
+			var strong0_nodes = children(strong0);
+			t0 = claim_text(strong0_nodes, "Install using Snap:");
+			strong0_nodes.forEach(detach);
+			br0 = claim_element(nodes, "BR", {});
+			br1 = claim_element(nodes, "BR", {});
+			t1 = claim_space(nodes);
+			codeblock0 = claim_element(nodes, "CODEBLOCK", {});
+			var codeblock0_nodes = children(codeblock0);
+			t2 = claim_text(codeblock0_nodes, "sudo snap install plenti");
+			codeblock0_nodes.forEach(detach);
+			t3 = claim_space(nodes);
+			strong1 = claim_element(nodes, "STRONG", {});
+			var strong1_nodes = children(strong1);
+			t4 = claim_text(strong1_nodes, "Install using Homebrew:");
+			strong1_nodes.forEach(detach);
+			br2 = claim_element(nodes, "BR", {});
+			br3 = claim_element(nodes, "BR", {});
+			t5 = claim_space(nodes);
+			codeblock1 = claim_element(nodes, "CODEBLOCK", {});
+			var codeblock1_nodes = children(codeblock1);
+			t6 = claim_text(codeblock1_nodes, "brew tap plentico/homebrew-plenti\n          ");
+			br4 = claim_element(codeblock1_nodes, "BR", {});
+			t7 = claim_text(codeblock1_nodes, "brew install plenti");
+			codeblock1_nodes.forEach(detach);
+			t8 = claim_space(nodes);
+			strong2 = claim_element(nodes, "STRONG", {});
+			var strong2_nodes = children(strong2);
+			t9 = claim_text(strong2_nodes, "Install using Scoop:");
+			strong2_nodes.forEach(detach);
+			br5 = claim_element(nodes, "BR", {});
+			br6 = claim_element(nodes, "BR", {});
+			t10 = claim_space(nodes);
+			codeblock2 = claim_element(nodes, "CODEBLOCK", {});
+			var codeblock2_nodes = children(codeblock2);
+			t11 = claim_text(codeblock2_nodes, "scoop bucket add org https://github.com/plentico/scoop-plenti.git\n          ");
+			br7 = claim_element(codeblock2_nodes, "BR", {});
+			t12 = claim_text(codeblock2_nodes, "scoop install plentico/scoop-plenti");
+			codeblock2_nodes.forEach(detach);
 		},
 		m(target, anchor) {
 			insert(target, strong0, anchor);
+			append(strong0, t0);
 			insert(target, br0, anchor);
 			insert(target, br1, anchor);
 			insert(target, t1, anchor);
 			insert(target, codeblock0, anchor);
+			append(codeblock0, t2);
 			insert(target, t3, anchor);
 			insert(target, strong1, anchor);
+			append(strong1, t4);
 			insert(target, br2, anchor);
 			insert(target, br3, anchor);
 			insert(target, t5, anchor);
 			insert(target, codeblock1, anchor);
+			append(codeblock1, t6);
+			append(codeblock1, br4);
+			append(codeblock1, t7);
 			insert(target, t8, anchor);
 			insert(target, strong2, anchor);
+			append(strong2, t9);
 			insert(target, br5, anchor);
 			insert(target, br6, anchor);
 			insert(target, t10, anchor);
 			insert(target, codeblock2, anchor);
+			append(codeblock2, t11);
+			append(codeblock2, br7);
+			append(codeblock2, t12);
 		},
 		d(detaching) {
 			if (detaching) detach(strong0);
@@ -796,31 +1033,52 @@ function create_else_block(ctx) {
 // (104:36) 
 function create_if_block_3(ctx) {
 	let strong;
+	let t0;
 	let br0;
 	let br1;
 	let t1;
 	let codeblock;
+	let t2;
+	let br2;
+	let t3;
 
 	return {
 		c() {
 			strong = element("strong");
-			strong.textContent = "Or you can install using Scoop:";
+			t0 = text("Or you can install using Scoop:");
 			br0 = element("br");
 			br1 = element("br");
 			t1 = space();
 			codeblock = element("codeblock");
-
-			codeblock.innerHTML = `
-          scoop bucket add org https://github.com/plentico/scoop-plenti.git
-          <br>scoop install plentico/scoop-plenti
-        `;
+			t2 = text("scoop bucket add org https://github.com/plentico/scoop-plenti.git\n          ");
+			br2 = element("br");
+			t3 = text("scoop install plentico/scoop-plenti");
+		},
+		l(nodes) {
+			strong = claim_element(nodes, "STRONG", {});
+			var strong_nodes = children(strong);
+			t0 = claim_text(strong_nodes, "Or you can install using Scoop:");
+			strong_nodes.forEach(detach);
+			br0 = claim_element(nodes, "BR", {});
+			br1 = claim_element(nodes, "BR", {});
+			t1 = claim_space(nodes);
+			codeblock = claim_element(nodes, "CODEBLOCK", {});
+			var codeblock_nodes = children(codeblock);
+			t2 = claim_text(codeblock_nodes, "scoop bucket add org https://github.com/plentico/scoop-plenti.git\n          ");
+			br2 = claim_element(codeblock_nodes, "BR", {});
+			t3 = claim_text(codeblock_nodes, "scoop install plentico/scoop-plenti");
+			codeblock_nodes.forEach(detach);
 		},
 		m(target, anchor) {
 			insert(target, strong, anchor);
+			append(strong, t0);
 			insert(target, br0, anchor);
 			insert(target, br1, anchor);
 			insert(target, t1, anchor);
 			insert(target, codeblock, anchor);
+			append(codeblock, t2);
+			append(codeblock, br2);
+			append(codeblock, t3);
 		},
 		d(detaching) {
 			if (detaching) detach(strong);
@@ -835,31 +1093,52 @@ function create_if_block_3(ctx) {
 // (98:32) 
 function create_if_block_2(ctx) {
 	let strong;
+	let t0;
 	let br0;
 	let br1;
 	let t1;
 	let codeblock;
+	let t2;
+	let br2;
+	let t3;
 
 	return {
 		c() {
 			strong = element("strong");
-			strong.textContent = "Or you can install using Homebrew:";
+			t0 = text("Or you can install using Homebrew:");
 			br0 = element("br");
 			br1 = element("br");
 			t1 = space();
 			codeblock = element("codeblock");
-
-			codeblock.innerHTML = `
-          brew tap plentico/homebrew-plenti
-          <br>brew install plenti
-        `;
+			t2 = text("brew tap plentico/homebrew-plenti\n          ");
+			br2 = element("br");
+			t3 = text("brew install plenti");
+		},
+		l(nodes) {
+			strong = claim_element(nodes, "STRONG", {});
+			var strong_nodes = children(strong);
+			t0 = claim_text(strong_nodes, "Or you can install using Homebrew:");
+			strong_nodes.forEach(detach);
+			br0 = claim_element(nodes, "BR", {});
+			br1 = claim_element(nodes, "BR", {});
+			t1 = claim_space(nodes);
+			codeblock = claim_element(nodes, "CODEBLOCK", {});
+			var codeblock_nodes = children(codeblock);
+			t2 = claim_text(codeblock_nodes, "brew tap plentico/homebrew-plenti\n          ");
+			br2 = claim_element(codeblock_nodes, "BR", {});
+			t3 = claim_text(codeblock_nodes, "brew install plenti");
+			codeblock_nodes.forEach(detach);
 		},
 		m(target, anchor) {
 			insert(target, strong, anchor);
+			append(strong, t0);
 			insert(target, br0, anchor);
 			insert(target, br1, anchor);
 			insert(target, t1, anchor);
 			insert(target, codeblock, anchor);
+			append(codeblock, t2);
+			append(codeblock, br2);
+			append(codeblock, t3);
 		},
 		d(detaching) {
 			if (detaching) detach(strong);
@@ -874,27 +1153,44 @@ function create_if_block_2(ctx) {
 // (93:6) {#if OSName == 'Linux'}
 function create_if_block_1(ctx) {
 	let strong;
+	let t0;
 	let br0;
 	let br1;
 	let t1;
 	let codeblock;
+	let t2;
 
 	return {
 		c() {
 			strong = element("strong");
-			strong.textContent = "Or you can install using Snap:";
+			t0 = text("Or you can install using Snap:");
 			br0 = element("br");
 			br1 = element("br");
 			t1 = space();
 			codeblock = element("codeblock");
-			codeblock.textContent = "sudo snap install plenti";
+			t2 = text("sudo snap install plenti");
+		},
+		l(nodes) {
+			strong = claim_element(nodes, "STRONG", {});
+			var strong_nodes = children(strong);
+			t0 = claim_text(strong_nodes, "Or you can install using Snap:");
+			strong_nodes.forEach(detach);
+			br0 = claim_element(nodes, "BR", {});
+			br1 = claim_element(nodes, "BR", {});
+			t1 = claim_space(nodes);
+			codeblock = claim_element(nodes, "CODEBLOCK", {});
+			var codeblock_nodes = children(codeblock);
+			t2 = claim_text(codeblock_nodes, "sudo snap install plenti");
+			codeblock_nodes.forEach(detach);
 		},
 		m(target, anchor) {
 			insert(target, strong, anchor);
+			append(strong, t0);
 			insert(target, br0, anchor);
 			insert(target, br1, anchor);
 			insert(target, t1, anchor);
 			insert(target, codeblock, anchor);
+			append(codeblock, t2);
 		},
 		d(detaching) {
 			if (detaching) detach(strong);
@@ -929,6 +1225,25 @@ function create_fragment(ctx) {
 			if (if_block1) if_block1.c();
 			t3 = space();
 			if (if_block2) if_block2.c();
+			this.h();
+		},
+		l(nodes) {
+			div = claim_element(nodes, "DIV", { class: true });
+			var div_nodes = children(div);
+			h1 = claim_element(div_nodes, "H1", { class: true });
+			var h1_nodes = children(h1);
+			t0 = claim_text(h1_nodes, /*title*/ ctx[0]);
+			h1_nodes.forEach(detach);
+			t1 = claim_space(div_nodes);
+			if (if_block0) if_block0.l(div_nodes);
+			t2 = claim_space(div_nodes);
+			if (if_block1) if_block1.l(div_nodes);
+			t3 = claim_space(div_nodes);
+			if (if_block2) if_block2.l(div_nodes);
+			div_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(h1, "class", "svelte-1oxlflm");
 			attr(div, "class", "container");
 		},

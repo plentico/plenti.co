@@ -4,6 +4,11 @@ import {
 	add_render_callback,
 	append,
 	attr,
+	children,
+	claim_component,
+	claim_element,
+	claim_space,
+	claim_text,
 	create_component,
 	destroy_component,
 	destroy_each,
@@ -55,6 +60,16 @@ function create_each_block_2(ctx) {
 		c() {
 			a = element("a");
 			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			a = claim_element(nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t = claim_text(a_nodes, t_value);
+			a_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(a, "href", a_href_value = /*cta*/ ctx[5].link);
 			attr(a, "class", "button svelte-1xa3nt3");
 		},
@@ -95,6 +110,22 @@ function create_each_block_1(ctx) {
 			div0 = element("div");
 			t1 = text(t1_value);
 			t2 = space();
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			img = claim_element(div1_nodes, "IMG", { src: true, alt: true, class: true });
+			t0 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			t1 = claim_text(div0_nodes, t1_value);
+			div0_nodes.forEach(detach);
+			t2 = claim_space(div1_nodes);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			if (img.src !== (img_src_value = /*feature*/ ctx[10].img)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*feature*/ ctx[10].title);
 			attr(img, "class", "svelte-1xa3nt3");
@@ -163,6 +194,38 @@ function create_each_block(ctx) {
 			div1 = element("div");
 			img = element("img");
 			t6 = space();
+			this.h();
+		},
+		l(nodes) {
+			div2 = claim_element(nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			div0 = claim_element(div2_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			strong = claim_element(div0_nodes, "STRONG", {});
+			var strong_nodes = children(strong);
+			span = claim_element(strong_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t0 = claim_text(span_nodes, t0_value);
+			span_nodes.forEach(detach);
+			t1 = claim_text(strong_nodes, " ");
+			t2 = claim_text(strong_nodes, t2_value);
+			strong_nodes.forEach(detach);
+			t3 = claim_space(div0_nodes);
+			p = claim_element(div0_nodes, "P", { class: true });
+			var p_nodes = children(p);
+			t4 = claim_text(p_nodes, t4_value);
+			p_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			t5 = claim_space(div2_nodes);
+			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			img = claim_element(div1_nodes, "IMG", { src: true, class: true });
+			div1_nodes.forEach(detach);
+			t6 = claim_space(div2_nodes);
+			div2_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(span, "class", "svelte-1xa3nt3");
 			attr(p, "class", "svelte-1xa3nt3");
 			attr(div0, "class", "content svelte-1xa3nt3");
@@ -221,12 +284,16 @@ function create_fragment(ctx) {
 	let t1;
 	let t2;
 	let div1;
+	let img0;
+	let img0_src_value;
 	let t3;
 	let waves;
 	let t4;
 	let section1;
 	let div5;
 	let div3;
+	let img1;
+	let img1_src_value;
 	let t5;
 	let div4;
 	let h30;
@@ -242,6 +309,7 @@ function create_fragment(ctx) {
 	let section3;
 	let div6;
 	let h31;
+	let t11;
 	let t12;
 	let t13;
 	let section4;
@@ -297,14 +365,14 @@ function create_fragment(ctx) {
 
 			t2 = space();
 			div1 = element("div");
-			div1.innerHTML = `<img src="/assets/hero.svg" alt="planarian looking at screen" class="svelte-1xa3nt3">`;
+			img0 = element("img");
 			t3 = space();
 			create_component(waves.$$.fragment);
 			t4 = space();
 			section1 = element("section");
 			div5 = element("div");
 			div3 = element("div");
-			div3.innerHTML = `<img src="/assets/edit.gif" alt="Animation of typing on a computer" class="svelte-1xa3nt3">`;
+			img1 = element("img");
 			t5 = space();
 			div4 = element("div");
 			h30 = element("h3");
@@ -323,7 +391,7 @@ function create_fragment(ctx) {
 			section3 = element("section");
 			div6 = element("div");
 			h31 = element("h3");
-			h31.textContent = "Minimal Setup Required";
+			t11 = text("Minimal Setup Required");
 			t12 = space();
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -339,13 +407,123 @@ function create_fragment(ctx) {
 			t15 = space();
 			a = element("a");
 			t16 = text(t16_value);
+			this.h();
+		},
+		l(nodes) {
+			div2 = claim_element(nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			section0 = claim_element(div2_nodes, "SECTION", { id: true, class: true });
+			var section0_nodes = children(section0);
+			div0 = claim_element(section0_nodes, "DIV", { id: true, class: true });
+			var div0_nodes = children(div0);
+			h1 = claim_element(div0_nodes, "H1", {});
+			var h1_nodes = children(h1);
+			h1_nodes.forEach(detach);
+			t0 = claim_space(div0_nodes);
+			p0 = claim_element(div0_nodes, "P", {});
+			var p0_nodes = children(p0);
+			p0_nodes.forEach(detach);
+			t1 = claim_space(div0_nodes);
+
+			for (let i = 0; i < each_blocks_2.length; i += 1) {
+				each_blocks_2[i].l(div0_nodes);
+			}
+
+			div0_nodes.forEach(detach);
+			t2 = claim_space(section0_nodes);
+			div1 = claim_element(section0_nodes, "DIV", { id: true, class: true });
+			var div1_nodes = children(div1);
+			img0 = claim_element(div1_nodes, "IMG", { src: true, alt: true, class: true });
+			div1_nodes.forEach(detach);
+			section0_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
+			t3 = claim_space(nodes);
+			claim_component(waves.$$.fragment, nodes);
+			t4 = claim_space(nodes);
+			section1 = claim_element(nodes, "SECTION", { id: true, class: true });
+			var section1_nodes = children(section1);
+			div5 = claim_element(section1_nodes, "DIV", { class: true });
+			var div5_nodes = children(div5);
+			div3 = claim_element(div5_nodes, "DIV", { class: true });
+			var div3_nodes = children(div3);
+			img1 = claim_element(div3_nodes, "IMG", { src: true, alt: true, class: true });
+			div3_nodes.forEach(detach);
+			t5 = claim_space(div5_nodes);
+			div4 = claim_element(div5_nodes, "DIV", { class: true });
+			var div4_nodes = children(div4);
+			h30 = claim_element(div4_nodes, "H3", {});
+			var h30_nodes = children(h30);
+			t6 = claim_text(h30_nodes, t6_value);
+			h30_nodes.forEach(detach);
+			t7 = claim_space(div4_nodes);
+			p1 = claim_element(div4_nodes, "P", { contenteditable: true });
+			var p1_nodes = children(p1);
+			t8 = claim_text(p1_nodes, t8_value);
+			p1_nodes.forEach(detach);
+			div4_nodes.forEach(detach);
+			div5_nodes.forEach(detach);
+			section1_nodes.forEach(detach);
+			t9 = claim_space(nodes);
+			section2 = claim_element(nodes, "SECTION", { id: true, style: true, class: true });
+			var section2_nodes = children(section2);
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].l(section2_nodes);
+			}
+
+			section2_nodes.forEach(detach);
+			t10 = claim_space(nodes);
+			section3 = claim_element(nodes, "SECTION", { id: true, class: true });
+			var section3_nodes = children(section3);
+			div6 = claim_element(section3_nodes, "DIV", { class: true });
+			var div6_nodes = children(div6);
+			h31 = claim_element(div6_nodes, "H3", {});
+			var h31_nodes = children(h31);
+			t11 = claim_text(h31_nodes, "Minimal Setup Required");
+			h31_nodes.forEach(detach);
+			t12 = claim_space(div6_nodes);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div6_nodes);
+			}
+
+			div6_nodes.forEach(detach);
+			section3_nodes.forEach(detach);
+			t13 = claim_space(nodes);
+			section4 = claim_element(nodes, "SECTION", { id: true, class: true });
+			var section4_nodes = children(section4);
+			div8 = claim_element(section4_nodes, "DIV", { class: true });
+			var div8_nodes = children(div8);
+			div7 = claim_element(div8_nodes, "DIV", { id: true, class: true });
+			var div7_nodes = children(div7);
+			h32 = claim_element(div7_nodes, "H3", {});
+			var h32_nodes = children(h32);
+			t14 = claim_text(h32_nodes, t14_value);
+			h32_nodes.forEach(detach);
+			t15 = claim_space(div7_nodes);
+			a = claim_element(div7_nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t16 = claim_text(a_nodes, t16_value);
+			a_nodes.forEach(detach);
+			div7_nodes.forEach(detach);
+			div8_nodes.forEach(detach);
+			section4_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(div0, "id", "intro-text");
 			attr(div0, "class", "svelte-1xa3nt3");
+			if (img0.src !== (img0_src_value = "/assets/hero.svg")) attr(img0, "src", img0_src_value);
+			attr(img0, "alt", "planarian looking at screen");
+			attr(img0, "class", "svelte-1xa3nt3");
 			attr(div1, "id", "intro-hero");
 			attr(div1, "class", "svelte-1xa3nt3");
 			attr(section0, "id", "intro");
 			attr(section0, "class", "svelte-1xa3nt3");
 			attr(div2, "class", "container svelte-1xa3nt3");
+			if (img1.src !== (img1_src_value = "/assets/edit.gif")) attr(img1, "src", img1_src_value);
+			attr(img1, "alt", "Animation of typing on a computer");
+			attr(img1, "class", "svelte-1xa3nt3");
 			attr(div3, "class", "editor-graphic svelte-1xa3nt3");
 			attr(p1, "contenteditable", "true");
 			attr(div4, "class", "editor-content svelte-1xa3nt3");
@@ -383,12 +561,14 @@ function create_fragment(ctx) {
 
 			append(section0, t2);
 			append(section0, div1);
+			append(div1, img0);
 			insert(target, t3, anchor);
 			mount_component(waves, target, anchor);
 			insert(target, t4, anchor);
 			insert(target, section1, anchor);
 			append(section1, div5);
 			append(div5, div3);
+			append(div3, img1);
 			append(div5, t5);
 			append(div5, div4);
 			append(div4, h30);
@@ -407,6 +587,7 @@ function create_fragment(ctx) {
 			insert(target, section3, anchor);
 			append(section3, div6);
 			append(div6, h31);
+			append(h31, t11);
 			append(div6, t12);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {

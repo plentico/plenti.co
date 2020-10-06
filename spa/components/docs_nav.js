@@ -3,6 +3,10 @@ import {
 	SvelteComponent,
 	append,
 	attr,
+	children,
+	claim_element,
+	claim_space,
+	claim_text,
 	destroy_block,
 	detach,
 	element,
@@ -49,6 +53,18 @@ function create_if_block(ctx) {
 			t0 = space();
 			a = element("a");
 			t1 = text(t1_value);
+			this.h();
+		},
+		l(nodes) {
+			if (if_block) if_block.l(nodes);
+			t0 = claim_space(nodes);
+			a = claim_element(nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t1 = claim_text(a_nodes, t1_value);
+			a_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(a, "href", a_href_value = /*content*/ ctx[7].path);
 			attr(a, "class", "nav-link svelte-pciu1g");
 			toggle_class(a, "active", /*active*/ ctx[1][/*content*/ ctx[7].path]);
@@ -111,6 +127,16 @@ function create_if_block_1(ctx) {
 		c() {
 			strong = element("strong");
 			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			strong = claim_element(nodes, "STRONG", { class: true });
+			var strong_nodes = children(strong);
+			t = claim_text(strong_nodes, t_value);
+			strong_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(strong, "class", "svelte-pciu1g");
 		},
 		m(target, anchor) {
@@ -139,6 +165,15 @@ function create_each_block(key_1, ctx) {
 			first = empty();
 			if (if_block) if_block.c();
 			if_block_anchor = empty();
+			this.h();
+		},
+		l(nodes) {
+			first = empty();
+			if (if_block) if_block.l(nodes);
+			if_block_anchor = empty();
+			this.h();
+		},
+		h() {
 			this.first = first;
 		},
 		m(target, anchor) {
@@ -189,6 +224,20 @@ function create_fragment(ctx) {
 				each_blocks[i].c();
 			}
 
+			this.h();
+		},
+		l(nodes) {
+			div = claim_element(nodes, "DIV", { class: true });
+			var div_nodes = children(div);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div_nodes);
+			}
+
+			div_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(div, "class", "sidebar svelte-pciu1g");
 		},
 		m(target, anchor) {

@@ -3,6 +3,10 @@ import {
 	SvelteComponent,
 	append,
 	attr,
+	children,
+	claim_element,
+	claim_space,
+	claim_text,
 	detach,
 	element,
 	init,
@@ -11,28 +15,46 @@ import {
 	noop,
 	run_all,
 	safe_not_equal,
-	space
+	space,
+	text
 } from '/spa/web_modules/svelte/internal/index.js';
 
 function create_fragment(ctx) {
 	let nav;
 	let div1;
 	let span0;
+	let a0;
+	let img0;
+	let img0_src_value;
+	let t0;
 	let t1;
 	let input;
 	let t2;
 	let label;
+	let span1;
+	let t3;
+	let span2;
+	let t4;
+	let span3;
+	let t5;
+	let span4;
 	let t6;
 	let div0;
 	let a1;
+	let t7;
 	let t8;
 	let a2;
+	let t9;
 	let t10;
 	let a3;
+	let t11;
 	let t12;
 	let a4;
+	let t13;
 	let t14;
 	let a5;
+	let img1;
+	let img1_src_value;
 	let mounted;
 	let dispose;
 
@@ -41,38 +63,115 @@ function create_fragment(ctx) {
 			nav = element("nav");
 			div1 = element("div");
 			span0 = element("span");
-			span0.innerHTML = `<a href="/" class="svelte-34czqc"><img alt="planarian" src="/assets/planarian.svg" class="svelte-34czqc">Plenti</a>`;
+			a0 = element("a");
+			img0 = element("img");
+			t0 = text("Plenti");
 			t1 = space();
 			input = element("input");
 			t2 = space();
 			label = element("label");
-
-			label.innerHTML = `<span class="svelte-34czqc"></span> 
-      <span class="svelte-34czqc"></span> 
-      <span class="svelte-34czqc"></span> 
-      <span class="svelte-34czqc"></span>`;
-
+			span1 = element("span");
+			t3 = space();
+			span2 = element("span");
+			t4 = space();
+			span3 = element("span");
+			t5 = space();
+			span4 = element("span");
 			t6 = space();
 			div0 = element("div");
 			a1 = element("a");
-			a1.textContent = "Docs";
+			t7 = text("Docs");
 			t8 = space();
 			a2 = element("a");
-			a2.textContent = "Themes";
+			t9 = text("Themes");
 			t10 = space();
 			a3 = element("a");
-			a3.textContent = "Donate";
+			t11 = text("Donate");
 			t12 = space();
 			a4 = element("a");
-			a4.textContent = "Download";
+			t13 = text("Download");
 			t14 = space();
 			a5 = element("a");
-			a5.innerHTML = `<img src="/assets/social/github.svg" class="svelte-34czqc">`;
+			img1 = element("img");
+			this.h();
+		},
+		l(nodes) {
+			nav = claim_element(nodes, "NAV", { class: true });
+			var nav_nodes = children(nav);
+			div1 = claim_element(nav_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			span0 = claim_element(div1_nodes, "SPAN", { id: true, class: true });
+			var span0_nodes = children(span0);
+			a0 = claim_element(span0_nodes, "A", { href: true, class: true });
+			var a0_nodes = children(a0);
+			img0 = claim_element(a0_nodes, "IMG", { alt: true, src: true, class: true });
+			t0 = claim_text(a0_nodes, "Plenti");
+			a0_nodes.forEach(detach);
+			span0_nodes.forEach(detach);
+			t1 = claim_space(div1_nodes);
+			input = claim_element(div1_nodes, "INPUT", { type: true, id: true, class: true });
+			t2 = claim_space(div1_nodes);
+			label = claim_element(div1_nodes, "LABEL", { for: true, id: true, class: true });
+			var label_nodes = children(label);
+			span1 = claim_element(label_nodes, "SPAN", { class: true });
+			children(span1).forEach(detach);
+			t3 = claim_space(label_nodes);
+			span2 = claim_element(label_nodes, "SPAN", { class: true });
+			children(span2).forEach(detach);
+			t4 = claim_space(label_nodes);
+			span3 = claim_element(label_nodes, "SPAN", { class: true });
+			children(span3).forEach(detach);
+			t5 = claim_space(label_nodes);
+			span4 = claim_element(label_nodes, "SPAN", { class: true });
+			children(span4).forEach(detach);
+			label_nodes.forEach(detach);
+			t6 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { id: true, class: true });
+			var div0_nodes = children(div0);
+			a1 = claim_element(div0_nodes, "A", { class: true, href: true });
+			var a1_nodes = children(a1);
+			t7 = claim_text(a1_nodes, "Docs");
+			a1_nodes.forEach(detach);
+			t8 = claim_space(div0_nodes);
+			a2 = claim_element(div0_nodes, "A", { class: true, href: true });
+			var a2_nodes = children(a2);
+			t9 = claim_text(a2_nodes, "Themes");
+			a2_nodes.forEach(detach);
+			t10 = claim_space(div0_nodes);
+			a3 = claim_element(div0_nodes, "A", { class: true, href: true });
+			var a3_nodes = children(a3);
+			t11 = claim_text(a3_nodes, "Donate");
+			a3_nodes.forEach(detach);
+			t12 = claim_space(div0_nodes);
+			a4 = claim_element(div0_nodes, "A", { class: true, href: true });
+			var a4_nodes = children(a4);
+			t13 = claim_text(a4_nodes, "Download");
+			a4_nodes.forEach(detach);
+			t14 = claim_space(div0_nodes);
+			a5 = claim_element(div0_nodes, "A", { class: true, href: true });
+			var a5_nodes = children(a5);
+			img1 = claim_element(a5_nodes, "IMG", { src: true, class: true });
+			a5_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			nav_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(img0, "alt", "planarian");
+			if (img0.src !== (img0_src_value = "/assets/planarian.svg")) attr(img0, "src", img0_src_value);
+			attr(img0, "class", "svelte-34czqc");
+			attr(a0, "href", "/");
+			attr(a0, "class", "svelte-34czqc");
 			attr(span0, "id", "brand");
 			attr(span0, "class", "svelte-34czqc");
 			attr(input, "type", "checkbox");
 			attr(input, "id", "toggle");
 			attr(input, "class", "hidden svelte-34czqc");
+			attr(span1, "class", "svelte-34czqc");
+			attr(span2, "class", "svelte-34czqc");
+			attr(span3, "class", "svelte-34czqc");
+			attr(span4, "class", "svelte-34czqc");
 			attr(label, "for", "toggle");
 			attr(label, "id", "hamburger");
 			attr(label, "class", "svelte-34czqc");
@@ -84,6 +183,8 @@ function create_fragment(ctx) {
 			attr(a3, "href", "https://github.com/sponsors/plentico");
 			attr(a4, "class", "nav-link button svelte-34czqc");
 			attr(a4, "href", "/download");
+			if (img1.src !== (img1_src_value = "/assets/social/github.svg")) attr(img1, "src", img1_src_value);
+			attr(img1, "class", "svelte-34czqc");
 			attr(a5, "class", "nav-link svelte-34czqc");
 			attr(a5, "href", "https://github.com/plentico/plenti");
 			attr(div0, "id", "menu");
@@ -95,22 +196,37 @@ function create_fragment(ctx) {
 			insert(target, nav, anchor);
 			append(nav, div1);
 			append(div1, span0);
+			append(span0, a0);
+			append(a0, img0);
+			append(a0, t0);
 			append(div1, t1);
 			append(div1, input);
 			input.checked = /*checked*/ ctx[0];
 			append(div1, t2);
 			append(div1, label);
+			append(label, span1);
+			append(label, t3);
+			append(label, span2);
+			append(label, t4);
+			append(label, span3);
+			append(label, t5);
+			append(label, span4);
 			append(div1, t6);
 			append(div1, div0);
 			append(div0, a1);
+			append(a1, t7);
 			append(div0, t8);
 			append(div0, a2);
+			append(a2, t9);
 			append(div0, t10);
 			append(div0, a3);
+			append(a3, t11);
 			append(div0, t12);
 			append(div0, a4);
+			append(a4, t13);
 			append(div0, t14);
 			append(div0, a5);
+			append(a5, img1);
 
 			if (!mounted) {
 				dispose = [

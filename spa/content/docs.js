@@ -4,6 +4,11 @@ import {
 	SvelteComponent,
 	append,
 	attr,
+	children,
+	claim_component,
+	claim_element,
+	claim_space,
+	claim_text,
 	create_component,
 	destroy_component,
 	destroy_each,
@@ -70,6 +75,14 @@ function create_if_block_2(ctx) {
 	return {
 		c() {
 			div = element("div");
+			this.h();
+		},
+		l(nodes) {
+			div = claim_element(nodes, "DIV", { class: true });
+			children(div).forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(div, "class", "sidebar-overlay svelte-mqcoi3");
 		},
 		m(target, anchor) {
@@ -103,6 +116,13 @@ function create_if_block_1(ctx) {
 		c() {
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
+			}
+
+			each_1_anchor = empty();
+		},
+		l(nodes) {
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(nodes);
 			}
 
 			each_1_anchor = empty();
@@ -154,6 +174,13 @@ function create_each_block_5(ctx) {
 	return {
 		c() {
 			t = text(" ");
+			this.h();
+		},
+		l(nodes) {
+			t = claim_text(nodes, " ");
+			this.h();
+		},
+		h() {
 			html_tag = new HtmlTag(t);
 		},
 		m(target, anchor) {
@@ -207,6 +234,31 @@ function create_if_block(ctx) {
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
+		},
+		l(nodes) {
+			table = claim_element(nodes, "TABLE", {});
+			var table_nodes = children(table);
+			thead = claim_element(table_nodes, "THEAD", {});
+			var thead_nodes = children(thead);
+			tr = claim_element(thead_nodes, "TR", {});
+			var tr_nodes = children(tr);
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].l(tr_nodes);
+			}
+
+			tr_nodes.forEach(detach);
+			thead_nodes.forEach(detach);
+			t = claim_space(table_nodes);
+			tbody = claim_element(table_nodes, "TBODY", {});
+			var tbody_nodes = children(tbody);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(tbody_nodes);
+			}
+
+			tbody_nodes.forEach(detach);
+			table_nodes.forEach(detach);
 		},
 		m(target, anchor) {
 			insert(target, table, anchor);
@@ -288,6 +340,11 @@ function create_each_block_4(ctx) {
 		c() {
 			th = element("th");
 		},
+		l(nodes) {
+			th = claim_element(nodes, "TH", {});
+			var th_nodes = children(th);
+			th_nodes.forEach(detach);
+		},
 		m(target, anchor) {
 			insert(target, th, anchor);
 			th.innerHTML = raw_value;
@@ -309,6 +366,11 @@ function create_each_block_3(ctx) {
 	return {
 		c() {
 			td = element("td");
+		},
+		l(nodes) {
+			td = claim_element(nodes, "TD", {});
+			var td_nodes = children(td);
+			td_nodes.forEach(detach);
 		},
 		m(target, anchor) {
 			insert(target, td, anchor);
@@ -343,6 +405,17 @@ function create_each_block_2(ctx) {
 			}
 
 			t = space();
+		},
+		l(nodes) {
+			tr = claim_element(nodes, "TR", {});
+			var tr_nodes = children(tr);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(tr_nodes);
+			}
+
+			t = claim_space(tr_nodes);
+			tr_nodes.forEach(detach);
 		},
 		m(target, anchor) {
 			insert(target, tr, anchor);
@@ -399,6 +472,19 @@ function create_each_block_1(ctx) {
 			t0 = space();
 			if (if_block1) if_block1.c();
 			t1 = space();
+			this.h();
+		},
+		l(nodes) {
+			p = claim_element(nodes, "P", { class: true });
+			var p_nodes = children(p);
+			if (if_block0) if_block0.l(p_nodes);
+			t0 = claim_space(p_nodes);
+			if (if_block1) if_block1.l(p_nodes);
+			t1 = claim_space(p_nodes);
+			p_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(p, "class", "section-body svelte-mqcoi3");
 		},
 		m(target, anchor) {
@@ -468,6 +554,23 @@ function create_each_block(ctx) {
 			}
 
 			each_1_anchor = empty();
+			this.h();
+		},
+		l(nodes) {
+			strong = claim_element(nodes, "STRONG", { class: true });
+			var strong_nodes = children(strong);
+			t0 = claim_text(strong_nodes, t0_value);
+			strong_nodes.forEach(detach);
+			t1 = claim_space(nodes);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(nodes);
+			}
+
+			each_1_anchor = empty();
+			this.h();
+		},
+		h() {
 			attr(strong, "class", "title svelte-mqcoi3");
 		},
 		m(target, anchor) {
@@ -523,6 +626,13 @@ function create_fragment(ctx) {
 	let input;
 	let t0;
 	let label;
+	let span0;
+	let t1;
+	let span1;
+	let t2;
+	let span2;
+	let t3;
+	let span3;
 	let t4;
 	let docsnav;
 	let t5;
@@ -555,12 +665,13 @@ function create_fragment(ctx) {
 			input = element("input");
 			t0 = space();
 			label = element("label");
-
-			label.innerHTML = `<span class="svelte-mqcoi3"></span> 
-            <span class="svelte-mqcoi3"></span> 
-            <span class="svelte-mqcoi3"></span> 
-            <span class="svelte-mqcoi3"></span>`;
-
+			span0 = element("span");
+			t1 = space();
+			span1 = element("span");
+			t2 = space();
+			span2 = element("span");
+			t3 = space();
+			span3 = element("span");
 			t4 = space();
 			create_component(docsnav.$$.fragment);
 			t5 = space();
@@ -575,9 +686,62 @@ function create_fragment(ctx) {
 				each_blocks[i].c();
 			}
 
+			this.h();
+		},
+		l(nodes) {
+			div3 = claim_element(nodes, "DIV", { class: true });
+			var div3_nodes = children(div3);
+			div2 = claim_element(div3_nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			div0 = claim_element(div2_nodes, "DIV", {});
+			var div0_nodes = children(div0);
+			input = claim_element(div0_nodes, "INPUT", { type: true, id: true, class: true });
+			t0 = claim_space(div0_nodes);
+			label = claim_element(div0_nodes, "LABEL", { for: true, id: true, class: true });
+			var label_nodes = children(label);
+			span0 = claim_element(label_nodes, "SPAN", { class: true });
+			children(span0).forEach(detach);
+			t1 = claim_space(label_nodes);
+			span1 = claim_element(label_nodes, "SPAN", { class: true });
+			children(span1).forEach(detach);
+			t2 = claim_space(label_nodes);
+			span2 = claim_element(label_nodes, "SPAN", { class: true });
+			children(span2).forEach(detach);
+			t3 = claim_space(label_nodes);
+			span3 = claim_element(label_nodes, "SPAN", { class: true });
+			children(span3).forEach(detach);
+			label_nodes.forEach(detach);
+			t4 = claim_space(div0_nodes);
+			claim_component(docsnav.$$.fragment, div0_nodes);
+			div0_nodes.forEach(detach);
+			t5 = claim_space(div2_nodes);
+			if (if_block) if_block.l(div2_nodes);
+			t6 = claim_space(div2_nodes);
+			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			h1 = claim_element(div1_nodes, "H1", {});
+			var h1_nodes = children(h1);
+			t7 = claim_text(h1_nodes, /*title*/ ctx[0]);
+			h1_nodes.forEach(detach);
+			t8 = claim_space(div1_nodes);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div1_nodes);
+			}
+
+			div1_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
+			div3_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(input, "type", "checkbox");
 			attr(input, "id", "nav-toggle");
 			attr(input, "class", "hidden svelte-mqcoi3");
+			attr(span0, "class", "svelte-mqcoi3");
+			attr(span1, "class", "svelte-mqcoi3");
+			attr(span2, "class", "svelte-mqcoi3");
+			attr(span3, "class", "svelte-mqcoi3");
 			attr(label, "for", "nav-toggle");
 			attr(label, "id", "hamburger");
 			attr(label, "class", "svelte-mqcoi3");
@@ -593,6 +757,13 @@ function create_fragment(ctx) {
 			input.checked = /*checked*/ ctx[3];
 			append(div0, t0);
 			append(div0, label);
+			append(label, span0);
+			append(label, t1);
+			append(label, span1);
+			append(label, t2);
+			append(label, span2);
+			append(label, t3);
+			append(label, span3);
 			append(div0, t4);
 			mount_component(docsnav, div0, null);
 			append(div2, t5);

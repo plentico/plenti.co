@@ -110,7 +110,7 @@ const contentSource = [{
                                 "Change the name of the \"public\" build directory to something else"
                             ],
                             [
-                                "<code>--benchmar</code>",
+                                "<code>--benchmark</code>",
                                 "<code>-b</code>",
                                 "Display build time statistics"
                             ],
@@ -126,6 +126,7 @@ const contentSource = [{
         }
     ]
 }
+
 },{
 "path": "/docs/eject",
 "type": "docs",

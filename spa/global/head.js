@@ -3,6 +3,10 @@ import {
 	SvelteComponent,
 	append,
 	attr,
+	children,
+	claim_element,
+	claim_space,
+	claim_text,
 	detach,
 	element,
 	init,
@@ -44,6 +48,29 @@ function create_fragment(ctx) {
 			link1 = element("link");
 			t5 = space();
 			link2 = element("link");
+			this.h();
+		},
+		l(nodes) {
+			head = claim_element(nodes, "HEAD", {});
+			var head_nodes = children(head);
+			meta0 = claim_element(head_nodes, "META", { charset: true });
+			t0 = claim_space(head_nodes);
+			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
+			t1 = claim_space(head_nodes);
+			title_1 = claim_element(head_nodes, "TITLE", {});
+			var title_1_nodes = children(title_1);
+			t2 = claim_text(title_1_nodes, /*title*/ ctx[0]);
+			title_1_nodes.forEach(detach);
+			t3 = claim_space(head_nodes);
+			link0 = claim_element(head_nodes, "LINK", { href: true, rel: true });
+			t4 = claim_space(head_nodes);
+			link1 = claim_element(head_nodes, "LINK", { rel: true, type: true, href: true });
+			t5 = claim_space(head_nodes);
+			link2 = claim_element(head_nodes, "LINK", { rel: true, href: true });
+			head_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(meta0, "charset", "utf-8");
 			attr(meta1, "name", "viewport");
 			attr(meta1, "content", "width=device-width,initial-scale=1");

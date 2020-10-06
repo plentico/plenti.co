@@ -3,6 +3,9 @@ import {
 	SvelteComponent,
 	append,
 	attr,
+	children,
+	claim_element,
+	claim_text,
 	destroy_each,
 	detach,
 	element,
@@ -34,6 +37,16 @@ function create_if_block(ctx) {
 		c() {
 			a = element("a");
 			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			a = claim_element(nodes, "A", { class: true, href: true });
+			var a_nodes = children(a);
+			t = claim_text(a_nodes, t_value);
+			a_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(a, "class", "grid-item svelte-eh5are");
 			attr(a, "href", a_href_value = /*item*/ ctx[2].path);
 		},
@@ -62,6 +75,10 @@ function create_each_block(ctx) {
 	return {
 		c() {
 			if (if_block) if_block.c();
+			if_block_anchor = empty();
+		},
+		l(nodes) {
+			if (if_block) if_block.l(nodes);
 			if_block_anchor = empty();
 		},
 		m(target, anchor) {
@@ -106,6 +123,20 @@ function create_fragment(ctx) {
 				each_blocks[i].c();
 			}
 
+			this.h();
+		},
+		l(nodes) {
+			div = claim_element(nodes, "DIV", { class: true });
+			var div_nodes = children(div);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div_nodes);
+			}
+
+			div_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(div, "class", "grid svelte-eh5are");
 		},
 		m(target, anchor) {

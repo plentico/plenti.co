@@ -5,6 +5,10 @@ import {
 	assign,
 	attr,
 	check_outros,
+	children,
+	claim_component,
+	claim_element,
+	claim_space,
 	create_component,
 	destroy_component,
 	detach,
@@ -81,6 +85,30 @@ function create_fragment(ctx) {
 			br = element("br");
 			t3 = space();
 			create_component(footer.$$.fragment);
+			this.h();
+		},
+		l(nodes) {
+			html = claim_element(nodes, "HTML", { lang: true });
+			var html_nodes = children(html);
+			claim_component(head.$$.fragment, html_nodes);
+			t0 = claim_space(html_nodes);
+			body = claim_element(html_nodes, "BODY", { class: true });
+			var body_nodes = children(body);
+			claim_component(nav.$$.fragment, body_nodes);
+			t1 = claim_space(body_nodes);
+			main = claim_element(body_nodes, "MAIN", { class: true });
+			var main_nodes = children(main);
+			if (switch_instance) claim_component(switch_instance.$$.fragment, main_nodes);
+			t2 = claim_space(main_nodes);
+			br = claim_element(main_nodes, "BR", {});
+			main_nodes.forEach(detach);
+			t3 = claim_space(body_nodes);
+			claim_component(footer.$$.fragment, body_nodes);
+			body_nodes.forEach(detach);
+			html_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
 			attr(main, "class", "svelte-1142p5h");
 			attr(body, "class", "svelte-1142p5h");
 			attr(html, "lang", "en");
