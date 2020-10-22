@@ -34,7 +34,7 @@
                             [
                                 "<code>--bare</code>",
                                 "<code>-b</code>",
-                                "(Coming Soon) Creates a minimalist site scaffolding with less default content."
+                                "Creates a minimalist site scaffolding with less default content."
                             ],
                             [
                                 "<code>--theme=\"git@github.com:user/repo.git\"</code>",

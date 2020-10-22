@@ -8,7 +8,8 @@
             "body": [
                 {
                     "p": [
-                        "You must have <a href='https://nodejs.org' target='_blank' rel='noopener noreferrer'>NodeJS</a> version 13 or newer"
+                        "<s>You must have <a href='https://nodejs.org' target='_blank' rel='noopener noreferrer'>NodeJS</a> version 13 or newer.</s>",
+                        "<br>As of <code>v0.2.0</code> you no longer need NodeJS, Go, or any dependency other than Plenti itself."
                     ]
                 }
             ]
