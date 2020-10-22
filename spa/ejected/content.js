@@ -296,7 +296,8 @@ const contentSource = [{
             "body": [
                 {
                     "p": [
-                        "You must have <a href='https://nodejs.org' target='_blank' rel='noopener noreferrer'>NodeJS</a> version 13 or newer"
+                        "<s>You must have <a href='https://nodejs.org' target='_blank' rel='noopener noreferrer'>NodeJS</a> version 13 or newer.</s>",
+                        "<br>As of <code>v0.2.0</code> you no longer need NodeJS, Go, or any dependency other than Plenti itself."
                     ]
                 }
             ]
@@ -441,7 +442,7 @@ const contentSource = [{
                             [
                                 "<code>--bare</code>",
                                 "<code>-b</code>",
-                                "(Coming Soon) Creates a minimalist site scaffolding with less default content."
+                                "Creates a minimalist site scaffolding with less default content."
                             ],
                             [
                                 "<code>--theme=\"git@github.com:user/repo.git\"</code>",
@@ -694,8 +695,8 @@ const contentSource = [{
 		]
 	},
 	"editor": {
-		"title": "Edit right on the page",
-		"body": "Seriously, give it a shot! You can edit this text directly. That's how easy it is to maintain the content on your site."
+		"title": "Edit right on the page (Coming soon)",
+		"body": "Seriously, give it a shot! You can edit this text directly. That's how easy it will be to maintain the content on your site."
 	},
 	"features": [
 		{

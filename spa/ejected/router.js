@@ -61,20 +61,14 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let route, content, allContent;
+	let { uri } = $$props,
+		{ route } = $$props,
+		{ content } = $$props,
+		{ allContent } = $$props;
 
 	const getContent = (uri, trailingSlash = "") => {
 		return contentSource.find(content => content.path + trailingSlash == uri);
 	};
-
-	let uri = location.pathname;
-	content = getContent(uri);
-
-	if (content === undefined) {
-		content = getContent(uri, "/");
-	}
-
-	allContent = contentSource;
 
 	function draw(m) {
 		$$invalidate(1, content = getContent(uri));
@@ -99,7 +93,7 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	function track(obj) {
-		uri = obj.state || obj.uri;
+		$$invalidate(3, uri = obj.state || obj.uri);
 	}
 
 	addEventListener("replacestate", track);
@@ -118,24 +112,38 @@ function instance($$self, $$props, $$invalidate) {
 
 	allContent.forEach(content => {
 		router.on(content.path, () => {
-			// Check if the url visited ends in a trailing slash (besides the homepage).
-			if (uri.length > 1 && uri.slice(-1) == "/") {
-				// Redirect to the same path without the trailing slash.
-				router.route(content.path, false);
-			} else {
-				import("../content/" + content.type + ".js").then(draw).catch(handle404);
-			}
+			import("../content/" + content.type + ".js").then(draw).catch(handle404);
 		});
 	});
 
 	router.listen();
-	return [route, content, allContent];
+
+	// Check if the url visited ends in a trailing slash (besides the homepage).
+	if (uri.length > 1 && uri.slice(-1) == "/") {
+		// Redirect to the same path without the trailing slash.
+		router.route(content.path, false);
+	}
+
+	$$self.$set = $$props => {
+		if ("uri" in $$props) $$invalidate(3, uri = $$props.uri);
+		if ("route" in $$props) $$invalidate(0, route = $$props.route);
+		if ("content" in $$props) $$invalidate(1, content = $$props.content);
+		if ("allContent" in $$props) $$invalidate(2, allContent = $$props.allContent);
+	};
+
+	return [route, content, allContent, uri];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, {});
+
+		init(this, options, instance, create_fragment, safe_not_equal, {
+			uri: 3,
+			route: 0,
+			content: 1,
+			allContent: 2
+		});
 	}
 }
 

@@ -150,7 +150,7 @@ function create_fragment(ctx) {
 			t14 = claim_space(div0_nodes);
 			a5 = claim_element(div0_nodes, "A", { class: true, href: true });
 			var a5_nodes = children(a5);
-			img1 = claim_element(a5_nodes, "IMG", { src: true, class: true });
+			img1 = claim_element(a5_nodes, "IMG", { src: true, alt: true, class: true });
 			a5_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
@@ -159,7 +159,7 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(img0, "alt", "planarian");
-			if (img0.src !== (img0_src_value = "/assets/planarian.svg")) attr(img0, "src", img0_src_value);
+			if (img0.src !== (img0_src_value = "/assets/plentico.svg")) attr(img0, "src", img0_src_value);
 			attr(img0, "class", "svelte-34czqc");
 			attr(a0, "href", "/");
 			attr(a0, "class", "svelte-34czqc");
@@ -184,6 +184,7 @@ function create_fragment(ctx) {
 			attr(a4, "class", "nav-link button svelte-34czqc");
 			attr(a4, "href", "/download");
 			if (img1.src !== (img1_src_value = "/assets/social/github.svg")) attr(img1, "src", img1_src_value);
+			attr(img1, "alt", "GitHub Octocat Icon");
 			attr(img1, "class", "svelte-34czqc");
 			attr(a5, "class", "nav-link svelte-34czqc");
 			attr(a5, "href", "https://github.com/plentico/plenti");
