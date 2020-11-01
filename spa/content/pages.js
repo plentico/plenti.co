@@ -52,7 +52,7 @@ function get_each_context_2(ctx, list, i) {
 }
 
 // (48:2) {#if description}
-function create_if_block_9(ctx) {
+function create_if_block_10(ctx) {
 	let div;
 	let each_value_2 = /*description*/ ctx[1];
 	let each_blocks = [];
@@ -145,7 +145,7 @@ function create_each_block_2(ctx) {
 }
 
 // (56:2) {#if themes}
-function create_if_block_8(ctx) {
+function create_if_block_9(ctx) {
 	let section;
 	let each_value_1 = /*themes*/ ctx[2];
 	let each_blocks = [];
@@ -269,7 +269,8 @@ function create_if_block(ctx) {
 	});
 
 	function select_block_type_1(ctx, dirty) {
-		if (/*OSName*/ ctx[4]) return create_if_block_4;
+		if (/*OSName*/ ctx[4] == "Linux" || /*OSName*/ ctx[4] == "Mac") return create_if_block_4;
+		if (/*OSName*/ ctx[4] == "Windows") return create_if_block_5;
 		return create_else_block_1;
 	}
 
@@ -455,7 +456,7 @@ function create_else_block_2(ctx) {
 }
 
 // (72:47) 
-function create_if_block_7(ctx) {
+function create_if_block_8(ctx) {
 	let windows;
 	let current;
 	windows = new Windows({});
@@ -487,7 +488,7 @@ function create_if_block_7(ctx) {
 }
 
 // (70:43) 
-function create_if_block_6(ctx) {
+function create_if_block_7(ctx) {
 	let mac;
 	let current;
 	mac = new Mac({});
@@ -519,7 +520,7 @@ function create_if_block_6(ctx) {
 }
 
 // (68:8) {#if currentOs.title == 'Linux'}
-function create_if_block_5(ctx) {
+function create_if_block_6(ctx) {
 	let linux;
 	let current;
 	linux = new Linux({});
@@ -564,7 +565,7 @@ function create_each_block(ctx) {
 	let current;
 	let mounted;
 	let dispose;
-	const if_block_creators = [create_if_block_5, create_if_block_6, create_if_block_7, create_else_block_2];
+	const if_block_creators = [create_if_block_6, create_if_block_7, create_if_block_8, create_else_block_2];
 	const if_blocks = [];
 
 	function select_block_type(ctx, dirty) {
@@ -675,7 +676,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (87:6) {:else}
+// (91:6) {:else}
 function create_else_block_1(ctx) {
 	let div0;
 	let a;
@@ -732,7 +733,119 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (82:6) {#if OSName}
+// (87:36) 
+function create_if_block_5(ctx) {
+	let div0;
+	let t0;
+	let t1;
+	let t2;
+	let t3;
+	let div1;
+	let strong0;
+	let t4;
+	let t5;
+	let div2;
+	let t6;
+	let a;
+	let t7;
+	let t8;
+	let strong1;
+
+	return {
+		c() {
+			div0 = element("div");
+			t0 = text("It looks like you're using a ");
+			t1 = text(/*OSName*/ ctx[4]);
+			t2 = text(" computer.");
+			t3 = space();
+			div1 = element("div");
+			strong0 = element("strong");
+			t4 = text("Unfortunately Windows is not currently supported.");
+			t5 = space();
+			div2 = element("div");
+			t6 = text("If you'd like to help add Windows support, please see more details ");
+			a = element("a");
+			t7 = text("here");
+			t8 = text(".");
+			strong1 = element("strong");
+			this.h();
+		},
+		l(nodes) {
+			div0 = claim_element(nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			t0 = claim_text(div0_nodes, "It looks like you're using a ");
+			t1 = claim_text(div0_nodes, /*OSName*/ ctx[4]);
+			t2 = claim_text(div0_nodes, " computer.");
+			div0_nodes.forEach(detach);
+			t3 = claim_space(nodes);
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			strong0 = claim_element(div1_nodes, "STRONG", {});
+			var strong0_nodes = children(strong0);
+			t4 = claim_text(strong0_nodes, "Unfortunately Windows is not currently supported.");
+			strong0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			t5 = claim_space(nodes);
+			div2 = claim_element(nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			t6 = claim_text(div2_nodes, "If you'd like to help add Windows support, please see more details ");
+
+			a = claim_element(div2_nodes, "A", {
+				href: true,
+				target: true,
+				rel: true,
+				class: true
+			});
+
+			var a_nodes = children(a);
+			t7 = claim_text(a_nodes, "here");
+			a_nodes.forEach(detach);
+			t8 = claim_text(div2_nodes, ".");
+			strong1 = claim_element(div2_nodes, "STRONG", {});
+			children(strong1).forEach(detach);
+			div2_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(div0, "class", "selected svelte-1oxlflm");
+			attr(div1, "class", "selected svelte-1oxlflm");
+			attr(a, "href", "https://github.com/plentico/plenti/issues/45");
+			attr(a, "target", "blank");
+			attr(a, "rel", "noopener noreferrer");
+			attr(a, "class", "svelte-1oxlflm");
+			attr(div2, "class", "selected svelte-1oxlflm");
+		},
+		m(target, anchor) {
+			insert(target, div0, anchor);
+			append(div0, t0);
+			append(div0, t1);
+			append(div0, t2);
+			insert(target, t3, anchor);
+			insert(target, div1, anchor);
+			append(div1, strong0);
+			append(strong0, t4);
+			insert(target, t5, anchor);
+			insert(target, div2, anchor);
+			append(div2, t6);
+			append(div2, a);
+			append(a, t7);
+			append(div2, t8);
+			append(div2, strong1);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*OSName*/ 16) set_data(t1, /*OSName*/ ctx[4]);
+		},
+		d(detaching) {
+			if (detaching) detach(div0);
+			if (detaching) detach(t3);
+			if (detaching) detach(div1);
+			if (detaching) detach(t5);
+			if (detaching) detach(div2);
+		}
+	};
+}
+
+// (82:6) {#if OSName == 'Linux' || OSName == 'Mac'}
 function create_if_block_4(ctx) {
 	let div0;
 	let t0;
@@ -878,7 +991,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (110:6) {:else}
+// (114:6) {:else}
 function create_else_block(ctx) {
 	let strong0;
 	let t0;
@@ -1030,7 +1143,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (104:36) 
+// (108:36) 
 function create_if_block_3(ctx) {
 	let strong;
 	let t0;
@@ -1045,7 +1158,7 @@ function create_if_block_3(ctx) {
 	return {
 		c() {
 			strong = element("strong");
-			t0 = text("Or you can install using Scoop:");
+			t0 = text("Or you can install using Scoop (Currently not supported):");
 			br0 = element("br");
 			br1 = element("br");
 			t1 = space();
@@ -1057,7 +1170,7 @@ function create_if_block_3(ctx) {
 		l(nodes) {
 			strong = claim_element(nodes, "STRONG", {});
 			var strong_nodes = children(strong);
-			t0 = claim_text(strong_nodes, "Or you can install using Scoop:");
+			t0 = claim_text(strong_nodes, "Or you can install using Scoop (Currently not supported):");
 			strong_nodes.forEach(detach);
 			br0 = claim_element(nodes, "BR", {});
 			br1 = claim_element(nodes, "BR", {});
@@ -1090,7 +1203,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (98:32) 
+// (102:32) 
 function create_if_block_2(ctx) {
 	let strong;
 	let t0;
@@ -1150,7 +1263,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (93:6) {#if OSName == 'Linux'}
+// (97:6) {#if OSName == 'Linux'}
 function create_if_block_1(ctx) {
 	let strong;
 	let t0;
@@ -1210,8 +1323,8 @@ function create_fragment(ctx) {
 	let t2;
 	let t3;
 	let current;
-	let if_block0 = /*description*/ ctx[1] && create_if_block_9(ctx);
-	let if_block1 = /*themes*/ ctx[2] && create_if_block_8(ctx);
+	let if_block0 = /*description*/ ctx[1] && create_if_block_10(ctx);
+	let if_block1 = /*themes*/ ctx[2] && create_if_block_9(ctx);
 	let if_block2 = /*os*/ ctx[3] && create_if_block(ctx);
 
 	return {
@@ -1266,7 +1379,7 @@ function create_fragment(ctx) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
-					if_block0 = create_if_block_9(ctx);
+					if_block0 = create_if_block_10(ctx);
 					if_block0.c();
 					if_block0.m(div, t2);
 				}
@@ -1279,7 +1392,7 @@ function create_fragment(ctx) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
-					if_block1 = create_if_block_8(ctx);
+					if_block1 = create_if_block_9(ctx);
 					if_block1.c();
 					if_block1.m(div, t3);
 				}
