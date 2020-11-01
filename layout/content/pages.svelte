@@ -79,11 +79,15 @@
     {/each}
     </section>
     <section id="detection">
-      {#if OSName}
+      {#if OSName == 'Linux' || OSName == 'Mac'}
         <div class="selected">It looks like you're using a {OSName} computer.</div>
         <div class="instructions">If that's not the case, choose a different Operating System above.</div>
         <a class="cta" href="https://github.com/plentico/plenti/releases/download/v{version}/plenti_{version}_{OSName}_64-bit.tar.gz">Download<br><strong>version {version}</strong><br>for 64-bit {OSName}</a>
         <div>(<a href="https://github.com/plentico/plenti/releases/latest">See more options</a>)</div>
+      {:else if OSName == 'Windows'}
+        <div class="selected">It looks like you're using a {OSName} computer.</div>
+        <div class="selected"><strong>Unfortunately Windows is not currently supported.</div>
+        <div class="selected"> If you'd like to help add Windows support, please see more details <a href="https://github.com/plentico/plenti/issues/45" target="blank" rel="noopener noreferrer">here</a>.<strong></div>
       {:else}
         <div class="selected"><a href="https://github.com/plentico/plenti/releases/latest">See the latest releases</a></div>
         <div class="instructions">Or use one of the package managers below...</div>
@@ -102,7 +106,7 @@
           <br>brew install plenti
         </codeblock>
       {:else if OSName == 'Windows'}
-        <strong>Or you can install using Scoop:</strong><br><br>
+        <strong>Or you can install using Scoop (Currently not supported):</strong><br><br>
         <codeblock>
           scoop bucket add org https://github.com/plentico/scoop-plenti.git
           <br>scoop install plentico/scoop-plenti
