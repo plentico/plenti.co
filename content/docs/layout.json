@@ -32,9 +32,9 @@
             "body": [
                 {
                     "p": [
-                        "Files that live in this folder correspond directly to the Types defined in your content source.",
-                        "For example if you have blog Type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layout/content/blog.svelte</code>.",
-                        "One template should be used per Type and it will feed many content files to create individual nodes (endpoints)."
+                        "Files that live in this folder correspond directly to the types defined in your content source.",
+                        "For example if you have <em>blog</em> type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layout/content/blog.svelte</code>.",
+                        "One template should be used per type and it will feed many content files to create individual nodes (endpoints)."
                     ]
                 },
                 {

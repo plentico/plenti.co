@@ -9,8 +9,8 @@
                 {
                     "p": [
                         "This command will automatically create a folder in your <code>content/</code> directory with the",
-                        "Type name, a <code>_blueprint.json</code> file inside that folder that describes the Type's field",
-                        "structure, and a corresponding template in <code>layout/content/</code> that has the same name as the Type."
+                        "type name, a <code>_blueprint.json</code> file inside that folder that describes the type's field",
+                        "structure, and a corresponding template in <code>layout/content/</code> that has the same name as the type."
                     ]
                 }
             ]
@@ -35,7 +35,7 @@
                             [
                                 "<code>--endpoint=true</code>",
                                 "<code>-e=true</code>",
-                                "Pass \"false\" if you don't want your new Type to have an endpoint that site visitors can access directly"
+                                "Pass \"false\" if you don't want your new type to have an endpoint that site visitors can access directly"
                             ]
                         ]
                     }
