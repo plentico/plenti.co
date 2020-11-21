@@ -8,11 +8,11 @@
             "body": [
                 {
                     "p": [
-                        "Ejecting is the process of exporting core files so you can customize what plenti uses in the background to generate your site.",
+                        "Ejecting is the process of exporting core files so you can customize what Plenti uses in the background to generate your site.",
                         "This functionality is generally reserved for experienced users that have a specific use",
                         "case for why the need to do this. If you want to customize your experience this way, just keep",
                         "in mind that you will no longer receive automatic updates for the ejected project and we can't",
-                        "gaurantee that your site will continue to work properly."
+                        "guarantee that your site will continue to work properly."
                     ]
                 }
             ]

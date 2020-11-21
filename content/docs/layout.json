@@ -8,9 +8,9 @@
             "body": [
                 {
                     "p": [
-                        "All the templating is done in \"disappearing\" JS component framework called <a href='https://svelte.dev/'>Svelte</a>.",
+                        "All the templating is done in the \"disappearing\" JS component framework called <a href='https://svelte.dev/'>Svelte</a>.",
                         "Svelte offers a simplified syntax and creates a welcoming developer experience for folks coming directly from an HTML/CSS background.",
-                        "It also offers some performance benefits over similar frameworks since it doesn't require a virtual dom and its runtime is rather small."
+                        "It also offers some performance benefits over similar frameworks since it doesn't require a virtual DOM and its runtime is rather small."
                     ]
                 }
             ]
