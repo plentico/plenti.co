@@ -386,9 +386,9 @@ const contentSource = [{
             "body": [
                 {
                     "p": [
-                        "Files that live in this folder correspond directly to the Types defined in your content source.",
-                        "For example if you have blog Type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layout/content/blog.svelte</code>.",
-                        "One template should be used per Type and it will feed many content files to create individual nodes (endpoints)."
+                        "Files that live in this folder correspond directly to the types defined in your content source.",
+                        "For example if you have <em>blog</em> type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layout/content/blog.svelte</code>.",
+                        "One template should be used per type and it will feed many content files to create individual nodes (endpoints)."
                     ]
                 },
                 {
@@ -471,8 +471,8 @@ const contentSource = [{
                 {
                     "p": [
                         "This command will automatically create a folder in your <code>content/</code> directory with the",
-                        "Type name, a <code>_blueprint.json</code> file inside that folder that describes the Type's field",
-                        "structure, and a corresponding template in <code>layout/content/</code> that has the same name as the Type."
+                        "type name, a <code>_blueprint.json</code> file inside that folder that describes the type's field",
+                        "structure, and a corresponding template in <code>layout/content/</code> that has the same name as the type."
                     ]
                 }
             ]
@@ -497,7 +497,7 @@ const contentSource = [{
                             [
                                 "<code>--endpoint=true</code>",
                                 "<code>-e=true</code>",
-                                "Pass \"false\" if you don't want your new Type to have an endpoint that site visitors can access directly"
+                                "Pass \"false\" if you don't want your new type to have an endpoint that site visitors can access directly"
                             ]
                         ]
                     }
@@ -520,7 +520,7 @@ const contentSource = [{
             "body": [
                 {
                     "p": [
-                        "The endpoint nodes for your pages (of whatever Type) will be defined by your data source.",
+                        "The endpoint nodes for your pages (of whatever type) will be defined by your data source.",
                         "By default this corresponds to the structure of folders and files in your <code>content/</code> folder,",
                         "for example:<ul>",
                         "<li><code>content/index.json</code> = <code>https://example.com/</code></li>",
@@ -543,7 +543,7 @@ const contentSource = [{
                 {
                     "p": [
                         "You can overide the default path structure in the site's configuration file (<code>plenti.json</code>).",
-                        "For example if you had a Type called <code>pages</code> and you wanted it to appear at the top level of the",
+                        "For example if you had a type called <code>pages</code> and you wanted it to appear at the top level of the",
                         "site and not in the format <code>https://example.com/pages/page1</code>, you could add the following to <code>plenti.json</code>:",
                         "<br /><br /><codeblock>\"types\": {<br />&nbsp;&nbsp;\"pages\": \"/:filename\"<br />}</codeblock>",
                         "This would allow a content file located at <code>content/pages/page1.json</code> to appear in the following format: <code>https://example.com/page1</code>."
@@ -551,7 +551,7 @@ const contentSource = [{
                 },
                 {
                     "p": [
-                        "You can use any custom key that you define in your content source, e.g. <code>:title</code>, <code>:date</code>, etc in your path, for example:",
+                        "You can use any custom key that you define in your content source, e.g. <code>:title</code>, <code>:date</code>, etc. in your path, for example:",
                         "<br /><br /><codeblock>\"types\": {<br />&nbsp;&nbsp;\"blog\": \"/blog/:field(author)/:field(title)\"<br />}"
                     ]
                 }
