@@ -81,7 +81,7 @@ const contentSource = [{
                     "p": [
                         "The build command creates the static assets that can be deployed to hosting provider.",
                         "It contains the generated Svelte code that hydrates into a Single Page Application (SPA),",
-                        "As well as the HTML fallbacks that allow you to navigate the site without JavaScript enabled,",
+                        "as well as the HTML fallbacks that allow you to navigate the site without JavaScript enabled,",
                         "improve Search Engine Optimization (SEO), and speed up the initial page load of your app."
                     ]
                 }
@@ -141,11 +141,11 @@ const contentSource = [{
             "body": [
                 {
                     "p": [
-                        "Ejecting is the process of exporting core files so you can customize what plenti uses in the background to generate your site.",
+                        "Ejecting is the process of exporting core files so you can customize what Plenti uses in the background to generate your site.",
                         "This functionality is generally reserved for experienced users that have a specific use",
                         "case for why the need to do this. If you want to customize your experience this way, just keep",
                         "in mind that you will no longer receive automatic updates for the ejected project and we can't",
-                        "gaurantee that your site will continue to work properly."
+                        "guarantee that your site will continue to work properly."
                     ]
                 }
             ]
@@ -251,11 +251,11 @@ const contentSource = [{
                 {
                     "p": [
                         "Plenti is an open source Static Site Generator (SSG).",
-                        "The templates are based on Svelte, which is a javascript library for building reactive user interfaces.",
-                        "Because Svelte is compiled, your app stays very light and performance well, even on underpowered devices.",
-                        "You might also notice that Plenti runs significantly faster than other Javascript SSGs you may have tried.",
+                        "The templates are based on Svelte, which is a JavaScript library for building reactive user interfaces.",
+                        "Because Svelte is compiled, your app stays very light and performs well, even on underpowered devices.",
+                        "You might also notice that Plenti runs significantly faster than other JavaScript SSGs you may have tried.",
                         "This is because the commandline interface (CLI) is built using Go and we've cut out slow processes like traditional bundlers.",
-                        "Our goal is to keep the tooling to a minimal so it's easy to install and use."
+                        "Our goal is to keep the tooling to a minimum so it's easy to install and use."
                     ]
                 }
             ]
@@ -271,7 +271,7 @@ const contentSource = [{
                         "We think the missing piece that will open up the JAMstack to the masses is an integrated, Git-backed CMS.",
                         "In order to take advantage of this, we needed both a fast build and a reactive frontend that can connect to a Git repository.",
                         "That's why we're obsessing over speed (we're actively trying to make the builds even faster).",
-                        "We also use a simple JSON data source instead of markdown, because we don't intend for you to edit content directly through files.",
+                        "We also use a simple JSON data source instead of Markdown, because we don't intend for you to edit content directly through files.",
                         "We expect this will be done completely through the website user interface. It should also require minimum setup.",
                         "There are no shortage of excellent headless CMS options on the market for JAMstack, but most require purchasing a license for",
                         "a proprietary product, take significant developer time to connect to your website, lack on features like live displays,",
@@ -362,9 +362,9 @@ const contentSource = [{
             "body": [
                 {
                     "p": [
-                        "All the templating is done in \"disappearing\" JS component framework called <a href='https://svelte.dev/'>Svelte</a>.",
+                        "All the templating is done in the \"disappearing\" JS component framework called <a href='https://svelte.dev/'>Svelte</a>.",
                         "Svelte offers a simplified syntax and creates a welcoming developer experience for folks coming directly from an HTML/CSS background.",
-                        "It also offers some performance benefits over similar frameworks since it doesn't require a virtual dom and its runtime is rather small."
+                        "It also offers some performance benefits over similar frameworks since it doesn't require a virtual DOM and its runtime is rather small."
                     ]
                 }
             ]
@@ -664,11 +664,11 @@ const contentSource = [{
             "body": [
                 {
                     "p": [
-                        "There is an optional, special named file that goes inside your individual type folders named <code>_blueprint.json</code>.",
+                        "There is an optional, specially named file that goes inside your individual type folders named <code>_blueprint.json</code>.",
                         "This defines the default field schema for that specific type.",
                         "The keys of the blueprint correspond to field names used in the content files and the values tell the kind of field that is being used.",
                         "<strong>TODO:</strong> Currently the blueprint doesn't do much and there is no list of standardized values, but in the future this will",
-                        "be fleshed out and it will aid in generating scaffoling and tying into the cms (see <a href='https://github.com/plentico/plenti/issues/15'>this issue</a>)."
+                        "be fleshed out and it will aid in generating scaffolding and tying into the CMS (see <a href='https://github.com/plentico/plenti/issues/15'>this issue</a>)."
                     ]
                 }
             ]
