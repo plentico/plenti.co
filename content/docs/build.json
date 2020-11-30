@@ -10,7 +10,7 @@
                     "p": [
                         "The build command creates the static assets that can be deployed to hosting provider.",
                         "It contains the generated Svelte code that hydrates into a Single Page Application (SPA),",
-                        "As well as the HTML fallbacks that allow you to navigate the site without JavaScript enabled,",
+                        "as well as the HTML fallbacks that allow you to navigate the site without JavaScript enabled,",
                         "improve Search Engine Optimization (SEO), and speed up the initial page load of your app."
                     ]
                 }
