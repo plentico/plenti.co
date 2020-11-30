@@ -8,7 +8,7 @@
             "body": [
                 {
                     "p": [
-                        "The endpoint nodes for your pages (of whatever Type) will be defined by your data source.",
+                        "The endpoint nodes for your pages (of whatever type) will be defined by your data source.",
                         "By default this corresponds to the structure of folders and files in your <code>content/</code> folder,",
                         "for example:<ul>",
                         "<li><code>content/index.json</code> = <code>https://example.com/</code></li>",
@@ -31,7 +31,7 @@
                 {
                     "p": [
                         "You can overide the default path structure in the site's configuration file (<code>plenti.json</code>).",
-                        "For example if you had a Type called <code>pages</code> and you wanted it to appear at the top level of the",
+                        "For example if you had a type called <code>pages</code> and you wanted it to appear at the top level of the",
                         "site and not in the format <code>https://example.com/pages/page1</code>, you could add the following to <code>plenti.json</code>:",
                         "<br /><br /><codeblock>\"types\": {<br />&nbsp;&nbsp;\"pages\": \"/:filename\"<br />}</codeblock>",
                         "This would allow a content file located at <code>content/pages/page1.json</code> to appear in the following format: <code>https://example.com/page1</code>."
@@ -39,7 +39,7 @@
                 },
                 {
                     "p": [
-                        "You can use any custom key that you define in your content source, e.g. <code>:title</code>, <code>:date</code>, etc in your path, for example:",
+                        "You can use any custom key that you define in your content source, e.g. <code>:title</code>, <code>:date</code>, etc. in your path, for example:",
                         "<br /><br /><codeblock>\"types\": {<br />&nbsp;&nbsp;\"blog\": \"/blog/:field(author)/:field(title)\"<br />}"
                     ]
                 }
