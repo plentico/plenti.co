@@ -1,7 +1,7 @@
 <html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Gitlab Piplines</title>
+  <title>Theme Remove</title>
 
   <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/plentico.svg">
@@ -45,12 +45,13 @@
             <a href="/docs/gitlab-piplines" class="nav-link svelte-pciu1g">GitLab Pipelines</a>
 </div></div>
     
-    <div class="docs"><h1>GitLab Pipelines</h1>
+    <div class="docs"><h1>Theme Remove</h1>
 
         <strong class="title svelte-mqcoi3">Description</strong>
-            <p class="section-body svelte-mqcoi3"><a href='https://about.gitlab.com/stages-devops-lifecycle/pages/'>GitLab Pages</a> is a <em>free</em> hosting service integrated directly with GitLab. You can have your Plenti websites automatically deploy to GitLab Pages by adding a <code>.gitlab-ci.yml</code> file to your project to automatically build and deploy your website every time you push to your master branch on GitLab. 
+            <p class="section-body svelte-mqcoi3">Completely deletes an existing theme. This command will delete your theme from the "themes" folder and remove the corresponding entry from the "theme_config" declaration in your <code>plenti.json</code> file. You can perform these actions manually to achieve the same result. <br><br><strong>Note</strong>: This will not disable your theme if you are removing a theme that is currently in use. You need to do that separately to avoid breaking your build. 
                     
-                </p><p class="section-body svelte-mqcoi3"><codeblock>image:<br>&nbsp;&nbsp;name: plentico/plenti:latest<br>&nbsp;&nbsp;entrypoint: [""]<br><br>pages:<br>&nbsp;&nbsp;script:<br>&nbsp;&nbsp;&nbsp;&nbsp;- /plenti build<br>&nbsp;&nbsp;artifacts:<br>&nbsp;&nbsp;&nbsp;&nbsp;paths:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- public<br>&nbsp;&nbsp;only:<br>&nbsp;&nbsp;&nbsp;&nbsp;- master</codeblock> 
+                </p><strong class="title svelte-mqcoi3">Usage</strong>
+            <p class="section-body svelte-mqcoi3">Remove a theme completely from your project with <code>plenti theme remove THEME_FOLDER_NAME</code>. 
                     
                 </p></div></div>
 </div>

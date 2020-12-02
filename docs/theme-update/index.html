@@ -1,7 +1,7 @@
 <html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Gitlab Piplines</title>
+  <title>Theme Update</title>
 
   <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/plentico.svg">
@@ -45,13 +45,21 @@
             <a href="/docs/gitlab-piplines" class="nav-link svelte-pciu1g">GitLab Pipelines</a>
 </div></div>
     
-    <div class="docs"><h1>GitLab Pipelines</h1>
+    <div class="docs"><h1>Theme Update</h1>
 
         <strong class="title svelte-mqcoi3">Description</strong>
-            <p class="section-body svelte-mqcoi3"><a href='https://about.gitlab.com/stages-devops-lifecycle/pages/'>GitLab Pages</a> is a <em>free</em> hosting service integrated directly with GitLab. You can have your Plenti websites automatically deploy to GitLab Pages by adding a <code>.gitlab-ci.yml</code> file to your project to automatically build and deploy your website every time you push to your master branch on GitLab. 
+            <p class="section-body svelte-mqcoi3">Downloads the newest version of an existing theme. This command will only work if you used the <code>theme add</code> command originally to add the theme or you manually added <code>theme_config</code> information (url and commit) to <code>plenti.json</code>. 
                     
-                </p><p class="section-body svelte-mqcoi3"><codeblock>image:<br>&nbsp;&nbsp;name: plentico/plenti:latest<br>&nbsp;&nbsp;entrypoint: [""]<br><br>pages:<br>&nbsp;&nbsp;script:<br>&nbsp;&nbsp;&nbsp;&nbsp;- /plenti build<br>&nbsp;&nbsp;artifacts:<br>&nbsp;&nbsp;&nbsp;&nbsp;paths:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- public<br>&nbsp;&nbsp;only:<br>&nbsp;&nbsp;&nbsp;&nbsp;- master</codeblock> 
+                </p><strong class="title svelte-mqcoi3">Usage</strong>
+            <p class="section-body svelte-mqcoi3">Update a theme by running <code>plenti theme update THEME_FOLDER_NAME</code>. 
                     
+                </p><strong class="title svelte-mqcoi3">Flags</strong>
+            <p class="section-body svelte-mqcoi3">
+                    <table><thead><tr><th>Long</th><th>Short</th><th>Description</th>
+                                </tr></thead>
+                                <tbody><tr><td><code>--commit</code></td><td><code>-c</code></td><td>Update the theme to specific commit (or revert theme to an older commit)</td>
+                                </tr></tbody>
+                        </table>
                 </p></div></div>
 </div>
     <br></main>

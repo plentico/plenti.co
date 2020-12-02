@@ -1,7 +1,7 @@
 <html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>New Type</title>
+  <title>Theme Disable</title>
 
   <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/plentico.svg">
@@ -29,31 +29,30 @@
             <a href="/docs/types" class="nav-link svelte-pciu1g">Types</a>
             <a href="/docs/paths" class="nav-link svelte-pciu1g">Paths</a><strong class="svelte-pciu1g">Structure</strong>
             <a href="/docs/layout" class="nav-link svelte-pciu1g">Layout</a>
-            <a href="/docs/assets" class="nav-link svelte-pciu1g">Assets</a><strong class="svelte-pciu1g">Commands</strong>
-            <a href="/docs/new_site" class="nav-link svelte-pciu1g">New Site</a>
-            <a href="/docs/new_type" class="nav-link svelte-pciu1g">New Type</a>
+            <a href="/docs/assets" class="nav-link svelte-pciu1g">Assets</a>
+            <a href="/docs/themes" class="nav-link svelte-pciu1g">Themes</a><strong class="svelte-pciu1g">Commands</strong>
+            <a href="/docs/new-site" class="nav-link svelte-pciu1g">New Site</a>
+            <a href="/docs/new-type" class="nav-link svelte-pciu1g">New Type</a>
             <a href="/docs/build" class="nav-link svelte-pciu1g">Build</a>
             <a href="/docs/serve" class="nav-link svelte-pciu1g">Serve</a>
-            <a href="/docs/eject" class="nav-link svelte-pciu1g">Eject</a><strong class="svelte-pciu1g">Deployment</strong>
+            <a href="/docs/eject" class="nav-link svelte-pciu1g">Eject</a>
+            <a href="/docs/theme-add" class="nav-link svelte-pciu1g">Theme Add</a>
+            <a href="/docs/theme-enable" class="nav-link svelte-pciu1g">Theme Enable</a>
+            <a href="/docs/theme-disable" class="nav-link svelte-pciu1g">Theme Disable</a>
+            <a href="/docs/theme-update" class="nav-link svelte-pciu1g">Theme Update</a>
+            <a href="/docs/theme-remove" class="nav-link svelte-pciu1g">Theme Remove</a><strong class="svelte-pciu1g">Deployment</strong>
             <a href="/docs/github-actions" class="nav-link svelte-pciu1g">GitHub Actions</a>
             <a href="/docs/gitlab-piplines" class="nav-link svelte-pciu1g">GitLab Pipelines</a>
 </div></div>
     
-    <div class="docs"><h1>New Type</h1>
+    <div class="docs"><h1>Theme Disable</h1>
 
         <strong class="title svelte-mqcoi3">Description</strong>
-            <p class="section-body svelte-mqcoi3">This command will automatically create a folder in your <code>content/</code> directory with the type name, a <code>_blueprint.json</code> file inside that folder that describes the type's field structure, and a corresponding template in <code>layout/content/</code> that has the same name as the type. 
+            <p class="section-body svelte-mqcoi3">Disables a previously enabled theme that has an existing "theme" entry in <code>plenti.json</code>. This command simply removes that entry, but you could easily do this manually if you'd like. 
                     
                 </p><strong class="title svelte-mqcoi3">Usage</strong>
-            <p class="section-body svelte-mqcoi3">You can create a new content type by running <code>plenti new type YOUR_NEW_TYPE</code>. 
+            <p class="section-body svelte-mqcoi3">Disable a theme with <code>plenti theme disable THEME_FOLDER_NAME</code>. 
                     
-                </p><strong class="title svelte-mqcoi3">Flags</strong>
-            <p class="section-body svelte-mqcoi3">
-                    <table><thead><tr><th>Long</th><th>Short</th><th>Description</th>
-                                </tr></thead>
-                                <tbody><tr><td><code>--endpoint=true</code></td><td><code>-e=true</code></td><td>Pass "false" if you don't want your new type to have an endpoint that site visitors can access directly</td>
-                                </tr></tbody>
-                        </table>
                 </p></div></div>
 </div>
     <br></main>

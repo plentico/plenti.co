@@ -175,7 +175,7 @@ const contentSource = [{
 "fields": {
     "title": "GitHub Actions",
     "group": "Deployment",
-    "order": 13,
+    "order": 20,
     "sections": [
         {
             "title": "Description",
@@ -214,7 +214,7 @@ const contentSource = [{
 "fields": {
     "title": "GitLab Pipelines",
     "group": "Deployment",
-    "order": 14,
+    "order": 21,
     "sections": [
         {
             "title": "Description",
@@ -403,9 +403,9 @@ const contentSource = [{
     ]
 }
 },{
-"path": "/docs/new_site",
+"path": "/docs/new-site",
 "type": "docs",
-"filename": "new_site.json",
+"filename": "new-site.json",
 "fields": {
     "title": "New Site",
     "group": "Commands",
@@ -457,9 +457,9 @@ const contentSource = [{
     ]
 }
 },{
-"path": "/docs/new_type",
+"path": "/docs/new-type",
 "type": "docs",
-"filename": "new_type.json",
+"filename": "new-type.json",
 "fields": {
     "title": "New Type",
     "group": "Commands",
@@ -615,6 +615,253 @@ const contentSource = [{
                             ]
                         ]
                     }
+                }
+            ]
+        }
+    ]
+}
+},{
+"path": "/docs/theme-add",
+"type": "docs",
+"filename": "theme-add.json",
+"fields": {
+    "title": "Theme Add",
+    "group": "Commands",
+    "order": 13,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "Downloads a new theme from a git repository. This will make an entry in <code>plenti.json</code>",
+                        "to keep track of the remote URL you downloaded the theme from, as well as the commit",
+                        "that was used (defaults to latest commit). It also removes any references to git in the downloaded folder for the theme",
+                        "to avoid problems with git submodules.",
+                        "<br><br><strong>Note</strong>: The \"theme add\" command does not enable the theme, for that",
+                        "see <a href='/docs/theme-enable'>theme enable</a>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "You can download a theme from a git repository by running <code>plenti theme add GIT_URL</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Flags",
+            "body": [
+                {
+                    "t": {
+                        "head": ["Long", "Short", "Description"],
+                        "data": [
+                            [
+                                "<code>--commit</code>",
+                                "<code>-c</code>",
+                                "Download the theme at a specific commit in its git history (allows you to get a specific version of the theme)"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
+},{
+"path": "/docs/theme-disable",
+"type": "docs",
+"filename": "theme-disable.json",
+"fields": {
+    "title": "Theme Disable",
+    "group": "Commands",
+    "order": 15,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "Disables a previously enabled theme that has an existing \"theme\" entry",
+                        "in <code>plenti.json</code>. This command simply removes that entry, but you",
+                        "could easily do this manually if you'd like."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "Disable a theme with <code>plenti theme disable THEME_FOLDER_NAME</code>."
+                    ]
+                }
+            ]
+        }
+    ]
+}
+},{
+"path": "/docs/theme-enable",
+"type": "docs",
+"filename": "theme-enable.json",
+"fields": {
+    "title": "Theme Enable",
+    "group": "Commands",
+    "order": 14,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "Enables an already downloaded theme that lives in your \"themes\" folder",
+                        "by simply making a \"theme\" entry in <code>plenti.json</code>. You can do",
+                        "this entirely manually if you'd like: copy a Plenti site from any source into",
+                        "your \"themes\" folder (for example <code>themes/my-theme</code>) then in",
+                        "<code>plenti.json</code> add <code>\"theme\": \"my-theme\"</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "Enable a theme with <code>plenti theme enable THEME_FOLDER_NAME</code>."
+                    ]
+                }
+            ]
+        }
+    ]
+}
+},{
+"path": "/docs/theme-remove",
+"type": "docs",
+"filename": "theme-remove.json",
+"fields": {
+    "title": "Theme Remove",
+    "group": "Commands",
+    "order": 17,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "Completely deletes an existing theme. This command will delete your theme from the \"themes\" folder",
+                        "and remove the corresponding entry from the \"theme_config\" declaration in your <code>plenti.json</code> file.",
+                        "You can perform these actions manually to achieve the same result.",
+                        "<br><br><strong>Note</strong>: This will not disable your theme if you are removing a theme that is currently in use. You need",
+                        "to do that separately to avoid breaking your build."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "Remove a theme completely from your project with <code>plenti theme remove THEME_FOLDER_NAME</code>."
+                    ]
+                }
+            ]
+        }
+    ]
+}
+},{
+"path": "/docs/theme-update",
+"type": "docs",
+"filename": "theme-update.json",
+"fields": {
+    "title": "Theme Update",
+    "group": "Commands",
+    "order": 16,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "Downloads the newest version of an existing theme. This command will only work if",
+                        "you used the <code>theme add</code> command originally to add the theme or you manually",
+                        "added <code>theme_config</code> information (url and commit) to <code>plenti.json</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "Update a theme by running <code>plenti theme update THEME_FOLDER_NAME</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Flags",
+            "body": [
+                {
+                    "t": {
+                        "head": ["Long", "Short", "Description"],
+                        "data": [
+                            [
+                                "<code>--commit</code>",
+                                "<code>-c</code>",
+                                "Update the theme to specific commit (or revert theme to an older commit)"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
+},{
+"path": "/docs/themes",
+"type": "docs",
+"filename": "themes.json",
+"fields": {
+    "title": "Themes",
+    "group": "Structure",
+    "order": 5,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "The \"themes\" folder holds other projects that your project will inherit assets, content,",
+                        "and layout from. You can <code>add</code>, <code>remove</code>, <code>enable</code>",
+                        "<code>disable</code>, and <code>update</code> themes through the CLI.",
+                        "<br><br>Every Plenti website can be used as a theme - in fact there is nothing special you would do",
+                        "to your site to make it a \"theme.\" Simply nest any Plenti site (if you have permission) in the \"themes\"",
+                        "folder of your project and specify its folder name as the <code>theme</code> key in <code>plenti.json</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Omitting assets, content, or layout from a theme",
+            "body": [
+                {
+                    "p": [
+                        "By default you inherit <em>everything</em> from the parent theme, but you can", 
+                        "choose not to inherit particular aspects if you'd like. For example,",
+                        "you may want to use components from the \"layouts\" folder, but don't want to",
+                        "use any of the content or images. You could do that in <code>plenti.json</code>",
+                        "like the following example (uses this website as the theme): <br>",
+                        "<codeblock>\"theme\": plenti.co,<br>\"theme_config\": {<br>&nbsp;&nbsp;\"plenti.co\": {<br>&nbsp;&nbsp;&nbsp;&nbsp;\"url\": \"git@github.com:plentico/plenti.co\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"commit\": \"0eff8c7\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"exclude\": [\"content\", \"assets\"]<br>}</codeblock>"
+                    ]
                 }
             ]
         }

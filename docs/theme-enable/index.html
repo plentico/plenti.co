@@ -1,7 +1,7 @@
 <html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>New Site</title>
+  <title>Theme Enable</title>
 
   <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/plentico.svg">
@@ -29,32 +29,30 @@
             <a href="/docs/types" class="nav-link svelte-pciu1g">Types</a>
             <a href="/docs/paths" class="nav-link svelte-pciu1g">Paths</a><strong class="svelte-pciu1g">Structure</strong>
             <a href="/docs/layout" class="nav-link svelte-pciu1g">Layout</a>
-            <a href="/docs/assets" class="nav-link svelte-pciu1g">Assets</a><strong class="svelte-pciu1g">Commands</strong>
-            <a href="/docs/new_site" class="nav-link svelte-pciu1g">New Site</a>
-            <a href="/docs/new_type" class="nav-link svelte-pciu1g">New Type</a>
+            <a href="/docs/assets" class="nav-link svelte-pciu1g">Assets</a>
+            <a href="/docs/themes" class="nav-link svelte-pciu1g">Themes</a><strong class="svelte-pciu1g">Commands</strong>
+            <a href="/docs/new-site" class="nav-link svelte-pciu1g">New Site</a>
+            <a href="/docs/new-type" class="nav-link svelte-pciu1g">New Type</a>
             <a href="/docs/build" class="nav-link svelte-pciu1g">Build</a>
             <a href="/docs/serve" class="nav-link svelte-pciu1g">Serve</a>
-            <a href="/docs/eject" class="nav-link svelte-pciu1g">Eject</a><strong class="svelte-pciu1g">Deployment</strong>
+            <a href="/docs/eject" class="nav-link svelte-pciu1g">Eject</a>
+            <a href="/docs/theme-add" class="nav-link svelte-pciu1g">Theme Add</a>
+            <a href="/docs/theme-enable" class="nav-link svelte-pciu1g">Theme Enable</a>
+            <a href="/docs/theme-disable" class="nav-link svelte-pciu1g">Theme Disable</a>
+            <a href="/docs/theme-update" class="nav-link svelte-pciu1g">Theme Update</a>
+            <a href="/docs/theme-remove" class="nav-link svelte-pciu1g">Theme Remove</a><strong class="svelte-pciu1g">Deployment</strong>
             <a href="/docs/github-actions" class="nav-link svelte-pciu1g">GitHub Actions</a>
             <a href="/docs/gitlab-piplines" class="nav-link svelte-pciu1g">GitLab Pipelines</a>
 </div></div>
     
-    <div class="docs"><h1>New Site</h1>
+    <div class="docs"><h1>Theme Enable</h1>
 
         <strong class="title svelte-mqcoi3">Description</strong>
-            <p class="section-body svelte-mqcoi3">This is the first command you'll want to run for a new project. It creates the default folders and files for your website. 
+            <p class="section-body svelte-mqcoi3">Enables an already downloaded theme that lives in your "themes" folder by simply making a "theme" entry in <code>plenti.json</code>. You can do this entirely manually if you'd like: copy a Plenti site from any source into your "themes" folder (for example <code>themes/my-theme</code>) then in <code>plenti.json</code> add <code>"theme": "my-theme"</code>. 
                     
                 </p><strong class="title svelte-mqcoi3">Usage</strong>
-            <p class="section-body svelte-mqcoi3">You can create a new project by running <code>plenti new site YOUR_SITE_NAME</code>. 
+            <p class="section-body svelte-mqcoi3">Enable a theme with <code>plenti theme enable THEME_FOLDER_NAME</code>. 
                     
-                </p><strong class="title svelte-mqcoi3">Flags</strong>
-            <p class="section-body svelte-mqcoi3">
-                    <table><thead><tr><th>Long</th><th>Short</th><th>Description</th>
-                                </tr></thead>
-                                <tbody><tr><td><code>--bare</code></td><td><code>-b</code></td><td>Creates a minimalist site scaffolding with less default content.</td>
-                                </tr><tr><td><code>--theme="git@github.com:user/repo.git"</code></td><td><code>-t="git@github.com:user/repo.git"</code></td><td>(Coming Soon) Point to a Git repository to use a base theme for your site.</td>
-                                </tr></tbody>
-                        </table>
                 </p></div></div>
 </div>
     <br></main>
