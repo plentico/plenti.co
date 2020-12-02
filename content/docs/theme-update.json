@@ -1,0 +1,46 @@
+{
+    "title": "Theme Update",
+    "group": "Commands",
+    "order": 16,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "Downloads the newest version of an existing theme. This command will only work if",
+                        "you used the <code>theme add</code> command originally to add the theme or you manually",
+                        "added <code>theme_config</code> information (url and commit) to <code>plenti.json</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "Update a theme by running <code>plenti theme update THEME_FOLDER_NAME</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Flags",
+            "body": [
+                {
+                    "t": {
+                        "head": ["Long", "Short", "Description"],
+                        "data": [
+                            [
+                                "<code>--commit</code>",
+                                "<code>-c</code>",
+                                "Update the theme to specific commit (or revert theme to an older commit)"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

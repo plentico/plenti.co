@@ -1,0 +1,49 @@
+{
+    "title": "Theme Add",
+    "group": "Commands",
+    "order": 13,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "Downloads a new theme from a git repository. This will make an entry in <code>plenti.json</code>",
+                        "to keep track of the remote URL you downloaded the theme from, as well as the commit",
+                        "that was used (defaults to latest commit). It also removes any references to git in the downloaded folder for the theme",
+                        "to avoid problems with git submodules.",
+                        "<br><br><strong>Note</strong>: The \"theme add\" command does not enable the theme, for that",
+                        "see <a href='/docs/theme-enable'>theme enable</a>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "You can download a theme from a git repository by running <code>plenti theme add GIT_URL</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Flags",
+            "body": [
+                {
+                    "t": {
+                        "head": ["Long", "Short", "Description"],
+                        "data": [
+                            [
+                                "<code>--commit</code>",
+                                "<code>-c</code>",
+                                "Download the theme at a specific commit in its git history (allows you to get a specific version of the theme)"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

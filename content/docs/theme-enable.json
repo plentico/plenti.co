@@ -1,0 +1,31 @@
+{
+    "title": "Theme Enable",
+    "group": "Commands",
+    "order": 14,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "Enables an already downloaded theme that lives in your \"themes\" folder",
+                        "by simply making a \"theme\" entry in <code>plenti.json</code>. You can do",
+                        "this entirely manually if you'd like: copy a Plenti site from any source into",
+                        "your \"themes\" folder (for example <code>themes/my-theme</code>) then in",
+                        "<code>plenti.json</code> add <code>\"theme\": \"my-theme\"</code>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "Enable a theme with <code>plenti theme enable THEME_FOLDER_NAME</code>."
+                    ]
+                }
+            ]
+        }
+    ]
+}

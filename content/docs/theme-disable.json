@@ -1,0 +1,29 @@
+{
+    "title": "Theme Disable",
+    "group": "Commands",
+    "order": 15,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "Disables a previously enabled theme that has an existing \"theme\" entry",
+                        "in <code>plenti.json</code>. This command simply removes that entry, but you",
+                        "could easily do this manually if you'd like."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "Disable a theme with <code>plenti theme disable THEME_FOLDER_NAME</code>."
+                    ]
+                }
+            ]
+        }
+    ]
+}

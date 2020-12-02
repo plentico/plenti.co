@@ -1,0 +1,31 @@
+{
+    "title": "Theme Remove",
+    "group": "Commands",
+    "order": 17,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "Completely deletes an existing theme. This command will delete your theme from the \"themes\" folder",
+                        "and remove the corresponding entry from the \"theme_config\" declaration in your <code>plenti.json</code> file.",
+                        "You can perform these actions manually to achieve the same result.",
+                        "<br><br><strong>Note</strong>: This will not disable your theme if you are removing a theme that is currently in use. You need",
+                        "to do that separately to avoid breaking your build."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "Remove a theme completely from your project with <code>plenti theme remove THEME_FOLDER_NAME</code>."
+                    ]
+                }
+            ]
+        }
+    ]
+}
