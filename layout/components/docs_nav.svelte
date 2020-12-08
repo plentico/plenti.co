@@ -46,6 +46,19 @@
         padding-right: 40px;
         margin-right: 40px;
         margin-top: 20px;
+        overflow: scroll;
+        overflow-x: auto;
+        height: 100%;
+        max-height: 500px;
+    }
+    .sidebar::-webkit-scrollbar {
+        width: 6px;
+    }
+    .sidebar::-webkit-scrollbar-track {
+        background: var(--base);
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+        background-color: var(--primary);
     }
     strong, .nav-link {
         display: block;
