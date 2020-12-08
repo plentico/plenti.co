@@ -936,8 +936,8 @@ const contentSource = [{
 				"text": "Give it to me"
 			},
 			{
-				"link": "https://youtu.be/Vjz2A7_ShWA",
-				"text": "Tell me more"
+				"link": "https://www.youtube.com/watch?v=Gr3KTOnsWEM&list=PLbWvcwWtuDm0tIrvD_xHvUXHBftbHDy5T",
+				"text": "See it in action"
 			}
 		]
 	},
@@ -1011,6 +1011,7 @@ const contentSource = [{
 		}
 	}
 }
+
 },{
 "path": "/about",
 "type": "pages",
