@@ -1,0 +1,31 @@
+{
+    "title": "allContent",
+    "group": "Magic Variables",
+    "order": 6,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "The <code>allContent</code> variable is a default prop loaded by the Plenti generator automatically. It holds the",
+                        "field values for every piece of content on your site. This is very handy for creating lists, or creating aggregate",
+                        "pages such as a \"blog posts\" landing page or \"recent news\" page."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Filter allContent to get a specific type",
+            "body": [
+                {
+                    "p": [
+                        "By default <code>allContent</code> holds <em>everything</em> from your \"content\" folder.", 
+                        "You can filter this to get a list of a particular type of content, like <code>blog</code> for example:",
+                        "<br><br><codeblock>{#each allContent as content}<br>&nbsp;&nbsp;{#if content.type == blog}<br>&nbsp;&nbsp;&nbsp;&nbsp;{content.path}<br>&nbsp;&nbsp;{/if}<br>{/each}</codeblock>"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 {
     "title": "Eject",
     "group": "Commands",
-    "order": 12,
+    "order": 30,
     "sections": [
         {
             "title": "Description",
