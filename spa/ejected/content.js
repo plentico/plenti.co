@@ -36,6 +36,92 @@ const contentSource = [{
     "date": "1/25/2020"
 }
 },{
+"path": "/docs/allComponents",
+"type": "docs",
+"filename": "allComponents.json",
+"fields": {
+    "title": "allComponents",
+    "group": "Magic Variables",
+    "order": 7,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "The <code>allComponents</code> variable is a default prop loaded by the Plenti generator automatically. It holds",
+                        "class constructors for every svelte template on your site. This is allows you to dynamically load any component without",
+                        "having to import it explicitly or worry about SSR issues when generating HTML fallbacks."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Understanding Component Signatures",
+            "body": [
+                {
+                    "p": [
+                        "Each entry in <code>allComponents</code> is saved as a \"component signature\" to ensure uniqueness.",
+                        "The component signature for a template is simply its path with any forward slashes \"/\" or periods \".\"",
+                        "converted into underscores \"_\". For example <code>layout/components/grid.svelte</code> would become",
+                        "<code>layout_components_grid_svelte</code>. The signatures are absolute, not relative, so they should always",
+                        "start with \"layout\" and end with \"svelte\"."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Accessing templates in allComponents",
+            "body": [
+                {
+                    "p": [
+                        "To access a particular template in the <code>allComponents</code>",
+                        "object, use the component signature with either dot notation (e.g. <code>allComponents.layout_components_grid_svelte</code> or bracket notation",
+                        "<code>allComponents[\"layout_components_grid_svelte\"]</code>. It's common to use variables provided from your JSON data source",
+                        "to target a particular component, so you'd use bracket notation for that: <code>allComponents[someVariable]</code> (where \"someVariable\" is equal to",
+                        "a component signature)."
+                    ]
+                }
+            ]
+        }
+    ]
+}
+},{
+"path": "/docs/allContent",
+"type": "docs",
+"filename": "allContent.json",
+"fields": {
+    "title": "allContent",
+    "group": "Magic Variables",
+    "order": 6,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "The <code>allContent</code> variable is a default prop loaded by the Plenti generator automatically. It holds the",
+                        "field values for every piece of content on your site. This is very handy for creating lists, or creating aggregate",
+                        "pages such as a \"blog posts\" landing page or \"recent news\" page."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Filter allContent to get a specific type",
+            "body": [
+                {
+                    "p": [
+                        "By default <code>allContent</code> holds <em>everything</em> from your \"content\" folder.", 
+                        "You can filter this to get a list of a particular type of content, like <code>blog</code> for example:",
+                        "<br><br><codeblock>{#each allContent as content}<br>&nbsp;&nbsp;{#if content.type == blog}<br>&nbsp;&nbsp;&nbsp;&nbsp;{content.path}<br>&nbsp;&nbsp;{/if}<br>{/each}</codeblock>"
+                    ]
+                }
+            ]
+        }
+    ]
+}
+},{
 "path": "/docs/assets",
 "type": "docs",
 "filename": "assets.json",
@@ -72,7 +158,7 @@ const contentSource = [{
 "fields": {
     "title": "Build",
     "group": "Commands",
-    "order": 7,
+    "order": 28,
     "sections": [
         {
             "title": "Description",
@@ -134,7 +220,7 @@ const contentSource = [{
 "fields": {
     "title": "Eject",
     "group": "Commands",
-    "order": 12,
+    "order": 30,
     "sections": [
         {
             "title": "Description",
@@ -175,7 +261,7 @@ const contentSource = [{
 "fields": {
     "title": "GitHub Actions",
     "group": "Deployment",
-    "order": 20,
+    "order": 50,
     "sections": [
         {
             "title": "Description",
@@ -214,7 +300,7 @@ const contentSource = [{
 "fields": {
     "title": "GitLab Pipelines",
     "group": "Deployment",
-    "order": 21,
+    "order": 51,
     "sections": [
         {
             "title": "Description",
@@ -328,8 +414,9 @@ const contentSource = [{
             "body": [
                 {
                     "p": [
-                        "1. Add the bucket: <code>scoop bucket add plenti https://github.com/plentico/scoop-plenti</code>",
-                        "<br />2. Install: <code>scoop install plenti</code>"
+                        "Windows is not yet supported, it needs <a href=\"https://github.com/plentico/plenti/issues/45\" target=\"_blank\" rel=\"noopener noreferrer\">your help</a>!",
+                        "<br>1. Add the bucket: <code>scoop bucket add plenti https://github.com/plentico/scoop-plenti</code>",
+                        "<br>2. Install: <code>scoop install plenti</code>"
                     ]
                 }
             ]
@@ -409,7 +496,7 @@ const contentSource = [{
 "fields": {
     "title": "New Site",
     "group": "Commands",
-    "order": 6,
+    "order": 26,
     "sections": [
         {
             "title": "Description",
@@ -463,7 +550,7 @@ const contentSource = [{
 "fields": {
     "title": "New Type",
     "group": "Commands",
-    "order": 6,
+    "order": 27,
     "sections": [
         {
             "title": "Description",
@@ -566,7 +653,7 @@ const contentSource = [{
 "fields": {
     "title": "Serve",
     "group": "Commands",
-    "order": 10,
+    "order": 29,
     "sections": [
         {
             "title": "Description",
@@ -627,7 +714,7 @@ const contentSource = [{
 "fields": {
     "title": "Theme Add",
     "group": "Commands",
-    "order": 13,
+    "order": 31,
     "sections": [
         {
             "title": "Description",
@@ -680,7 +767,7 @@ const contentSource = [{
 "fields": {
     "title": "Theme Disable",
     "group": "Commands",
-    "order": 15,
+    "order": 33,
     "sections": [
         {
             "title": "Description",
@@ -713,7 +800,7 @@ const contentSource = [{
 "fields": {
     "title": "Theme Enable",
     "group": "Commands",
-    "order": 14,
+    "order": 32,
     "sections": [
         {
             "title": "Description",
@@ -748,7 +835,7 @@ const contentSource = [{
 "fields": {
     "title": "Theme Remove",
     "group": "Commands",
-    "order": 17,
+    "order": 35,
     "sections": [
         {
             "title": "Description",
@@ -783,7 +870,7 @@ const contentSource = [{
 "fields": {
     "title": "Theme Update",
     "group": "Commands",
-    "order": 16,
+    "order": 34,
     "sections": [
         {
             "title": "Description",

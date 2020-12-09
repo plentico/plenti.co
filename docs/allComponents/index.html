@@ -1,7 +1,7 @@
 <html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Layout</title>
+  <title>AllComponents</title>
 
   <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/plentico.svg">
@@ -47,18 +47,16 @@
             <a href="/docs/gitlab-piplines" class="nav-link svelte-6tom16">GitLab Pipelines</a>
 </div></div>
     
-    <div class="docs"><h1>Layout</h1>
+    <div class="docs"><h1>allComponents</h1>
 
-        <strong class="title svelte-mqcoi3">Svelte</strong>
-            <p class="section-body svelte-mqcoi3">All the templating is done in the "disappearing" JS component framework called <a href='https://svelte.dev/'>Svelte</a>. Svelte offers a simplified syntax and creates a welcoming developer experience for folks coming directly from an HTML/CSS background. It also offers some performance benefits over similar frameworks since it doesn't require a virtual DOM and its runtime is rather small. 
+        <strong class="title svelte-mqcoi3">Description</strong>
+            <p class="section-body svelte-mqcoi3">The <code>allComponents</code> variable is a default prop loaded by the Plenti generator automatically. It holds class constructors for every svelte template on your site. This is allows you to dynamically load any component without having to import it explicitly or worry about SSR issues when generating HTML fallbacks. 
                     
-                </p><strong class="title svelte-mqcoi3">layout/global/html.svelte</strong>
-            <p class="section-body svelte-mqcoi3">The <code>layout/global/html.svelte</code> file is important and changing its name will break your app. You could also potentially break your routing if you're not careful with <code>&lt;svelte:component this={route} {...node.fields} {allNodes} /&gt;</code>. Once you're aware of those two things, this file shouldn't be too scary and is meant for you to customize. 
+                </p><strong class="title svelte-mqcoi3">Understanding Component Signatures</strong>
+            <p class="section-body svelte-mqcoi3">Each entry in <code>allComponents</code> is saved as a "component signature" to ensure uniqueness. The component signature for a template is simply its path with any forward slashes "/" or periods "." converted into underscores "_". For example <code>layout/components/grid.svelte</code> would become <code>layout_components_grid_svelte</code>. The signatures are absolute, not relative, so they should always start with "layout" and end with "svelte". 
                     
-                </p><strong class="title svelte-mqcoi3">layout/content/</strong>
-            <p class="section-body svelte-mqcoi3">Files that live in this folder correspond directly to the types defined in your content source. For example if you have <em>blog</em> type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layout/content/blog.svelte</code>. One template should be used per type and it will feed many content files to create individual nodes (endpoints). 
-                    
-                </p><p class="section-body svelte-mqcoi3">The rest of the structure is really up to you. We try to create logical default folders, such as <code>layout/components/</code> for reusable widgets and <code>layout/scripts/</code> for helper functions, but feel free to completely change these and make the structure your own. 
+                </p><strong class="title svelte-mqcoi3">Accessing templates in allComponents</strong>
+            <p class="section-body svelte-mqcoi3">To access a particular template in the <code>allComponents</code> object, use the component signature with either dot notation (e.g. <code>allComponents.layout_components_grid_svelte</code> or bracket notation <code>allComponents["layout_components_grid_svelte"]</code>. It's common to use variables provided from your JSON data source to target a particular component, so you'd use bracket notation for that: <code>allComponents[someVariable]</code> (where "someVariable" is equal to a component signature). 
                     
                 </p></div></div>
 </div>
