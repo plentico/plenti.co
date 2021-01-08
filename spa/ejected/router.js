@@ -23,7 +23,8 @@ function create_fragment(ctx) {
 			props: {
 				route: /*route*/ ctx[0],
 				content: /*content*/ ctx[1],
-				allContent: /*allContent*/ ctx[2]
+				allContent: /*allContent*/ ctx[2],
+				allComponents: /*allComponents*/ ctx[3]
 			}
 		});
 
@@ -43,6 +44,7 @@ function create_fragment(ctx) {
 			if (dirty & /*route*/ 1) html_changes.route = /*route*/ ctx[0];
 			if (dirty & /*content*/ 2) html_changes.content = /*content*/ ctx[1];
 			if (dirty & /*allContent*/ 4) html_changes.allContent = /*allContent*/ ctx[2];
+			if (dirty & /*allComponents*/ 8) html_changes.allComponents = /*allComponents*/ ctx[3];
 			html.$set(html_changes);
 		},
 		i(local) {
@@ -64,7 +66,8 @@ function instance($$self, $$props, $$invalidate) {
 	let { uri } = $$props,
 		{ route } = $$props,
 		{ content } = $$props,
-		{ allContent } = $$props;
+		{ allContent } = $$props,
+		{ allComponents } = $$props;
 
 	const getContent = (uri, trailingSlash = "") => {
 		return contentSource.find(content => content.path + trailingSlash == uri);
@@ -93,7 +96,7 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	function track(obj) {
-		$$invalidate(3, uri = obj.state || obj.uri);
+		$$invalidate(4, uri = obj.state || obj.uri);
 	}
 
 	addEventListener("replacestate", track);
@@ -125,13 +128,14 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	$$self.$$set = $$props => {
-		if ("uri" in $$props) $$invalidate(3, uri = $$props.uri);
+		if ("uri" in $$props) $$invalidate(4, uri = $$props.uri);
 		if ("route" in $$props) $$invalidate(0, route = $$props.route);
 		if ("content" in $$props) $$invalidate(1, content = $$props.content);
 		if ("allContent" in $$props) $$invalidate(2, allContent = $$props.allContent);
+		if ("allComponents" in $$props) $$invalidate(3, allComponents = $$props.allComponents);
 	};
 
-	return [route, content, allContent, uri];
+	return [route, content, allContent, allComponents, uri];
 }
 
 class Component extends SvelteComponent {
@@ -139,10 +143,11 @@ class Component extends SvelteComponent {
 		super();
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
-			uri: 3,
+			uri: 4,
 			route: 0,
 			content: 1,
-			allContent: 2
+			allContent: 2,
+			allComponents: 3
 		});
 	}
 }

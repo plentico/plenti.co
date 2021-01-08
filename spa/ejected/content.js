@@ -1,5 +1,6 @@
 const contentSource = [{
-"path": "/blog/adding_pletiform",
+"pager": 1,
+"path": "/blog/adding-pletiform",
 "type": "blog",
 "filename": "adding_pletiform.json",
 "fields": {
@@ -12,6 +13,7 @@ const contentSource = [{
     "date": "1/26/2020"
 }
 },{
+"pager": 1,
 "path": "/blog/post1",
 "type": "blog",
 "filename": "post1.json",
@@ -24,6 +26,7 @@ const contentSource = [{
     "date": "1/24/2020"
 }
 },{
+"pager": 1,
 "path": "/blog/post2",
 "type": "blog",
 "filename": "post2.json",
@@ -36,7 +39,8 @@ const contentSource = [{
     "date": "1/25/2020"
 }
 },{
-"path": "/docs/allComponents",
+"pager": 1,
+"path": "/docs/allcomponents",
 "type": "docs",
 "filename": "allComponents.json",
 "fields": {
@@ -87,7 +91,8 @@ const contentSource = [{
     ]
 }
 },{
-"path": "/docs/allContent",
+"pager": 1,
+"path": "/docs/allcontent",
 "type": "docs",
 "filename": "allContent.json",
 "fields": {
@@ -122,6 +127,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/assets",
 "type": "docs",
 "filename": "assets.json",
@@ -152,6 +158,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/build",
 "type": "docs",
 "filename": "build.json",
@@ -214,6 +221,7 @@ const contentSource = [{
 }
 
 },{
+"pager": 1,
 "path": "/docs/eject",
 "type": "docs",
 "filename": "eject.json",
@@ -255,6 +263,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/github-actions",
 "type": "docs",
 "filename": "github-actions.json",
@@ -294,6 +303,7 @@ const contentSource = [{
 }
 
 },{
+"pager": 1,
 "path": "/docs/gitlab-piplines",
 "type": "docs",
 "filename": "gitlab-piplines.json",
@@ -323,6 +333,7 @@ const contentSource = [{
 }
 
 },{
+"pager": 1,
 "path": "/docs",
 "type": "docs",
 "filename": "index.json",
@@ -369,6 +380,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/installation",
 "type": "docs",
 "filename": "installation.json",
@@ -436,6 +448,7 @@ const contentSource = [{
 }
 
 },{
+"pager": 1,
 "path": "/docs/layout",
 "type": "docs",
 "filename": "layout.json",
@@ -490,6 +503,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/new-site",
 "type": "docs",
 "filename": "new-site.json",
@@ -544,6 +558,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/new-type",
 "type": "docs",
 "filename": "new-type.json",
@@ -594,6 +609,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/paths",
 "type": "docs",
 "filename": "paths.json",
@@ -647,6 +663,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/serve",
 "type": "docs",
 "filename": "serve.json",
@@ -708,6 +725,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/theme-add",
 "type": "docs",
 "filename": "theme-add.json",
@@ -761,6 +779,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/theme-disable",
 "type": "docs",
 "filename": "theme-disable.json",
@@ -794,6 +813,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/theme-enable",
 "type": "docs",
 "filename": "theme-enable.json",
@@ -829,6 +849,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/theme-remove",
 "type": "docs",
 "filename": "theme-remove.json",
@@ -864,6 +885,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/theme-update",
 "type": "docs",
 "filename": "theme-update.json",
@@ -914,6 +936,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/themes",
 "type": "docs",
 "filename": "themes.json",
@@ -955,6 +978,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/docs/types",
 "type": "docs",
 "filename": "types.json",
@@ -1010,6 +1034,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/",
 "type": "index",
 "filename": "index.json",
@@ -1100,6 +1125,7 @@ const contentSource = [{
 }
 
 },{
+"pager": 1,
 "path": "/about",
 "type": "pages",
 "filename": "about.json",
@@ -1115,6 +1141,7 @@ const contentSource = [{
 	"author": "Jim Fisk"
 }
 },{
+"pager": 1,
 "path": "/contact",
 "type": "pages",
 "filename": "contact.json",
@@ -1127,6 +1154,7 @@ const contentSource = [{
 	"author": "Jim Fisk"
 }
 },{
+"pager": 1,
 "path": "/download",
 "type": "pages",
 "filename": "download.json",
@@ -1148,6 +1176,7 @@ const contentSource = [{
     ]
 }
 },{
+"pager": 1,
 "path": "/themes",
 "type": "pages",
 "filename": "themes.json",
