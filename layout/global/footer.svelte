@@ -22,7 +22,7 @@
     </section>
     <section id="copyright">
       <div id="social"><a href="https://twitter.com/plentico"><img src="/assets/social/twitter.svg"></a><a href="https://youtube.com/jantcu"><img src="/assets/social/youtube.svg"></a><a href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg"></a></div>
-      <div id="copyright">© Plentico 2020</div>
+      <div id="copyright">© Plentico 2021</div>
       <a href="https://jantcu.com">By Jantcu LLC</a>
     </section>
   </div>
