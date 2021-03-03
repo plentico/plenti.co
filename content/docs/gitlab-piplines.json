@@ -1,7 +1,7 @@
 {
     "title": "GitLab Pipelines",
     "group": "Deployment",
-    "order": 51,
+    "order": 5.02,
     "sections": [
         {
             "title": "Description",

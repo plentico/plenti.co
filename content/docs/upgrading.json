@@ -1,26 +1,14 @@
 {
-    "title": "Installation",
+    "title": "Upgrading",
     "group": "Getting Started",
-    "order": 0.02,
+    "order": 0.03,
     "sections": [
-        {
-            "title": "Requirements",
-            "body": [
-                {
-                    "p": [
-                        "<s>You must have <a href='https://nodejs.org' target='_blank' rel='noopener noreferrer'>NodeJS</a> version 13 or newer.</s>",
-                        "<br>As of <code>v0.2.0</code> you no longer need NodeJS, Go, or any dependency other than Plenti itself."
-                    ]
-                }
-            ]
-        },
         {
             "title": "Homebrew (Mac)",
             "body": [
                 {
                     "p": [
-                        "1. Add the tap: <code>brew tap plentico/homebrew-plenti</code>",
-                        "<br />2. Install: <code>brew install plenti</code>"
+                        "<code>brew upgrade plenti</code>"
                     ]
                 }
             ]
@@ -30,7 +18,8 @@
             "body": [
                 {
                     "p": [
-                        "1. Install: <code>snap install plenti</code>"
+                        "Snaps will update automatically! If you want to force a snap update to the latest version, you can do the following:",
+                        "<br><code>snap refresh plenti</code>"
                     ]
                 }
             ]
@@ -41,8 +30,7 @@
                 {
                     "p": [
                         "Windows is not yet supported, it needs <a href=\"https://github.com/plentico/plenti/issues/45\" target=\"_blank\" rel=\"noopener noreferrer\">your help</a>!",
-                        "<br>1. Add the bucket: <code>scoop bucket add plenti https://github.com/plentico/scoop-plenti</code>",
-                        "<br>2. Install: <code>scoop install plenti</code>"
+                        "<br><code>scoop upgrade plenti</code>"
                     ]
                 }
             ]
@@ -53,7 +41,7 @@
                 {
                     "p": [
                         "1. Download the latest <a href='https://github.com/plentico/plenti/releases'>release</a>",
-                        "<br />2. Move it somewhere in your <code>PATH</code> (most likely <code>/usr/local/bin</code>)"
+                        "<br />2. Replace the existing file in your <code>PATH</code> (most likely <code>/usr/local/bin</code>)"
                     ]
                 }
             ]

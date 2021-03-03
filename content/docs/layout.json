@@ -1,7 +1,7 @@
 {
     "title": "Layout",
     "group": "Structure",
-    "order": 4,
+    "order": 2.01,
     "sections": [
         {
             "title": "Svelte",
