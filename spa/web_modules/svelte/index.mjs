@@ -1,0 +1,1 @@
+export { SvelteComponentDev as SvelteComponent, SvelteComponentTyped, afterUpdate, beforeUpdate, createEventDispatcher, getContext, hasContext, onDestroy, onMount, setContext, tick } from '/spa/web_modules/svelte/./internal/index.mjs';

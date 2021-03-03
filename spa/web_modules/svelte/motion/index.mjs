@@ -1,6 +1,6 @@
-import { writable } from '/spa/web_modules/svelte/store/index.js';
-import { now, loop, assign } from '/spa/web_modules/svelte/internal/index.js';
-import { linear } from '/spa/web_modules/svelte/easing/index.js';
+import { writable } from '/spa/web_modules/svelte/motion/../store/index.mjs';
+import { now, loop, assign } from '/spa/web_modules/svelte/motion/../internal/index.mjs';
+import { linear } from '/spa/web_modules/svelte/motion/../easing/index.mjs';
 
 function is_date(obj) {
     return Object.prototype.toString.call(obj) === '[object Date]';
@@ -32,9 +32,10 @@ function tick_spring(ctx, last_value, current_value, target_value) {
     }
     else if (typeof current_value === 'object') {
         const next_value = {};
-        for (const k in current_value)
+        for (const k in current_value) {
             // @ts-ignore
             next_value[k] = tick_spring(ctx, last_value[k], current_value[k], target_value[k]);
+        }
         // @ts-ignore
         return next_value;
     }
@@ -88,8 +89,9 @@ function spring(value, opts = {}) {
                 last_time = now;
                 last_value = value;
                 store.set(value = next_value);
-                if (ctx.settled)
+                if (ctx.settled) {
                     task = null;
+                }
                 return !ctx.settled;
             });
         }

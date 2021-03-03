@@ -1,7 +1,7 @@
-import { cubicOut } from '/spa/web_modules/svelte/easing/index.js';
-import { is_function } from '/spa/web_modules/svelte/internal/index.js';
+import { cubicOut } from '/spa/web_modules/svelte/animate/../easing/index.mjs';
+import { is_function } from '/spa/web_modules/svelte/animate/../internal/index.mjs';
 
-function flip(node, animation, params) {
+function flip(node, animation, params = {}) {
     const style = getComputedStyle(node);
     const transform = style.transform === 'none' ? '' : style.transform;
     const scaleX = animation.from.width / node.clientWidth;

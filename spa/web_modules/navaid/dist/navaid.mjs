@@ -1,4 +1,4 @@
-import convert from '/spa/web_modules/regexparam/dist/regexparam.js';
+import convert from '/spa/web_modules/regexparam/dist/regexparam.mjs';
 
 export default function Navaid(base, on404) {
 	var rgx, curr, routes=[], $={};

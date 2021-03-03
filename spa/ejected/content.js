@@ -46,7 +46,7 @@ const contentSource = [{
 "fields": {
     "title": "allComponents",
     "group": "Magic Variables",
-    "order": 7,
+    "order": 3.02,
     "sections": [
         {
             "title": "Description",
@@ -98,7 +98,7 @@ const contentSource = [{
 "fields": {
     "title": "allContent",
     "group": "Magic Variables",
-    "order": 6,
+    "order": 3.01,
     "sections": [
         {
             "title": "Description",
@@ -134,7 +134,7 @@ const contentSource = [{
 "fields": {
     "title": "Assets",
     "group": "Structure",
-    "order": 5,
+    "order": 2.02,
     "sections": [
         {
             "title": "Static Files",
@@ -165,7 +165,7 @@ const contentSource = [{
 "fields": {
     "title": "Build",
     "group": "Commands",
-    "order": 28,
+    "order": 4.03,
     "sections": [
         {
             "title": "Description",
@@ -228,7 +228,7 @@ const contentSource = [{
 "fields": {
     "title": "Eject",
     "group": "Commands",
-    "order": 30,
+    "order": 4.05,
     "sections": [
         {
             "title": "Description",
@@ -270,7 +270,7 @@ const contentSource = [{
 "fields": {
     "title": "GitHub Actions",
     "group": "Deployment",
-    "order": 50,
+    "order": 5.01,
     "sections": [
         {
             "title": "Description",
@@ -310,7 +310,7 @@ const contentSource = [{
 "fields": {
     "title": "GitLab Pipelines",
     "group": "Deployment",
-    "order": 51,
+    "order": 5.02,
     "sections": [
         {
             "title": "Description",
@@ -340,7 +340,7 @@ const contentSource = [{
 "fields": {
     "title": "Introduction",
     "group": "Getting Started",
-    "order": 0,
+    "order": 0.01,
     "sections": [
         {
             "title": "What is Plenti?",
@@ -387,7 +387,7 @@ const contentSource = [{
 "fields": {
     "title": "Installation",
     "group": "Getting Started",
-    "order": 1,
+    "order": 0.02,
     "sections": [
         {
             "title": "Requirements",
@@ -455,7 +455,7 @@ const contentSource = [{
 "fields": {
     "title": "Layout",
     "group": "Structure",
-    "order": 4,
+    "order": 2.01,
     "sections": [
         {
             "title": "Svelte",
@@ -510,7 +510,7 @@ const contentSource = [{
 "fields": {
     "title": "New Site",
     "group": "Commands",
-    "order": 26,
+    "order": 4.01,
     "sections": [
         {
             "title": "Description",
@@ -565,7 +565,7 @@ const contentSource = [{
 "fields": {
     "title": "New Type",
     "group": "Commands",
-    "order": 27,
+    "order": 4.02,
     "sections": [
         {
             "title": "Description",
@@ -616,7 +616,7 @@ const contentSource = [{
 "fields": {
     "title": "Paths",
     "group": "Content",
-    "order": 3,
+    "order": 1.02,
     "sections": [
         {
             "title": "Endpoints",
@@ -670,7 +670,7 @@ const contentSource = [{
 "fields": {
     "title": "Serve",
     "group": "Commands",
-    "order": 29,
+    "order": 4.04,
     "sections": [
         {
             "title": "Description",
@@ -732,7 +732,7 @@ const contentSource = [{
 "fields": {
     "title": "Theme Add",
     "group": "Commands",
-    "order": 31,
+    "order": 4.06,
     "sections": [
         {
             "title": "Description",
@@ -786,7 +786,7 @@ const contentSource = [{
 "fields": {
     "title": "Theme Disable",
     "group": "Commands",
-    "order": 33,
+    "order": 4.08,
     "sections": [
         {
             "title": "Description",
@@ -820,7 +820,7 @@ const contentSource = [{
 "fields": {
     "title": "Theme Enable",
     "group": "Commands",
-    "order": 32,
+    "order": 4.07,
     "sections": [
         {
             "title": "Description",
@@ -856,7 +856,7 @@ const contentSource = [{
 "fields": {
     "title": "Theme Remove",
     "group": "Commands",
-    "order": 35,
+    "order": 4.10,
     "sections": [
         {
             "title": "Description",
@@ -892,7 +892,7 @@ const contentSource = [{
 "fields": {
     "title": "Theme Update",
     "group": "Commands",
-    "order": 34,
+    "order": 4.09,
     "sections": [
         {
             "title": "Description",
@@ -943,7 +943,7 @@ const contentSource = [{
 "fields": {
     "title": "Themes",
     "group": "Structure",
-    "order": 5,
+    "order": 2.03,
     "sections": [
         {
             "title": "Description",
@@ -985,7 +985,7 @@ const contentSource = [{
 "fields": {
     "title": "Types",
     "group": "Content",
-    "order": 2,
+    "order": 1.01,
     "sections": [
         {
             "title": "Data Source",
@@ -1033,6 +1033,62 @@ const contentSource = [{
         }
     ]
 }
+},{
+"pager": 1,
+"path": "/docs/upgrading",
+"type": "docs",
+"filename": "upgrading.json",
+"fields": {
+    "title": "Upgrading",
+    "group": "Getting Started",
+    "order": 0.03,
+    "sections": [
+        {
+            "title": "Homebrew (Mac)",
+            "body": [
+                {
+                    "p": [
+                        "<code>brew upgrade plenti</code>"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Snap (Linux)",
+            "body": [
+                {
+                    "p": [
+                        "Snaps will update automatically! If you want to force a snap update to the latest version, you can do the following:",
+                        "<br><code>snap refresh plenti</code>"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Scoop (Windows)",
+            "body": [
+                {
+                    "p": [
+                        "Windows is not yet supported, it needs <a href=\"https://github.com/plentico/plenti/issues/45\" target=\"_blank\" rel=\"noopener noreferrer\">your help</a>!",
+                        "<br><code>scoop upgrade plenti</code>"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Manual",
+            "body": [
+                {
+                    "p": [
+                        "1. Download the latest <a href='https://github.com/plentico/plenti/releases'>release</a>",
+                        "<br />2. Replace the existing file in your <code>PATH</code> (most likely <code>/usr/local/bin</code>)"
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
 },{
 "pager": 1,
 "path": "/",
