@@ -1,7 +1,7 @@
 {
     "title": "Types",
     "group": "Content",
-    "order": 2,
+    "order": 1.01,
     "sections": [
         {
             "title": "Data Source",
