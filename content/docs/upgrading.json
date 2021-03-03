@@ -1,0 +1,50 @@
+{
+    "title": "Upgrading",
+    "group": "Getting Started",
+    "order": 0.03,
+    "sections": [
+        {
+            "title": "Homebrew (Mac)",
+            "body": [
+                {
+                    "p": [
+                        "<code>brew upgrade plenti</code>"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Snap (Linux)",
+            "body": [
+                {
+                    "p": [
+                        "Snaps will update automatically! If you want to force a snap update to the latest version, you can do the following:",
+                        "<br><code>snap refresh plenti</code>"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Scoop (Windows)",
+            "body": [
+                {
+                    "p": [
+                        "Windows is not yet supported, it needs <a href=\"https://github.com/plentico/plenti/issues/45\" target=\"_blank\" rel=\"noopener noreferrer\">your help</a>!",
+                        "<br><code>scoop upgrade plenti</code>"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Manual",
+            "body": [
+                {
+                    "p": [
+                        "1. Download the latest <a href='https://github.com/plentico/plenti/releases'>release</a>",
+                        "<br />2. Replace the existing file in your <code>PATH</code> (most likely <code>/usr/local/bin</code>)"
+                    ]
+                }
+            ]
+        }
+    ]
+}
