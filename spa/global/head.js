@@ -89,7 +89,7 @@ function create_fragment(ctx) {
 			attr(link0, "rel", "stylesheet");
 			attr(link1, "rel", "icon");
 			attr(link1, "type", "image/svg+xml");
-			attr(link1, "href", "/assets/plentico.svg");
+			attr(link1, "href", "/assets/p.svg");
 			attr(link2, "rel", "stylesheet");
 			attr(link2, "href", "/spa/bundle.css");
 		},
