@@ -6,7 +6,7 @@
 </script>
 <nav>
   <div class="container">
-    <span id="brand"><a href="/"><img alt="planarian" src="/assets/plentico.svg" />Plenti</a></span>
+    <span id="brand"><a href="/"><img alt="planarian" src="/assets/plentico.svg" /></a></span>
     <input type="checkbox" id="toggle" class="hidden" bind:checked={checked}>
     <label for="toggle" id="hamburger">
       <span></span>
