@@ -1,7 +1,7 @@
 {
     "title": "Assets",
     "group": "Structure",
-    "order": 5,
+    "order": 2.02,
     "sections": [
         {
             "title": "Static Files",

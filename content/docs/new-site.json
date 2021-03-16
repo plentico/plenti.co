@@ -1,7 +1,7 @@
 {
     "title": "New Site",
     "group": "Commands",
-    "order": 26,
+    "order": 4.01,
     "sections": [
         {
             "title": "Description",
