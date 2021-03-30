@@ -66,7 +66,7 @@ function get_each_context_5(ctx, list, i) {
 	return child_ctx;
 }
 
-// (23:4) {#if checked}
+// (23:8) {#if checked}
 function create_if_block_3(ctx) {
 	let div;
 	let mounted;
@@ -83,7 +83,7 @@ function create_if_block_3(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "sidebar-overlay svelte-1ulz3hd");
+			attr(div, "class", "sidebar-overlay svelte-2eanvu");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -102,7 +102,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (27:8) {#if deprecated}
+// (27:12) {#if deprecated}
 function create_if_block_2(ctx) {
 	let div;
 
@@ -119,7 +119,7 @@ function create_if_block_2(ctx) {
 		},
 		h() {
 			attr(div, "id", "deprecated");
-			attr(div, "class", "svelte-1ulz3hd");
+			attr(div, "class", "svelte-2eanvu");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -134,7 +134,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (36:20) {#if paragraph.p}
+// (36:24) {#if paragraph.p}
 function create_if_block_1(ctx) {
 	let each_1_anchor;
 	let each_value_5 = /*paragraph*/ ctx[10].p;
@@ -197,7 +197,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (37:24) {#each paragraph.p as line}
+// (37:28) {#each paragraph.p as line}
 function create_each_block_5(ctx) {
 	let html_tag;
 	let raw_value = /*line*/ ctx[22] + "";
@@ -229,7 +229,7 @@ function create_each_block_5(ctx) {
 	};
 }
 
-// (41:20) {#if paragraph.t}
+// (41:24) {#if paragraph.t}
 function create_if_block(ctx) {
 	let table;
 	let thead;
@@ -363,7 +363,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (45:32) {#each paragraph.t.head as th}
+// (45:36) {#each paragraph.t.head as th}
 function create_each_block_4(ctx) {
 	let th;
 	let raw_value = /*th*/ ctx[19] + "";
@@ -390,7 +390,7 @@ function create_each_block_4(ctx) {
 	};
 }
 
-// (53:36) {#each tr as td}
+// (53:40) {#each tr as td}
 function create_each_block_3(ctx) {
 	let td;
 	let raw_value = /*td*/ ctx[16] + "";
@@ -417,7 +417,7 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (51:32) {#each paragraph.t.data as tr}
+// (51:36) {#each paragraph.t.data as tr}
 function create_each_block_2(ctx) {
 	let tr;
 	let t;
@@ -489,7 +489,7 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (34:12) {#each section.body as paragraph}
+// (34:16) {#each section.body as paragraph}
 function create_each_block_1(ctx) {
 	let p;
 	let t0;
@@ -517,7 +517,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "section-body svelte-1ulz3hd");
+			attr(p, "class", "section-body svelte-2eanvu");
 		},
 		m(target, anchor) {
 			insert(target, p, anchor);
@@ -561,7 +561,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (32:8) {#each sections as section}
+// (32:12) {#each sections as section}
 function create_each_block(ctx) {
 	let strong;
 	let t0_value = /*section*/ ctx[7].title + "";
@@ -603,7 +603,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(strong, "class", "title svelte-1ulz3hd");
+			attr(strong, "class", "title svelte-2eanvu");
 		},
 		m(target, anchor) {
 			insert(target, strong, anchor);
@@ -653,20 +653,20 @@ function create_each_block(ctx) {
 
 function create_fragment(ctx) {
 	let div3;
-	let div2;
-	let div0;
 	let input;
 	let t0;
+	let docsnav;
+	let t1;
+	let div2;
+	let div0;
 	let label;
 	let span0;
-	let t1;
-	let span1;
 	let t2;
-	let span2;
+	let span1;
 	let t3;
-	let span3;
+	let span2;
 	let t4;
-	let docsnav;
+	let span3;
 	let t5;
 	let t6;
 	let div1;
@@ -694,20 +694,20 @@ function create_fragment(ctx) {
 	return {
 		c() {
 			div3 = element("div");
-			div2 = element("div");
-			div0 = element("div");
 			input = element("input");
 			t0 = space();
+			create_component(docsnav.$$.fragment);
+			t1 = space();
+			div2 = element("div");
+			div0 = element("div");
 			label = element("label");
 			span0 = element("span");
-			t1 = space();
-			span1 = element("span");
 			t2 = space();
-			span2 = element("span");
+			span1 = element("span");
 			t3 = space();
-			span3 = element("span");
+			span2 = element("span");
 			t4 = space();
-			create_component(docsnav.$$.fragment);
+			span3 = element("span");
 			t5 = space();
 			if (if_block0) if_block0.c();
 			t6 = space();
@@ -727,28 +727,28 @@ function create_fragment(ctx) {
 		l(nodes) {
 			div3 = claim_element(nodes, "DIV", { class: true });
 			var div3_nodes = children(div3);
+			input = claim_element(div3_nodes, "INPUT", { type: true, id: true, class: true });
+			t0 = claim_space(div3_nodes);
+			claim_component(docsnav.$$.fragment, div3_nodes);
+			t1 = claim_space(div3_nodes);
 			div2 = claim_element(div3_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
 			div0 = claim_element(div2_nodes, "DIV", {});
 			var div0_nodes = children(div0);
-			input = claim_element(div0_nodes, "INPUT", { type: true, id: true, class: true });
-			t0 = claim_space(div0_nodes);
 			label = claim_element(div0_nodes, "LABEL", { for: true, id: true, class: true });
 			var label_nodes = children(label);
 			span0 = claim_element(label_nodes, "SPAN", { class: true });
 			children(span0).forEach(detach);
-			t1 = claim_space(label_nodes);
+			t2 = claim_space(label_nodes);
 			span1 = claim_element(label_nodes, "SPAN", { class: true });
 			children(span1).forEach(detach);
-			t2 = claim_space(label_nodes);
+			t3 = claim_space(label_nodes);
 			span2 = claim_element(label_nodes, "SPAN", { class: true });
 			children(span2).forEach(detach);
-			t3 = claim_space(label_nodes);
+			t4 = claim_space(label_nodes);
 			span3 = claim_element(label_nodes, "SPAN", { class: true });
 			children(span3).forEach(detach);
 			label_nodes.forEach(detach);
-			t4 = claim_space(div0_nodes);
-			claim_component(docsnav.$$.fragment, div0_nodes);
 			div0_nodes.forEach(detach);
 			t5 = claim_space(div2_nodes);
 			if (if_block0) if_block0.l(div2_nodes);
@@ -775,36 +775,36 @@ function create_fragment(ctx) {
 		h() {
 			attr(input, "type", "checkbox");
 			attr(input, "id", "nav-toggle");
-			attr(input, "class", "hidden svelte-1ulz3hd");
-			attr(span0, "class", "svelte-1ulz3hd");
-			attr(span1, "class", "svelte-1ulz3hd");
-			attr(span2, "class", "svelte-1ulz3hd");
-			attr(span3, "class", "svelte-1ulz3hd");
+			attr(input, "class", "hidden svelte-2eanvu");
+			attr(span0, "class", "svelte-2eanvu");
+			attr(span1, "class", "svelte-2eanvu");
+			attr(span2, "class", "svelte-2eanvu");
+			attr(span3, "class", "svelte-2eanvu");
 			attr(label, "for", "nav-toggle");
 			attr(label, "id", "hamburger");
-			attr(label, "class", "svelte-1ulz3hd");
-			attr(h1, "class", "svelte-1ulz3hd");
+			attr(label, "class", "svelte-2eanvu");
+			attr(h1, "class", "svelte-2eanvu");
 			attr(div1, "class", "docs");
-			attr(div2, "class", "container svelte-1ulz3hd");
-			attr(div3, "class", "docs-container svelte-1ulz3hd");
+			attr(div2, "class", "docs-container svelte-2eanvu");
+			attr(div3, "class", "docs-wrapper svelte-2eanvu");
 		},
 		m(target, anchor) {
 			insert(target, div3, anchor);
+			append(div3, input);
+			input.checked = /*checked*/ ctx[4];
+			append(div3, t0);
+			mount_component(docsnav, div3, null);
+			append(div3, t1);
 			append(div3, div2);
 			append(div2, div0);
-			append(div0, input);
-			input.checked = /*checked*/ ctx[4];
-			append(div0, t0);
 			append(div0, label);
 			append(label, span0);
-			append(label, t1);
-			append(label, span1);
 			append(label, t2);
-			append(label, span2);
+			append(label, span1);
 			append(label, t3);
+			append(label, span2);
+			append(label, t4);
 			append(label, span3);
-			append(div0, t4);
-			mount_component(docsnav, div0, null);
 			append(div2, t5);
 			if (if_block0) if_block0.m(div2, null);
 			append(div2, t6);

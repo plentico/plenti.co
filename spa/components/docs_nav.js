@@ -66,7 +66,7 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(a, "href", a_href_value = /*content*/ ctx[7].path);
-			attr(a, "class", "nav-link svelte-6tom16");
+			attr(a, "class", "nav-link svelte-1g9l032");
 			toggle_class(a, "active", /*active*/ ctx[1][/*content*/ ctx[7].path]);
 		},
 		m(target, anchor) {
@@ -137,7 +137,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(strong, "class", "svelte-6tom16");
+			attr(strong, "class", "svelte-1g9l032");
 		},
 		m(target, anchor) {
 			insert(target, strong, anchor);
@@ -240,7 +240,7 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "sidebar svelte-6tom16");
+			attr(div, "class", "sidebar svelte-1g9l032");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
