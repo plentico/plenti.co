@@ -183,10 +183,10 @@
             background-color: var(--base-lightest);
             padding: 20px;
             z-index: 2;
-            -webkit-transition: all .4s ease-in-out;
-            -moz-transition: all .4s ease-in-out;
-            -o-transition: all .4s ease-in-out;
-            transition: all .4s ease-in-out;
+            -webkit-transition: margin-left .4s ease-in-out;
+            -moz-transition: margin-left .4s ease-in-out;
+            -o-transition: margin-left .4s ease-in-out;
+            transition: margin-left .4s ease-in-out;
             margin-left: -200px;
         }
         .docs-container {
