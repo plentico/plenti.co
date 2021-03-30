@@ -1,6 +1,7 @@
 {
     "title": "Layout",
     "group": "Structure",
+    "deprecated": "<code>layout</code> has become <code>layouts</code>, see: <a href='/docs/layouts'>details</a>.",
     "order": 2.01,
     "sections": [
         {

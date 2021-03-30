@@ -1,5 +1,5 @@
 <script>
-    export let title, sections, allContent;
+    export let title, sections, deprecated, allContent;
     import DocsNav from "../components/docs_nav.svelte";
     let checked=false;
     const uncheck = () => {
@@ -24,6 +24,9 @@
         <div class="sidebar-overlay" on:click={uncheck}></div>
     {/if}
     <div class="docs">
+        {#if deprecated}
+            <div id="deprecated">{@html deprecated}</div>
+        {/if}
         <h1>{title}</h1>
 
         {#each sections as section}
@@ -66,7 +69,21 @@
     .docs-container {
         display: flex;
     }
-    .section-body :global(a) {
+    #deprecated {
+        border: 1px solid var(--accent);
+        padding: 20px;
+        margin-top: 20px;
+    }
+    #deprecated ~ h1,
+    #deprecated ~ div,
+    #deprecated ~ strong,
+    #deprecated ~ p,
+    #deprecated ~ p :global(a),
+    #deprecated ~ p :global(code) {
+        color: gainsboro;
+    }
+    .section-body :global(a),
+    #deprecated :global(a) {
         font-weight: bold;
         color: var(--primary);
     }
