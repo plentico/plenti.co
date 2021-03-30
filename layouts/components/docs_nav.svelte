@@ -31,7 +31,7 @@
 </script>
 <div class="sidebar">
     {#each allContent.sort(sortNav) as content (content.path)}
-        {#if content.type == "docs"}
+        {#if content.type == "docs" && !content.fields.deprecated}
             {#if !group.includes(content.fields.group)}
                 <strong>{addGroup(content.fields.group)}</strong>
             {/if}
