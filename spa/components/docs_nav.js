@@ -31,7 +31,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (34:8) {#if content.type == "docs"}
+// (34:8) {#if content.type == "docs" && !content.fields.deprecated}
 function create_if_block(ctx) {
 	let show_if = !/*group*/ ctx[2].includes(/*content*/ ctx[7].fields.group);
 	let t0;
@@ -156,7 +156,7 @@ function create_if_block_1(ctx) {
 function create_each_block(key_1, ctx) {
 	let first;
 	let if_block_anchor;
-	let if_block = /*content*/ ctx[7].type == "docs" && create_if_block(ctx);
+	let if_block = /*content*/ ctx[7].type == "docs" && !/*content*/ ctx[7].fields.deprecated && create_if_block(ctx);
 
 	return {
 		key: key_1,
@@ -184,7 +184,7 @@ function create_each_block(key_1, ctx) {
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
 
-			if (/*content*/ ctx[7].type == "docs") {
+			if (/*content*/ ctx[7].type == "docs" && !/*content*/ ctx[7].fields.deprecated) {
 				if (if_block) {
 					if_block.p(ctx, dirty);
 				} else {

@@ -19,22 +19,22 @@
       <a class="nav-link button svelte-34czqc" href="/download">Download</a>
       <a class="nav-link svelte-34czqc" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" alt="GitHub Octocat Icon" class="svelte-34czqc"></a></div></div>
 </nav>
-  <main class="svelte-1142p5h"><div class="docs-container svelte-mqcoi3"><div class="container svelte-mqcoi3"><div><input type="checkbox" id="nav-toggle" class="hidden svelte-mqcoi3">
-        <label for="nav-toggle" id="hamburger" class="svelte-mqcoi3"><span class="svelte-mqcoi3"></span>
-            <span class="svelte-mqcoi3"></span>
-            <span class="svelte-mqcoi3"></span>
-            <span class="svelte-mqcoi3"></span></label>
+  <main class="svelte-1142p5h"><div class="docs-container svelte-1ulz3hd"><div class="container svelte-1ulz3hd"><div><input type="checkbox" id="nav-toggle" class="hidden svelte-1ulz3hd">
+        <label for="nav-toggle" id="hamburger" class="svelte-1ulz3hd"><span class="svelte-1ulz3hd"></span>
+            <span class="svelte-1ulz3hd"></span>
+            <span class="svelte-1ulz3hd"></span>
+            <span class="svelte-1ulz3hd"></span></label>
         <div class="sidebar svelte-6tom16"><strong class="svelte-6tom16">Getting Started</strong>
             <a href="/docs" class="nav-link svelte-6tom16">Introduction</a>
             <a href="/docs/installation" class="nav-link svelte-6tom16">Installation</a>
             <a href="/docs/upgrading" class="nav-link svelte-6tom16">Upgrading</a><strong class="svelte-6tom16">Content</strong>
             <a href="/docs/types" class="nav-link svelte-6tom16">Types</a>
             <a href="/docs/paths" class="nav-link svelte-6tom16">Paths</a><strong class="svelte-6tom16">Structure</strong>
-            <a href="/docs/layout" class="nav-link svelte-6tom16">Layout</a>
+            <a href="/docs/layouts" class="nav-link svelte-6tom16">Layouts</a>
             <a href="/docs/assets" class="nav-link svelte-6tom16">Assets</a>
             <a href="/docs/themes" class="nav-link svelte-6tom16">Themes</a><strong class="svelte-6tom16">Magic Variables</strong>
             <a href="/docs/allcontent" class="nav-link svelte-6tom16">allContent</a>
-            <a href="/docs/allcomponents" class="nav-link svelte-6tom16">allComponents</a><strong class="svelte-6tom16">Commands</strong>
+            <a href="/docs/alllayouts" class="nav-link svelte-6tom16">allLayouts</a><strong class="svelte-6tom16">Commands</strong>
             <a href="/docs/new-site" class="nav-link svelte-6tom16">New Site</a>
             <a href="/docs/new-type" class="nav-link svelte-6tom16">New Type</a>
             <a href="/docs/build" class="nav-link svelte-6tom16">Build</a>
@@ -49,22 +49,23 @@
             <a href="/docs/gitlab-piplines" class="nav-link svelte-6tom16">GitLab Pipelines</a>
 </div></div>
     
-    <div class="docs"><h1>Installation</h1>
+    <div class="docs">
+        <h1 class="svelte-1ulz3hd">Installation</h1>
 
-        <strong class="title svelte-mqcoi3">Requirements</strong>
-            <p class="section-body svelte-mqcoi3"><s>You must have <a href='https://nodejs.org' target='_blank' rel='noopener noreferrer'>NodeJS</a> version 13 or newer.</s> <br>As of <code>v0.2.0</code> you no longer need NodeJS, Go, or any dependency other than Plenti itself. 
+        <strong class="title svelte-1ulz3hd">Requirements</strong>
+            <p class="section-body svelte-1ulz3hd"><s>You must have <a href='https://nodejs.org' target='_blank' rel='noopener noreferrer'>NodeJS</a> version 13 or newer.</s> <br>As of <code>v0.2.0</code> you no longer need NodeJS, Go, or any dependency other than Plenti itself. 
                     
-                </p><strong class="title svelte-mqcoi3">Homebrew (Mac)</strong>
-            <p class="section-body svelte-mqcoi3">1. Add the tap: <code>brew tap plentico/homebrew-plenti</code> <br />2. Install: <code>brew install plenti</code> 
+                </p><strong class="title svelte-1ulz3hd">Homebrew (Mac)</strong>
+            <p class="section-body svelte-1ulz3hd">1. Add the tap: <code>brew tap plentico/homebrew-plenti</code> <br />2. Install: <code>brew install plenti</code> 
                     
-                </p><strong class="title svelte-mqcoi3">Snap (Linux)</strong>
-            <p class="section-body svelte-mqcoi3">1. Install: <code>snap install plenti</code> 
+                </p><strong class="title svelte-1ulz3hd">Snap (Linux)</strong>
+            <p class="section-body svelte-1ulz3hd">1. Install: <code>snap install plenti</code> 
                     
-                </p><strong class="title svelte-mqcoi3">Scoop (Windows)</strong>
-            <p class="section-body svelte-mqcoi3">Windows is not yet supported, it needs <a href="https://github.com/plentico/plenti/issues/45" target="_blank" rel="noopener noreferrer">your help</a>! <br>1. Add the bucket: <code>scoop bucket add plenti https://github.com/plentico/scoop-plenti</code> <br>2. Install: <code>scoop install plenti</code> 
+                </p><strong class="title svelte-1ulz3hd">Scoop (Windows)</strong>
+            <p class="section-body svelte-1ulz3hd">Windows is not yet supported, it needs <a href="https://github.com/plentico/plenti/issues/45" target="_blank" rel="noopener noreferrer">your help</a>! <br>1. Add the bucket: <code>scoop bucket add plenti https://github.com/plentico/scoop-plenti</code> <br>2. Install: <code>scoop install plenti</code> 
                     
-                </p><strong class="title svelte-mqcoi3">Manual</strong>
-            <p class="section-body svelte-mqcoi3">1. Download the latest <a href='https://github.com/plentico/plenti/releases'>release</a> <br />2. Move it somewhere in your <code>PATH</code> (most likely <code>/usr/local/bin</code>) 
+                </p><strong class="title svelte-1ulz3hd">Manual</strong>
+            <p class="section-body svelte-1ulz3hd">1. Download the latest <a href='https://github.com/plentico/plenti/releases'>release</a> <br />2. Move it somewhere in your <code>PATH</code> (most likely <code>/usr/local/bin</code>) 
                     
                 </p></div></div>
 </div>

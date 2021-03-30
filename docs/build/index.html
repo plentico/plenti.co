@@ -19,22 +19,22 @@
       <a class="nav-link button svelte-34czqc" href="/download">Download</a>
       <a class="nav-link svelte-34czqc" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" alt="GitHub Octocat Icon" class="svelte-34czqc"></a></div></div>
 </nav>
-  <main class="svelte-1142p5h"><div class="docs-container svelte-mqcoi3"><div class="container svelte-mqcoi3"><div><input type="checkbox" id="nav-toggle" class="hidden svelte-mqcoi3">
-        <label for="nav-toggle" id="hamburger" class="svelte-mqcoi3"><span class="svelte-mqcoi3"></span>
-            <span class="svelte-mqcoi3"></span>
-            <span class="svelte-mqcoi3"></span>
-            <span class="svelte-mqcoi3"></span></label>
+  <main class="svelte-1142p5h"><div class="docs-container svelte-1ulz3hd"><div class="container svelte-1ulz3hd"><div><input type="checkbox" id="nav-toggle" class="hidden svelte-1ulz3hd">
+        <label for="nav-toggle" id="hamburger" class="svelte-1ulz3hd"><span class="svelte-1ulz3hd"></span>
+            <span class="svelte-1ulz3hd"></span>
+            <span class="svelte-1ulz3hd"></span>
+            <span class="svelte-1ulz3hd"></span></label>
         <div class="sidebar svelte-6tom16"><strong class="svelte-6tom16">Getting Started</strong>
             <a href="/docs" class="nav-link svelte-6tom16">Introduction</a>
             <a href="/docs/installation" class="nav-link svelte-6tom16">Installation</a>
             <a href="/docs/upgrading" class="nav-link svelte-6tom16">Upgrading</a><strong class="svelte-6tom16">Content</strong>
             <a href="/docs/types" class="nav-link svelte-6tom16">Types</a>
             <a href="/docs/paths" class="nav-link svelte-6tom16">Paths</a><strong class="svelte-6tom16">Structure</strong>
-            <a href="/docs/layout" class="nav-link svelte-6tom16">Layout</a>
+            <a href="/docs/layouts" class="nav-link svelte-6tom16">Layouts</a>
             <a href="/docs/assets" class="nav-link svelte-6tom16">Assets</a>
             <a href="/docs/themes" class="nav-link svelte-6tom16">Themes</a><strong class="svelte-6tom16">Magic Variables</strong>
             <a href="/docs/allcontent" class="nav-link svelte-6tom16">allContent</a>
-            <a href="/docs/allcomponents" class="nav-link svelte-6tom16">allComponents</a><strong class="svelte-6tom16">Commands</strong>
+            <a href="/docs/alllayouts" class="nav-link svelte-6tom16">allLayouts</a><strong class="svelte-6tom16">Commands</strong>
             <a href="/docs/new-site" class="nav-link svelte-6tom16">New Site</a>
             <a href="/docs/new-type" class="nav-link svelte-6tom16">New Type</a>
             <a href="/docs/build" class="nav-link svelte-6tom16">Build</a>
@@ -49,19 +49,20 @@
             <a href="/docs/gitlab-piplines" class="nav-link svelte-6tom16">GitLab Pipelines</a>
 </div></div>
     
-    <div class="docs"><h1>Build</h1>
+    <div class="docs">
+        <h1 class="svelte-1ulz3hd">Build</h1>
 
-        <strong class="title svelte-mqcoi3">Description</strong>
-            <p class="section-body svelte-mqcoi3">The build command creates the static assets that can be deployed to hosting provider. It contains the generated Svelte code that hydrates into a Single Page Application (SPA), as well as the HTML fallbacks that allow you to navigate the site without JavaScript enabled, improve Search Engine Optimization (SEO), and speed up the initial page load of your app. 
+        <strong class="title svelte-1ulz3hd">Description</strong>
+            <p class="section-body svelte-1ulz3hd">The build command creates the static assets that can be deployed to hosting provider. It contains the generated Svelte code that hydrates into a Single Page Application (SPA), as well as the HTML fallbacks that allow you to navigate the site without JavaScript enabled, improve Search Engine Optimization (SEO), and speed up the initial page load of your app. 
                     
-                </p><strong class="title svelte-mqcoi3">Usage</strong>
-            <p class="section-body svelte-mqcoi3">The following command will create a folder called "public" that contains your website: <code>plenti build</code> 
+                </p><strong class="title svelte-1ulz3hd">Usage</strong>
+            <p class="section-body svelte-1ulz3hd">The following command will create a folder called "public" that contains your website: <code>plenti build</code> 
                     
-                </p><strong class="title svelte-mqcoi3">Flags</strong>
-            <p class="section-body svelte-mqcoi3">
+                </p><strong class="title svelte-1ulz3hd">Flags</strong>
+            <p class="section-body svelte-1ulz3hd">
                     <table><thead><tr><th>Long</th><th>Short</th><th>Description</th>
                                 </tr></thead>
-                                <tbody><tr><td><code>--dir=whatever</code></td><td><code>-d=whatever</code></td><td>Change the name of the "public" build directory to something else</td>
+                                <tbody><tr><td><code>--output=whatever</code></td><td><code>-o=whatever</code></td><td>Change the name of the "public" build directory to something else</td>
                                 </tr><tr><td><code>--benchmark</code></td><td><code>-b</code></td><td>Display build time statistics</td>
                                 </tr><tr><td><code>--verbose</code></td><td><code>-v</code></td><td>Shows log messages related to the build process</td>
                                 </tr></tbody>

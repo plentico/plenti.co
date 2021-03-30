@@ -46,6 +46,7 @@ const contentSource = [{
 "fields": {
     "title": "allComponents",
     "group": "Magic Variables",
+    "deprecated": "<code>allComponents</code> is now <code>allLayouts</code>, see <a href='/docs/alllayouts'>details</a>.",
     "order": 3.02,
     "sections": [
         {
@@ -128,6 +129,58 @@ const contentSource = [{
 }
 },{
 "pager": 1,
+"path": "/docs/alllayouts",
+"type": "docs",
+"filename": "allLayouts.json",
+"fields": {
+    "title": "allLayouts",
+    "group": "Magic Variables",
+    "order": 3.02,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "The <code>allLayouts</code> variable is a default prop loaded by the Plenti generator automatically. It holds",
+                        "class constructors for every svelte template on your site. This is allows you to dynamically load any component without",
+                        "having to import it explicitly or worry about SSR issues when generating HTML fallbacks."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Understanding Component Signatures",
+            "body": [
+                {
+                    "p": [
+                        "Each entry in <code>allLayouts</code> is saved as a \"component signature\" to ensure uniqueness.",
+                        "The component signature for a template is simply its path with any forward slashes \"/\" or periods \".\"",
+                        "converted into underscores \"_\". For example <code>layouts/components/grid.svelte</code> would become",
+                        "<code>layouts_components_grid_svelte</code>. The signatures are absolute, not relative, so they should always",
+                        "start with \"layouts\" and end with \"svelte\"."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Accessing templates in allLayouts",
+            "body": [
+                {
+                    "p": [
+                        "To access a particular template in the <code>allLayouts</code>",
+                        "object, use the component signature with either dot notation (e.g. <code>allLayouts.layouts_components_grid_svelte</code> or bracket notation",
+                        "<code>allLayouts[\"layouts_components_grid_svelte\"]</code>. It's common to use variables provided from your JSON data source",
+                        "to target a particular component, so you'd use bracket notation for that: <code>allLayouts[someVariable]</code> (where \"someVariable\" is equal to",
+                        "a component signature)."
+                    ]
+                }
+            ]
+        }
+    ]
+}
+},{
+"pager": 1,
 "path": "/docs/assets",
 "type": "docs",
 "filename": "assets.json",
@@ -149,7 +202,7 @@ const contentSource = [{
                 {
                     "p": [
                         "You can also use a path relative to the specific template. For instance if you were adding an image to",
-                        "<code>layout/components/my-component.svelte</code>, you could reference the same image like",
+                        "<code>layouts/components/my-component.svelte</code>, you could reference the same image like",
                         "<code>&lt;img src=&quot;../../assets/my-image.jpg&quot; /&gt;</code> if you'd like."
                     ]
                 }
@@ -198,8 +251,8 @@ const contentSource = [{
                         "head": ["Long", "Short", "Description"],
                         "data": [
                             [
-                                "<code>--dir=whatever</code>",
-                                "<code>-d=whatever</code>",
+                                "<code>--output=whatever</code>",
+                                "<code>-o=whatever</code>",
                                 "Change the name of the \"public\" build directory to something else"
                             ],
                             [
@@ -455,6 +508,7 @@ const contentSource = [{
 "fields": {
     "title": "Layout",
     "group": "Structure",
+    "deprecated": "<code>layout</code> has become <code>layouts</code>, see: <a href='/docs/layouts'>details</a>.",
     "order": 2.01,
     "sections": [
         {
@@ -495,6 +549,61 @@ const contentSource = [{
                     "p": [
                         "The rest of the structure is really up to you.",
                         "We try to create logical default folders, such as <code>layout/components/</code> for reusable widgets and <code>layout/scripts/</code> for helper functions,",
+                        "but feel free to completely change these and make the structure your own."
+                    ]
+                }
+            ]
+        }
+    ]
+}
+},{
+"pager": 1,
+"path": "/docs/layouts",
+"type": "docs",
+"filename": "layouts.json",
+"fields": {
+    "title": "Layouts",
+    "group": "Structure",
+    "order": 2.01,
+    "sections": [
+        {
+            "title": "Svelte",
+            "body": [
+                {
+                    "p": [
+                        "All the templating is done in the \"disappearing\" JS component framework called <a href='https://svelte.dev/'>Svelte</a>.",
+                        "Svelte offers a simplified syntax and creates a welcoming developer experience for folks coming directly from an HTML/CSS background.",
+                        "It also offers some performance benefits over similar frameworks since it doesn't require a virtual DOM and its runtime is rather small."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "layouts/global/html.svelte",
+            "body": [
+                {
+                    "p": [
+                        "The <code>layouts/global/html.svelte</code> file is important and changing its name will break your app.",
+                        "You could also potentially break your routing if you're not careful with <code>&lt;svelte:component this={layout} {...content.fields} {allContent} /&gt;</code>.",
+                        "Once you're aware of those two things, this file shouldn't be too scary and is meant for you to customize."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "layouts/content/",
+            "body": [
+                {
+                    "p": [
+                        "Files that live in this folder correspond directly to the types defined in your content source.",
+                        "For example if you have <em>blog</em> type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layouts/content/blog.svelte</code>.",
+                        "One template should be used per type and it will feed many content files to create individual nodes (endpoints)."
+                    ]
+                },
+                {
+                    "p": [
+                        "The rest of the structure is really up to you.",
+                        "We try to create logical default folders, such as <code>layouts/components/</code> for reusable widgets and <code>layouts/scripts/</code> for helper functions,",
                         "but feel free to completely change these and make the structure your own."
                     ]
                 }
@@ -574,7 +683,7 @@ const contentSource = [{
                     "p": [
                         "This command will automatically create a folder in your <code>content/</code> directory with the",
                         "type name, a <code>_blueprint.json</code> file inside that folder that describes the type's field",
-                        "structure, and a corresponding template in <code>layout/content/</code> that has the same name as the type."
+                        "structure, and a corresponding template in <code>layouts/content/</code> that has the same name as the type."
                     ]
                 }
             ]
@@ -634,7 +743,7 @@ const contentSource = [{
                 {
                     "p": [
                         "If you want to have a content source without a path (no node endpoint that site visitors can access), simply delete the corresponding svelte",
-                        "template in <code>layout/content/</code>. You can do this automatically use the \"endpoint\" flag when creating a new type, for example:",
+                        "template in <code>layouts/content/</code>. You can do this automatically use the \"endpoint\" flag when creating a new type, for example:",
                         "<code>plenti new type YOUR_TYPE --endpoint=false</code>"
                     ]
                 }
@@ -648,14 +757,14 @@ const contentSource = [{
                         "You can overide the default path structure in the site's configuration file (<code>plenti.json</code>).",
                         "For example if you had a type called <code>pages</code> and you wanted it to appear at the top level of the",
                         "site and not in the format <code>https://example.com/pages/page1</code>, you could add the following to <code>plenti.json</code>:",
-                        "<br /><br /><codeblock>\"types\": {<br />&nbsp;&nbsp;\"pages\": \"/:filename\"<br />}</codeblock>",
+                        "<br /><br /><codeblock>\"routes\": {<br />&nbsp;&nbsp;\"pages\": \"/:filename\"<br />}</codeblock>",
                         "This would allow a content file located at <code>content/pages/page1.json</code> to appear in the following format: <code>https://example.com/page1</code>."
                     ]
                 },
                 {
                     "p": [
                         "You can use any custom key that you define in your content source, e.g. <code>:title</code>, <code>:date</code>, etc. in your path, for example:",
-                        "<br /><br /><codeblock>\"types\": {<br />&nbsp;&nbsp;\"blog\": \"/blog/:field(author)/:field(title)\"<br />}"
+                        "<br /><br /><codeblock>\"routes\": {<br />&nbsp;&nbsp;\"blog\": \"/blog/:fields(author)/:fields(title)\"<br />}"
                     ]
                 }
             ]
@@ -680,7 +789,7 @@ const contentSource = [{
                         "Starts up a lightweight webserver you can use for local development.",
                         "This will run the build in the background when you first run the command,",
                         "and any time that you change a file in your <code>content/</code> or",
-                        "<code>layout/</code> folders."
+                        "<code>layouts/</code> folders."
                     ]
                 }
             ]
@@ -708,8 +817,8 @@ const contentSource = [{
                                 "Set to \"false\" to disable the build step and use existing \"public\" directory."
                             ],
                             [
-                                "<code>--dir=public</code>",
-                                "<code>-d=public</code>",
+                                "<code>--output=public</code>",
+                                "<code>-o=public</code>",
                                 "Change the name of the build directory."
                             ],
                             [
@@ -999,7 +1108,7 @@ const contentSource = [{
                         "in fact you can define any field schema you'd like and there are no required keys.",
                         "Even though files may be grouped together as a type,",
                         "they can actually have variability between them in terms of their field structure - just",
-                        "make sure you account for this in your corresponding <code>layout/content/</code> files!"
+                        "make sure you account for this in your corresponding <code>layouts/content/</code> files!"
                     ]
                 }
             ]

@@ -32,42 +32,42 @@ import DocsNav from '/spa/content/../components/docs_nav.js';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[6] = list[i];
+	child_ctx[7] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[9] = list[i];
+	child_ctx[10] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[12] = list[i];
+	child_ctx[13] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_3(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[15] = list[i];
+	child_ctx[16] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_4(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[18] = list[i];
+	child_ctx[19] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_5(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[21] = list[i];
+	child_ctx[22] = list[i];
 	return child_ctx;
 }
 
 // (23:4) {#if checked}
-function create_if_block_2(ctx) {
+function create_if_block_3(ctx) {
 	let div;
 	let mounted;
 	let dispose;
@@ -83,13 +83,13 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div, "class", "sidebar-overlay svelte-mqcoi3");
+			attr(div, "class", "sidebar-overlay svelte-1ulz3hd");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
 
 			if (!mounted) {
-				dispose = listen(div, "click", /*uncheck*/ ctx[4]);
+				dispose = listen(div, "click", /*uncheck*/ ctx[5]);
 				mounted = true;
 			}
 		},
@@ -102,10 +102,42 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (33:20) {#if paragraph.p}
+// (27:8) {#if deprecated}
+function create_if_block_2(ctx) {
+	let div;
+
+	return {
+		c() {
+			div = element("div");
+			this.h();
+		},
+		l(nodes) {
+			div = claim_element(nodes, "DIV", { id: true, class: true });
+			var div_nodes = children(div);
+			div_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(div, "id", "deprecated");
+			attr(div, "class", "svelte-1ulz3hd");
+		},
+		m(target, anchor) {
+			insert(target, div, anchor);
+			div.innerHTML = /*deprecated*/ ctx[2];
+		},
+		p(ctx, dirty) {
+			if (dirty & /*deprecated*/ 4) div.innerHTML = /*deprecated*/ ctx[2];;
+		},
+		d(detaching) {
+			if (detaching) detach(div);
+		}
+	};
+}
+
+// (36:20) {#if paragraph.p}
 function create_if_block_1(ctx) {
 	let each_1_anchor;
-	let each_value_5 = /*paragraph*/ ctx[9].p;
+	let each_value_5 = /*paragraph*/ ctx[10].p;
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_5.length; i += 1) {
@@ -136,7 +168,7 @@ function create_if_block_1(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty & /*sections*/ 2) {
-				each_value_5 = /*paragraph*/ ctx[9].p;
+				each_value_5 = /*paragraph*/ ctx[10].p;
 				let i;
 
 				for (i = 0; i < each_value_5.length; i += 1) {
@@ -165,10 +197,10 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (34:24) {#each paragraph.p as line}
+// (37:24) {#each paragraph.p as line}
 function create_each_block_5(ctx) {
 	let html_tag;
-	let raw_value = /*line*/ ctx[21] + "";
+	let raw_value = /*line*/ ctx[22] + "";
 	let t;
 
 	return {
@@ -188,7 +220,7 @@ function create_each_block_5(ctx) {
 			insert(target, t, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*line*/ ctx[21] + "")) html_tag.p(raw_value);
+			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*line*/ ctx[22] + "")) html_tag.p(raw_value);
 		},
 		d(detaching) {
 			if (detaching) html_tag.d();
@@ -197,21 +229,21 @@ function create_each_block_5(ctx) {
 	};
 }
 
-// (38:20) {#if paragraph.t}
+// (41:20) {#if paragraph.t}
 function create_if_block(ctx) {
 	let table;
 	let thead;
 	let tr;
 	let t;
 	let tbody;
-	let each_value_4 = /*paragraph*/ ctx[9].t.head;
+	let each_value_4 = /*paragraph*/ ctx[10].t.head;
 	let each_blocks_1 = [];
 
 	for (let i = 0; i < each_value_4.length; i += 1) {
 		each_blocks_1[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
 	}
 
-	let each_value_2 = /*paragraph*/ ctx[9].t.data;
+	let each_value_2 = /*paragraph*/ ctx[10].t.data;
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_2.length; i += 1) {
@@ -278,7 +310,7 @@ function create_if_block(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty & /*sections*/ 2) {
-				each_value_4 = /*paragraph*/ ctx[9].t.head;
+				each_value_4 = /*paragraph*/ ctx[10].t.head;
 				let i;
 
 				for (i = 0; i < each_value_4.length; i += 1) {
@@ -301,7 +333,7 @@ function create_if_block(ctx) {
 			}
 
 			if (dirty & /*sections*/ 2) {
-				each_value_2 = /*paragraph*/ ctx[9].t.data;
+				each_value_2 = /*paragraph*/ ctx[10].t.data;
 				let i;
 
 				for (i = 0; i < each_value_2.length; i += 1) {
@@ -331,10 +363,10 @@ function create_if_block(ctx) {
 	};
 }
 
-// (42:32) {#each paragraph.t.head as th}
+// (45:32) {#each paragraph.t.head as th}
 function create_each_block_4(ctx) {
 	let th;
-	let raw_value = /*th*/ ctx[18] + "";
+	let raw_value = /*th*/ ctx[19] + "";
 
 	return {
 		c() {
@@ -350,7 +382,7 @@ function create_each_block_4(ctx) {
 			th.innerHTML = raw_value;
 		},
 		p(ctx, dirty) {
-			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*th*/ ctx[18] + "")) th.innerHTML = raw_value;;
+			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*th*/ ctx[19] + "")) th.innerHTML = raw_value;;
 		},
 		d(detaching) {
 			if (detaching) detach(th);
@@ -358,10 +390,10 @@ function create_each_block_4(ctx) {
 	};
 }
 
-// (50:36) {#each tr as td}
+// (53:36) {#each tr as td}
 function create_each_block_3(ctx) {
 	let td;
-	let raw_value = /*td*/ ctx[15] + "";
+	let raw_value = /*td*/ ctx[16] + "";
 
 	return {
 		c() {
@@ -377,7 +409,7 @@ function create_each_block_3(ctx) {
 			td.innerHTML = raw_value;
 		},
 		p(ctx, dirty) {
-			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*td*/ ctx[15] + "")) td.innerHTML = raw_value;;
+			if (dirty & /*sections*/ 2 && raw_value !== (raw_value = /*td*/ ctx[16] + "")) td.innerHTML = raw_value;;
 		},
 		d(detaching) {
 			if (detaching) detach(td);
@@ -385,11 +417,11 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (48:32) {#each paragraph.t.data as tr}
+// (51:32) {#each paragraph.t.data as tr}
 function create_each_block_2(ctx) {
 	let tr;
 	let t;
-	let each_value_3 = /*tr*/ ctx[12];
+	let each_value_3 = /*tr*/ ctx[13];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_3.length; i += 1) {
@@ -428,7 +460,7 @@ function create_each_block_2(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty & /*sections*/ 2) {
-				each_value_3 = /*tr*/ ctx[12];
+				each_value_3 = /*tr*/ ctx[13];
 				let i;
 
 				for (i = 0; i < each_value_3.length; i += 1) {
@@ -457,13 +489,13 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (31:12) {#each section.body as paragraph}
+// (34:12) {#each section.body as paragraph}
 function create_each_block_1(ctx) {
 	let p;
 	let t0;
 	let t1;
-	let if_block0 = /*paragraph*/ ctx[9].p && create_if_block_1(ctx);
-	let if_block1 = /*paragraph*/ ctx[9].t && create_if_block(ctx);
+	let if_block0 = /*paragraph*/ ctx[10].p && create_if_block_1(ctx);
+	let if_block1 = /*paragraph*/ ctx[10].t && create_if_block(ctx);
 
 	return {
 		c() {
@@ -485,7 +517,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(p, "class", "section-body svelte-mqcoi3");
+			attr(p, "class", "section-body svelte-1ulz3hd");
 		},
 		m(target, anchor) {
 			insert(target, p, anchor);
@@ -495,7 +527,7 @@ function create_each_block_1(ctx) {
 			append(p, t1);
 		},
 		p(ctx, dirty) {
-			if (/*paragraph*/ ctx[9].p) {
+			if (/*paragraph*/ ctx[10].p) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -508,7 +540,7 @@ function create_each_block_1(ctx) {
 				if_block0 = null;
 			}
 
-			if (/*paragraph*/ ctx[9].t) {
+			if (/*paragraph*/ ctx[10].t) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -529,14 +561,14 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (29:8) {#each sections as section}
+// (32:8) {#each sections as section}
 function create_each_block(ctx) {
 	let strong;
-	let t0_value = /*section*/ ctx[6].title + "";
+	let t0_value = /*section*/ ctx[7].title + "";
 	let t0;
 	let t1;
 	let each_1_anchor;
-	let each_value_1 = /*section*/ ctx[6].body;
+	let each_value_1 = /*section*/ ctx[7].body;
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -571,7 +603,7 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(strong, "class", "title svelte-mqcoi3");
+			attr(strong, "class", "title svelte-1ulz3hd");
 		},
 		m(target, anchor) {
 			insert(target, strong, anchor);
@@ -585,10 +617,10 @@ function create_each_block(ctx) {
 			insert(target, each_1_anchor, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*sections*/ 2 && t0_value !== (t0_value = /*section*/ ctx[6].title + "")) set_data(t0, t0_value);
+			if (dirty & /*sections*/ 2 && t0_value !== (t0_value = /*section*/ ctx[7].title + "")) set_data(t0, t0_value);
 
 			if (dirty & /*sections*/ 2) {
-				each_value_1 = /*section*/ ctx[6].body;
+				each_value_1 = /*section*/ ctx[7].body;
 				let i;
 
 				for (i = 0; i < each_value_1.length; i += 1) {
@@ -638,18 +670,20 @@ function create_fragment(ctx) {
 	let t5;
 	let t6;
 	let div1;
-	let h1;
 	let t7;
+	let h1;
 	let t8;
+	let t9;
 	let current;
 	let mounted;
 	let dispose;
 
 	docsnav = new DocsNav({
-			props: { allContent: /*allContent*/ ctx[2] }
+			props: { allContent: /*allContent*/ ctx[3] }
 		});
 
-	let if_block = /*checked*/ ctx[3] && create_if_block_2(ctx);
+	let if_block0 = /*checked*/ ctx[4] && create_if_block_3(ctx);
+	let if_block1 = /*deprecated*/ ctx[2] && create_if_block_2(ctx);
 	let each_value = /*sections*/ ctx[1];
 	let each_blocks = [];
 
@@ -675,12 +709,14 @@ function create_fragment(ctx) {
 			t4 = space();
 			create_component(docsnav.$$.fragment);
 			t5 = space();
-			if (if_block) if_block.c();
+			if (if_block0) if_block0.c();
 			t6 = space();
 			div1 = element("div");
+			if (if_block1) if_block1.c();
+			t7 = space();
 			h1 = element("h1");
-			t7 = text(/*title*/ ctx[0]);
-			t8 = space();
+			t8 = text(/*title*/ ctx[0]);
+			t9 = space();
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
@@ -715,15 +751,17 @@ function create_fragment(ctx) {
 			claim_component(docsnav.$$.fragment, div0_nodes);
 			div0_nodes.forEach(detach);
 			t5 = claim_space(div2_nodes);
-			if (if_block) if_block.l(div2_nodes);
+			if (if_block0) if_block0.l(div2_nodes);
 			t6 = claim_space(div2_nodes);
 			div1 = claim_element(div2_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
-			h1 = claim_element(div1_nodes, "H1", {});
+			if (if_block1) if_block1.l(div1_nodes);
+			t7 = claim_space(div1_nodes);
+			h1 = claim_element(div1_nodes, "H1", { class: true });
 			var h1_nodes = children(h1);
-			t7 = claim_text(h1_nodes, /*title*/ ctx[0]);
+			t8 = claim_text(h1_nodes, /*title*/ ctx[0]);
 			h1_nodes.forEach(detach);
-			t8 = claim_space(div1_nodes);
+			t9 = claim_space(div1_nodes);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].l(div1_nodes);
@@ -737,24 +775,25 @@ function create_fragment(ctx) {
 		h() {
 			attr(input, "type", "checkbox");
 			attr(input, "id", "nav-toggle");
-			attr(input, "class", "hidden svelte-mqcoi3");
-			attr(span0, "class", "svelte-mqcoi3");
-			attr(span1, "class", "svelte-mqcoi3");
-			attr(span2, "class", "svelte-mqcoi3");
-			attr(span3, "class", "svelte-mqcoi3");
+			attr(input, "class", "hidden svelte-1ulz3hd");
+			attr(span0, "class", "svelte-1ulz3hd");
+			attr(span1, "class", "svelte-1ulz3hd");
+			attr(span2, "class", "svelte-1ulz3hd");
+			attr(span3, "class", "svelte-1ulz3hd");
 			attr(label, "for", "nav-toggle");
 			attr(label, "id", "hamburger");
-			attr(label, "class", "svelte-mqcoi3");
+			attr(label, "class", "svelte-1ulz3hd");
+			attr(h1, "class", "svelte-1ulz3hd");
 			attr(div1, "class", "docs");
-			attr(div2, "class", "container svelte-mqcoi3");
-			attr(div3, "class", "docs-container svelte-mqcoi3");
+			attr(div2, "class", "container svelte-1ulz3hd");
+			attr(div3, "class", "docs-container svelte-1ulz3hd");
 		},
 		m(target, anchor) {
 			insert(target, div3, anchor);
 			append(div3, div2);
 			append(div2, div0);
 			append(div0, input);
-			input.checked = /*checked*/ ctx[3];
+			input.checked = /*checked*/ ctx[4];
 			append(div0, t0);
 			append(div0, label);
 			append(label, span0);
@@ -767,12 +806,14 @@ function create_fragment(ctx) {
 			append(div0, t4);
 			mount_component(docsnav, div0, null);
 			append(div2, t5);
-			if (if_block) if_block.m(div2, null);
+			if (if_block0) if_block0.m(div2, null);
 			append(div2, t6);
 			append(div2, div1);
+			if (if_block1) if_block1.m(div1, null);
+			append(div1, t7);
 			append(div1, h1);
-			append(h1, t7);
-			append(div1, t8);
+			append(h1, t8);
+			append(div1, t9);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].m(div1, null);
@@ -781,33 +822,46 @@ function create_fragment(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(input, "change", /*input_change_handler*/ ctx[5]);
+				dispose = listen(input, "change", /*input_change_handler*/ ctx[6]);
 				mounted = true;
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*checked*/ 8) {
-				input.checked = /*checked*/ ctx[3];
+			if (dirty & /*checked*/ 16) {
+				input.checked = /*checked*/ ctx[4];
 			}
 
 			const docsnav_changes = {};
-			if (dirty & /*allContent*/ 4) docsnav_changes.allContent = /*allContent*/ ctx[2];
+			if (dirty & /*allContent*/ 8) docsnav_changes.allContent = /*allContent*/ ctx[3];
 			docsnav.$set(docsnav_changes);
 
-			if (/*checked*/ ctx[3]) {
-				if (if_block) {
-					if_block.p(ctx, dirty);
+			if (/*checked*/ ctx[4]) {
+				if (if_block0) {
+					if_block0.p(ctx, dirty);
 				} else {
-					if_block = create_if_block_2(ctx);
-					if_block.c();
-					if_block.m(div2, t6);
+					if_block0 = create_if_block_3(ctx);
+					if_block0.c();
+					if_block0.m(div2, t6);
 				}
-			} else if (if_block) {
-				if_block.d(1);
-				if_block = null;
+			} else if (if_block0) {
+				if_block0.d(1);
+				if_block0 = null;
 			}
 
-			if (!current || dirty & /*title*/ 1) set_data(t7, /*title*/ ctx[0]);
+			if (/*deprecated*/ ctx[2]) {
+				if (if_block1) {
+					if_block1.p(ctx, dirty);
+				} else {
+					if_block1 = create_if_block_2(ctx);
+					if_block1.c();
+					if_block1.m(div1, t7);
+				}
+			} else if (if_block1) {
+				if_block1.d(1);
+				if_block1 = null;
+			}
+
+			if (!current || dirty & /*title*/ 1) set_data(t8, /*title*/ ctx[0]);
 
 			if (dirty & /*sections*/ 2) {
 				each_value = /*sections*/ ctx[1];
@@ -844,7 +898,8 @@ function create_fragment(ctx) {
 		d(detaching) {
 			if (detaching) detach(div3);
 			destroy_component(docsnav);
-			if (if_block) if_block.d();
+			if (if_block0) if_block0.d();
+			if (if_block1) if_block1.d();
 			destroy_each(each_blocks, detaching);
 			mounted = false;
 			dispose();
@@ -853,31 +908,50 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { title } = $$props, { sections } = $$props, { allContent } = $$props;
+	let { title } = $$props,
+		{ sections } = $$props,
+		{ deprecated } = $$props,
+		{ allContent } = $$props;
+
 	let checked = false;
 
 	const uncheck = () => {
-		$$invalidate(3, checked = false);
+		$$invalidate(4, checked = false);
 	};
 
 	function input_change_handler() {
 		checked = this.checked;
-		$$invalidate(3, checked);
+		$$invalidate(4, checked);
 	}
 
 	$$self.$$set = $$props => {
 		if ("title" in $$props) $$invalidate(0, title = $$props.title);
 		if ("sections" in $$props) $$invalidate(1, sections = $$props.sections);
-		if ("allContent" in $$props) $$invalidate(2, allContent = $$props.allContent);
+		if ("deprecated" in $$props) $$invalidate(2, deprecated = $$props.deprecated);
+		if ("allContent" in $$props) $$invalidate(3, allContent = $$props.allContent);
 	};
 
-	return [title, sections, allContent, checked, uncheck, input_change_handler];
+	return [
+		title,
+		sections,
+		deprecated,
+		allContent,
+		checked,
+		uncheck,
+		input_change_handler
+	];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { title: 0, sections: 1, allContent: 2 });
+
+		init(this, options, instance, create_fragment, safe_not_equal, {
+			title: 0,
+			sections: 1,
+			deprecated: 2,
+			allContent: 3
+		});
 	}
 }
 

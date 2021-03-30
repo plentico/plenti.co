@@ -53,7 +53,7 @@ function create_fragment(ctx) {
 
 	nav = new Nav({});
 	const switch_instance_spread_levels = [/*content*/ ctx[1].fields, { allContent: /*allContent*/ ctx[2] }];
-	var switch_value = /*route*/ ctx[0];
+	var switch_value = /*layout*/ ctx[0];
 
 	function switch_props(ctx) {
 		let switch_instance_props = {};
@@ -144,7 +144,7 @@ function create_fragment(ctx) {
 				])
 			: {};
 
-			if (switch_value !== (switch_value = /*route*/ ctx[0])) {
+			if (switch_value !== (switch_value = /*layout*/ ctx[0])) {
 				if (switch_instance) {
 					group_outros();
 					const old_component = switch_instance;
@@ -194,21 +194,21 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { route } = $$props, { content } = $$props, { allContent } = $$props;
+	let { layout } = $$props, { content } = $$props, { allContent } = $$props;
 
 	$$self.$$set = $$props => {
-		if ("route" in $$props) $$invalidate(0, route = $$props.route);
+		if ("layout" in $$props) $$invalidate(0, layout = $$props.layout);
 		if ("content" in $$props) $$invalidate(1, content = $$props.content);
 		if ("allContent" in $$props) $$invalidate(2, allContent = $$props.allContent);
 	};
 
-	return [route, content, allContent];
+	return [layout, content, allContent];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { route: 0, content: 1, allContent: 2 });
+		init(this, options, instance, create_fragment, safe_not_equal, { layout: 0, content: 1, allContent: 2 });
 	}
 }
 

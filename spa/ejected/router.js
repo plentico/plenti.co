@@ -21,10 +21,10 @@ function create_fragment(ctx) {
 
 	html = new Html({
 			props: {
-				route: /*route*/ ctx[0],
-				content: /*content*/ ctx[1],
+				content: /*content*/ ctx[0],
+				layout: /*layout*/ ctx[1],
 				allContent: /*allContent*/ ctx[2],
-				allComponents: /*allComponents*/ ctx[3]
+				allLayouts: /*allLayouts*/ ctx[3]
 			}
 		});
 
@@ -41,10 +41,10 @@ function create_fragment(ctx) {
 		},
 		p(ctx, [dirty]) {
 			const html_changes = {};
-			if (dirty & /*route*/ 1) html_changes.route = /*route*/ ctx[0];
-			if (dirty & /*content*/ 2) html_changes.content = /*content*/ ctx[1];
+			if (dirty & /*content*/ 1) html_changes.content = /*content*/ ctx[0];
+			if (dirty & /*layout*/ 2) html_changes.layout = /*layout*/ ctx[1];
 			if (dirty & /*allContent*/ 4) html_changes.allContent = /*allContent*/ ctx[2];
-			if (dirty & /*allComponents*/ 8) html_changes.allComponents = /*allComponents*/ ctx[3];
+			if (dirty & /*allLayouts*/ 8) html_changes.allLayouts = /*allLayouts*/ ctx[3];
 			html.$set(html_changes);
 		},
 		i(local) {
@@ -64,25 +64,25 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { uri } = $$props,
-		{ route } = $$props,
 		{ content } = $$props,
+		{ layout } = $$props,
 		{ allContent } = $$props,
-		{ allComponents } = $$props;
+		{ allLayouts } = $$props;
 
 	const getContent = (uri, trailingSlash = "") => {
 		return contentSource.find(content => content.path + trailingSlash == uri);
 	};
 
 	function draw(m) {
-		$$invalidate(1, content = getContent(uri));
+		$$invalidate(0, content = getContent(uri));
 
 		if (content === undefined) {
 			// Check if there is a 404 data source.
-			$$invalidate(1, content = getContent("/404"));
+			$$invalidate(0, content = getContent("/404"));
 
 			if (content === undefined) {
 				// If no 404.json data source exists, pass placeholder values.
-				$$invalidate(1, content = {
+				$$invalidate(0, content = {
 					"path": "/404",
 					"type": "404",
 					"filename": "404.json",
@@ -91,7 +91,7 @@ function instance($$self, $$props, $$invalidate) {
 			}
 		}
 
-		$$invalidate(0, route = m.default);
+		$$invalidate(1, layout = m.default);
 		window.scrollTo(0, 0);
 	}
 
@@ -105,7 +105,7 @@ function instance($$self, $$props, $$invalidate) {
 
 	const handle404 = () => {
 		import("../content/404.js").then(draw).catch(err => {
-			console.log("Add a '/layout/content/404.svelte' file to handle Page Not Found errors.");
+			console.log("Add a '/layouts/content/404.svelte' file to handle Page Not Found errors.");
 			console.log("If you want to pass data to your 404 component, you can also add a '/content/404.json' file.");
 			console.log(err);
 		});
@@ -129,13 +129,13 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ("uri" in $$props) $$invalidate(4, uri = $$props.uri);
-		if ("route" in $$props) $$invalidate(0, route = $$props.route);
-		if ("content" in $$props) $$invalidate(1, content = $$props.content);
+		if ("content" in $$props) $$invalidate(0, content = $$props.content);
+		if ("layout" in $$props) $$invalidate(1, layout = $$props.layout);
 		if ("allContent" in $$props) $$invalidate(2, allContent = $$props.allContent);
-		if ("allComponents" in $$props) $$invalidate(3, allComponents = $$props.allComponents);
+		if ("allLayouts" in $$props) $$invalidate(3, allLayouts = $$props.allLayouts);
 	};
 
-	return [route, content, allContent, allComponents, uri];
+	return [content, layout, allContent, allLayouts, uri];
 }
 
 class Component extends SvelteComponent {
@@ -144,10 +144,10 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			uri: 4,
-			route: 0,
-			content: 1,
+			content: 0,
+			layout: 1,
 			allContent: 2,
-			allComponents: 3
+			allLayouts: 3
 		});
 	}
 }
