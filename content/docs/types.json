@@ -15,7 +15,7 @@
                         "in fact you can define any field schema you'd like and there are no required keys.",
                         "Even though files may be grouped together as a type,",
                         "they can actually have variability between them in terms of their field structure - just",
-                        "make sure you account for this in your corresponding <code>layout/content/</code> files!"
+                        "make sure you account for this in your corresponding <code>layouts/content/</code> files!"
                     ]
                 }
             ]

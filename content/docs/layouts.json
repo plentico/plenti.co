@@ -21,7 +21,7 @@
                 {
                     "p": [
                         "The <code>layouts/global/html.svelte</code> file is important and changing its name will break your app.",
-                        "You could also potentially break your routing if you're not careful with <code>&lt;svelte:component this={route} {...node.fields} {allNodes} /&gt;</code>.",
+                        "You could also potentially break your routing if you're not careful with <code>&lt;svelte:component this={layout} {...content.fields} {allContent} /&gt;</code>.",
                         "Once you're aware of those two things, this file shouldn't be too scary and is meant for you to customize."
                     ]
                 }

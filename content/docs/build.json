@@ -34,8 +34,8 @@
                         "head": ["Long", "Short", "Description"],
                         "data": [
                             [
-                                "<code>--dir=whatever</code>",
-                                "<code>-d=whatever</code>",
+                                "<code>--output=whatever</code>",
+                                "<code>-o=whatever</code>",
                                 "Change the name of the \"public\" build directory to something else"
                             ],
                             [

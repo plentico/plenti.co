@@ -11,7 +11,7 @@
                         "Starts up a lightweight webserver you can use for local development.",
                         "This will run the build in the background when you first run the command,",
                         "and any time that you change a file in your <code>content/</code> or",
-                        "<code>layout/</code> folders."
+                        "<code>layouts/</code> folders."
                     ]
                 }
             ]
@@ -39,8 +39,8 @@
                                 "Set to \"false\" to disable the build step and use existing \"public\" directory."
                             ],
                             [
-                                "<code>--dir=public</code>",
-                                "<code>-d=public</code>",
+                                "<code>--output=public</code>",
+                                "<code>-o=public</code>",
                                 "Change the name of the build directory."
                             ],
                             [
