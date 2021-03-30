@@ -9,7 +9,7 @@
                 {
                     "p": [
                         "The \"themes\" folder holds other projects that your project will inherit assets, content,",
-                        "and layout from. You can <code>add</code>, <code>remove</code>, <code>enable</code>",
+                        "and layouts from. You can <code>add</code>, <code>remove</code>, <code>enable</code>",
                         "<code>disable</code>, and <code>update</code> themes through the CLI.",
                         "<br><br>Every Plenti website can be used as a theme - in fact there is nothing special you would do",
                         "to your site to make it a \"theme.\" Simply nest any Plenti site (if you have permission) in the \"themes\"",
@@ -19,7 +19,7 @@
             ]
         },
         {
-            "title": "Omitting assets, content, or layout from a theme",
+            "title": "Omitting assets, content, or layouts from a theme",
             "body": [
                 {
                     "p": [
