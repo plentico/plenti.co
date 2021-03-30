@@ -43,13 +43,12 @@
 <style>
     .sidebar {
         border-right: 1px solid var(--base);
-        padding-right: 40px;
-        margin-right: 40px;
-        margin-top: 20px;
         overflow: scroll;
         overflow-x: auto;
         height: 100%;
         max-height: 500px;
+        min-width: 150px;
+        margin-right: 20px;
     }
     .sidebar::-webkit-scrollbar {
         width: 6px;

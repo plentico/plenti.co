@@ -7,67 +7,74 @@
     }
 </script>
 
-<div class="docs-container">
+<div class="docs-wrapper">
+    <input type="checkbox" id="nav-toggle" class="hidden" bind:checked={checked}>
+    <DocsNav allContent={allContent} />
+    <div class="docs-container">
 
-    <div class="container">
-    <div>
-        <input type="checkbox" id="nav-toggle" class="hidden" bind:checked={checked}>
-        <label for="nav-toggle" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-        <DocsNav allContent={allContent} />
-    </div>
-    {#if checked}
-        <div class="sidebar-overlay" on:click={uncheck}></div>
-    {/if}
-    <div class="docs">
-        {#if deprecated}
-            <div id="deprecated">{@html deprecated}</div>
+        <div>
+            <label for="nav-toggle" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        {#if checked}
+            <div class="sidebar-overlay" on:click={uncheck}></div>
         {/if}
-        <h1>{title}</h1>
+        <div class="docs">
+            {#if deprecated}
+                <div id="deprecated">{@html deprecated}</div>
+            {/if}
+            <h1>{title}</h1>
 
-        {#each sections as section}
-            <strong class="title">{section.title}</strong>
-            {#each section.body as paragraph}
-                <p class="section-body">
-                    {#if paragraph.p}
-                        {#each paragraph.p as line}
-                            {@html line}&nbsp;
-                        {/each}
-                    {/if}
-                    {#if paragraph.t}
-                        <table>
-                            <thead>
-                                <tr>
-                                {#each paragraph.t.head as th}
-                                    <th>{@html th}</th>
-                                {/each}
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {#each paragraph.t.data as tr}
-                                <tr>
-                                    {#each tr as td}
-                                        <td>{@html td}</td>
+            {#each sections as section}
+                <strong class="title">{section.title}</strong>
+                {#each section.body as paragraph}
+                    <p class="section-body">
+                        {#if paragraph.p}
+                            {#each paragraph.p as line}
+                                {@html line}&nbsp;
+                            {/each}
+                        {/if}
+                        {#if paragraph.t}
+                            <table>
+                                <thead>
+                                    <tr>
+                                    {#each paragraph.t.head as th}
+                                        <th>{@html th}</th>
                                     {/each}
-                                </tr>
-                                {/each}
-                            </tbody>
-                        </table>
-                    {/if}
-                </p>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {#each paragraph.t.data as tr}
+                                    <tr>
+                                        {#each tr as td}
+                                            <td>{@html td}</td>
+                                        {/each}
+                                    </tr>
+                                    {/each}
+                                </tbody>
+                            </table>
+                        {/if}
+                    </p>
+                {/each}
             {/each}
-        {/each}
-    </div>
+        </div>
+
     </div>
 </div>
 
 <style>
+    .docs-wrapper,
     .docs-container {
         display: flex;
+    }
+    .docs-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
     }
     #deprecated {
         border: 1px solid var(--accent);
@@ -91,10 +98,6 @@
         width: 100%;
         text-align: left;
     }
-    .container {
-        padding-top: 20px;
-        display: flex;
-    }
     .title {
         font-size: 2rem;
         margin-top: 40px;
@@ -110,6 +113,7 @@
         display: none;
         width: 35px;
         height: 30px;
+        margin-top: 20px;
         position: relative;
         -webkit-transform: rotate(0deg);
         -moz-transform: rotate(0deg);
@@ -147,49 +151,49 @@
     #hamburger span:nth-child(4) {
         top: 24px;
     }
-    #nav-toggle:checked~#hamburger span:nth-child(2) {
+    #nav-toggle:checked~.docs-container #hamburger span:nth-child(2) {
         -webkit-transform: rotate(45deg);
         -moz-transform: rotate(45deg);
         -o-transform: rotate(45deg);
         transform: rotate(45deg);
     }
-    #nav-toggle:checked~#hamburger span:nth-child(3) {
+    #nav-toggle:checked~.docs-container #hamburger span:nth-child(3) {
         -webkit-transform: rotate(-45deg);
         -moz-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
         transform: rotate(-45deg);
     }
-    #nav-toggle:checked~#hamburger span:nth-child(1),
-    #nav-toggle:checked~#hamburger span:nth-child(4) {
+    #nav-toggle:checked~.docs-container #hamburger span:nth-child(1),
+    #nav-toggle:checked~.docs-container #hamburger span:nth-child(4) {
         top: 18px;
         width: 0%;
         left: 50%;
     }
     @media (max-width: 600px) {
-        .docs-container .container {
-            flex-direction: column;
-        }
         #hamburger {
             display: block;
         }
-        .docs-container :global(.sidebar) {
-            position: absolute;
+        .docs-wrapper {
+            padding: 0;
+        }
+        .docs-wrapper :global(.sidebar) {
+            overflow: initial;
+            margin-top: 0;
+            max-height: 100%;
             background-color: var(--base-lightest);
-            max-width: 0;
-            overflow: hidden;
-            left: -40px;
-            border: none;
             padding: 20px;
             z-index: 2;
-            box-shadow: 0 5px 6px -4px rgba(0,0,0,.2);
             -webkit-transition: all .4s ease-in-out;
             -moz-transition: all .4s ease-in-out;
             -o-transition: all .4s ease-in-out;
             transition: all .4s ease-in-out;
+            margin-left: -200px;
+        }
+        .docs-container {
+            flex-direction: column;
         }
         #nav-toggle:checked~:global(.sidebar) {
-            max-width: 200px;
-            left: 0;
+            margin-left: 0;
         }
         .sidebar-overlay {
             background: rgba(54, 25, 25, .5);
