@@ -28,9 +28,9 @@ import {
 	transition_out
 } from '/spa/web_modules/svelte/internal/index.mjs';
 
-import Linux from '/spa/content/../components/linux.js';
-import Mac from '/spa/content/../components/mac.js';
-import Windows from '/spa/content/../components/windows.js';
+import Linux from '/spa/components/linux.js';
+import Mac from '/spa/components/mac.js';
+import Windows from '/spa/components/windows.js';
 import { onMount } from '/spa/web_modules/svelte/internal/index.mjs';
 
 function get_each_context(ctx, list, i) {

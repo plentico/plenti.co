@@ -1,5 +1,5 @@
-import { cubicInOut, linear, cubicOut } from '/spa/web_modules/svelte/transition/../easing/index.mjs';
-import { is_function, assign } from '/spa/web_modules/svelte/transition/../internal/index.mjs';
+import { cubicInOut, linear, cubicOut } from '/spa/web_modules/svelte/easing/index.mjs';
+import { is_function, assign } from '/spa/web_modules/svelte/internal/index.mjs';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.

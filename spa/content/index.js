@@ -27,9 +27,9 @@ import {
 	transition_out
 } from '/spa/web_modules/svelte/internal/index.mjs';
 
-import Grid from '/spa/content/../components/grid.js';
-import Waves from '/spa/content/../components/waves.js';
-import { loadComponent } from '/spa/content/../scripts/load_component.js';
+import Grid from '/spa/components/grid.js';
+import Waves from '/spa/components/waves.js';
+import { loadComponent } from '/spa/scripts/load_component.js';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();

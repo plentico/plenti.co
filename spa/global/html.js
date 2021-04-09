@@ -25,10 +25,10 @@ import {
 	transition_out
 } from '/spa/web_modules/svelte/internal/index.mjs';
 
-import Head from '/spa/global/./head.js';
-import Nav from '/spa/global/./nav.js';
-import Footer from '/spa/global/./footer.js';
-import { makeTitle } from '/spa/global/../scripts/make_title.js';
+import Head from '/spa/global/head.js';
+import Nav from '/spa/global/nav.js';
+import Footer from '/spa/global/footer.js';
+import { makeTitle } from '/spa/scripts/make_title.js';
 
 function create_fragment(ctx) {
 	let html;

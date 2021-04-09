@@ -17,7 +17,7 @@ import {
 	text
 } from '/spa/web_modules/svelte/internal/index.mjs';
 
-import { makeTitle } from '/spa/global/../scripts/make_title.js';
+import { makeTitle } from '/spa/scripts/make_title.js';
 
 function create_fragment(ctx) {
 	let footer;

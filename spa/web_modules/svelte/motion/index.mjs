@@ -1,6 +1,6 @@
-import { writable } from '/spa/web_modules/svelte/motion/../store/index.mjs';
-import { now, loop, assign } from '/spa/web_modules/svelte/motion/../internal/index.mjs';
-import { linear } from '/spa/web_modules/svelte/motion/../easing/index.mjs';
+import { writable } from '/spa/web_modules/svelte/store/index.mjs';
+import { now, loop, assign } from '/spa/web_modules/svelte/internal/index.mjs';
+import { linear } from '/spa/web_modules/svelte/easing/index.mjs';
 
 function is_date(obj) {
     return Object.prototype.toString.call(obj) === '[object Date]';
