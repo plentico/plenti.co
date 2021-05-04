@@ -1,12 +1,16 @@
 <script>
-  export let title;
+  export let title, meta;
 </script>
 
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
 
-  <title>{ title }</title>
+  <title>{ title } | Plenti - A Static Site Generator for Svelte</title>
+  {#if meta}
+    <meta name="description" content="{meta.desc}">
+    <meta name="keywords" content="{meta.keywords}">
+  {/if}
 
   <script type="module" src="/spa/ejected/main.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">

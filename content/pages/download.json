@@ -13,5 +13,9 @@
             "title": "Linux",
             "img": "linux.svg"
         }
-    ]
+    ],
+  "meta": {
+    "desc": "Download the latest version of the Plenti Svelte static site generator",
+    "keywords": "install, download, binary, package manager, brew, snap, scoop"
+  }
 }

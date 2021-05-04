@@ -8,7 +8,7 @@
 </script>
 
 <html lang="en">
-<Head title={makeTitle(content.filename)} />
+<Head title={makeTitle(content.filename)} {...content.fields} />
 <body>
   <Nav />
   <main>

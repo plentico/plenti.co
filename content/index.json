@@ -81,5 +81,9 @@
 			"text": "Show me the code",
 			"url": "https://github.com/plentico/plenti"
 		}
-	}
+	},
+  "meta": {
+    "desc": "A Svelte SSG with Golang backend for the JAMstack",
+    "keywords": "Svelte, Go, JAMstack, SSG, Git-CMS"
+  }
 }
