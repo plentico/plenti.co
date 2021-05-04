@@ -16,7 +16,7 @@
     const setActive = (path) => {
         active = [];
         setTimeout(function(){
-            if (path == window.location.pathname) {
+            if (path === window.location.pathname) {
                 active[path] = true;
             }
         }, 100);
@@ -26,6 +26,9 @@
     import {onMount} from 'svelte/internal';
     onMount(async () => {
         let initialPath = await window.location.pathname;
+        if (initialPath.length > 1 && initialPath.slice(-1) === "/") {
+          initialPath = initialPath.slice(0, -1); // remove trailing slash.
+        }
         active[initialPath] = true;
     });
 </script>
@@ -35,7 +38,7 @@
             {#if !group.includes(content.fields.group)}
                 <strong>{addGroup(content.fields.group)}</strong>
             {/if}
-            <a on:click={() => setActive(content.path)} class:active={active[content.path]} href="{content.path}" class="nav-link">{content.fields.title}</a>
+            <a on:click={() => setActive("/" + content.path)} class:active={active["/" + content.path]} href="/{content.path}" class="nav-link">{content.fields.title}</a>
         {/if}
     {/each}
 </div>
