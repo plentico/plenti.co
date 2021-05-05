@@ -18,6 +18,54 @@ import {
 	text
 } from '/spa/web_modules/svelte/internal/index.mjs';
 
+function create_if_block(ctx) {
+	let meta0;
+	let meta0_content_value;
+	let t;
+	let meta1;
+	let meta1_content_value;
+
+	return {
+		c() {
+			meta0 = element("meta");
+			t = space();
+			meta1 = element("meta");
+			this.h();
+		},
+		l(nodes) {
+			meta0 = claim_element(nodes, "META", { name: true, content: true });
+			t = claim_space(nodes);
+			meta1 = claim_element(nodes, "META", { name: true, content: true });
+			this.h();
+		},
+		h() {
+			attr(meta0, "name", "description");
+			attr(meta0, "content", meta0_content_value = /*meta*/ ctx[1].desc);
+			attr(meta1, "name", "keywords");
+			attr(meta1, "content", meta1_content_value = /*meta*/ ctx[1].keywords);
+		},
+		m(target, anchor) {
+			insert(target, meta0, anchor);
+			insert(target, t, anchor);
+			insert(target, meta1, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*meta*/ 2 && meta0_content_value !== (meta0_content_value = /*meta*/ ctx[1].desc)) {
+				attr(meta0, "content", meta0_content_value);
+			}
+
+			if (dirty & /*meta*/ 2 && meta1_content_value !== (meta1_content_value = /*meta*/ ctx[1].keywords)) {
+				attr(meta1, "content", meta1_content_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(meta0);
+			if (detaching) detach(t);
+			if (detaching) detach(meta1);
+		}
+	};
+}
+
 function create_fragment(ctx) {
 	let head;
 	let meta0;
@@ -27,14 +75,17 @@ function create_fragment(ctx) {
 	let title_1;
 	let t2;
 	let t3;
+	let t4;
+	let t5;
 	let script;
 	let script_src_value;
-	let t4;
-	let link0;
-	let t5;
-	let link1;
 	let t6;
+	let link0;
+	let t7;
+	let link1;
+	let t8;
 	let link2;
+	let if_block = /*meta*/ ctx[1] && create_if_block(ctx);
 
 	return {
 		c() {
@@ -45,13 +96,16 @@ function create_fragment(ctx) {
 			t1 = space();
 			title_1 = element("title");
 			t2 = text(/*title*/ ctx[0]);
-			t3 = space();
-			script = element("script");
+			t3 = text(" | Plenti - A Static Site Generator for Svelte");
 			t4 = space();
-			link0 = element("link");
+			if (if_block) if_block.c();
 			t5 = space();
-			link1 = element("link");
+			script = element("script");
 			t6 = space();
+			link0 = element("link");
+			t7 = space();
+			link1 = element("link");
+			t8 = space();
 			link2 = element("link");
 			this.h();
 		},
@@ -65,16 +119,19 @@ function create_fragment(ctx) {
 			title_1 = claim_element(head_nodes, "TITLE", {});
 			var title_1_nodes = children(title_1);
 			t2 = claim_text(title_1_nodes, /*title*/ ctx[0]);
+			t3 = claim_text(title_1_nodes, " | Plenti - A Static Site Generator for Svelte");
 			title_1_nodes.forEach(detach);
-			t3 = claim_space(head_nodes);
+			t4 = claim_space(head_nodes);
+			if (if_block) if_block.l(head_nodes);
+			t5 = claim_space(head_nodes);
 			script = claim_element(head_nodes, "SCRIPT", { type: true, src: true });
 			var script_nodes = children(script);
 			script_nodes.forEach(detach);
-			t4 = claim_space(head_nodes);
-			link0 = claim_element(head_nodes, "LINK", { href: true, rel: true });
-			t5 = claim_space(head_nodes);
-			link1 = claim_element(head_nodes, "LINK", { rel: true, type: true, href: true });
 			t6 = claim_space(head_nodes);
+			link0 = claim_element(head_nodes, "LINK", { href: true, rel: true });
+			t7 = claim_space(head_nodes);
+			link1 = claim_element(head_nodes, "LINK", { rel: true, type: true, href: true });
+			t8 = claim_space(head_nodes);
 			link2 = claim_element(head_nodes, "LINK", { rel: true, href: true });
 			head_nodes.forEach(detach);
 			this.h();
@@ -101,40 +158,58 @@ function create_fragment(ctx) {
 			append(head, t1);
 			append(head, title_1);
 			append(title_1, t2);
-			append(head, t3);
-			append(head, script);
+			append(title_1, t3);
 			append(head, t4);
-			append(head, link0);
+			if (if_block) if_block.m(head, null);
 			append(head, t5);
-			append(head, link1);
+			append(head, script);
 			append(head, t6);
+			append(head, link0);
+			append(head, t7);
+			append(head, link1);
+			append(head, t8);
 			append(head, link2);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*title*/ 1) set_data(t2, /*title*/ ctx[0]);
+
+			if (/*meta*/ ctx[1]) {
+				if (if_block) {
+					if_block.p(ctx, dirty);
+				} else {
+					if_block = create_if_block(ctx);
+					if_block.c();
+					if_block.m(head, t5);
+				}
+			} else if (if_block) {
+				if_block.d(1);
+				if_block = null;
+			}
 		},
 		i: noop,
 		o: noop,
 		d(detaching) {
 			if (detaching) detach(head);
+			if (if_block) if_block.d();
 		}
 	};
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { title } = $$props;
+	let { title } = $$props, { meta } = $$props;
 
 	$$self.$$set = $$props => {
 		if ("title" in $$props) $$invalidate(0, title = $$props.title);
+		if ("meta" in $$props) $$invalidate(1, meta = $$props.meta);
 	};
 
-	return [title];
+	return [title, meta];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { title: 0 });
+		init(this, options, instance, create_fragment, safe_not_equal, { title: 0, meta: 1 });
 	}
 }
 

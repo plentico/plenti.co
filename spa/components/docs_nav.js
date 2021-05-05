@@ -31,7 +31,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (34:8) {#if content.type == "docs" && !content.fields.deprecated}
+// (37:8) {#if content.type == "docs" && !content.fields.deprecated}
 function create_if_block(ctx) {
 	let show_if = !/*group*/ ctx[2].includes(/*content*/ ctx[7].fields.group);
 	let t0;
@@ -65,9 +65,9 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*content*/ ctx[7].path);
+			attr(a, "href", a_href_value = "/" + /*content*/ ctx[7].path);
 			attr(a, "class", "nav-link svelte-1g9l032");
-			toggle_class(a, "active", /*active*/ ctx[1][/*content*/ ctx[7].path]);
+			toggle_class(a, "active", /*active*/ ctx[1]["/" + /*content*/ ctx[7].path]);
 		},
 		m(target, anchor) {
 			if (if_block) if_block.m(target, anchor);
@@ -99,12 +99,12 @@ function create_if_block(ctx) {
 
 			if (dirty & /*allContent*/ 1 && t1_value !== (t1_value = /*content*/ ctx[7].fields.title + "")) set_data(t1, t1_value);
 
-			if (dirty & /*allContent*/ 1 && a_href_value !== (a_href_value = /*content*/ ctx[7].path)) {
+			if (dirty & /*allContent*/ 1 && a_href_value !== (a_href_value = "/" + /*content*/ ctx[7].path)) {
 				attr(a, "href", a_href_value);
 			}
 
 			if (dirty & /*active, allContent, sortNav*/ 19) {
-				toggle_class(a, "active", /*active*/ ctx[1][/*content*/ ctx[7].path]);
+				toggle_class(a, "active", /*active*/ ctx[1]["/" + /*content*/ ctx[7].path]);
 			}
 		},
 		d(detaching) {
@@ -117,7 +117,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (35:12) {#if !group.includes(content.fields.group)}
+// (38:12) {#if !group.includes(content.fields.group)}
 function create_if_block_1(ctx) {
 	let strong;
 	let t_value = /*addGroup*/ ctx[3](/*content*/ ctx[7].fields.group) + "";
@@ -152,7 +152,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (33:4) {#each allContent.sort(sortNav) as content (content.path)}
+// (36:4) {#each allContent.sort(sortNav) as content (content.path)}
 function create_each_block(key_1, ctx) {
 	let first;
 	let if_block_anchor;
@@ -291,7 +291,7 @@ function instance($$self, $$props, $$invalidate) {
 
 		setTimeout(
 			function () {
-				if (path == window.location.pathname) {
+				if (path === window.location.pathname) {
 					$$invalidate(1, active[path] = true, active);
 				}
 			},
@@ -301,10 +301,15 @@ function instance($$self, $$props, $$invalidate) {
 
 	onMount(async () => {
 		let initialPath = await window.location.pathname;
+
+		if (initialPath.length > 1 && initialPath.slice(-1) === "/") {
+			initialPath = initialPath.slice(0, -1); // remove trailing slash.
+		}
+
 		$$invalidate(1, active[initialPath] = true, active);
 	});
 
-	const click_handler = content => setActive(content.path);
+	const click_handler = content => setActive("/" + content.path);
 
 	$$self.$$set = $$props => {
 		if ("allContent" in $$props) $$invalidate(0, allContent = $$props.allContent);

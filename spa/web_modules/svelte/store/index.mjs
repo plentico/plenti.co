@@ -1,5 +1,5 @@
-import { noop, safe_not_equal, subscribe, run_all, is_function } from '/spa/web_modules/svelte/internal/index.mjs';
-export { get_store_value as get } from '/spa/web_modules/svelte/internal/index.mjs';
+import { noop, safe_not_equal, subscribe, run_all, is_function } from '../internal/index.mjs';
+export { get_store_value as get } from '../internal/index.mjs';
 
 const subscriber_queue = [];
 /**

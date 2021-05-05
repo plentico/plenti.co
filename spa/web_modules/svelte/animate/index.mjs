@@ -1,5 +1,5 @@
-import { cubicOut } from '/spa/web_modules/svelte/easing/index.mjs';
-import { is_function } from '/spa/web_modules/svelte/internal/index.mjs';
+import { cubicOut } from '../easing/index.mjs';
+import { is_function } from '../internal/index.mjs';
 
 function flip(node, animation, params = {}) {
     const style = getComputedStyle(node);

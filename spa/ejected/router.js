@@ -12,8 +12,8 @@ import {
 } from '/spa/web_modules/svelte/internal/index.mjs';
 
 import Navaid from '/spa/web_modules/navaid/dist/navaid.mjs';
-import contentSource from "./content.js";
 import Html from '/spa/global/html.js';
+import { getContent } from "./main.js";
 
 function create_fragment(ctx) {
 	let html;
@@ -24,7 +24,8 @@ function create_fragment(ctx) {
 				content: /*content*/ ctx[0],
 				layout: /*layout*/ ctx[1],
 				allContent: /*allContent*/ ctx[2],
-				allLayouts: /*allLayouts*/ ctx[3]
+				allLayouts: /*allLayouts*/ ctx[3],
+				env: /*env*/ ctx[4]
 			}
 		});
 
@@ -45,6 +46,7 @@ function create_fragment(ctx) {
 			if (dirty & /*layout*/ 2) html_changes.layout = /*layout*/ ctx[1];
 			if (dirty & /*allContent*/ 4) html_changes.allContent = /*allContent*/ ctx[2];
 			if (dirty & /*allLayouts*/ 8) html_changes.allLayouts = /*allLayouts*/ ctx[3];
+			if (dirty & /*env*/ 16) html_changes.env = /*env*/ ctx[4];
 			html.$set(html_changes);
 		},
 		i(local) {
@@ -67,11 +69,8 @@ function instance($$self, $$props, $$invalidate) {
 		{ content } = $$props,
 		{ layout } = $$props,
 		{ allContent } = $$props,
-		{ allLayouts } = $$props;
-
-	const getContent = (uri, trailingSlash = "") => {
-		return contentSource.find(content => content.path + trailingSlash == uri);
-	};
+		{ allLayouts } = $$props,
+		{ env } = $$props;
 
 	function draw(m) {
 		$$invalidate(0, content = getContent(uri));
@@ -96,7 +95,7 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	function track(obj) {
-		$$invalidate(4, uri = obj.state || obj.uri);
+		$$invalidate(5, uri = obj.state || obj.uri);
 	}
 
 	addEventListener("replacestate", track);
@@ -121,21 +120,16 @@ function instance($$self, $$props, $$invalidate) {
 
 	router.listen();
 
-	// Check if the url visited ends in a trailing slash.
-	if (uri.slice(-1) == "/") {
-		// Redirect to the same path without the trailing slash.
-		router.route(content.path, false);
-	}
-
 	$$self.$$set = $$props => {
-		if ("uri" in $$props) $$invalidate(4, uri = $$props.uri);
+		if ("uri" in $$props) $$invalidate(5, uri = $$props.uri);
 		if ("content" in $$props) $$invalidate(0, content = $$props.content);
 		if ("layout" in $$props) $$invalidate(1, layout = $$props.layout);
 		if ("allContent" in $$props) $$invalidate(2, allContent = $$props.allContent);
 		if ("allLayouts" in $$props) $$invalidate(3, allLayouts = $$props.allLayouts);
+		if ("env" in $$props) $$invalidate(4, env = $$props.env);
 	};
 
-	return [content, layout, allContent, allLayouts, uri];
+	return [content, layout, allContent, allLayouts, env, uri];
 }
 
 class Component extends SvelteComponent {
@@ -143,11 +137,12 @@ class Component extends SvelteComponent {
 		super();
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
-			uri: 4,
+			uri: 5,
 			content: 0,
 			layout: 1,
 			allContent: 2,
-			allLayouts: 3
+			allLayouts: 3,
+			env: 4
 		});
 	}
 }

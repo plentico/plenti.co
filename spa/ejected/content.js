@@ -1,6 +1,6 @@
-const contentSource = [{
+const allContent = [{
 "pager": 1,
-"path": "/blog/adding-pletiform",
+"path": "blog/adding-pletiform",
 "type": "blog",
 "filename": "adding_pletiform.json",
 "fields": {
@@ -14,7 +14,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/blog/post1",
+"path": "blog/post1",
 "type": "blog",
 "filename": "post1.json",
 "fields": {
@@ -27,7 +27,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/blog/post2",
+"path": "blog/post2",
 "type": "blog",
 "filename": "post2.json",
 "fields": {
@@ -40,7 +40,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/allcomponents",
+"path": "docs/allcomponents",
 "type": "docs",
 "filename": "allComponents.json",
 "fields": {
@@ -91,9 +91,10 @@ const contentSource = [{
         }
     ]
 }
+
 },{
 "pager": 1,
-"path": "/docs/allcontent",
+"path": "docs/allcontent",
 "type": "docs",
 "filename": "allContent.json",
 "fields": {
@@ -129,7 +130,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/alllayouts",
+"path": "docs/alllayouts",
 "type": "docs",
 "filename": "allLayouts.json",
 "fields": {
@@ -181,7 +182,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/assets",
+"path": "docs/assets",
 "type": "docs",
 "filename": "assets.json",
 "fields": {
@@ -212,7 +213,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/build",
+"path": "docs/build",
 "type": "docs",
 "filename": "build.json",
 "fields": {
@@ -275,7 +276,7 @@ const contentSource = [{
 
 },{
 "pager": 1,
-"path": "/docs/eject",
+"path": "docs/eject",
 "type": "docs",
 "filename": "eject.json",
 "fields": {
@@ -317,7 +318,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/github-actions",
+"path": "docs/github-actions",
 "type": "docs",
 "filename": "github-actions.json",
 "fields": {
@@ -357,7 +358,7 @@ const contentSource = [{
 
 },{
 "pager": 1,
-"path": "/docs/gitlab-piplines",
+"path": "docs/gitlab-piplines",
 "type": "docs",
 "filename": "gitlab-piplines.json",
 "fields": {
@@ -387,7 +388,7 @@ const contentSource = [{
 
 },{
 "pager": 1,
-"path": "/docs",
+"path": "docs",
 "type": "docs",
 "filename": "index.json",
 "fields": {
@@ -434,7 +435,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/installation",
+"path": "docs/installation",
 "type": "docs",
 "filename": "installation.json",
 "fields": {
@@ -502,7 +503,7 @@ const contentSource = [{
 
 },{
 "pager": 1,
-"path": "/docs/layout",
+"path": "docs/layout",
 "type": "docs",
 "filename": "layout.json",
 "fields": {
@@ -558,7 +559,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/layouts",
+"path": "docs/layouts",
 "type": "docs",
 "filename": "layouts.json",
 "fields": {
@@ -613,7 +614,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/new-site",
+"path": "docs/new-site",
 "type": "docs",
 "filename": "new-site.json",
 "fields": {
@@ -668,7 +669,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/new-type",
+"path": "docs/new-type",
 "type": "docs",
 "filename": "new-type.json",
 "fields": {
@@ -719,7 +720,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/paths",
+"path": "docs/paths",
 "type": "docs",
 "filename": "paths.json",
 "fields": {
@@ -773,7 +774,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/serve",
+"path": "docs/serve",
 "type": "docs",
 "filename": "serve.json",
 "fields": {
@@ -835,7 +836,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/theme-add",
+"path": "docs/theme-add",
 "type": "docs",
 "filename": "theme-add.json",
 "fields": {
@@ -889,7 +890,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/theme-disable",
+"path": "docs/theme-disable",
 "type": "docs",
 "filename": "theme-disable.json",
 "fields": {
@@ -923,7 +924,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/theme-enable",
+"path": "docs/theme-enable",
 "type": "docs",
 "filename": "theme-enable.json",
 "fields": {
@@ -959,7 +960,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/theme-remove",
+"path": "docs/theme-remove",
 "type": "docs",
 "filename": "theme-remove.json",
 "fields": {
@@ -995,7 +996,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/theme-update",
+"path": "docs/theme-update",
 "type": "docs",
 "filename": "theme-update.json",
 "fields": {
@@ -1046,7 +1047,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/themes",
+"path": "docs/themes",
 "type": "docs",
 "filename": "themes.json",
 "fields": {
@@ -1088,7 +1089,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/types",
+"path": "docs/types",
 "type": "docs",
 "filename": "types.json",
 "fields": {
@@ -1144,7 +1145,7 @@ const contentSource = [{
 }
 },{
 "pager": 1,
-"path": "/docs/upgrading",
+"path": "docs/upgrading",
 "type": "docs",
 "filename": "upgrading.json",
 "fields": {
@@ -1286,7 +1287,11 @@ const contentSource = [{
 			"text": "Show me the code",
 			"url": "https://github.com/plentico/plenti"
 		}
-	}
+	},
+  "meta": {
+    "desc": "A Svelte SSG with Golang backend for the JAMstack",
+    "keywords": "Svelte, Go, JAMstack, SSG, Git-CMS"
+  }
 }
 
 },{
@@ -1338,28 +1343,38 @@ const contentSource = [{
             "title": "Linux",
             "img": "linux.svg"
         }
-    ]
+    ],
+  "meta": {
+    "desc": "Download the latest version of the Plenti Svelte static site generator",
+    "keywords": "install, download, binary, package manager, brew, snap, scoop"
+  }
 }
+
 },{
 "pager": 1,
 "path": "/themes",
 "type": "pages",
 "filename": "themes.json",
 "fields": {
-    "title": "Themes (Coming Soon)",
-    "themes": [
-        "aerial.png",
-        "educenter.png",
-        "fresh.png",
-        "hargo.png",
-        "influencer.png",
-        "navigator.png",
-        "radiation.png",
-        "restaurant.png",
-        "roxo.png",
-        "universal.png"
-    ]
+  "title": "Themes (Coming Soon)",
+  "themes": [
+    "aerial.png",
+    "educenter.png",
+    "fresh.png",
+    "hargo.png",
+    "influencer.png",
+    "navigator.png",
+    "radiation.png",
+    "restaurant.png",
+    "roxo.png",
+    "universal.png"
+  ],
+  "meta": {
+    "desc": "Themes for your static Svelte websites",
+    "keywords": "Themes, Theming, Inherit, Layout, Svelte"
+  }
 }
+
 },];
 
-export default contentSource;
+export default allContent;
