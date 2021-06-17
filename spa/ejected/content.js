@@ -1,45 +1,5 @@
 const allContent = [{
 "pager": 1,
-"path": "blog/adding-pletiform",
-"type": "blog",
-"filename": "adding_pletiform.json",
-"fields": {
-    "title": "Build sites with good form",
-    "body": [
-        "Need an easy webform solution?",
-        "Try adding a <a href='https://plentiform.com' target='blank' rel='noopener noreferrer'>plentiform</a>! (Coming soon)"
-    ],
-    "author": "Jim Fisk",
-    "date": "1/26/2020"
-}
-},{
-"pager": 1,
-"path": "blog/post1",
-"type": "blog",
-"filename": "post1.json",
-"fields": {
-    "title": "Post 1",
-    "body": [
-        "The first of the posts"
-    ],
-    "author": "Jim Fisk",
-    "date": "1/24/2020"
-}
-},{
-"pager": 1,
-"path": "blog/post2",
-"type": "blog",
-"filename": "post2.json",
-"fields": {
-    "title": "Post 2",
-    "body": [
-        "This is the second post."
-    ],
-    "author": "Jim Fisk",
-    "date": "1/25/2020"
-}
-},{
-"pager": 1,
 "path": "docs/allcomponents",
 "type": "docs",
 "filename": "allComponents.json",

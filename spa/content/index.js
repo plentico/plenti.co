@@ -25,11 +25,11 @@ import {
 	text,
 	transition_in,
 	transition_out
-} from '/spa/web_modules/svelte/internal/index.mjs';
+} from '../web_modules/svelte/internal/index.mjs';
 
-import Grid from '/spa/components/grid.js';
-import Waves from '/spa/components/waves.js';
-import { loadComponent } from '/spa/scripts/load_component.js';
+import Grid from '../components/grid.js';
+import Waves from '../components/waves.js';
+import { loadComponent } from '../scripts/load_component.js';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
