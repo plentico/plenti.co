@@ -49,8 +49,7 @@ function create_fragment(ctx) {
 		{
 			title: makeTitle(/*content*/ ctx[1].filename)
 		},
-		/*content*/ ctx[1].fields,
-		{ env: /*env*/ ctx[3] }
+		/*content*/ ctx[1].fields
 	];
 
 	let head_props = {};
@@ -142,13 +141,12 @@ function create_fragment(ctx) {
 			current = true;
 		},
 		p(ctx, [dirty]) {
-			const head_changes = (dirty & /*makeTitle, content, env*/ 10)
+			const head_changes = (dirty & /*makeTitle, content*/ 2)
 			? get_spread_update(head_spread_levels, [
-					dirty & /*makeTitle, content*/ 2 && {
+					{
 						title: makeTitle(/*content*/ ctx[1].filename)
 					},
-					dirty & /*content*/ 2 && get_spread_object(/*content*/ ctx[1].fields),
-					dirty & /*env*/ 8 && { env: /*env*/ ctx[3] }
+					dirty & /*content*/ 2 && get_spread_object(/*content*/ ctx[1].fields)
 				])
 			: {};
 
@@ -211,31 +209,21 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { layout } = $$props,
-		{ content } = $$props,
-		{ allContent } = $$props,
-		{ env } = $$props;
+	let { layout } = $$props, { content } = $$props, { allContent } = $$props;
 
 	$$self.$$set = $$props => {
 		if ("layout" in $$props) $$invalidate(0, layout = $$props.layout);
 		if ("content" in $$props) $$invalidate(1, content = $$props.content);
 		if ("allContent" in $$props) $$invalidate(2, allContent = $$props.allContent);
-		if ("env" in $$props) $$invalidate(3, env = $$props.env);
 	};
 
-	return [layout, content, allContent, env];
+	return [layout, content, allContent];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-
-		init(this, options, instance, create_fragment, safe_not_equal, {
-			layout: 0,
-			content: 1,
-			allContent: 2,
-			env: 3
-		});
+		init(this, options, instance, create_fragment, safe_not_equal, { layout: 0, content: 1, allContent: 2 });
 	}
 }
 
