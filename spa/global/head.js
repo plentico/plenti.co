@@ -77,13 +77,16 @@ function create_fragment(ctx) {
 	let t3;
 	let t4;
 	let t5;
+	let base;
+	let base_href_value;
+	let t6;
 	let script;
 	let script_src_value;
-	let t6;
-	let link0;
 	let t7;
-	let link1;
+	let link0;
 	let t8;
+	let link1;
+	let t9;
 	let link2;
 	let if_block = /*meta*/ ctx[1] && create_if_block(ctx);
 
@@ -100,12 +103,14 @@ function create_fragment(ctx) {
 			t4 = space();
 			if (if_block) if_block.c();
 			t5 = space();
-			script = element("script");
+			base = element("base");
 			t6 = space();
-			link0 = element("link");
+			script = element("script");
 			t7 = space();
-			link1 = element("link");
+			link0 = element("link");
 			t8 = space();
+			link1 = element("link");
+			t9 = space();
 			link2 = element("link");
 			this.h();
 		},
@@ -124,14 +129,16 @@ function create_fragment(ctx) {
 			t4 = claim_space(head_nodes);
 			if (if_block) if_block.l(head_nodes);
 			t5 = claim_space(head_nodes);
+			base = claim_element(head_nodes, "BASE", { href: true });
+			t6 = claim_space(head_nodes);
 			script = claim_element(head_nodes, "SCRIPT", { type: true, src: true });
 			var script_nodes = children(script);
 			script_nodes.forEach(detach);
-			t6 = claim_space(head_nodes);
-			link0 = claim_element(head_nodes, "LINK", { href: true, rel: true });
 			t7 = claim_space(head_nodes);
-			link1 = claim_element(head_nodes, "LINK", { rel: true, type: true, href: true });
+			link0 = claim_element(head_nodes, "LINK", { href: true, rel: true });
 			t8 = claim_space(head_nodes);
+			link1 = claim_element(head_nodes, "LINK", { rel: true, type: true, href: true });
+			t9 = claim_space(head_nodes);
 			link2 = claim_element(head_nodes, "LINK", { rel: true, href: true });
 			head_nodes.forEach(detach);
 			this.h();
@@ -140,6 +147,7 @@ function create_fragment(ctx) {
 			attr(meta0, "charset", "utf-8");
 			attr(meta1, "name", "viewport");
 			attr(meta1, "content", "width=device-width,initial-scale=1");
+			attr(base, "href", base_href_value = /*env*/ ctx[2].local ? "/" : /*env*/ ctx[2].baseurl);
 			attr(script, "type", "module");
 			if (script.src !== (script_src_value = "/spa/ejected/main.js")) attr(script, "src", script_src_value);
 			attr(link0, "href", "https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap");
@@ -162,12 +170,14 @@ function create_fragment(ctx) {
 			append(head, t4);
 			if (if_block) if_block.m(head, null);
 			append(head, t5);
-			append(head, script);
+			append(head, base);
 			append(head, t6);
-			append(head, link0);
+			append(head, script);
 			append(head, t7);
-			append(head, link1);
+			append(head, link0);
 			append(head, t8);
+			append(head, link1);
+			append(head, t9);
 			append(head, link2);
 		},
 		p(ctx, [dirty]) {
@@ -185,6 +195,10 @@ function create_fragment(ctx) {
 				if_block.d(1);
 				if_block = null;
 			}
+
+			if (dirty & /*env*/ 4 && base_href_value !== (base_href_value = /*env*/ ctx[2].local ? "/" : /*env*/ ctx[2].baseurl)) {
+				attr(base, "href", base_href_value);
+			}
 		},
 		i: noop,
 		o: noop,
@@ -196,20 +210,21 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { title } = $$props, { meta } = $$props;
+	let { title } = $$props, { meta } = $$props, { env } = $$props;
 
 	$$self.$$set = $$props => {
 		if ("title" in $$props) $$invalidate(0, title = $$props.title);
 		if ("meta" in $$props) $$invalidate(1, meta = $$props.meta);
+		if ("env" in $$props) $$invalidate(2, env = $$props.env);
 	};
 
-	return [title, meta];
+	return [title, meta, env];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { title: 0, meta: 1 });
+		init(this, options, instance, create_fragment, safe_not_equal, { title: 0, meta: 1, env: 2 });
 	}
 }
 
