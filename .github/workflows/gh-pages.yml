@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build
-        uses: docker://plentico/plenti:latest
+        uses: docker://plentico/plenti:v0.4.21
         with:
           entrypoint: /plenti
           args: build
