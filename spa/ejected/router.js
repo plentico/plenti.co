@@ -113,12 +113,15 @@ function instance($$self, $$props, $$invalidate) {
 	const router = Navaid("/", handle404);
 
 	allContent.forEach(content => {
-		router.on(content.path, () => {
+		router.on((env.local ? "" : env.baseurl) + content.path, () => {
 			import("../content/" + content.type + ".js").then(draw).catch(handle404);
 		});
 	});
 
 	router.listen();
+
+	// Fix browser back button for initially loaded page.
+	router.route(uri, false);
 
 	$$self.$$set = $$props => {
 		if ("uri" in $$props) $$invalidate(5, uri = $$props.uri);
