@@ -47,6 +47,21 @@
                                 "<code>--port=3000</code>",
                                 "<code>-p=3000</code>",
                                 "Change the port for the local webserver. This can be helpful when running multiple websites at the same time."
+                            ],
+                            [
+                                "<code>--in-memory</code>",
+                                "<code>-M</code>",
+                                "Keep files in memory instead of writing to filesystem. Speeds up subsequent builds for local dev."
+                            ],
+                            [
+                                "<code>--live-reload</code>",
+                                "<code>-L</code>",
+                                "Automatically refreshes your browser when saving local development changes."
+                            ],
+                            [
+                                "<code>--ssl</code>",
+                                "<code>-s</code>",
+                                "Add SSL/TLS cert to test your local environment over HTTPS."
                             ]
                         ]
                     }

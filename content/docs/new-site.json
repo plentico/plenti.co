@@ -37,9 +37,9 @@
                                 "Creates a minimalist site scaffolding with less default content."
                             ],
                             [
-                                "<code>--theme=\"git@github.com:user/repo.git\"</code>",
-                                "<code>-t=\"git@github.com:user/repo.git\"</code>",
-                                "(Coming Soon) Point to a Git repository to use a base theme for your site."
+                                "<code>--theme=\"git@github.com:user/repo\"</code>",
+                                "<code>-t=\"git@github.com:user/repo\"</code>",
+                                "Point to a Git repository to use a base theme for your site."
                             ]
                         ]
                     }
