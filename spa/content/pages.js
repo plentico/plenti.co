@@ -14,6 +14,7 @@ import {
 	destroy_each,
 	detach,
 	element,
+	empty,
 	group_outros,
 	init,
 	insert,
@@ -35,30 +36,36 @@ import { onMount } from '../web_modules/svelte/internal/index.mjs';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[7] = list[i];
+	child_ctx[9] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[10] = list[i];
+	child_ctx[12] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[13] = list[i];
+	child_ctx[12] = list[i];
+	return child_ctx;
+}
+
+function get_each_context_3(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[17] = list[i];
 	return child_ctx;
 }
 
 // (48:2) {#if description}
-function create_if_block_10(ctx) {
+function create_if_block_11(ctx) {
 	let div;
-	let each_value_2 = /*description*/ ctx[1];
+	let each_value_3 = /*description*/ ctx[1];
 	let each_blocks = [];
 
-	for (let i = 0; i < each_value_2.length; i += 1) {
-		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+	for (let i = 0; i < each_value_3.length; i += 1) {
+		each_blocks[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
 	}
 
 	return {
@@ -88,16 +95,16 @@ function create_if_block_10(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty & /*description*/ 2) {
-				each_value_2 = /*description*/ ctx[1];
+				each_value_3 = /*description*/ ctx[1];
 				let i;
 
-				for (i = 0; i < each_value_2.length; i += 1) {
-					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+				for (i = 0; i < each_value_3.length; i += 1) {
+					const child_ctx = get_each_context_3(ctx, each_value_3, i);
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
 					} else {
-						each_blocks[i] = create_each_block_2(child_ctx);
+						each_blocks[i] = create_each_block_3(child_ctx);
 						each_blocks[i].c();
 						each_blocks[i].m(div, null);
 					}
@@ -107,7 +114,7 @@ function create_if_block_10(ctx) {
 					each_blocks[i].d(1);
 				}
 
-				each_blocks.length = each_value_2.length;
+				each_blocks.length = each_value_3.length;
 			}
 		},
 		d(detaching) {
@@ -118,9 +125,9 @@ function create_if_block_10(ctx) {
 }
 
 // (50:4) {#each description as paragraph}
-function create_each_block_2(ctx) {
+function create_each_block_3(ctx) {
 	let p;
-	let raw_value = /*paragraph*/ ctx[13] + "";
+	let raw_value = /*paragraph*/ ctx[17] + "";
 
 	return {
 		c() {
@@ -136,7 +143,7 @@ function create_each_block_2(ctx) {
 			p.innerHTML = raw_value;
 		},
 		p(ctx, dirty) {
-			if (dirty & /*description*/ 2 && raw_value !== (raw_value = /*paragraph*/ ctx[13] + "")) p.innerHTML = raw_value;;
+			if (dirty & /*description*/ 2 && raw_value !== (raw_value = /*paragraph*/ ctx[17] + "")) p.innerHTML = raw_value;;
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -145,9 +152,132 @@ function create_each_block_2(ctx) {
 }
 
 // (56:2) {#if themes}
-function create_if_block_9(ctx) {
+function create_if_block_10(ctx) {
+	let each_1_anchor;
+	let each_value_2 = /*allContent*/ ctx[5].filter(func);
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value_2.length; i += 1) {
+		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+	}
+
+	return {
+		c() {
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			each_1_anchor = empty();
+		},
+		l(nodes) {
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(nodes);
+			}
+
+			each_1_anchor = empty();
+		},
+		m(target, anchor) {
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].m(target, anchor);
+			}
+
+			insert(target, each_1_anchor, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*allContent*/ 32) {
+				each_value_2 = /*allContent*/ ctx[5].filter(func);
+				let i;
+
+				for (i = 0; i < each_value_2.length; i += 1) {
+					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block_2(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value_2.length;
+			}
+		},
+		d(detaching) {
+			destroy_each(each_blocks, detaching);
+			if (detaching) detach(each_1_anchor);
+		}
+	};
+}
+
+// (57:4) {#each allContent.filter(content => content.type == "themes") as theme}
+function create_each_block_2(ctx) {
 	let section;
-	let each_value_1 = /*themes*/ ctx[2];
+	let a;
+	let img;
+	let img_src_value;
+	let a_href_value;
+	let t;
+
+	return {
+		c() {
+			section = element("section");
+			a = element("a");
+			img = element("img");
+			t = space();
+			this.h();
+		},
+		l(nodes) {
+			section = claim_element(nodes, "SECTION", { id: true, class: true });
+			var section_nodes = children(section);
+			a = claim_element(section_nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			img = claim_element(a_nodes, "IMG", { src: true, class: true });
+			a_nodes.forEach(detach);
+			t = claim_space(section_nodes);
+			section_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[12].fields.name.toLowerCase() + ".png")) attr(img, "src", img_src_value);
+			attr(img, "class", "svelte-1oxw3bh");
+			attr(a, "href", a_href_value = "/themes/" + /*theme*/ ctx[12].fields.name.toLowerCase());
+			attr(a, "class", "svelte-1oxw3bh");
+			attr(section, "id", "themes");
+			attr(section, "class", "svelte-1oxw3bh");
+		},
+		m(target, anchor) {
+			insert(target, section, anchor);
+			append(section, a);
+			append(a, img);
+			append(section, t);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*allContent*/ 32 && img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[12].fields.name.toLowerCase() + ".png")) {
+				attr(img, "src", img_src_value);
+			}
+
+			if (dirty & /*allContent*/ 32 && a_href_value !== (a_href_value = "/themes/" + /*theme*/ ctx[12].fields.name.toLowerCase())) {
+				attr(a, "href", a_href_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(section);
+		}
+	};
+}
+
+// (64:2) {#if upcoming_themes}
+function create_if_block_9(ctx) {
+	let div;
+	let t0;
+	let t1;
+	let section;
+	let each_value_1 = /*upcoming_themes*/ ctx[4];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -156,6 +286,9 @@ function create_if_block_9(ctx) {
 
 	return {
 		c() {
+			div = element("div");
+			t0 = text("(More themes coming soon)");
+			t1 = space();
 			section = element("section");
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -165,6 +298,11 @@ function create_if_block_9(ctx) {
 			this.h();
 		},
 		l(nodes) {
+			div = claim_element(nodes, "DIV", { class: true });
+			var div_nodes = children(div);
+			t0 = claim_text(div_nodes, "(More themes coming soon)");
+			div_nodes.forEach(detach);
+			t1 = claim_space(nodes);
 			section = claim_element(nodes, "SECTION", { id: true, class: true });
 			var section_nodes = children(section);
 
@@ -176,10 +314,14 @@ function create_if_block_9(ctx) {
 			this.h();
 		},
 		h() {
+			attr(div, "class", "upcoming-themes svelte-1oxw3bh");
 			attr(section, "id", "themes");
-			attr(section, "class", "svelte-1oxlflm");
+			attr(section, "class", "svelte-1oxw3bh");
 		},
 		m(target, anchor) {
+			insert(target, div, anchor);
+			append(div, t0);
+			insert(target, t1, anchor);
 			insert(target, section, anchor);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -187,8 +329,8 @@ function create_if_block_9(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*themes*/ 4) {
-				each_value_1 = /*themes*/ ctx[2];
+			if (dirty & /*upcoming_themes*/ 16) {
+				each_value_1 = /*upcoming_themes*/ ctx[4];
 				let i;
 
 				for (i = 0; i < each_value_1.length; i += 1) {
@@ -211,13 +353,15 @@ function create_if_block_9(ctx) {
 			}
 		},
 		d(detaching) {
+			if (detaching) detach(div);
+			if (detaching) detach(t1);
 			if (detaching) detach(section);
 			destroy_each(each_blocks, detaching);
 		}
 	};
 }
 
-// (58:4) {#each themes as theme}
+// (67:4) {#each upcoming_themes as theme}
 function create_each_block_1(ctx) {
 	let img;
 	let img_src_value;
@@ -232,14 +376,14 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[10])) attr(img, "src", img_src_value);
-			attr(img, "class", "svelte-1oxlflm");
+			if (img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[12])) attr(img, "src", img_src_value);
+			attr(img, "class", "svelte-1oxw3bh");
 		},
 		m(target, anchor) {
 			insert(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*themes*/ 4 && img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[10])) {
+			if (dirty & /*upcoming_themes*/ 16 && img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[12])) {
 				attr(img, "src", img_src_value);
 			}
 		},
@@ -249,7 +393,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (64:2) {#if os}
+// (73:2) {#if os}
 function create_if_block(ctx) {
 	let section0;
 	let t0;
@@ -269,8 +413,8 @@ function create_if_block(ctx) {
 	});
 
 	function select_block_type_1(ctx, dirty) {
-		if (/*OSName*/ ctx[4] == "Linux" || /*OSName*/ ctx[4] == "Mac") return create_if_block_4;
-		if (/*OSName*/ ctx[4] == "Windows") return create_if_block_5;
+		if (/*OSName*/ ctx[6] == "Linux" || /*OSName*/ ctx[6] == "Mac") return create_if_block_4;
+		if (/*OSName*/ ctx[6] == "Windows") return create_if_block_5;
 		return create_else_block_1;
 	}
 
@@ -278,9 +422,9 @@ function create_if_block(ctx) {
 	let if_block0 = current_block_type(ctx);
 
 	function select_block_type_2(ctx, dirty) {
-		if (/*OSName*/ ctx[4] == "Linux") return create_if_block_1;
-		if (/*OSName*/ ctx[4] == "Mac") return create_if_block_2;
-		if (/*OSName*/ ctx[4] == "Windows") return create_if_block_3;
+		if (/*OSName*/ ctx[6] == "Linux") return create_if_block_1;
+		if (/*OSName*/ ctx[6] == "Mac") return create_if_block_2;
+		if (/*OSName*/ ctx[6] == "Windows") return create_if_block_3;
 		return create_else_block;
 	}
 
@@ -326,9 +470,9 @@ function create_if_block(ctx) {
 		},
 		h() {
 			attr(section0, "id", "download");
-			attr(section0, "class", "svelte-1oxlflm");
+			attr(section0, "class", "svelte-1oxw3bh");
 			attr(section1, "id", "detection");
-			attr(section1, "class", "svelte-1oxlflm");
+			attr(section1, "class", "svelte-1oxw3bh");
 			attr(section2, "id", "instructions");
 		},
 		m(target, anchor) {
@@ -347,7 +491,7 @@ function create_if_block(ctx) {
 			current = true;
 		},
 		p(ctx, dirty) {
-			if (dirty & /*os, OSName*/ 24) {
+			if (dirty & /*os, OSName*/ 72) {
 				each_value = /*os*/ ctx[3];
 				let i;
 
@@ -427,7 +571,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (74:8) {:else}
+// (83:8) {:else}
 function create_else_block_2(ctx) {
 	let strong;
 	let t;
@@ -455,7 +599,7 @@ function create_else_block_2(ctx) {
 	};
 }
 
-// (72:47) 
+// (81:47) 
 function create_if_block_8(ctx) {
 	let windows;
 	let current;
@@ -487,7 +631,7 @@ function create_if_block_8(ctx) {
 	};
 }
 
-// (70:43) 
+// (79:43) 
 function create_if_block_7(ctx) {
 	let mac;
 	let current;
@@ -519,7 +663,7 @@ function create_if_block_7(ctx) {
 	};
 }
 
-// (68:8) {#if currentOs.title == 'Linux'}
+// (77:8) {#if currentOs.title == 'Linux'}
 function create_if_block_6(ctx) {
 	let linux;
 	let current;
@@ -551,14 +695,14 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (66:4) {#each os as currentOs}
+// (75:4) {#each os as currentOs}
 function create_each_block(ctx) {
 	let div1;
 	let current_block_type_index;
 	let if_block;
 	let t0;
 	let div0;
-	let t1_value = /*currentOs*/ ctx[7].title + "";
+	let t1_value = /*currentOs*/ ctx[9].title + "";
 	let t1;
 	let t2;
 	let div1_class_value;
@@ -569,9 +713,9 @@ function create_each_block(ctx) {
 	const if_blocks = [];
 
 	function select_block_type(ctx, dirty) {
-		if (/*currentOs*/ ctx[7].title == "Linux") return 0;
-		if (/*currentOs*/ ctx[7].title == "Mac") return 1;
-		if (/*currentOs*/ ctx[7].title == "Windows") return 2;
+		if (/*currentOs*/ ctx[9].title == "Linux") return 0;
+		if (/*currentOs*/ ctx[9].title == "Mac") return 1;
+		if (/*currentOs*/ ctx[9].title == "Windows") return 2;
 		return 3;
 	}
 
@@ -579,7 +723,7 @@ function create_each_block(ctx) {
 	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
 
 	function click_handler() {
-		return /*click_handler*/ ctx[6](/*currentOs*/ ctx[7]);
+		return /*click_handler*/ ctx[8](/*currentOs*/ ctx[9]);
 	}
 
 	return {
@@ -606,11 +750,11 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "os-name svelte-1oxlflm");
+			attr(div0, "class", "os-name svelte-1oxw3bh");
 
-			attr(div1, "class", div1_class_value = "os" + (/*currentOs*/ ctx[7].title == /*OSName*/ ctx[4]
+			attr(div1, "class", div1_class_value = "os" + (/*currentOs*/ ctx[9].title == /*OSName*/ ctx[6]
 			? " primary"
-			: "") + " svelte-1oxlflm");
+			: "") + " svelte-1oxw3bh");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -652,11 +796,11 @@ function create_each_block(ctx) {
 				if_block.m(div1, t0);
 			}
 
-			if ((!current || dirty & /*os*/ 8) && t1_value !== (t1_value = /*currentOs*/ ctx[7].title + "")) set_data(t1, t1_value);
+			if ((!current || dirty & /*os*/ 8) && t1_value !== (t1_value = /*currentOs*/ ctx[9].title + "")) set_data(t1, t1_value);
 
-			if (!current || dirty & /*os, OSName*/ 24 && div1_class_value !== (div1_class_value = "os" + (/*currentOs*/ ctx[7].title == /*OSName*/ ctx[4]
+			if (!current || dirty & /*os, OSName*/ 72 && div1_class_value !== (div1_class_value = "os" + (/*currentOs*/ ctx[9].title == /*OSName*/ ctx[6]
 			? " primary"
-			: "") + " svelte-1oxlflm")) {
+			: "") + " svelte-1oxw3bh")) {
 				attr(div1, "class", div1_class_value);
 			}
 		},
@@ -678,7 +822,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (91:6) {:else}
+// (100:6) {:else}
 function create_else_block_1(ctx) {
 	let div0;
 	let a;
@@ -714,9 +858,9 @@ function create_else_block_1(ctx) {
 		},
 		h() {
 			attr(a, "href", "https://github.com/plentico/plenti/releases/latest");
-			attr(a, "class", "svelte-1oxlflm");
-			attr(div0, "class", "selected svelte-1oxlflm");
-			attr(div1, "class", "instructions svelte-1oxlflm");
+			attr(a, "class", "svelte-1oxw3bh");
+			attr(div0, "class", "selected svelte-1oxw3bh");
+			attr(div1, "class", "instructions svelte-1oxw3bh");
 		},
 		m(target, anchor) {
 			insert(target, div0, anchor);
@@ -735,7 +879,7 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (87:36) 
+// (96:36) 
 function create_if_block_5(ctx) {
 	let div0;
 	let t0;
@@ -757,7 +901,7 @@ function create_if_block_5(ctx) {
 		c() {
 			div0 = element("div");
 			t0 = text("It looks like you're using a ");
-			t1 = text(/*OSName*/ ctx[4]);
+			t1 = text(/*OSName*/ ctx[6]);
 			t2 = text(" computer.");
 			t3 = space();
 			div1 = element("div");
@@ -776,7 +920,7 @@ function create_if_block_5(ctx) {
 			div0 = claim_element(nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
 			t0 = claim_text(div0_nodes, "It looks like you're using a ");
-			t1 = claim_text(div0_nodes, /*OSName*/ ctx[4]);
+			t1 = claim_text(div0_nodes, /*OSName*/ ctx[6]);
 			t2 = claim_text(div0_nodes, " computer.");
 			div0_nodes.forEach(detach);
 			t3 = claim_space(nodes);
@@ -809,13 +953,13 @@ function create_if_block_5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "selected svelte-1oxlflm");
-			attr(div1, "class", "selected svelte-1oxlflm");
+			attr(div0, "class", "selected svelte-1oxw3bh");
+			attr(div1, "class", "selected svelte-1oxw3bh");
 			attr(a, "href", "https://github.com/plentico/plenti/issues/45");
 			attr(a, "target", "blank");
 			attr(a, "rel", "noopener noreferrer");
-			attr(a, "class", "svelte-1oxlflm");
-			attr(div2, "class", "selected svelte-1oxlflm");
+			attr(a, "class", "svelte-1oxw3bh");
+			attr(div2, "class", "selected svelte-1oxw3bh");
 		},
 		m(target, anchor) {
 			insert(target, div0, anchor);
@@ -835,7 +979,7 @@ function create_if_block_5(ctx) {
 			append(div2, strong1);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*OSName*/ 16) set_data(t1, /*OSName*/ ctx[4]);
+			if (dirty & /*OSName*/ 64) set_data(t1, /*OSName*/ ctx[6]);
 		},
 		d(detaching) {
 			if (detaching) detach(div0);
@@ -847,7 +991,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (82:6) {#if OSName == 'Linux' || OSName == 'Mac'}
+// (91:6) {#if OSName == 'Linux' || OSName == 'Mac'}
 function create_if_block_4(ctx) {
 	let div0;
 	let t0;
@@ -878,7 +1022,7 @@ function create_if_block_4(ctx) {
 		c() {
 			div0 = element("div");
 			t0 = text("It looks like you're using a ");
-			t1 = text(/*OSName*/ ctx[4]);
+			t1 = text(/*OSName*/ ctx[6]);
 			t2 = text(" computer.");
 			t3 = space();
 			div1 = element("div");
@@ -889,10 +1033,10 @@ function create_if_block_4(ctx) {
 			br0 = element("br");
 			strong = element("strong");
 			t7 = text("version ");
-			t8 = text(/*version*/ ctx[5]);
+			t8 = text(/*version*/ ctx[7]);
 			br1 = element("br");
 			t9 = text("for 64-bit ");
-			t10 = text(/*OSName*/ ctx[4]);
+			t10 = text(/*OSName*/ ctx[6]);
 			t11 = space();
 			div2 = element("div");
 			t12 = text("(");
@@ -905,7 +1049,7 @@ function create_if_block_4(ctx) {
 			div0 = claim_element(nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
 			t0 = claim_text(div0_nodes, "It looks like you're using a ");
-			t1 = claim_text(div0_nodes, /*OSName*/ ctx[4]);
+			t1 = claim_text(div0_nodes, /*OSName*/ ctx[6]);
 			t2 = claim_text(div0_nodes, " computer.");
 			div0_nodes.forEach(detach);
 			t3 = claim_space(nodes);
@@ -921,11 +1065,11 @@ function create_if_block_4(ctx) {
 			strong = claim_element(a0_nodes, "STRONG", {});
 			var strong_nodes = children(strong);
 			t7 = claim_text(strong_nodes, "version ");
-			t8 = claim_text(strong_nodes, /*version*/ ctx[5]);
+			t8 = claim_text(strong_nodes, /*version*/ ctx[7]);
 			strong_nodes.forEach(detach);
 			br1 = claim_element(a0_nodes, "BR", {});
 			t9 = claim_text(a0_nodes, "for 64-bit ");
-			t10 = claim_text(a0_nodes, /*OSName*/ ctx[4]);
+			t10 = claim_text(a0_nodes, /*OSName*/ ctx[6]);
 			a0_nodes.forEach(detach);
 			t11 = claim_space(nodes);
 			div2 = claim_element(nodes, "DIV", {});
@@ -940,12 +1084,12 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "selected svelte-1oxlflm");
-			attr(div1, "class", "instructions svelte-1oxlflm");
-			attr(a0, "class", "cta svelte-1oxlflm");
-			attr(a0, "href", a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[5] + "/plenti_" + /*version*/ ctx[5] + "_" + /*OSName*/ ctx[4] + "_64-bit.tar.gz");
+			attr(div0, "class", "selected svelte-1oxw3bh");
+			attr(div1, "class", "instructions svelte-1oxw3bh");
+			attr(a0, "class", "cta svelte-1oxw3bh");
+			attr(a0, "href", a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[7] + "/plenti_" + /*version*/ ctx[7] + "_" + /*OSName*/ ctx[6] + "_64-bit.tar.gz");
 			attr(a1, "href", "https://github.com/plentico/plenti/releases/latest");
-			attr(a1, "class", "svelte-1oxlflm");
+			attr(a1, "class", "svelte-1oxw3bh");
 		},
 		m(target, anchor) {
 			insert(target, div0, anchor);
@@ -973,11 +1117,11 @@ function create_if_block_4(ctx) {
 			append(div2, t14);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*OSName*/ 16) set_data(t1, /*OSName*/ ctx[4]);
-			if (dirty & /*version*/ 32) set_data(t8, /*version*/ ctx[5]);
-			if (dirty & /*OSName*/ 16) set_data(t10, /*OSName*/ ctx[4]);
+			if (dirty & /*OSName*/ 64) set_data(t1, /*OSName*/ ctx[6]);
+			if (dirty & /*version*/ 128) set_data(t8, /*version*/ ctx[7]);
+			if (dirty & /*OSName*/ 64) set_data(t10, /*OSName*/ ctx[6]);
 
-			if (dirty & /*version, OSName*/ 48 && a0_href_value !== (a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[5] + "/plenti_" + /*version*/ ctx[5] + "_" + /*OSName*/ ctx[4] + "_64-bit.tar.gz")) {
+			if (dirty & /*version, OSName*/ 192 && a0_href_value !== (a0_href_value = "https://github.com/plentico/plenti/releases/download/v" + /*version*/ ctx[7] + "/plenti_" + /*version*/ ctx[7] + "_" + /*OSName*/ ctx[6] + "_64-bit.tar.gz")) {
 				attr(a0, "href", a0_href_value);
 			}
 		},
@@ -993,7 +1137,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (114:6) {:else}
+// (123:6) {:else}
 function create_else_block(ctx) {
 	let strong0;
 	let t0;
@@ -1145,7 +1289,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (108:36) 
+// (117:36) 
 function create_if_block_3(ctx) {
 	let strong;
 	let t0;
@@ -1205,7 +1349,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (102:32) 
+// (111:32) 
 function create_if_block_2(ctx) {
 	let strong;
 	let t0;
@@ -1265,7 +1409,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (97:6) {#if OSName == 'Linux'}
+// (106:6) {#if OSName == 'Linux'}
 function create_if_block_1(ctx) {
 	let strong;
 	let t0;
@@ -1324,10 +1468,12 @@ function create_fragment(ctx) {
 	let t1;
 	let t2;
 	let t3;
+	let t4;
 	let current;
-	let if_block0 = /*description*/ ctx[1] && create_if_block_10(ctx);
-	let if_block1 = /*themes*/ ctx[2] && create_if_block_9(ctx);
-	let if_block2 = /*os*/ ctx[3] && create_if_block(ctx);
+	let if_block0 = /*description*/ ctx[1] && create_if_block_11(ctx);
+	let if_block1 = /*themes*/ ctx[2] && create_if_block_10(ctx);
+	let if_block2 = /*upcoming_themes*/ ctx[4] && create_if_block_9(ctx);
+	let if_block3 = /*os*/ ctx[3] && create_if_block(ctx);
 
 	return {
 		c() {
@@ -1340,6 +1486,8 @@ function create_fragment(ctx) {
 			if (if_block1) if_block1.c();
 			t3 = space();
 			if (if_block2) if_block2.c();
+			t4 = space();
+			if (if_block3) if_block3.c();
 			this.h();
 		},
 		l(nodes) {
@@ -1355,11 +1503,13 @@ function create_fragment(ctx) {
 			if (if_block1) if_block1.l(div_nodes);
 			t3 = claim_space(div_nodes);
 			if (if_block2) if_block2.l(div_nodes);
+			t4 = claim_space(div_nodes);
+			if (if_block3) if_block3.l(div_nodes);
 			div_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(h1, "class", "svelte-1oxlflm");
+			attr(h1, "class", "svelte-1oxw3bh");
 			attr(div, "class", "container");
 		},
 		m(target, anchor) {
@@ -1372,6 +1522,8 @@ function create_fragment(ctx) {
 			if (if_block1) if_block1.m(div, null);
 			append(div, t3);
 			if (if_block2) if_block2.m(div, null);
+			append(div, t4);
+			if (if_block3) if_block3.m(div, null);
 			current = true;
 		},
 		p(ctx, [dirty]) {
@@ -1381,7 +1533,7 @@ function create_fragment(ctx) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
-					if_block0 = create_if_block_10(ctx);
+					if_block0 = create_if_block_11(ctx);
 					if_block0.c();
 					if_block0.m(div, t2);
 				}
@@ -1394,7 +1546,7 @@ function create_fragment(ctx) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
-					if_block1 = create_if_block_9(ctx);
+					if_block1 = create_if_block_10(ctx);
 					if_block1.c();
 					if_block1.m(div, t3);
 				}
@@ -1403,24 +1555,37 @@ function create_fragment(ctx) {
 				if_block1 = null;
 			}
 
-			if (/*os*/ ctx[3]) {
+			if (/*upcoming_themes*/ ctx[4]) {
 				if (if_block2) {
 					if_block2.p(ctx, dirty);
-
-					if (dirty & /*os*/ 8) {
-						transition_in(if_block2, 1);
-					}
 				} else {
-					if_block2 = create_if_block(ctx);
+					if_block2 = create_if_block_9(ctx);
 					if_block2.c();
-					transition_in(if_block2, 1);
-					if_block2.m(div, null);
+					if_block2.m(div, t4);
 				}
 			} else if (if_block2) {
+				if_block2.d(1);
+				if_block2 = null;
+			}
+
+			if (/*os*/ ctx[3]) {
+				if (if_block3) {
+					if_block3.p(ctx, dirty);
+
+					if (dirty & /*os*/ 8) {
+						transition_in(if_block3, 1);
+					}
+				} else {
+					if_block3 = create_if_block(ctx);
+					if_block3.c();
+					transition_in(if_block3, 1);
+					if_block3.m(div, null);
+				}
+			} else if (if_block3) {
 				group_outros();
 
-				transition_out(if_block2, 1, 1, () => {
-					if_block2 = null;
+				transition_out(if_block3, 1, 1, () => {
+					if_block3 = null;
 				});
 
 				check_outros();
@@ -1428,11 +1593,11 @@ function create_fragment(ctx) {
 		},
 		i(local) {
 			if (current) return;
-			transition_in(if_block2);
+			transition_in(if_block3);
 			current = true;
 		},
 		o(local) {
-			transition_out(if_block2);
+			transition_out(if_block3);
 			current = false;
 		},
 		d(detaching) {
@@ -1440,15 +1605,20 @@ function create_fragment(ctx) {
 			if (if_block0) if_block0.d();
 			if (if_block1) if_block1.d();
 			if (if_block2) if_block2.d();
+			if (if_block3) if_block3.d();
 		}
 	};
 }
+
+const func = content => content.type == "themes";
 
 function instance($$self, $$props, $$invalidate) {
 	let { title } = $$props,
 		{ description } = $$props,
 		{ themes } = $$props,
-		{ os } = $$props;
+		{ os } = $$props,
+		{ upcoming_themes } = $$props,
+		{ allContent } = $$props;
 
 	let OSName = "";
 	let version = "";
@@ -1457,15 +1627,15 @@ function instance($$self, $$props, $$invalidate) {
 		const usersOS = await navigator.appVersion;
 
 		if (usersOS.indexOf("Win") != -1) {
-			$$invalidate(4, OSName = "Windows");
+			$$invalidate(6, OSName = "Windows");
 		}
 
 		if (usersOS.indexOf("Mac") != -1) {
-			$$invalidate(4, OSName = "Mac");
+			$$invalidate(6, OSName = "Mac");
 		}
 
 		if (usersOS.indexOf("Linux") != -1 || usersOS.indexOf("5.0 (X11)") != -1) {
-			$$invalidate(4, OSName = "Linux");
+			$$invalidate(6, OSName = "Linux");
 		}
 
 		// Get latest release version.
@@ -1479,7 +1649,7 @@ function instance($$self, $$props, $$invalidate) {
 
 			if (response.ok) {
 				let json = await response.json();
-				$$invalidate(5, version = json[0].name.substr(1));
+				$$invalidate(7, version = json[0].name.substr(1));
 			} else {
 				alert("HTTP-Error: " + response.status);
 			}
@@ -1488,16 +1658,28 @@ function instance($$self, $$props, $$invalidate) {
 		}
 	});
 
-	const click_handler = currentOs => $$invalidate(4, OSName = currentOs.title);
+	const click_handler = currentOs => $$invalidate(6, OSName = currentOs.title);
 
 	$$self.$$set = $$props => {
 		if ("title" in $$props) $$invalidate(0, title = $$props.title);
 		if ("description" in $$props) $$invalidate(1, description = $$props.description);
 		if ("themes" in $$props) $$invalidate(2, themes = $$props.themes);
 		if ("os" in $$props) $$invalidate(3, os = $$props.os);
+		if ("upcoming_themes" in $$props) $$invalidate(4, upcoming_themes = $$props.upcoming_themes);
+		if ("allContent" in $$props) $$invalidate(5, allContent = $$props.allContent);
 	};
 
-	return [title, description, themes, os, OSName, version, click_handler];
+	return [
+		title,
+		description,
+		themes,
+		os,
+		upcoming_themes,
+		allContent,
+		OSName,
+		version,
+		click_handler
+	];
 }
 
 class Component extends SvelteComponent {
@@ -1508,7 +1690,9 @@ class Component extends SvelteComponent {
 			title: 0,
 			description: 1,
 			themes: 2,
-			os: 3
+			os: 3,
+			upcoming_themes: 4,
+			allContent: 5
 		});
 	}
 }

@@ -1332,7 +1332,8 @@ const allContent = [{
 "filename": "themes.json",
 "fields": {
   "title": "Themes",
-  "themes": [
+  "themes": true,
+  "upcoming_themes": [
     "aerial.png",
     "educenter.png",
     "fresh.png",
