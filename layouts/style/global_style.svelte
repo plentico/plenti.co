@@ -37,7 +37,7 @@
   :global(.text-accent-dark) {
     color: var(--accent-dark);
   }
-  :global(h1, h2, h3) {
+  :global(h1), :global(h2), :global(h3) {
     font-family: 'Heebo', sans-serif;
   }
   :global(code) {
