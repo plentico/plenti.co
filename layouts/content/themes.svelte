@@ -17,7 +17,7 @@
 
             <div class="install">
                 <div>Start a new project using this theme:</div>
-                <div><code>plenti new site bbb --theme=git@github.com:plenti-themes/{machine_name}</code></div>
+                <div><code>plenti new site my-site --theme=git@github.com:plenti-themes/{machine_name}</code></div>
                 <details>
                     <summary>Or add this theme to an existing project:</summary>
                     <ol>
@@ -61,6 +61,7 @@
     img {
         box-shadow: 0 0 8px 2px rgb(0 0 0 / 20%);
         width: 500px;
+        height: 100%;
     }
     summary {
         cursor: pointer;
@@ -69,5 +70,15 @@
     }
     .install {
         margin: 20px 0;
+    }
+    @media (max-width: 999px) {
+        .columns {
+            display: block;
+        }
+        img {
+            margin-top: 40px;
+            width: 100%;
+            height: auto;
+        }
     }
 </style>
