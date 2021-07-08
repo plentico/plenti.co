@@ -1,5 +1,5 @@
 <script>
-  export let title, description, themes, os;
+  export let title, description, themes, os, upcoming_themes, allContent;
 
   import Linux from '../components/linux.svelte';
   import Mac from '../components/mac.svelte';
@@ -54,8 +54,17 @@
   {/if}
 
   {#if themes}
+    {#each allContent.filter(content => content.type == "themes") as theme}
+      <section id="themes">
+        <a href="/themes/{theme.fields.name.toLowerCase()}"><img src="/assets/themes/{theme.fields.name.toLowerCase()}.png" /></a> 
+      </section>
+    {/each}
+  {/if}
+
+  {#if upcoming_themes}
+    <div class="upcoming-themes">(More themes coming soon)</div>
     <section id="themes">
-    {#each themes as theme}
+    {#each upcoming_themes as theme}
       <img src="/assets/themes/{theme}" />
     {/each}
     </section>
@@ -137,6 +146,11 @@
   h1 {
     margin-top: 40px;
     line-height: 1;
+  }
+  .upcoming-themes {
+    font-size: 2rem;
+    margin: 40px;
+    text-align: center;
   }
   #themes {
     justify-content: center;

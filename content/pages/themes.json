@@ -1,6 +1,7 @@
 {
   "title": "Themes",
-  "themes": [
+  "themes": true,
+  "upcoming_themes": [
     "aerial.png",
     "educenter.png",
     "fresh.png",
