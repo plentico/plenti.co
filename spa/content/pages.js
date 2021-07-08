@@ -26,12 +26,12 @@ import {
 	text,
 	transition_in,
 	transition_out
-} from "svelte/internal";
+} from '../web_modules/svelte/internal/index.mjs';
 
-import Linux from "../components/linux.svelte";
-import Mac from "../components/mac.svelte";
-import Windows from "../components/windows.svelte";
-import { onMount } from "svelte/internal";
+import Linux from '../components/linux.js';
+import Mac from '../components/mac.js';
+import Windows from '../components/windows.js';
+import { onMount } from '../web_modules/svelte/internal/index.mjs';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();

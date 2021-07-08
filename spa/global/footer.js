@@ -15,9 +15,9 @@ import {
 	safe_not_equal,
 	space,
 	text
-} from "svelte/internal";
+} from '../web_modules/svelte/internal/index.mjs';
 
-import { makeTitle } from "../scripts/make_title.svelte";
+import { makeTitle } from '../scripts/make_title.js';
 
 function create_fragment(ctx) {
 	let footer;

@@ -16,7 +16,7 @@ import {
 	set_data,
 	space,
 	text
-} from "svelte/internal";
+} from '../web_modules/svelte/internal/index.mjs';
 
 function create_if_block(ctx) {
 	let meta0;

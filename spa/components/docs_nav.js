@@ -21,9 +21,9 @@ import {
 	text,
 	toggle_class,
 	update_keyed_each
-} from "svelte/internal";
+} from '../web_modules/svelte/internal/index.mjs';
 
-import { onMount } from "svelte/internal";
+import { onMount } from '../web_modules/svelte/internal/index.mjs';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();

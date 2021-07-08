@@ -12,7 +12,7 @@ import {
 	safe_not_equal,
 	svg_element,
 	xlink_attr
-} from "svelte/internal";
+} from '../web_modules/svelte/internal/index.mjs';
 
 function create_fragment(ctx) {
 	let svg;

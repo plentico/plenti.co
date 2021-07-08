@@ -27,9 +27,9 @@ import {
 	text,
 	transition_in,
 	transition_out
-} from "svelte/internal";
+} from '../web_modules/svelte/internal/index.mjs';
 
-import DocsNav from "../components/docs_nav.svelte";
+import DocsNav from '../components/docs_nav.js';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
