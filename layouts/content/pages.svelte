@@ -54,11 +54,11 @@
   {/if}
 
   {#if themes}
-    {#each allContent.filter(content => content.type == "themes") as theme}
-      <section id="themes">
+    <section id="themes">
+      {#each allContent.filter(content => content.type == "themes") as theme}
         <a href="/themes/{theme.fields.name.toLowerCase()}"><img src="/assets/themes/{theme.fields.name.toLowerCase()}.png" /></a> 
-      </section>
-    {/each}
+      {/each}
+    </section>
   {/if}
 
   {#if upcoming_themes}
