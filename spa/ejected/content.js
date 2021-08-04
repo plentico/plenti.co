@@ -1361,6 +1361,17 @@ const allContent = [{
     "built_by": "Jantcu",
     "designed_by": "Themefisher"
 }
+},{
+"pager": 1,
+"path": "themes/compendium",
+"type": "themes",
+"filename": "compendium.json",
+"fields": {
+    "name": "Compendium",
+    "built_by": "roobyz",
+    "designed_by": "roobyz"
+}
+
 },];
 
 export default allContent;

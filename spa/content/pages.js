@@ -14,7 +14,6 @@ import {
 	destroy_each,
 	detach,
 	element,
-	empty,
 	group_outros,
 	init,
 	insert,
@@ -153,7 +152,7 @@ function create_each_block_3(ctx) {
 
 // (56:2) {#if themes}
 function create_if_block_10(ctx) {
-	let each_1_anchor;
+	let section;
 	let each_value_2 = /*allContent*/ ctx[5].filter(func);
 	let each_blocks = [];
 
@@ -163,25 +162,35 @@ function create_if_block_10(ctx) {
 
 	return {
 		c() {
+			section = element("section");
+
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
 
-			each_1_anchor = empty();
+			this.h();
 		},
 		l(nodes) {
+			section = claim_element(nodes, "SECTION", { id: true, class: true });
+			var section_nodes = children(section);
+
 			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(nodes);
+				each_blocks[i].l(section_nodes);
 			}
 
-			each_1_anchor = empty();
+			section_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(section, "id", "themes");
+			attr(section, "class", "svelte-1oxw3bh");
 		},
 		m(target, anchor) {
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].m(target, anchor);
-			}
+			insert(target, section, anchor);
 
-			insert(target, each_1_anchor, anchor);
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].m(section, null);
+			}
 		},
 		p(ctx, dirty) {
 			if (dirty & /*allContent*/ 32) {
@@ -196,7 +205,7 @@ function create_if_block_10(ctx) {
 					} else {
 						each_blocks[i] = create_each_block_2(child_ctx);
 						each_blocks[i].c();
-						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+						each_blocks[i].m(section, null);
 					}
 				}
 
@@ -208,38 +217,30 @@ function create_if_block_10(ctx) {
 			}
 		},
 		d(detaching) {
+			if (detaching) detach(section);
 			destroy_each(each_blocks, detaching);
-			if (detaching) detach(each_1_anchor);
 		}
 	};
 }
 
-// (57:4) {#each allContent.filter(content => content.type == "themes") as theme}
+// (58:6) {#each allContent.filter(content => content.type == "themes") as theme}
 function create_each_block_2(ctx) {
-	let section;
 	let a;
 	let img;
 	let img_src_value;
 	let a_href_value;
-	let t;
 
 	return {
 		c() {
-			section = element("section");
 			a = element("a");
 			img = element("img");
-			t = space();
 			this.h();
 		},
 		l(nodes) {
-			section = claim_element(nodes, "SECTION", { id: true, class: true });
-			var section_nodes = children(section);
-			a = claim_element(section_nodes, "A", { href: true, class: true });
+			a = claim_element(nodes, "A", { href: true, class: true });
 			var a_nodes = children(a);
 			img = claim_element(a_nodes, "IMG", { src: true, class: true });
 			a_nodes.forEach(detach);
-			t = claim_space(section_nodes);
-			section_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
@@ -247,14 +248,10 @@ function create_each_block_2(ctx) {
 			attr(img, "class", "svelte-1oxw3bh");
 			attr(a, "href", a_href_value = "/themes/" + /*theme*/ ctx[12].fields.name.toLowerCase());
 			attr(a, "class", "svelte-1oxw3bh");
-			attr(section, "id", "themes");
-			attr(section, "class", "svelte-1oxw3bh");
 		},
 		m(target, anchor) {
-			insert(target, section, anchor);
-			append(section, a);
+			insert(target, a, anchor);
 			append(a, img);
-			append(section, t);
 		},
 		p(ctx, dirty) {
 			if (dirty & /*allContent*/ 32 && img.src !== (img_src_value = "/assets/themes/" + /*theme*/ ctx[12].fields.name.toLowerCase() + ".png")) {
@@ -266,7 +263,7 @@ function create_each_block_2(ctx) {
 			}
 		},
 		d(detaching) {
-			if (detaching) detach(section);
+			if (detaching) detach(a);
 		}
 	};
 }
