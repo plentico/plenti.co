@@ -1342,7 +1342,6 @@ const allContent = [{
     "navigator.png",
     "radiation.png",
     "restaurant.png",
-    "roxo.png",
     "universal.png"
   ],
   "meta": {
@@ -1372,6 +1371,16 @@ const allContent = [{
     "designed_by": "roobyz"
 }
 
+},{
+"pager": 1,
+"path": "themes/roxo",
+"type": "themes",
+"filename": "roxo.json",
+"fields": {
+    "name": "Roxo",
+    "built_by": "Jantcu",
+    "designed_by": "StaticMania"
+}
 },];
 
 export default allContent;

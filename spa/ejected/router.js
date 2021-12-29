@@ -13,7 +13,7 @@ import {
 
 import Navaid from '../web_modules/navaid/dist/navaid.mjs';
 import Html from '../global/html.js';
-import { getContent } from "./main.js";
+import { getContent } from './main.js';
 
 function create_fragment(ctx) {
 	let html;
