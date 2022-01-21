@@ -13,6 +13,7 @@
     --primary-dark: rgb(16, 92, 133);
     --accent: rgb(254, 211, 48);
     --accent-dark: rgb(254, 139, 48);
+    --accent-light: #ffe188;
     --base-lightest: white;
     --base-lighter: rgb(249, 249, 249);
     --base-light: rgb(245, 245, 245);
@@ -42,20 +43,21 @@
   }
   :global(code) {
     font-size: 1rem;
-    color: var(--accent-dark);
-    background-color: var(--base-light);
+    color: var(--accent-light);
+    background-color: var(--base-dark);
     padding: 5px;
-    font-family: monospace;
+    font-family: 'Inconsolata', monospace;
     font-weight: bold;
+    border-radius: 5px;
   }
   :global(codeblock) {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
-    border-left: 3px solid var(--accent-dark);
-    color: #666;
+    background: var(--base-dark);
+    border-left: 5px solid var(--primary);
+    color: var(--primary);
     page-break-inside: avoid;
-    font-family: monospace;
-    font-size: 15px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1rem;
+    font-weight: bold;
     line-height: 1.6;
     margin-bottom: 1.6em;
     max-width: 100%;
@@ -63,5 +65,6 @@
     padding: 1em 1.5em;
     display: block;
     word-wrap: break-word;
+    border-radius: 10px;
   }
 </style>
