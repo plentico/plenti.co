@@ -85,6 +85,8 @@ function create_fragment(ctx) {
 	let link1;
 	let t8;
 	let link2;
+	let t9;
+	let link3;
 	let if_block = /*meta*/ ctx[1] && create_if_block(ctx);
 
 	return {
@@ -107,6 +109,8 @@ function create_fragment(ctx) {
 			link1 = element("link");
 			t8 = space();
 			link2 = element("link");
+			t9 = space();
+			link3 = element("link");
 			this.h();
 		},
 		l(nodes) {
@@ -130,9 +134,11 @@ function create_fragment(ctx) {
 			t6 = claim_space(head_nodes);
 			link0 = claim_element(head_nodes, "LINK", { href: true, rel: true });
 			t7 = claim_space(head_nodes);
-			link1 = claim_element(head_nodes, "LINK", { rel: true, type: true, href: true });
+			link1 = claim_element(head_nodes, "LINK", { href: true, rel: true });
 			t8 = claim_space(head_nodes);
-			link2 = claim_element(head_nodes, "LINK", { rel: true, href: true });
+			link2 = claim_element(head_nodes, "LINK", { rel: true, type: true, href: true });
+			t9 = claim_space(head_nodes);
+			link3 = claim_element(head_nodes, "LINK", { rel: true, href: true });
 			head_nodes.forEach(detach);
 			this.h();
 		},
@@ -144,11 +150,13 @@ function create_fragment(ctx) {
 			if (script.src !== (script_src_value = "/spa/ejected/main.js")) attr(script, "src", script_src_value);
 			attr(link0, "href", "https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap");
 			attr(link0, "rel", "stylesheet");
-			attr(link1, "rel", "icon");
-			attr(link1, "type", "image/svg+xml");
-			attr(link1, "href", "/assets/p.svg");
-			attr(link2, "rel", "stylesheet");
-			attr(link2, "href", "/spa/bundle.css");
+			attr(link1, "href", "https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
+			attr(link1, "rel", "stylesheet");
+			attr(link2, "rel", "icon");
+			attr(link2, "type", "image/svg+xml");
+			attr(link2, "href", "/assets/p.svg");
+			attr(link3, "rel", "stylesheet");
+			attr(link3, "href", "/spa/bundle.css");
 		},
 		m(target, anchor) {
 			insert(target, head, anchor);
@@ -169,6 +177,8 @@ function create_fragment(ctx) {
 			append(head, link1);
 			append(head, t8);
 			append(head, link2);
+			append(head, t9);
+			append(head, link3);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*title*/ 1) set_data(t2, /*title*/ ctx[0]);

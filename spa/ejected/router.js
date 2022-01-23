@@ -15,17 +15,34 @@ import Navaid from '../web_modules/navaid/dist/navaid.mjs';
 import Html from '../global/html.js';
 import { getContent } from './main.js';
 
+// Git-CMS
+import {
+	requestAuthCode,
+	requestAccessToken,
+	requestRefreshToken
+} from './cms/auth.js';
+
+import { session } from './cms/session.js';
+import { storage } from './cms/storage.js';
+import { onMount } from '../web_modules/svelte/index.mjs';
+import AdminMenu from './cms/admin_menu.js';
+
 function create_fragment(ctx) {
 	let html;
 	let current;
 
 	html = new Html({
 			props: {
-				content: /*content*/ ctx[0],
-				layout: /*layout*/ ctx[1],
-				allContent: /*allContent*/ ctx[2],
-				allLayouts: /*allLayouts*/ ctx[3],
-				env: /*env*/ ctx[4]
+				path: /*path*/ ctx[0],
+				params: /*params*/ ctx[1],
+				content: /*content*/ ctx[2],
+				layout: /*layout*/ ctx[3],
+				allContent: /*allContent*/ ctx[4],
+				allLayouts: /*allLayouts*/ ctx[5],
+				env: /*env*/ ctx[6],
+				user: /*user*/ ctx[7],
+				login: requestAuthCode,
+				AdminMenu
 			}
 		});
 
@@ -42,11 +59,14 @@ function create_fragment(ctx) {
 		},
 		p(ctx, [dirty]) {
 			const html_changes = {};
-			if (dirty & /*content*/ 1) html_changes.content = /*content*/ ctx[0];
-			if (dirty & /*layout*/ 2) html_changes.layout = /*layout*/ ctx[1];
-			if (dirty & /*allContent*/ 4) html_changes.allContent = /*allContent*/ ctx[2];
-			if (dirty & /*allLayouts*/ 8) html_changes.allLayouts = /*allLayouts*/ ctx[3];
-			if (dirty & /*env*/ 16) html_changes.env = /*env*/ ctx[4];
+			if (dirty & /*path*/ 1) html_changes.path = /*path*/ ctx[0];
+			if (dirty & /*params*/ 2) html_changes.params = /*params*/ ctx[1];
+			if (dirty & /*content*/ 4) html_changes.content = /*content*/ ctx[2];
+			if (dirty & /*layout*/ 8) html_changes.layout = /*layout*/ ctx[3];
+			if (dirty & /*allContent*/ 16) html_changes.allContent = /*allContent*/ ctx[4];
+			if (dirty & /*allLayouts*/ 32) html_changes.allLayouts = /*allLayouts*/ ctx[5];
+			if (dirty & /*env*/ 64) html_changes.env = /*env*/ ctx[6];
+			if (dirty & /*user*/ 128) html_changes.user = /*user*/ ctx[7];
 			html.$set(html_changes);
 		},
 		i(local) {
@@ -65,7 +85,8 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { uri } = $$props,
+	let { path } = $$props,
+		{ params } = $$props,
 		{ content } = $$props,
 		{ layout } = $$props,
 		{ allContent } = $$props,
@@ -73,15 +94,15 @@ function instance($$self, $$props, $$invalidate) {
 		{ env } = $$props;
 
 	function draw(m) {
-		$$invalidate(0, content = getContent(uri));
+		$$invalidate(2, content = getContent(path));
 
 		if (content === undefined) {
 			// Check if there is a 404 data source.
-			$$invalidate(0, content = getContent("/404"));
+			$$invalidate(2, content = getContent("/404"));
 
 			if (content === undefined) {
 				// If no 404.json data source exists, pass placeholder values.
-				$$invalidate(0, content = {
+				$$invalidate(2, content = {
 					"path": "/404",
 					"type": "404",
 					"filename": "404.json",
@@ -90,12 +111,13 @@ function instance($$self, $$props, $$invalidate) {
 			}
 		}
 
-		$$invalidate(1, layout = m.default);
+		$$invalidate(3, layout = m.default);
 		window.scrollTo(0, 0);
 	}
 
 	function track(obj) {
-		$$invalidate(5, uri = obj.state || obj.uri);
+		$$invalidate(0, path = obj.state || obj.uri || location.pathname);
+		$$invalidate(1, params = new URLSearchParams(location.search));
 	}
 
 	addEventListener("replacestate", track);
@@ -119,20 +141,31 @@ function instance($$self, $$props, $$invalidate) {
 	});
 
 	router.listen();
+	let user;
 
-	// Fix browser back button for initially loaded page.
-	router.route(uri, false);
+	onMount(async () => {
+		$$invalidate(7, user = storage.get("gitlab_tokens"));
+	});
+
+	if (params && params.get("state") !== null && params.get("state") === session.get("gitlab_state")) {
+		requestAccessToken(params.get("code"));
+	}
+
+	if (user && Date.now() > (user.created_at + user.expires_in) * 1000) {
+		requestRefreshToken();
+	}
 
 	$$self.$$set = $$props => {
-		if ("uri" in $$props) $$invalidate(5, uri = $$props.uri);
-		if ("content" in $$props) $$invalidate(0, content = $$props.content);
-		if ("layout" in $$props) $$invalidate(1, layout = $$props.layout);
-		if ("allContent" in $$props) $$invalidate(2, allContent = $$props.allContent);
-		if ("allLayouts" in $$props) $$invalidate(3, allLayouts = $$props.allLayouts);
-		if ("env" in $$props) $$invalidate(4, env = $$props.env);
+		if ("path" in $$props) $$invalidate(0, path = $$props.path);
+		if ("params" in $$props) $$invalidate(1, params = $$props.params);
+		if ("content" in $$props) $$invalidate(2, content = $$props.content);
+		if ("layout" in $$props) $$invalidate(3, layout = $$props.layout);
+		if ("allContent" in $$props) $$invalidate(4, allContent = $$props.allContent);
+		if ("allLayouts" in $$props) $$invalidate(5, allLayouts = $$props.allLayouts);
+		if ("env" in $$props) $$invalidate(6, env = $$props.env);
 	};
 
-	return [content, layout, allContent, allLayouts, env, uri];
+	return [path, params, content, layout, allContent, allLayouts, env, user];
 }
 
 class Component extends SvelteComponent {
@@ -140,12 +173,13 @@ class Component extends SvelteComponent {
 		super();
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
-			uri: 5,
-			content: 0,
-			layout: 1,
-			allContent: 2,
-			allLayouts: 3,
-			env: 4
+			path: 0,
+			params: 1,
+			content: 2,
+			layout: 3,
+			allContent: 4,
+			allLayouts: 5,
+			env: 6
 		});
 	}
 }

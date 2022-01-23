@@ -173,6 +173,59 @@ const allContent = [{
 }
 },{
 "pager": 1,
+"path": "docs/baseurl",
+"type": "docs",
+"filename": "baseurl.json",
+"fields": {
+    "title": "Baseurl",
+    "group": "Configuration",
+    "order": 2.50,
+    "sections": [
+        {
+            "title": "Base element",
+            "body": [
+                {
+                    "p": [
+                        "Standard HTML has a <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base' target='_blank' rel='noopener noreferrer'>base element</a>",
+                        "that is prepended to all relative URLs and can be used to serve your site from a subfolder (e.g. <code>mysite.com/my-subfolder/</code>), which is common on platforms like",
+                        "<a href='https://about.gitlab.com/stages-devops-lifecycle/pages/' target='_blank' rel='noopener noreferrer'>GitLab Pages</a>."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Implementation",
+            "body": [
+                {
+                    "p": [
+                        "In your sitewide <code>plenti.json</code> configuration file, you can specify a <code>baseurl</code> like this:",
+                        "<codeblock>{<br>&nbsp;&nbsp;\"baseurl\": \"/my-subfolder/\"<br>}</codeblock>",
+                        "<br>This information gets added to a magic variable called env, along with a boolean called <code>local</code> which lets you serve the",
+                        "site like normal when you're developing it and still use a baseurl on the deployed version. In order to do that,",
+                        "in your <code>&lt;head&gt;</code> element, do something like this:",
+                        "<codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let env;<br>&lt;/script&gt;<br><br>&lt;head&gt;<br>&nbsp;&nbsp;&lt;base href=\"{ env.local ? '/' : env.baseurl }\"&gt;<br>&lt;/head&gt;</codeblock>",
+                        "<br>(<strong>Note:</strong> make sure to first pass <code>env</code> from the parent component, likely <code>layouts/global/html.svelte</code>)"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Usage",
+            "body": [
+                {
+                    "p": [
+                        "Now that your site is configured to use baseurls, you need to make sure you're actually using relative links (<code>about</code>), not",
+                        "root relative links (<code>/about</code>) or absolute links (<code>mysite/about</code>).",
+                        "You'll also want to update all links back to your homepage to use a dot <code>.</code> instead of a forward slash <code>/</code>",
+                        "in order to work with the base element correctly when deployed."
+                    ]
+                }
+            ]
+        }
+    ]
+}
+},{
+"pager": 1,
 "path": "docs/build",
 "type": "docs",
 "filename": "build.json",
@@ -532,7 +585,7 @@ const allContent = [{
             "body": [
                 {
                     "p": [
-                        "All the templating is done in the \"disappearing\" JS component framework called <a href='https://svelte.dev/'>Svelte</a>.",
+                        "All the templating is done in a reactive UI component framework called <a href='https://svelte.dev/'>Svelte</a>.",
                         "Svelte offers a simplified syntax and creates a welcoming developer experience for folks coming directly from an HTML/CSS background.",
                         "It also offers some performance benefits over similar frameworks since it doesn't require a virtual DOM and its runtime is rather small."
                     ]
@@ -719,7 +772,7 @@ const allContent = [{
                         "For example if you had a type called <code>pages</code> and you wanted it to appear at the top level of the",
                         "site and not in the format <code>https://example.com/pages/page1</code>, you could add the following to <code>plenti.json</code>:",
                         "<br /><br /><codeblock>\"routes\": {<br />&nbsp;&nbsp;\"pages\": \"/:filename\"<br />}</codeblock>",
-                        "This would allow a content file located at <code>content/pages/page1.json</code> to appear in the following format: <code>https://example.com/page1</code>."
+                        "<br>This would allow a content file located at <code>content/pages/page1.json</code> to appear in the following format: <code>https://example.com/page1</code>."
                     ]
                 },
                 {
