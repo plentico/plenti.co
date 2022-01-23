@@ -45,8 +45,9 @@
     color: var(--accent-dark);
     background-color: var(--base-light);
     padding: 5px;
-    font-family: monospace;
+    font-family: 'Inconsolata', monospace;
     font-weight: bold;
+    border-radius: 5px;
   }
   :global(codeblock) {
     background: #f4f4f4;
@@ -54,14 +55,13 @@
     border-left: 3px solid var(--accent-dark);
     color: #666;
     page-break-inside: avoid;
-    font-family: monospace;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 1.6em;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.1rem;
     max-width: 100%;
     overflow: auto;
     padding: 1em 1.5em;
     display: block;
     word-wrap: break-word;
+    border-radius: 5px;
   }
 </style>

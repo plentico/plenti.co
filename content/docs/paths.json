@@ -34,7 +34,7 @@
                         "For example if you had a type called <code>pages</code> and you wanted it to appear at the top level of the",
                         "site and not in the format <code>https://example.com/pages/page1</code>, you could add the following to <code>plenti.json</code>:",
                         "<br /><br /><codeblock>\"routes\": {<br />&nbsp;&nbsp;\"pages\": \"/:filename\"<br />}</codeblock>",
-                        "This would allow a content file located at <code>content/pages/page1.json</code> to appear in the following format: <code>https://example.com/page1</code>."
+                        "<br>This would allow a content file located at <code>content/pages/page1.json</code> to appear in the following format: <code>https://example.com/page1</code>."
                     ]
                 },
                 {
