@@ -22,30 +22,30 @@
       <a class="nav-link svelte-34czqc" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" alt="GitHub Octocat Icon" class="svelte-34czqc"></a></div></div>
 </nav>
   <main class="svelte-1142p5h"><div class="docs-wrapper svelte-2eanvu"><input type="checkbox" id="nav-toggle" class="hidden svelte-2eanvu">
-    <div class="sidebar svelte-1g9l032"><strong class="svelte-1g9l032">Getting Started</strong>
-            <a href="/docs" class="nav-link svelte-1g9l032">Introduction</a>
-            <a href="/docs/installation" class="nav-link svelte-1g9l032">Installation</a>
-            <a href="/docs/upgrading" class="nav-link svelte-1g9l032">Upgrading</a><strong class="svelte-1g9l032">Content</strong>
-            <a href="/docs/types" class="nav-link svelte-1g9l032">Types</a>
-            <a href="/docs/paths" class="nav-link svelte-1g9l032">Paths</a><strong class="svelte-1g9l032">Structure</strong>
-            <a href="/docs/layouts" class="nav-link svelte-1g9l032">Layouts</a>
-            <a href="/docs/assets" class="nav-link svelte-1g9l032">Assets</a>
-            <a href="/docs/themes" class="nav-link svelte-1g9l032">Themes</a><strong class="svelte-1g9l032">Configuration</strong>
-            <a href="/docs/baseurl" class="nav-link svelte-1g9l032">Baseurl</a><strong class="svelte-1g9l032">Magic Variables</strong>
-            <a href="/docs/allcontent" class="nav-link svelte-1g9l032">allContent</a>
-            <a href="/docs/alllayouts" class="nav-link svelte-1g9l032">allLayouts</a><strong class="svelte-1g9l032">Commands</strong>
-            <a href="/docs/new-site" class="nav-link svelte-1g9l032">New Site</a>
-            <a href="/docs/new-type" class="nav-link svelte-1g9l032">New Type</a>
-            <a href="/docs/build" class="nav-link svelte-1g9l032">Build</a>
-            <a href="/docs/serve" class="nav-link svelte-1g9l032">Serve</a>
-            <a href="/docs/eject" class="nav-link svelte-1g9l032">Eject</a>
-            <a href="/docs/theme-add" class="nav-link svelte-1g9l032">Theme Add</a>
-            <a href="/docs/theme-enable" class="nav-link svelte-1g9l032">Theme Enable</a>
-            <a href="/docs/theme-disable" class="nav-link svelte-1g9l032">Theme Disable</a>
-            <a href="/docs/theme-update" class="nav-link svelte-1g9l032">Theme Update</a>
-            <a href="/docs/theme-remove" class="nav-link svelte-1g9l032">Theme Remove</a><strong class="svelte-1g9l032">Deployment</strong>
-            <a href="/docs/github-actions" class="nav-link svelte-1g9l032">GitHub Actions</a>
-            <a href="/docs/gitlab-piplines" class="nav-link svelte-1g9l032">GitLab Pipelines</a>
+    <div class="sidebar svelte-120yudk"><strong class="svelte-120yudk">Getting Started</strong>
+            <a href="/docs" class="nav-link svelte-120yudk">Introduction</a>
+            <a href="/docs/installation" class="nav-link svelte-120yudk">Installation</a>
+            <a href="/docs/upgrading" class="nav-link svelte-120yudk">Upgrading</a><strong class="svelte-120yudk">Content</strong>
+            <a href="/docs/types" class="nav-link svelte-120yudk">Types</a>
+            <a href="/docs/paths" class="nav-link svelte-120yudk">Paths</a><strong class="svelte-120yudk">Structure</strong>
+            <a href="/docs/layouts" class="nav-link svelte-120yudk">Layouts</a>
+            <a href="/docs/assets" class="nav-link svelte-120yudk">Assets</a>
+            <a href="/docs/themes" class="nav-link svelte-120yudk">Themes</a><strong class="svelte-120yudk">Configuration</strong>
+            <a href="/docs/baseurl" class="nav-link svelte-120yudk">Baseurl</a><strong class="svelte-120yudk">Magic Variables</strong>
+            <a href="/docs/allcontent" class="nav-link svelte-120yudk">allContent</a>
+            <a href="/docs/alllayouts" class="nav-link svelte-120yudk">allLayouts</a><strong class="svelte-120yudk">Commands</strong>
+            <a href="/docs/new-site" class="nav-link svelte-120yudk">New Site</a>
+            <a href="/docs/new-type" class="nav-link svelte-120yudk">New Type</a>
+            <a href="/docs/build" class="nav-link svelte-120yudk">Build</a>
+            <a href="/docs/serve" class="nav-link svelte-120yudk">Serve</a>
+            <a href="/docs/eject" class="nav-link svelte-120yudk">Eject</a><strong class="svelte-120yudk">Theme Commands</strong>
+            <a href="/docs/theme-add" class="nav-link svelte-120yudk">Theme Add</a>
+            <a href="/docs/theme-enable" class="nav-link svelte-120yudk">Theme Enable</a>
+            <a href="/docs/theme-disable" class="nav-link svelte-120yudk">Theme Disable</a>
+            <a href="/docs/theme-update" class="nav-link svelte-120yudk">Theme Update</a>
+            <a href="/docs/theme-remove" class="nav-link svelte-120yudk">Theme Remove</a><strong class="svelte-120yudk">Deployment</strong>
+            <a href="/docs/github-actions" class="nav-link svelte-120yudk">GitHub Actions</a>
+            <a href="/docs/gitlab-piplines" class="nav-link svelte-120yudk">GitLab Pipelines</a>
 </div>
     <div class="docs-container svelte-2eanvu"><div><label for="nav-toggle" id="hamburger" class="svelte-2eanvu"><span class="svelte-2eanvu"></span>
                 <span class="svelte-2eanvu"></span>
@@ -63,6 +63,11 @@
                         
                     </p><strong class="title svelte-2eanvu">Accessing templates in allLayouts</strong>
                 <p class="section-body svelte-2eanvu">To access a particular template in the <code>allLayouts</code> object, use the component signature with either dot notation (e.g. <code>allLayouts.layouts_components_grid_svelte</code> or bracket notation <code>allLayouts["layouts_components_grid_svelte"]</code>. It's common to use variables provided from your JSON data source to target a particular component, so you'd use bracket notation for that: <code>allLayouts[someVariable]</code> (where "someVariable" is equal to a component signature). 
+                        
+                    </p><strong class="title svelte-2eanvu">Dynamic components</strong>
+                <p class="section-body svelte-2eanvu">Svelte has <a href='https://svelte.dev/tutorial/svelte-component' rel='noopener noreferrer'>dynamic components</a> that allows you to load templates without explicitly importing them. Combine this with the <code>allLayouts</code> magic prop and you can have a content driven component architecture where you can add/remove/rearrange components without touching your Svelte templates and it will have complete SSR builds so you still get HTML fallbacks for every component. 
+                        
+                    </p><p class="section-body svelte-2eanvu">Given a content source that looks like this: <codeblock>{<br>&nbsp;&nbsp;"components": [<br>&nbsp;&nbsp;&nbsp;&nbsp;{"name": "ball"},<br>&nbsp;&nbsp;&nbsp;&nbsp;{"name": "block"}<br>&nbsp;&nbsp;]<br>}</codeblock> <br>You could dymanically load the components like this: <codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let components, allLayouts;<br>&lt;/script&gt;<br><br>{#if components}<br>&nbsp;&nbsp;{#each components as { name }}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;svelte:component this="{allLayouts["layouts_components_" + name + "_svelte"]}" /&gt;<br>&nbsp;&nbsp;{/each}<br>{/if}</codeblock> 
                         
                     </p></div></div>
 </div>

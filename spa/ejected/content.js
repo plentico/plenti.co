@@ -137,6 +137,26 @@ const allContent = [{
                     ]
                 }
             ]
+        },
+        {
+            "title": "Dynamic components",
+            "body": [
+                {
+                    "p": [
+                        "Svelte has <a href='https://svelte.dev/tutorial/svelte-component' rel='noopener noreferrer'>dynamic components</a> that allows you to load templates without explicitly importing them.",
+                        "Combine this with the <code>allLayouts</code> magic prop and you can have a content driven component architecture where you can add/remove/rearrange components without touching your",
+                        "Svelte templates and it will have complete SSR builds so you still get HTML fallbacks for every component."
+                    ]
+                },
+                {
+                    "p": [
+                        "Given a content source that looks like this:",
+                        "<codeblock>{<br>&nbsp;&nbsp;\"components\": [<br>&nbsp;&nbsp;&nbsp;&nbsp;{\"name\": \"ball\"},<br>&nbsp;&nbsp;&nbsp;&nbsp;{\"name\": \"block\"}<br>&nbsp;&nbsp;]<br>}</codeblock>",
+                        "<br>You could dymanically load the components like this:",
+                        "<codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let components, allLayouts;<br>&lt;/script&gt;<br><br>{#if components}<br>&nbsp;&nbsp;{#each components as { name }}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;svelte:component this=\"{allLayouts[\"layouts_components_\" + name + \"_svelte\"]}\" /&gt;<br>&nbsp;&nbsp;{/each}<br>{/if}</codeblock>"
+                    ]
+                }
+            ]
         }
     ]
 }
@@ -869,7 +889,7 @@ const allContent = [{
 "filename": "theme-add.json",
 "fields": {
     "title": "Theme Add",
-    "group": "Commands",
+    "group": "Theme Commands",
     "order": 4.06,
     "sections": [
         {
@@ -923,7 +943,7 @@ const allContent = [{
 "filename": "theme-disable.json",
 "fields": {
     "title": "Theme Disable",
-    "group": "Commands",
+    "group": "Theme Commands",
     "order": 4.08,
     "sections": [
         {
@@ -957,7 +977,7 @@ const allContent = [{
 "filename": "theme-enable.json",
 "fields": {
     "title": "Theme Enable",
-    "group": "Commands",
+    "group": "Theme Commands",
     "order": 4.07,
     "sections": [
         {
@@ -993,7 +1013,7 @@ const allContent = [{
 "filename": "theme-remove.json",
 "fields": {
     "title": "Theme Remove",
-    "group": "Commands",
+    "group": "Theme Commands",
     "order": 4.10,
     "sections": [
         {
@@ -1029,7 +1049,7 @@ const allContent = [{
 "filename": "theme-update.json",
 "fields": {
     "title": "Theme Update",
-    "group": "Commands",
+    "group": "Theme Commands",
     "order": 4.09,
     "sections": [
         {
