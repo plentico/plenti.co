@@ -50,7 +50,7 @@
         overflow-x: auto;
         height: 100%;
         max-height: 500px;
-        min-width: 150px;
+        min-width: 170px;
         margin-right: 20px;
     }
     .sidebar::-webkit-scrollbar {
