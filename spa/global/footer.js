@@ -134,7 +134,7 @@ function create_fragment(ctx) {
 			img2 = element("img");
 			t20 = space();
 			div8 = element("div");
-			t21 = text("© Plentico 2021");
+			t21 = text("© Plentico 2022");
 			t22 = space();
 			a10 = element("a");
 			t23 = text("By Jantcu LLC");
@@ -245,7 +245,7 @@ function create_fragment(ctx) {
 			t20 = claim_space(section3_nodes);
 			div8 = claim_element(section3_nodes, "DIV", { id: true });
 			var div8_nodes = children(div8);
-			t21 = claim_text(div8_nodes, "© Plentico 2021");
+			t21 = claim_text(div8_nodes, "© Plentico 2022");
 			div8_nodes.forEach(detach);
 			t22 = claim_space(section3_nodes);
 			a10 = claim_element(section3_nodes, "A", { href: true, class: true });
