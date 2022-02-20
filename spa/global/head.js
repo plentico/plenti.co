@@ -92,7 +92,7 @@ function create_if_block(ctx) {
 			attr(meta0, "name", "twitter:description");
 			attr(meta0, "content", meta0_content_value = "Check out the " + /*content*/ ctx[0].fields.name + " Plenti theme!");
 			attr(meta1, "name", "twitter:image");
-			attr(meta1, "content", meta1_content_value = "/assets/themes/" + /*content*/ ctx[0].fields.name.toLowerCase() + ".png");
+			attr(meta1, "content", meta1_content_value = "https://plenti.co/assets/themes/" + /*content*/ ctx[0].fields.name.toLowerCase() + ".png");
 		},
 		m(target, anchor) {
 			insert(target, meta0, anchor);
@@ -104,7 +104,7 @@ function create_if_block(ctx) {
 				attr(meta0, "content", meta0_content_value);
 			}
 
-			if (dirty & /*content*/ 1 && meta1_content_value !== (meta1_content_value = "/assets/themes/" + /*content*/ ctx[0].fields.name.toLowerCase() + ".png")) {
+			if (dirty & /*content*/ 1 && meta1_content_value !== (meta1_content_value = "https://plenti.co/assets/themes/" + /*content*/ ctx[0].fields.name.toLowerCase() + ".png")) {
 				attr(meta1, "content", meta1_content_value);
 			}
 		},
