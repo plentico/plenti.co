@@ -155,6 +155,15 @@ function instance($$self, $$props, $$invalidate) {
 		requestRefreshToken();
 	}
 
+	// Inject <!DOCTYPE html>
+	onMount(async () => {
+		let doctype = document.implementation.createDocumentType("html", "", "");
+
+		document.doctype
+		? document.replaceChild(doctype, document.doctype)
+		: document.insertBefore(doctype, document.childNodes[0]);
+	});
+
 	$$self.$$set = $$props => {
 		if ("path" in $$props) $$invalidate(0, path = $$props.path);
 		if ("params" in $$props) $$invalidate(1, params = $$props.params);

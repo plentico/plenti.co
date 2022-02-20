@@ -1512,6 +1512,16 @@ const allContent = [{
 
 },{
 "pager": 1,
+"path": "themes/maxim",
+"type": "themes",
+"filename": "maxim.json",
+"fields": {
+    "name": "Maxim",
+    "built_by": "claxxmoldii",
+    "designed_by": "BootstrapMade"
+}
+},{
+"pager": 1,
 "path": "themes/roxo",
 "type": "themes",
 "filename": "roxo.json",
