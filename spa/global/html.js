@@ -28,7 +28,6 @@ import {
 import Head from './head.js';
 import Nav from './nav.js';
 import Footer from './footer.js';
-import { makeTitle } from '../scripts/make_title.js';
 
 function create_fragment(ctx) {
 	let html;
@@ -44,21 +43,7 @@ function create_fragment(ctx) {
 	let t3;
 	let footer;
 	let current;
-
-	const head_spread_levels = [
-		{
-			title: makeTitle(/*content*/ ctx[1].filename)
-		},
-		/*content*/ ctx[1].fields
-	];
-
-	let head_props = {};
-
-	for (let i = 0; i < head_spread_levels.length; i += 1) {
-		head_props = assign(head_props, head_spread_levels[i]);
-	}
-
-	head = new Head({ props: head_props });
+	head = new Head({ props: { content: /*content*/ ctx[1] } });
 	nav = new Nav({});
 	const switch_instance_spread_levels = [/*content*/ ctx[1].fields, { allContent: /*allContent*/ ctx[2] }];
 	var switch_value = /*layout*/ ctx[0];
@@ -141,15 +126,8 @@ function create_fragment(ctx) {
 			current = true;
 		},
 		p(ctx, [dirty]) {
-			const head_changes = (dirty & /*makeTitle, content*/ 2)
-			? get_spread_update(head_spread_levels, [
-					{
-						title: makeTitle(/*content*/ ctx[1].filename)
-					},
-					dirty & /*content*/ 2 && get_spread_object(/*content*/ ctx[1].fields)
-				])
-			: {};
-
+			const head_changes = {};
+			if (dirty & /*content*/ 2) head_changes.content = /*content*/ ctx[1];
 			head.$set(head_changes);
 
 			const switch_instance_changes = (dirty & /*content, allContent*/ 6)
