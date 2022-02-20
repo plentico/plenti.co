@@ -1522,6 +1522,16 @@ const allContent = [{
 }
 },{
 "pager": 1,
+"path": "themes/papermod",
+"type": "themes",
+"filename": "papermod.json",
+"fields": {
+    "name": "Papermod",
+    "built_by": "claxxmoldii",
+    "designed_by": "adityatelange"
+}
+},{
+"pager": 1,
 "path": "themes/roxo",
 "type": "themes",
 "filename": "roxo.json",

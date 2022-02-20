@@ -87,6 +87,12 @@ function create_fragment(ctx) {
 	let link2;
 	let t9;
 	let link3;
+	let t10;
+	let meta2;
+	let t11;
+	let meta3;
+	let t12;
+	let meta4;
 	let if_block = /*meta*/ ctx[1] && create_if_block(ctx);
 
 	return {
@@ -111,6 +117,12 @@ function create_fragment(ctx) {
 			link2 = element("link");
 			t9 = space();
 			link3 = element("link");
+			t10 = space();
+			meta2 = element("meta");
+			t11 = space();
+			meta3 = element("meta");
+			t12 = space();
+			meta4 = element("meta");
 			this.h();
 		},
 		l(nodes) {
@@ -139,6 +151,12 @@ function create_fragment(ctx) {
 			link2 = claim_element(head_nodes, "LINK", { rel: true, type: true, href: true });
 			t9 = claim_space(head_nodes);
 			link3 = claim_element(head_nodes, "LINK", { rel: true, href: true });
+			t10 = claim_space(head_nodes);
+			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
+			t11 = claim_space(head_nodes);
+			meta3 = claim_element(head_nodes, "META", { name: true, content: true });
+			t12 = claim_space(head_nodes);
+			meta4 = claim_element(head_nodes, "META", { name: true, content: true });
 			head_nodes.forEach(detach);
 			this.h();
 		},
@@ -157,6 +175,12 @@ function create_fragment(ctx) {
 			attr(link2, "href", "/assets/p.svg");
 			attr(link3, "rel", "stylesheet");
 			attr(link3, "href", "/spa/bundle.css");
+			attr(meta2, "name", "twitter:card");
+			attr(meta2, "content", "summary");
+			attr(meta3, "name", "twitter:site");
+			attr(meta3, "content", "@plentico");
+			attr(meta4, "name", "twitter:title");
+			attr(meta4, "content", /*title*/ ctx[0]);
 		},
 		m(target, anchor) {
 			insert(target, head, anchor);
@@ -179,6 +203,12 @@ function create_fragment(ctx) {
 			append(head, link2);
 			append(head, t9);
 			append(head, link3);
+			append(head, t10);
+			append(head, meta2);
+			append(head, t11);
+			append(head, meta3);
+			append(head, t12);
+			append(head, meta4);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*title*/ 1) set_data(t2, /*title*/ ctx[0]);
@@ -194,6 +224,10 @@ function create_fragment(ctx) {
 			} else if (if_block) {
 				if_block.d(1);
 				if_block = null;
+			}
+
+			if (dirty & /*title*/ 1) {
+				attr(meta4, "content", /*title*/ ctx[0]);
 			}
 		},
 		i: noop,
