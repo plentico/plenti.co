@@ -16,6 +16,7 @@
     width: 100%;
     height: 15vh;
     margin-top: 60px;
+    margin-bottom: -6px;
     /*Fix for safari gap*/
     min-height: 100px;
     max-height: 150px;
