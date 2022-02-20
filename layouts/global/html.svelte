@@ -2,13 +2,12 @@
   import Head from './head.svelte';
   import Nav from './nav.svelte';
   import Footer from './footer.svelte';
-  import { makeTitle } from '../scripts/make_title.svelte';
 
   export let layout, content, allContent;
 </script>
 
 <html lang="en">
-  <Head title={makeTitle(content.filename)} {...content.fields} />
+  <Head {content} />
 <body>
   <Nav />
   <main>

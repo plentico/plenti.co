@@ -1,5 +1,7 @@
 <script>
-  export let title, meta;
+  export let content;
+  import { makeTitle } from '../scripts/make_title.svelte';
+  let title = makeTitle(content.filename);
 </script>
 
 <head>
@@ -7,9 +9,16 @@
   <meta name='viewport' content='width=device-width,initial-scale=1'>
 
   <title>{ title } | Plenti - A Static Site Generator for Svelte</title>
-  {#if meta}
-    <meta name="description" content="{meta.desc}">
-    <meta name="keywords" content="{meta.keywords}">
+  {#if content.fields.meta}
+    <meta name="description" content="{content.fields.meta.desc}">
+    <meta name="keywords" content="{content.fields.meta.keywords}">
+  {/if}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@plentico" />
+  <meta name="twitter:title" content="{content.fields.name}" />
+  {#if content.type == "themes"}
+    <meta name="twitter:description" content="Check out the {content.fields.name} Plenti theme!">
+    <meta name="twitter:image" content="/assets/themes/{content.fields.name.toLowerCase()}.png">  
   {/if}
 
   <script type="module" src="/spa/ejected/main.js"></script>
@@ -17,8 +26,4 @@
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/p.svg">
   <link rel='stylesheet' href='/spa/bundle.css'>
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@plentico" />
-  <meta name="twitter:title" content="{title}" />
 </head>
