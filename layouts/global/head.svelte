@@ -18,7 +18,7 @@
   <meta name="twitter:title" content="{content.fields.name}" />
   {#if content.type == "themes"}
     <meta name="twitter:description" content="Check out the {content.fields.name} Plenti theme!">
-    <meta name="twitter:image" content="/assets/themes/{content.fields.name.toLowerCase()}.png">  
+    <meta name="twitter:image" content="https://plenti.co/assets/themes/{content.fields.name.toLowerCase()}.png">  
   {/if}
 
   <script type="module" src="/spa/ejected/main.js"></script>
