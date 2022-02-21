@@ -1540,6 +1540,16 @@ const allContent = [{
     "built_by": "Jantcu",
     "designed_by": "StaticMania"
 }
+},{
+"pager": 1,
+"path": "themes/userbase",
+"type": "themes",
+"filename": "userbase.json",
+"fields": {
+    "name": "Userbase",
+    "built_by": "Jantcu",
+    "designed_by": "smallbets"
+}
 },];
 
 export default allContent;
