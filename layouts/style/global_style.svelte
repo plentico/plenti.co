@@ -48,6 +48,7 @@
     font-family: 'Inconsolata', monospace;
     font-weight: bold;
     border-radius: 5px;
+    white-space: nowrap;
   }
   :global(codeblock) {
     background: #f4f4f4;
