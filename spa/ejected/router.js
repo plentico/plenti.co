@@ -2,6 +2,7 @@
 import {
 	SvelteComponent,
 	claim_component,
+	component_subscribe,
 	create_component,
 	destroy_component,
 	init,
@@ -16,16 +17,9 @@ import Html from '../global/html.js';
 import { getContent } from './main.js';
 
 // Git-CMS
-import {
-	requestAuthCode,
-	requestAccessToken,
-	requestRefreshToken
-} from './cms/auth.js';
+import adminMenu from './cms/admin_menu.js';
 
-import { session } from './cms/session.js';
-import { storage } from './cms/storage.js';
-import { onMount } from '../web_modules/svelte/index.mjs';
-import AdminMenu from './cms/admin_menu.js';
+import { user } from './cms/auth.js';
 
 function create_fragment(ctx) {
 	let html;
@@ -40,9 +34,8 @@ function create_fragment(ctx) {
 				allContent: /*allContent*/ ctx[4],
 				allLayouts: /*allLayouts*/ ctx[5],
 				env: /*env*/ ctx[6],
-				user: /*user*/ ctx[7],
-				login: requestAuthCode,
-				AdminMenu
+				user,
+				adminMenu
 			}
 		});
 
@@ -66,7 +59,6 @@ function create_fragment(ctx) {
 			if (dirty & /*allContent*/ 16) html_changes.allContent = /*allContent*/ ctx[4];
 			if (dirty & /*allLayouts*/ 32) html_changes.allLayouts = /*allLayouts*/ ctx[5];
 			if (dirty & /*env*/ 64) html_changes.env = /*env*/ ctx[6];
-			if (dirty & /*user*/ 128) html_changes.user = /*user*/ ctx[7];
 			html.$set(html_changes);
 		},
 		i(local) {
@@ -85,6 +77,9 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
+	let $user;
+	component_subscribe($$self, user, $$value => $$invalidate(7, $user = $$value));
+
 	let { path } = $$props,
 		{ params } = $$props,
 		{ content } = $$props,
@@ -141,28 +136,10 @@ function instance($$self, $$props, $$invalidate) {
 	});
 
 	router.listen();
-	let user;
 
-	onMount(async () => {
-		$$invalidate(7, user = storage.get("gitlab_tokens"));
-	});
-
-	if (params && params.get("state") !== null && params.get("state") === session.get("gitlab_state")) {
-		requestAccessToken(params.get("code"));
+	if ($user.isBeingAuthenticated) {
+		$user.finishAuthentication(params);
 	}
-
-	if (user && Date.now() > (user.created_at + user.expires_in) * 1000) {
-		requestRefreshToken();
-	}
-
-	// Inject <!DOCTYPE html>
-	onMount(async () => {
-		let doctype = document.implementation.createDocumentType("html", "", "");
-
-		document.doctype
-		? document.replaceChild(doctype, document.doctype)
-		: document.insertBefore(doctype, document.childNodes[0]);
-	});
 
 	$$self.$$set = $$props => {
 		if ("path" in $$props) $$invalidate(0, path = $$props.path);
@@ -174,7 +151,7 @@ function instance($$self, $$props, $$invalidate) {
 		if ("env" in $$props) $$invalidate(6, env = $$props.env);
 	};
 
-	return [path, params, content, layout, allContent, allLayouts, env, user];
+	return [path, params, content, layout, allContent, allLayouts, env];
 }
 
 class Component extends SvelteComponent {
