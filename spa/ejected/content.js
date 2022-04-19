@@ -1319,9 +1319,16 @@ const allContent = [{
 "type": "index",
 "filename": "index.json",
 "fields": {
+	"title": "Plenti: Svelte websites without hassle.",
 	"intro": {
-		"title": "Websites that are easier<br />for <span class='text-accent-dark'>everyone</span>.",
-		"body": "Is your \"site builder\" confusing editors and frustrating devs? Time to try tools designed specifically for your area of focus.",
+		"title": "Plenti makes static sites",
+		"phrases": [
+			"excessively simple",
+			"feel like the 90s",
+			"with deadlines in mind",
+			"ready for editors"
+		],
+		"body": "We're an open source Svelte SSG that handles routing, pagination, HTML fallbacks, and more so you can build apps with less hassle.",
 		"cta": [
 			{
 				"link": "/download",
@@ -1334,7 +1341,7 @@ const allContent = [{
 		]
 	},
 	"editor": {
-		"title": "Edit right on the page (Coming soon)",
+		"title": "Edit right on the page",
 		"body": "Seriously, give it a shot! You can edit this text directly. That's how easy it will be to maintain the content on your site."
 	},
 	"features": [

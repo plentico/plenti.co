@@ -42,6 +42,7 @@ function create_fragment(ctx) {
 	let br;
 	let t3;
 	let footer;
+	let t4;
 	let current;
 	head = new Head({ props: { content: /*content*/ ctx[1] } });
 	nav = new Nav({});
@@ -78,6 +79,7 @@ function create_fragment(ctx) {
 			br = element("br");
 			t3 = space();
 			create_component(footer.$$.fragment);
+			t4 = space();
 			this.h();
 		},
 		l(nodes) {
@@ -97,6 +99,7 @@ function create_fragment(ctx) {
 			main_nodes.forEach(detach);
 			t3 = claim_space(body_nodes);
 			claim_component(footer.$$.fragment, body_nodes);
+			t4 = claim_space(body_nodes);
 			body_nodes.forEach(detach);
 			html_nodes.forEach(detach);
 			this.h();
@@ -123,6 +126,7 @@ function create_fragment(ctx) {
 			append(main, br);
 			append(body, t3);
 			mount_component(footer, body, null);
+			append(body, t4);
 			current = true;
 		},
 		p(ctx, [dirty]) {

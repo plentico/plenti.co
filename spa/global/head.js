@@ -68,13 +68,12 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (18:2) {#if content.type == "themes"}
-function create_if_block(ctx) {
+// (21:2) {:else}
+function create_else_block(ctx) {
 	let meta0;
 	let meta0_content_value;
 	let t;
 	let meta1;
-	let meta1_content_value;
 
 	return {
 		c() {
@@ -90,10 +89,10 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(meta0, "name", "twitter:description");
-			attr(meta0, "content", meta0_content_value = "Check out the " + /*content*/ ctx[0].fields.name + " Plenti theme!");
-			attr(meta1, "name", "twitter:image");
-			attr(meta1, "content", meta1_content_value = "https://plenti.co/assets/themes/" + /*content*/ ctx[0].fields.name.toLowerCase() + ".png");
+			attr(meta0, "name", "twitter:title");
+			attr(meta0, "content", meta0_content_value = /*content*/ ctx[0].fields.title);
+			attr(meta1, "name", "twitter:description");
+			attr(meta1, "content", "Build more sites, manage less overhead.");
 		},
 		m(target, anchor) {
 			insert(target, meta0, anchor);
@@ -101,18 +100,80 @@ function create_if_block(ctx) {
 			insert(target, meta1, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*content*/ 1 && meta0_content_value !== (meta0_content_value = "Check out the " + /*content*/ ctx[0].fields.name + " Plenti theme!")) {
+			if (dirty & /*content*/ 1 && meta0_content_value !== (meta0_content_value = /*content*/ ctx[0].fields.title)) {
 				attr(meta0, "content", meta0_content_value);
-			}
-
-			if (dirty & /*content*/ 1 && meta1_content_value !== (meta1_content_value = "https://plenti.co/assets/themes/" + /*content*/ ctx[0].fields.name.toLowerCase() + ".png")) {
-				attr(meta1, "content", meta1_content_value);
 			}
 		},
 		d(detaching) {
 			if (detaching) detach(meta0);
 			if (detaching) detach(t);
 			if (detaching) detach(meta1);
+		}
+	};
+}
+
+// (17:2) {#if content.type == "themes"}
+function create_if_block(ctx) {
+	let meta0;
+	let meta0_content_value;
+	let t0;
+	let meta1;
+	let meta1_content_value;
+	let t1;
+	let meta2;
+	let meta2_content_value;
+
+	return {
+		c() {
+			meta0 = element("meta");
+			t0 = space();
+			meta1 = element("meta");
+			t1 = space();
+			meta2 = element("meta");
+			this.h();
+		},
+		l(nodes) {
+			meta0 = claim_element(nodes, "META", { name: true, content: true });
+			t0 = claim_space(nodes);
+			meta1 = claim_element(nodes, "META", { name: true, content: true });
+			t1 = claim_space(nodes);
+			meta2 = claim_element(nodes, "META", { name: true, content: true });
+			this.h();
+		},
+		h() {
+			attr(meta0, "name", "twitter:title");
+			attr(meta0, "content", meta0_content_value = /*content*/ ctx[0].fields.name);
+			attr(meta1, "name", "twitter:description");
+			attr(meta1, "content", meta1_content_value = "Check out the " + /*content*/ ctx[0].fields.name + " Plenti theme!");
+			attr(meta2, "name", "twitter:image");
+			attr(meta2, "content", meta2_content_value = "https://plenti.co/assets/themes/" + /*content*/ ctx[0].fields.name.toLowerCase() + ".png");
+		},
+		m(target, anchor) {
+			insert(target, meta0, anchor);
+			insert(target, t0, anchor);
+			insert(target, meta1, anchor);
+			insert(target, t1, anchor);
+			insert(target, meta2, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*content*/ 1 && meta0_content_value !== (meta0_content_value = /*content*/ ctx[0].fields.name)) {
+				attr(meta0, "content", meta0_content_value);
+			}
+
+			if (dirty & /*content*/ 1 && meta1_content_value !== (meta1_content_value = "Check out the " + /*content*/ ctx[0].fields.name + " Plenti theme!")) {
+				attr(meta1, "content", meta1_content_value);
+			}
+
+			if (dirty & /*content*/ 1 && meta2_content_value !== (meta2_content_value = "https://plenti.co/assets/themes/" + /*content*/ ctx[0].fields.name.toLowerCase() + ".png")) {
+				attr(meta2, "content", meta2_content_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(meta0);
+			if (detaching) detach(t0);
+			if (detaching) detach(meta1);
+			if (detaching) detach(t1);
+			if (detaching) detach(meta2);
 		}
 	};
 }
@@ -137,26 +198,29 @@ function create_fragment(ctx) {
 	let t6;
 	let meta3;
 	let t7;
-	let meta4;
-	let meta4_content_value;
 	let t8;
-	let t9;
 	let script0;
 	let script0_src_value;
-	let t10;
-	let t11;
+	let t9;
 	let script1;
 	let script1_src_value;
-	let t12;
+	let t10;
 	let link0;
-	let t13;
+	let t11;
 	let link1;
-	let t14;
+	let t12;
 	let link2;
-	let t15;
+	let t13;
 	let link3;
 	let if_block0 = /*content*/ ctx[0].fields.meta && create_if_block_1(ctx);
-	let if_block1 = /*content*/ ctx[0].type == "themes" && create_if_block(ctx);
+
+	function select_block_type(ctx, dirty) {
+		if (/*content*/ ctx[0].type == "themes") return create_if_block;
+		return create_else_block;
+	}
+
+	let current_block_type = select_block_type(ctx, -1);
+	let if_block1 = current_block_type(ctx);
 
 	return {
 		c() {
@@ -175,21 +239,18 @@ function create_fragment(ctx) {
 			t6 = space();
 			meta3 = element("meta");
 			t7 = space();
-			meta4 = element("meta");
+			if_block1.c();
 			t8 = space();
-			if (if_block1) if_block1.c();
-			t9 = space();
 			script0 = element("script");
-			t10 = space();
-			t11 = space();
+			t9 = space();
 			script1 = element("script");
-			t12 = space();
+			t10 = space();
 			link0 = element("link");
-			t13 = space();
+			t11 = space();
 			link1 = element("link");
-			t14 = space();
+			t12 = space();
 			link2 = element("link");
-			t15 = space();
+			t13 = space();
 			link3 = element("link");
 			this.h();
 		},
@@ -212,25 +273,22 @@ function create_fragment(ctx) {
 			t6 = claim_space(head_nodes);
 			meta3 = claim_element(head_nodes, "META", { name: true, content: true });
 			t7 = claim_space(head_nodes);
-			meta4 = claim_element(head_nodes, "META", { name: true, content: true });
+			if_block1.l(head_nodes);
 			t8 = claim_space(head_nodes);
-			if (if_block1) if_block1.l(head_nodes);
-			t9 = claim_space(head_nodes);
 			script0 = claim_element(head_nodes, "SCRIPT", { src: true });
 			var script0_nodes = children(script0);
 			script0_nodes.forEach(detach);
-			t10 = claim_space(head_nodes);
-			t11 = claim_space(head_nodes);
+			t9 = claim_space(head_nodes);
 			script1 = claim_element(head_nodes, "SCRIPT", { type: true, src: true });
 			var script1_nodes = children(script1);
 			script1_nodes.forEach(detach);
-			t12 = claim_space(head_nodes);
+			t10 = claim_space(head_nodes);
 			link0 = claim_element(head_nodes, "LINK", { href: true, rel: true });
-			t13 = claim_space(head_nodes);
+			t11 = claim_space(head_nodes);
 			link1 = claim_element(head_nodes, "LINK", { href: true, rel: true });
-			t14 = claim_space(head_nodes);
+			t12 = claim_space(head_nodes);
 			link2 = claim_element(head_nodes, "LINK", { rel: true, type: true, href: true });
-			t15 = claim_space(head_nodes);
+			t13 = claim_space(head_nodes);
 			link3 = claim_element(head_nodes, "LINK", { rel: true, href: true });
 			head_nodes.forEach(detach);
 			this.h();
@@ -243,8 +301,6 @@ function create_fragment(ctx) {
 			attr(meta2, "content", "summary");
 			attr(meta3, "name", "twitter:site");
 			attr(meta3, "content", "@plentico");
-			attr(meta4, "name", "twitter:title");
-			attr(meta4, "content", meta4_content_value = /*content*/ ctx[0].fields.name);
 			script0.async = true;
 			script0.defer = true;
 			if (script0.src !== (script0_src_value = "https://nullitics.com/script.js")) attr(script0, "src", script0_src_value);
@@ -276,21 +332,18 @@ function create_fragment(ctx) {
 			append(head, t6);
 			append(head, meta3);
 			append(head, t7);
-			append(head, meta4);
+			if_block1.m(head, null);
 			append(head, t8);
-			if (if_block1) if_block1.m(head, null);
-			append(head, t9);
 			append(head, script0);
-			append(head, t10);
-			append(head, t11);
+			append(head, t9);
 			append(head, script1);
-			append(head, t12);
+			append(head, t10);
 			append(head, link0);
-			append(head, t13);
+			append(head, t11);
 			append(head, link1);
-			append(head, t14);
+			append(head, t12);
 			append(head, link2);
-			append(head, t15);
+			append(head, t13);
 			append(head, link3);
 		},
 		p(ctx, [dirty]) {
@@ -311,21 +364,16 @@ function create_fragment(ctx) {
 				if_block0 = null;
 			}
 
-			if (dirty & /*content*/ 1 && meta4_content_value !== (meta4_content_value = /*content*/ ctx[0].fields.name)) {
-				attr(meta4, "content", meta4_content_value);
-			}
-
-			if (/*content*/ ctx[0].type == "themes") {
-				if (if_block1) {
-					if_block1.p(ctx, dirty);
-				} else {
-					if_block1 = create_if_block(ctx);
-					if_block1.c();
-					if_block1.m(head, t9);
-				}
-			} else if (if_block1) {
+			if (current_block_type === (current_block_type = select_block_type(ctx, dirty)) && if_block1) {
+				if_block1.p(ctx, dirty);
+			} else {
 				if_block1.d(1);
-				if_block1 = null;
+				if_block1 = current_block_type(ctx);
+
+				if (if_block1) {
+					if_block1.c();
+					if_block1.m(head, t8);
+				}
 			}
 		},
 		i: noop,
@@ -333,7 +381,7 @@ function create_fragment(ctx) {
 		d(detaching) {
 			if (detaching) detach(head);
 			if (if_block0) if_block0.d();
-			if (if_block1) if_block1.d();
+			if_block1.d();
 		}
 	};
 }
