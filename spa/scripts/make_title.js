@@ -2,9 +2,7 @@
 import { SvelteComponent, init, safe_not_equal } from '../web_modules/svelte/internal/index.mjs';
 
 const makeTitle = filename => {
-	if (filename == "index.json") {
-		return "Home";
-	} else if (filename) {
+	if (filename) {
 		// Remove file extension.
 		filename = filename.split(".").slice(0, -1).join(".");
 

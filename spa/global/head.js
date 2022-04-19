@@ -13,6 +13,7 @@ import {
 	insert,
 	noop,
 	safe_not_equal,
+	set_data,
 	space,
 	text
 } from '../web_modules/svelte/internal/index.mjs';
@@ -67,7 +68,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (19:2) {#if content.type == "themes"}
+// (18:2) {#if content.type == "themes"}
 function create_if_block(ctx) {
 	let meta0;
 	let meta0_content_value;
@@ -122,7 +123,12 @@ function create_fragment(ctx) {
 	let t0;
 	let meta1;
 	let t1;
-	let title_1;
+	let title;
+
+	let t2_value = (/*content*/ ctx[0].type == "index"
+	? "Home"
+	: makeTitle(/*content*/ ctx[0].filename)) + "";
+
 	let t2;
 	let t3;
 	let t4;
@@ -159,8 +165,8 @@ function create_fragment(ctx) {
 			t0 = space();
 			meta1 = element("meta");
 			t1 = space();
-			title_1 = element("title");
-			t2 = text(/*title*/ ctx[1]);
+			title = element("title");
+			t2 = text(t2_value);
 			t3 = text(" | Plenti - A Static Site Generator for Svelte");
 			t4 = space();
 			if (if_block0) if_block0.c();
@@ -194,11 +200,11 @@ function create_fragment(ctx) {
 			t0 = claim_space(head_nodes);
 			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
 			t1 = claim_space(head_nodes);
-			title_1 = claim_element(head_nodes, "TITLE", {});
-			var title_1_nodes = children(title_1);
-			t2 = claim_text(title_1_nodes, /*title*/ ctx[1]);
-			t3 = claim_text(title_1_nodes, " | Plenti - A Static Site Generator for Svelte");
-			title_1_nodes.forEach(detach);
+			title = claim_element(head_nodes, "TITLE", {});
+			var title_nodes = children(title);
+			t2 = claim_text(title_nodes, t2_value);
+			t3 = claim_text(title_nodes, " | Plenti - A Static Site Generator for Svelte");
+			title_nodes.forEach(detach);
 			t4 = claim_space(head_nodes);
 			if (if_block0) if_block0.l(head_nodes);
 			t5 = claim_space(head_nodes);
@@ -260,9 +266,9 @@ function create_fragment(ctx) {
 			append(head, t0);
 			append(head, meta1);
 			append(head, t1);
-			append(head, title_1);
-			append(title_1, t2);
-			append(title_1, t3);
+			append(head, title);
+			append(title, t2);
+			append(title, t3);
 			append(head, t4);
 			if (if_block0) if_block0.m(head, null);
 			append(head, t5);
@@ -288,6 +294,10 @@ function create_fragment(ctx) {
 			append(head, link3);
 		},
 		p(ctx, [dirty]) {
+			if (dirty & /*content*/ 1 && t2_value !== (t2_value = (/*content*/ ctx[0].type == "index"
+			? "Home"
+			: makeTitle(/*content*/ ctx[0].filename)) + "")) set_data(t2, t2_value);
+
 			if (/*content*/ ctx[0].fields.meta) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
@@ -330,13 +340,12 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { content } = $$props;
-	let title = makeTitle(content.filename);
 
 	$$self.$$set = $$props => {
 		if ("content" in $$props) $$invalidate(0, content = $$props.content);
 	};
 
-	return [content, title];
+	return [content];
 }
 
 class Component extends SvelteComponent {
