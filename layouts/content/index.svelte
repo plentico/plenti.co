@@ -6,19 +6,36 @@
 
 	let totalPhrases = intro.phrases.length;
 	let phrase = intro.phrases[0];
-	let typedChars = "";
-	let index = 0;
+	let typedChars = phrase;
+	let charIndex = 0;
+	let phraseIndex = 0;
 	let typewriter;
+	let reverse;
 
 	const typeChar = () => {
-		if (index < phrase.length) {
-			typedChars += phrase[index];
-			index += 1;
-		} else {
+		if (typedChars === phrase) {
 			clearInterval(typewriter);
+			setTimeout(typing, 5000);
+			reverse = true;
+			charIndex = 0;
+		}
+		if (typedChars.length === 0) {
+			reverse = false;
+			if (phraseIndex < totalPhrases) {
+				phraseIndex += 1;
+			} else {
+				phraseIndex = 0;
+			}
+			phrase = intro.phrases[phraseIndex];
+		}
+		if (reverse) {
+			typedChars = typedChars.slice(0, -1);
+		} else {
+			typedChars += phrase[charIndex];
+			charIndex += 1;
 		}
 	}
-	const typing = () => typewriter = setInterval(typeChar, 100);
+	const typing = () => typewriter = setInterval(typeChar, 50);
 
 	onMount(async () => {
 		typing();
