@@ -21,6 +21,8 @@
     <meta name="twitter:image" content="https://plenti.co/assets/themes/{content.fields.name.toLowerCase()}.png">  
   {/if}
 
+  <script async defer src="https://nullitics.com/script.js"></script>
+  <noscript><img src="https://nullitics.com/file.gif?u=plenti.co/{content.path}" /></noscript>
   <script type="module" src="/spa/ejected/main.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
