@@ -8,7 +8,7 @@
 			"with deadlines in mind",
 			"ready for editors"
 		],
-		"body": "Is your \"site builder\" confusing editors and frustrating devs? Time to try tools designed specifically for your area of focus.",
+		"body": "We're an open source Svelte SSG that handles routing, pagination, HTML fallbacks, and more so you can build apps with less hassle.",
 		"cta": [
 			{
 				"link": "/download",
