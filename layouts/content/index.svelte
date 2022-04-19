@@ -21,15 +21,17 @@
 		}
 		if (typedChars.length === 0) {
 			reverse = false;
-			if (phraseIndex < totalPhrases) {
-				phraseIndex += 1;
-			} else {
-				phraseIndex = 0;
-			}
+			phraseIndex < totalPhrases ? phraseIndex += 1 : phraseIndex = 0;
 			phrase = intro.phrases[phraseIndex];
 		}
 		if (reverse) {
-			typedChars = typedChars.slice(0, -1);
+			if (typedChars === phrase) {
+				setTimeout(() => {
+					typedChars = typedChars.slice(0, -1);
+				}, 5000);
+			} else {
+				typedChars = typedChars.slice(0, -1);
+			}
 		} else {
 			typedChars += phrase[charIndex];
 			charIndex += 1;
