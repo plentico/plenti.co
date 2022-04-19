@@ -1,15 +1,39 @@
 <script>
 	export let intro, editor, features, setup, cta;
-	import Grid from '../components/grid.svelte';
 	import Waves from '../components/waves.svelte';
-	import { loadComponent } from '../scripts/load_component.svelte';
+	import { onMount } from 'svelte';
 	export let by=0;
+
+	let totalPhrases = intro.phrases.length;
+	let phrase = intro.phrases[0];
+	let typedChars = "";
+	let index = 0;
+	let typewriter;
+
+	const typeChar = () => {
+		if (index < phrase.length) {
+			typedChars += phrase[index];
+			index += 1;
+		} else {
+			clearInterval(typewriter);
+		}
+	}
+	const typing = () => typewriter = setInterval(typeChar, 100);
+
+	onMount(async () => {
+		typing();
+	});
 </script>
 
 <div class="container">
 	<section id="intro">
 		<div id="intro-text">
-		<h1>{@html intro.title}</h1>
+		<h1>
+			<div>{intro.title}</div>
+			<div>
+				<span class='text-accent-dark'>{typedChars}</span>.
+			</div>
+		</h1>
 		<p>{@html intro.body}</p>
 		{#each intro.cta as cta}
 			<a href="{cta.link}" class="button">{cta.text}</a>
