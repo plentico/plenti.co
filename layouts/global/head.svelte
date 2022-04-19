@@ -1,14 +1,13 @@
 <script>
   export let content;
   import { makeTitle } from '../scripts/make_title.svelte';
-  let title = makeTitle(content.filename);
 </script>
 
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
 
-  <title>{ title } | Plenti - A Static Site Generator for Svelte</title>
+  <title>{ content.type == 'index' ? 'Home' : makeTitle(content.filename) } | Plenti - A Static Site Generator for Svelte</title>
   {#if content.fields.meta}
     <meta name="description" content="{content.fields.meta.desc}">
     <meta name="keywords" content="{content.fields.meta.keywords}">

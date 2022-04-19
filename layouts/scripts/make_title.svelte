@@ -1,8 +1,6 @@
 <script context="module">
   export const makeTitle = filename => {
-  if (filename == 'index.json') {
-    return 'Home';
-  } else if (filename) {
+  if (filename) {
     // Remove file extension.
     filename = filename.split('.').slice(0, -1).join('.');
     // Convert underscores and hyphens to spaces.
