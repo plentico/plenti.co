@@ -50,7 +50,7 @@
 		<h1>
 			<div>{intro.title}</div>
 			<div>
-				<span class='text-accent-dark'>{typedChars}</span>.
+				<span class='text-accent-dark'>{typedChars}</span>{#if typedChars === phrase}.{/if}<span id="cursor"></span>
 			</div>
 		</h1>
 		<p>{@html intro.body}</p>
@@ -121,6 +121,21 @@
 		font-size: 2rem;
 		line-height: 3rem;
 	}
+	#cursor {
+		display: inline-block;
+		background-color: var(--primary);
+		background-color: rgb(233 233 233);
+		margin: 0 5px -5px;
+		width: 6px;
+		height: 45px;
+		-webkit-animation: blink 1000ms steps(1, end) infinite;
+		animation: blink 1000ms steps(1, end) infinite;
+	}
+	@keyframes blink {
+		50% {
+			opacity: 0;
+		}
+	}
 	#intro-hero {
 		align-self: center;
 	}
@@ -186,16 +201,6 @@
 		flex-basis: 0;
     	flex-grow: 1;
 	}
-	/*
-	#setup .item .img::before {
-		background-color: var(--accent-dark);
-		content: "";
-		display: block;
-		width: 500px;
-		height: 300px;
-		position: absolute;
-	}
-	*/
 	#setup strong span {
 		font-family: 'Kalam', cursive;
 		color: var(--accent-dark);
