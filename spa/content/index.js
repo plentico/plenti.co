@@ -50,6 +50,26 @@ function get_each_context_2(ctx, list, i) {
 	return child_ctx;
 }
 
+// (53:54) {#if typedChars === phrase}
+function create_if_block(ctx) {
+	let t;
+
+	return {
+		c() {
+			t = text(".");
+		},
+		l(nodes) {
+			t = claim_text(nodes, ".");
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
 // (57:2) {#each intro.cta as cta}
 function create_each_block_2(ctx) {
 	let a;
@@ -72,7 +92,7 @@ function create_each_block_2(ctx) {
 		},
 		h() {
 			attr(a, "href", a_href_value = /*cta*/ ctx[5].link);
-			attr(a, "class", "button svelte-1xa3nt3");
+			attr(a, "class", "button svelte-1giuk3v");
 		},
 		m(target, anchor) {
 			insert(target, a, anchor);
@@ -129,9 +149,9 @@ function create_each_block_1(ctx) {
 		h() {
 			if (img.src !== (img_src_value = /*feature*/ ctx[19].img)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*feature*/ ctx[19].title);
-			attr(img, "class", "svelte-1xa3nt3");
-			attr(div0, "class", "title svelte-1xa3nt3");
-			attr(div1, "class", "feature svelte-1xa3nt3");
+			attr(img, "class", "svelte-1giuk3v");
+			attr(div0, "class", "title svelte-1giuk3v");
+			attr(div1, "class", "feature svelte-1giuk3v");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -227,13 +247,13 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-1xa3nt3");
-			attr(p, "class", "svelte-1xa3nt3");
-			attr(div0, "class", "content svelte-1xa3nt3");
+			attr(span, "class", "svelte-1giuk3v");
+			attr(p, "class", "svelte-1giuk3v");
+			attr(div0, "class", "content svelte-1giuk3v");
 			if (img.src !== (img_src_value = /*item*/ ctx[16].img)) attr(img, "src", img_src_value);
-			attr(img, "class", "svelte-1xa3nt3");
-			attr(div1, "class", "img svelte-1xa3nt3");
-			attr(div2, "class", "item svelte-1xa3nt3");
+			attr(img, "class", "svelte-1giuk3v");
+			attr(div1, "class", "img svelte-1giuk3v");
+			attr(div2, "class", "item svelte-1giuk3v");
 		},
 		m(target, anchor) {
 			insert(target, div2, anchor);
@@ -283,58 +303,59 @@ function create_fragment(ctx) {
 	let t0;
 	let t1;
 	let div1;
-	let span;
+	let span0;
 	let t2;
+	let span1;
 	let t3;
-	let t4;
 	let p0;
 	let raw_value = /*intro*/ ctx[1].body + "";
+	let t4;
 	let t5;
-	let t6;
 	let div3;
 	let img0;
 	let img0_src_value;
-	let t7;
+	let t6;
 	let waves;
-	let t8;
+	let t7;
 	let section1;
 	let div7;
 	let div5;
 	let img1;
 	let img1_src_value;
-	let t9;
+	let t8;
 	let div6;
 	let h30;
-	let t10_value = /*editor*/ ctx[2].title + "";
+	let t9_value = /*editor*/ ctx[2].title + "";
+	let t9;
 	let t10;
-	let t11;
 	let p1;
-	let t12_value = /*editor*/ ctx[2].body + "";
+	let t11_value = /*editor*/ ctx[2].body + "";
+	let t11;
 	let t12;
-	let t13;
 	let section2;
-	let t14;
+	let t13;
 	let section3;
 	let div8;
 	let h31;
+	let t14;
 	let t15;
 	let t16;
-	let t17;
 	let section4;
 	let div10;
 	let div9;
 	let h32;
-	let t18_value = /*cta*/ ctx[5].title + "";
+	let t17_value = /*cta*/ ctx[5].title + "";
+	let t17;
 	let t18;
-	let t19;
 	let a;
-	let t20_value = /*cta*/ ctx[5].link.text + "";
-	let t20;
+	let t19_value = /*cta*/ ctx[5].link.text + "";
+	let t19;
 	let a_href_value;
 	let current;
 	let mounted;
 	let dispose;
-	add_render_callback(/*onwindowscroll*/ ctx[7]);
+	add_render_callback(/*onwindowscroll*/ ctx[8]);
+	let if_block = /*typedChars*/ ctx[7] === /*phrase*/ ctx[6] && create_if_block(ctx);
 	let each_value_2 = /*intro*/ ctx[1].cta;
 	let each_blocks_2 = [];
 
@@ -367,61 +388,62 @@ function create_fragment(ctx) {
 			t0 = text(t0_value);
 			t1 = space();
 			div1 = element("div");
-			span = element("span");
-			t2 = text(/*typedChars*/ ctx[6]);
-			t3 = text(".");
-			t4 = space();
+			span0 = element("span");
+			t2 = text(/*typedChars*/ ctx[7]);
+			if (if_block) if_block.c();
+			span1 = element("span");
+			t3 = space();
 			p0 = element("p");
-			t5 = space();
+			t4 = space();
 
 			for (let i = 0; i < each_blocks_2.length; i += 1) {
 				each_blocks_2[i].c();
 			}
 
-			t6 = space();
+			t5 = space();
 			div3 = element("div");
 			img0 = element("img");
-			t7 = space();
+			t6 = space();
 			create_component(waves.$$.fragment);
-			t8 = space();
+			t7 = space();
 			section1 = element("section");
 			div7 = element("div");
 			div5 = element("div");
 			img1 = element("img");
-			t9 = space();
+			t8 = space();
 			div6 = element("div");
 			h30 = element("h3");
-			t10 = text(t10_value);
-			t11 = space();
+			t9 = text(t9_value);
+			t10 = space();
 			p1 = element("p");
-			t12 = text(t12_value);
-			t13 = space();
+			t11 = text(t11_value);
+			t12 = space();
 			section2 = element("section");
 
 			for (let i = 0; i < each_blocks_1.length; i += 1) {
 				each_blocks_1[i].c();
 			}
 
-			t14 = space();
+			t13 = space();
 			section3 = element("section");
 			div8 = element("div");
 			h31 = element("h3");
-			t15 = text("Minimal Setup Required");
-			t16 = space();
+			t14 = text("Minimal Setup Required");
+			t15 = space();
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
 
-			t17 = space();
+			t16 = space();
 			section4 = element("section");
 			div10 = element("div");
 			div9 = element("div");
 			h32 = element("h3");
-			t18 = text(t18_value);
-			t19 = space();
+			t17 = text(t17_value);
+			t18 = space();
 			a = element("a");
-			t20 = text(t20_value);
+			t19 = text(t19_value);
 			this.h();
 		},
 		l(nodes) {
@@ -440,34 +462,36 @@ function create_fragment(ctx) {
 			t1 = claim_space(h1_nodes);
 			div1 = claim_element(h1_nodes, "DIV", {});
 			var div1_nodes = children(div1);
-			span = claim_element(div1_nodes, "SPAN", { class: true });
-			var span_nodes = children(span);
-			t2 = claim_text(span_nodes, /*typedChars*/ ctx[6]);
-			span_nodes.forEach(detach);
-			t3 = claim_text(div1_nodes, ".");
+			span0 = claim_element(div1_nodes, "SPAN", { class: true });
+			var span0_nodes = children(span0);
+			t2 = claim_text(span0_nodes, /*typedChars*/ ctx[7]);
+			span0_nodes.forEach(detach);
+			if (if_block) if_block.l(div1_nodes);
+			span1 = claim_element(div1_nodes, "SPAN", { id: true, class: true });
+			children(span1).forEach(detach);
 			div1_nodes.forEach(detach);
 			h1_nodes.forEach(detach);
-			t4 = claim_space(div2_nodes);
+			t3 = claim_space(div2_nodes);
 			p0 = claim_element(div2_nodes, "P", {});
 			var p0_nodes = children(p0);
 			p0_nodes.forEach(detach);
-			t5 = claim_space(div2_nodes);
+			t4 = claim_space(div2_nodes);
 
 			for (let i = 0; i < each_blocks_2.length; i += 1) {
 				each_blocks_2[i].l(div2_nodes);
 			}
 
 			div2_nodes.forEach(detach);
-			t6 = claim_space(section0_nodes);
+			t5 = claim_space(section0_nodes);
 			div3 = claim_element(section0_nodes, "DIV", { id: true, class: true });
 			var div3_nodes = children(div3);
 			img0 = claim_element(div3_nodes, "IMG", { src: true, alt: true, class: true });
 			div3_nodes.forEach(detach);
 			section0_nodes.forEach(detach);
 			div4_nodes.forEach(detach);
-			t7 = claim_space(nodes);
+			t6 = claim_space(nodes);
 			claim_component(waves.$$.fragment, nodes);
-			t8 = claim_space(nodes);
+			t7 = claim_space(nodes);
 			section1 = claim_element(nodes, "SECTION", { id: true, class: true });
 			var section1_nodes = children(section1);
 			div7 = claim_element(section1_nodes, "DIV", { class: true });
@@ -476,22 +500,22 @@ function create_fragment(ctx) {
 			var div5_nodes = children(div5);
 			img1 = claim_element(div5_nodes, "IMG", { src: true, alt: true, class: true });
 			div5_nodes.forEach(detach);
-			t9 = claim_space(div7_nodes);
+			t8 = claim_space(div7_nodes);
 			div6 = claim_element(div7_nodes, "DIV", { class: true });
 			var div6_nodes = children(div6);
 			h30 = claim_element(div6_nodes, "H3", {});
 			var h30_nodes = children(h30);
-			t10 = claim_text(h30_nodes, t10_value);
+			t9 = claim_text(h30_nodes, t9_value);
 			h30_nodes.forEach(detach);
-			t11 = claim_space(div6_nodes);
+			t10 = claim_space(div6_nodes);
 			p1 = claim_element(div6_nodes, "P", { contenteditable: true });
 			var p1_nodes = children(p1);
-			t12 = claim_text(p1_nodes, t12_value);
+			t11 = claim_text(p1_nodes, t11_value);
 			p1_nodes.forEach(detach);
 			div6_nodes.forEach(detach);
 			div7_nodes.forEach(detach);
 			section1_nodes.forEach(detach);
-			t13 = claim_space(nodes);
+			t12 = claim_space(nodes);
 			section2 = claim_element(nodes, "SECTION", { id: true, style: true, class: true });
 			var section2_nodes = children(section2);
 
@@ -500,16 +524,16 @@ function create_fragment(ctx) {
 			}
 
 			section2_nodes.forEach(detach);
-			t14 = claim_space(nodes);
+			t13 = claim_space(nodes);
 			section3 = claim_element(nodes, "SECTION", { id: true, class: true });
 			var section3_nodes = children(section3);
 			div8 = claim_element(section3_nodes, "DIV", { class: true });
 			var div8_nodes = children(div8);
 			h31 = claim_element(div8_nodes, "H3", {});
 			var h31_nodes = children(h31);
-			t15 = claim_text(h31_nodes, "Minimal Setup Required");
+			t14 = claim_text(h31_nodes, "Minimal Setup Required");
 			h31_nodes.forEach(detach);
-			t16 = claim_space(div8_nodes);
+			t15 = claim_space(div8_nodes);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].l(div8_nodes);
@@ -517,7 +541,7 @@ function create_fragment(ctx) {
 
 			div8_nodes.forEach(detach);
 			section3_nodes.forEach(detach);
-			t17 = claim_space(nodes);
+			t16 = claim_space(nodes);
 			section4 = claim_element(nodes, "SECTION", { id: true, class: true });
 			var section4_nodes = children(section4);
 			div10 = claim_element(section4_nodes, "DIV", { class: true });
@@ -526,12 +550,12 @@ function create_fragment(ctx) {
 			var div9_nodes = children(div9);
 			h32 = claim_element(div9_nodes, "H3", {});
 			var h32_nodes = children(h32);
-			t18 = claim_text(h32_nodes, t18_value);
+			t17 = claim_text(h32_nodes, t17_value);
 			h32_nodes.forEach(detach);
-			t19 = claim_space(div9_nodes);
+			t18 = claim_space(div9_nodes);
 			a = claim_element(div9_nodes, "A", { href: true, class: true });
 			var a_nodes = children(a);
-			t20 = claim_text(a_nodes, t20_value);
+			t19 = claim_text(a_nodes, t19_value);
 			a_nodes.forEach(detach);
 			div9_nodes.forEach(detach);
 			div10_nodes.forEach(detach);
@@ -539,39 +563,41 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "text-accent-dark");
+			attr(span0, "class", "text-accent-dark");
+			attr(span1, "id", "cursor");
+			attr(span1, "class", "svelte-1giuk3v");
 			attr(div2, "id", "intro-text");
-			attr(div2, "class", "svelte-1xa3nt3");
+			attr(div2, "class", "svelte-1giuk3v");
 			if (img0.src !== (img0_src_value = "/assets/hero.svg")) attr(img0, "src", img0_src_value);
 			attr(img0, "alt", "planarian looking at screen");
-			attr(img0, "class", "svelte-1xa3nt3");
+			attr(img0, "class", "svelte-1giuk3v");
 			attr(div3, "id", "intro-hero");
-			attr(div3, "class", "svelte-1xa3nt3");
+			attr(div3, "class", "svelte-1giuk3v");
 			attr(section0, "id", "intro");
-			attr(section0, "class", "svelte-1xa3nt3");
+			attr(section0, "class", "svelte-1giuk3v");
 			attr(div4, "class", "container");
 			if (img1.src !== (img1_src_value = "/assets/edit.gif")) attr(img1, "src", img1_src_value);
 			attr(img1, "alt", "Animation of typing on a computer");
-			attr(img1, "class", "svelte-1xa3nt3");
-			attr(div5, "class", "editor-graphic svelte-1xa3nt3");
+			attr(img1, "class", "svelte-1giuk3v");
+			attr(div5, "class", "editor-graphic svelte-1giuk3v");
 			attr(p1, "contenteditable", "true");
-			attr(div6, "class", "editor-content svelte-1xa3nt3");
-			attr(div7, "class", "container svelte-1xa3nt3");
+			attr(div6, "class", "editor-content svelte-1giuk3v");
+			attr(div7, "class", "container svelte-1giuk3v");
 			attr(section1, "id", "editor");
-			attr(section1, "class", "svelte-1xa3nt3");
+			attr(section1, "class", "svelte-1giuk3v");
 			attr(section2, "id", "features");
 			set_style(section2, "background-position-y", /*by*/ ctx[0] / 5 - 300 + "px");
-			attr(section2, "class", "svelte-1xa3nt3");
+			attr(section2, "class", "svelte-1giuk3v");
 			attr(div8, "class", "container");
 			attr(section3, "id", "setup");
-			attr(section3, "class", "svelte-1xa3nt3");
+			attr(section3, "class", "svelte-1giuk3v");
 			attr(a, "href", a_href_value = /*cta*/ ctx[5].link.url);
-			attr(a, "class", "svelte-1xa3nt3");
+			attr(a, "class", "svelte-1giuk3v");
 			attr(div9, "id", "cta");
-			attr(div9, "class", "svelte-1xa3nt3");
+			attr(div9, "class", "svelte-1giuk3v");
 			attr(div10, "class", "container");
 			attr(section4, "id", "cta-wrapper");
-			attr(section4, "class", "svelte-1xa3nt3");
+			attr(section4, "class", "svelte-1giuk3v");
 		},
 		m(target, anchor) {
 			insert(target, div4, anchor);
@@ -582,62 +608,63 @@ function create_fragment(ctx) {
 			append(div0, t0);
 			append(h1, t1);
 			append(h1, div1);
-			append(div1, span);
-			append(span, t2);
-			append(div1, t3);
-			append(div2, t4);
+			append(div1, span0);
+			append(span0, t2);
+			if (if_block) if_block.m(div1, null);
+			append(div1, span1);
+			append(div2, t3);
 			append(div2, p0);
 			p0.innerHTML = raw_value;
-			append(div2, t5);
+			append(div2, t4);
 
 			for (let i = 0; i < each_blocks_2.length; i += 1) {
 				each_blocks_2[i].m(div2, null);
 			}
 
-			append(section0, t6);
+			append(section0, t5);
 			append(section0, div3);
 			append(div3, img0);
-			insert(target, t7, anchor);
+			insert(target, t6, anchor);
 			mount_component(waves, target, anchor);
-			insert(target, t8, anchor);
+			insert(target, t7, anchor);
 			insert(target, section1, anchor);
 			append(section1, div7);
 			append(div7, div5);
 			append(div5, img1);
-			append(div7, t9);
+			append(div7, t8);
 			append(div7, div6);
 			append(div6, h30);
-			append(h30, t10);
-			append(div6, t11);
+			append(h30, t9);
+			append(div6, t10);
 			append(div6, p1);
-			append(p1, t12);
-			insert(target, t13, anchor);
+			append(p1, t11);
+			insert(target, t12, anchor);
 			insert(target, section2, anchor);
 
 			for (let i = 0; i < each_blocks_1.length; i += 1) {
 				each_blocks_1[i].m(section2, null);
 			}
 
-			insert(target, t14, anchor);
+			insert(target, t13, anchor);
 			insert(target, section3, anchor);
 			append(section3, div8);
 			append(div8, h31);
-			append(h31, t15);
-			append(div8, t16);
+			append(h31, t14);
+			append(div8, t15);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].m(div8, null);
 			}
 
-			insert(target, t17, anchor);
+			insert(target, t16, anchor);
 			insert(target, section4, anchor);
 			append(section4, div10);
 			append(div10, div9);
 			append(div9, h32);
-			append(h32, t18);
-			append(div9, t19);
+			append(h32, t17);
+			append(div9, t18);
 			append(div9, a);
-			append(a, t20);
+			append(a, t19);
 			current = true;
 
 			if (!mounted) {
@@ -645,7 +672,7 @@ function create_fragment(ctx) {
 					scrolling = true;
 					clearTimeout(scrolling_timeout);
 					scrolling_timeout = setTimeout_1(clear_scrolling, 100);
-					/*onwindowscroll*/ ctx[7]();
+					/*onwindowscroll*/ ctx[8]();
 				});
 
 				mounted = true;
@@ -660,7 +687,21 @@ function create_fragment(ctx) {
 			}
 
 			if ((!current || dirty & /*intro*/ 2) && t0_value !== (t0_value = /*intro*/ ctx[1].title + "")) set_data(t0, t0_value);
-			if (!current || dirty & /*typedChars*/ 64) set_data(t2, /*typedChars*/ ctx[6]);
+			if (!current || dirty & /*typedChars*/ 128) set_data(t2, /*typedChars*/ ctx[7]);
+
+			if (/*typedChars*/ ctx[7] === /*phrase*/ ctx[6]) {
+				if (if_block) {
+					
+				} else {
+					if_block = create_if_block(ctx);
+					if_block.c();
+					if_block.m(div1, span1);
+				}
+			} else if (if_block) {
+				if_block.d(1);
+				if_block = null;
+			}
+
 			if ((!current || dirty & /*intro*/ 2) && raw_value !== (raw_value = /*intro*/ ctx[1].body + "")) p0.innerHTML = raw_value;;
 
 			if (dirty & /*intro*/ 2) {
@@ -686,8 +727,8 @@ function create_fragment(ctx) {
 				each_blocks_2.length = each_value_2.length;
 			}
 
-			if ((!current || dirty & /*editor*/ 4) && t10_value !== (t10_value = /*editor*/ ctx[2].title + "")) set_data(t10, t10_value);
-			if ((!current || dirty & /*editor*/ 4) && t12_value !== (t12_value = /*editor*/ ctx[2].body + "")) set_data(t12, t12_value);
+			if ((!current || dirty & /*editor*/ 4) && t9_value !== (t9_value = /*editor*/ ctx[2].title + "")) set_data(t9, t9_value);
+			if ((!current || dirty & /*editor*/ 4) && t11_value !== (t11_value = /*editor*/ ctx[2].body + "")) set_data(t11, t11_value);
 
 			if (dirty & /*features*/ 8) {
 				each_value_1 = /*features*/ ctx[3];
@@ -739,8 +780,8 @@ function create_fragment(ctx) {
 				each_blocks.length = each_value.length;
 			}
 
-			if ((!current || dirty & /*cta*/ 32) && t18_value !== (t18_value = /*cta*/ ctx[5].title + "")) set_data(t18, t18_value);
-			if ((!current || dirty & /*cta*/ 32) && t20_value !== (t20_value = /*cta*/ ctx[5].link.text + "")) set_data(t20, t20_value);
+			if ((!current || dirty & /*cta*/ 32) && t17_value !== (t17_value = /*cta*/ ctx[5].title + "")) set_data(t17, t17_value);
+			if ((!current || dirty & /*cta*/ 32) && t19_value !== (t19_value = /*cta*/ ctx[5].link.text + "")) set_data(t19, t19_value);
 
 			if (!current || dirty & /*cta*/ 32 && a_href_value !== (a_href_value = /*cta*/ ctx[5].link.url)) {
 				attr(a, "href", a_href_value);
@@ -757,18 +798,19 @@ function create_fragment(ctx) {
 		},
 		d(detaching) {
 			if (detaching) detach(div4);
+			if (if_block) if_block.d();
 			destroy_each(each_blocks_2, detaching);
-			if (detaching) detach(t7);
+			if (detaching) detach(t6);
 			destroy_component(waves, detaching);
-			if (detaching) detach(t8);
+			if (detaching) detach(t7);
 			if (detaching) detach(section1);
-			if (detaching) detach(t13);
+			if (detaching) detach(t12);
 			if (detaching) detach(section2);
 			destroy_each(each_blocks_1, detaching);
-			if (detaching) detach(t14);
+			if (detaching) detach(t13);
 			if (detaching) detach(section3);
 			destroy_each(each_blocks, detaching);
-			if (detaching) detach(t17);
+			if (detaching) detach(t16);
 			if (detaching) detach(section4);
 			mounted = false;
 			dispose();
@@ -807,22 +849,22 @@ function instance($$self, $$props, $$invalidate) {
 			? phraseIndex += 1
 			: phraseIndex = 0;
 
-			phrase = intro.phrases[phraseIndex];
+			$$invalidate(6, phrase = intro.phrases[phraseIndex]);
 		}
 
 		if (reverse) {
 			if (typedChars === phrase) {
 				setTimeout(
 					() => {
-						$$invalidate(6, typedChars = typedChars.slice(0, -1));
+						$$invalidate(7, typedChars = typedChars.slice(0, -1));
 					},
 					5000
 				);
 			} else {
-				$$invalidate(6, typedChars = typedChars.slice(0, -1));
+				$$invalidate(7, typedChars = typedChars.slice(0, -1));
 			}
 		} else {
-			$$invalidate(6, typedChars += phrase[charIndex]);
+			$$invalidate(7, typedChars += phrase[charIndex]);
 			charIndex += 1;
 		}
 	};
@@ -846,7 +888,7 @@ function instance($$self, $$props, $$invalidate) {
 		if ("by" in $$props) $$invalidate(0, by = $$props.by);
 	};
 
-	return [by, intro, editor, features, setup, cta, typedChars, onwindowscroll];
+	return [by, intro, editor, features, setup, cta, phrase, typedChars, onwindowscroll];
 }
 
 class Component extends SvelteComponent {
