@@ -17,11 +17,11 @@
 
             <div class="install">
                 <div>Start a new project using this theme:</div>
-                <div><code>plenti new site my-site --theme=git@github.com:plenti-themes/{machine_name}</code></div>
+                <div><code>plenti new site my-site --theme=https://github.com/plenti-themes/{machine_name}</code></div>
                 <details>
                     <summary>Or add this theme to an existing project:</summary>
                     <ol>
-                        <li><code>plenti theme add git@github.com:plenti-themes/{machine_name}</code></li>
+                        <li><code>plenti theme add https://github.com/plenti-themes/{machine_name}</code></li>
                         <li><code>plenti theme enable {machine_name}</code></li>
                         <li>Make sure you manually copy any route overrides and delete conflicting content or layouts.</li>
                     </ol>
