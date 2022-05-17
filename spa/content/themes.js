@@ -119,7 +119,7 @@ function create_fragment(ctx) {
 			t16 = space();
 			div4 = element("div");
 			code0 = element("code");
-			t17 = text("plenti new site my-site --theme=git@github.com:plenti-themes/");
+			t17 = text("plenti new site my-site --theme=https://github.com/plenti-themes/");
 			t18 = text(/*machine_name*/ ctx[3]);
 			t19 = space();
 			details = element("details");
@@ -129,7 +129,7 @@ function create_fragment(ctx) {
 			ol = element("ol");
 			li0 = element("li");
 			code1 = element("code");
-			t22 = text("plenti theme add git@github.com:plenti-themes/");
+			t22 = text("plenti theme add https://github.com/plenti-themes/");
 			t23 = text(/*machine_name*/ ctx[3]);
 			t24 = space();
 			li1 = element("li");
@@ -206,7 +206,7 @@ function create_fragment(ctx) {
 			var div4_nodes = children(div4);
 			code0 = claim_element(div4_nodes, "CODE", {});
 			var code0_nodes = children(code0);
-			t17 = claim_text(code0_nodes, "plenti new site my-site --theme=git@github.com:plenti-themes/");
+			t17 = claim_text(code0_nodes, "plenti new site my-site --theme=https://github.com/plenti-themes/");
 			t18 = claim_text(code0_nodes, /*machine_name*/ ctx[3]);
 			code0_nodes.forEach(detach);
 			div4_nodes.forEach(detach);
@@ -224,7 +224,7 @@ function create_fragment(ctx) {
 			var li0_nodes = children(li0);
 			code1 = claim_element(li0_nodes, "CODE", {});
 			var code1_nodes = children(code1);
-			t22 = claim_text(code1_nodes, "plenti theme add git@github.com:plenti-themes/");
+			t22 = claim_text(code1_nodes, "plenti theme add https://github.com/plenti-themes/");
 			t23 = claim_text(code1_nodes, /*machine_name*/ ctx[3]);
 			code1_nodes.forEach(detach);
 			li0_nodes.forEach(detach);

@@ -30,6 +30,8 @@ import {
 } from '../../web_modules/svelte/internal/index.mjs';
 
 import DynamicFormInput from './dynamic_form_input.js';
+import Buttons from './buttons/buttons.js';
+import Save from './buttons/save.js';
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
@@ -40,7 +42,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (7:4) {#each Object.entries(content.fields) as [label, field]}
+// (9:4) {#each Object.entries(content.fields) as [label, field]}
 function create_each_block(ctx) {
 	let div;
 	let label;
@@ -50,7 +52,6 @@ function create_each_block(ctx) {
 	let t1;
 	let dynamicforminput;
 	let updating_field;
-	let t2;
 	let current;
 
 	function dynamicforminput_field_binding(value) {
@@ -73,7 +74,6 @@ function create_each_block(ctx) {
 			t0 = text(t0_value);
 			t1 = space();
 			create_component(dynamicforminput.$$.fragment);
-			t2 = space();
 			this.h();
 		},
 		l(nodes) {
@@ -85,7 +85,6 @@ function create_each_block(ctx) {
 			label_nodes.forEach(detach);
 			t1 = claim_space(div_nodes);
 			claim_component(dynamicforminput.$$.fragment, div_nodes);
-			t2 = claim_space(div_nodes);
 			div_nodes.forEach(detach);
 			this.h();
 		},
@@ -100,7 +99,6 @@ function create_each_block(ctx) {
 			append(label, t0);
 			append(div, t1);
 			mount_component(dynamicforminput, div, null);
-			append(div, t2);
 			current = true;
 		},
 		p(new_ctx, dirty) {
@@ -138,8 +136,82 @@ function create_each_block(ctx) {
 	};
 }
 
+// (15:4) <Buttons>
+function create_default_slot(ctx) {
+	let save;
+	let t0;
+	let button;
+	let t1;
+	let current;
+
+	save = new Save({
+			props: {
+				mediaList: [
+					{
+						file: /*content*/ ctx[0].filepath,
+						contents: JSON.stringify(/*content*/ ctx[0].fields, undefined, "\t")
+					}
+				],
+				action: "update",
+				encoding: "text"
+			}
+		});
+
+	return {
+		c() {
+			create_component(save.$$.fragment);
+			t0 = space();
+			button = element("button");
+			t1 = text("Reset");
+		},
+		l(nodes) {
+			claim_component(save.$$.fragment, nodes);
+			t0 = claim_space(nodes);
+			button = claim_element(nodes, "BUTTON", {});
+			var button_nodes = children(button);
+			t1 = claim_text(button_nodes, "Reset");
+			button_nodes.forEach(detach);
+		},
+		m(target, anchor) {
+			mount_component(save, target, anchor);
+			insert(target, t0, anchor);
+			insert(target, button, anchor);
+			append(button, t1);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const save_changes = {};
+
+			if (dirty & /*content*/ 1) save_changes.mediaList = [
+				{
+					file: /*content*/ ctx[0].filepath,
+					contents: JSON.stringify(/*content*/ ctx[0].fields, undefined, "\t")
+				}
+			];
+
+			save.$set(save_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(save.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(save.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(save, detaching);
+			if (detaching) detach(t0);
+			if (detaching) detach(button);
+		}
+	};
+}
+
 function create_fragment(ctx) {
 	let form;
+	let t;
+	let buttons;
 	let current;
 	let each_value = Object.entries(/*content*/ ctx[0].fields);
 	let each_blocks = [];
@@ -152,6 +224,13 @@ function create_fragment(ctx) {
 		each_blocks[i] = null;
 	});
 
+	buttons = new Buttons({
+			props: {
+				$$slots: { default: [create_default_slot] },
+				$$scope: { ctx }
+			}
+		});
+
 	return {
 		c() {
 			form = element("form");
@@ -160,6 +239,8 @@ function create_fragment(ctx) {
 				each_blocks[i].c();
 			}
 
+			t = space();
+			create_component(buttons.$$.fragment);
 			this.h();
 		},
 		l(nodes) {
@@ -170,6 +251,8 @@ function create_fragment(ctx) {
 				each_blocks[i].l(form_nodes);
 			}
 
+			t = claim_space(form_nodes);
+			claim_component(buttons.$$.fragment, form_nodes);
 			form_nodes.forEach(detach);
 			this.h();
 		},
@@ -183,6 +266,8 @@ function create_fragment(ctx) {
 				each_blocks[i].m(form, null);
 			}
 
+			append(form, t);
+			mount_component(buttons, form, null);
 			current = true;
 		},
 		p(ctx, [dirty]) {
@@ -200,7 +285,7 @@ function create_fragment(ctx) {
 						each_blocks[i] = create_each_block(child_ctx);
 						each_blocks[i].c();
 						transition_in(each_blocks[i], 1);
-						each_blocks[i].m(form, null);
+						each_blocks[i].m(form, t);
 					}
 				}
 
@@ -212,6 +297,14 @@ function create_fragment(ctx) {
 
 				check_outros();
 			}
+
+			const buttons_changes = {};
+
+			if (dirty & /*$$scope, content*/ 65) {
+				buttons_changes.$$scope = { dirty, ctx };
+			}
+
+			buttons.$set(buttons_changes);
 		},
 		i(local) {
 			if (current) return;
@@ -220,6 +313,7 @@ function create_fragment(ctx) {
 				transition_in(each_blocks[i]);
 			}
 
+			transition_in(buttons.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
@@ -229,11 +323,13 @@ function create_fragment(ctx) {
 				transition_out(each_blocks[i]);
 			}
 
+			transition_out(buttons.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
 			if (detaching) detach(form);
 			destroy_each(each_blocks, detaching);
+			destroy_component(buttons);
 		}
 	};
 }

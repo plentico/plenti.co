@@ -36,9 +36,11 @@ import {
 } from '../../web_modules/svelte/internal/index.mjs';
 
 import JSONEditor from './json_editor.js';
+import MediaBrowser from './media_browser.js';
+import FileUpload from './file_upload.js';
 import VisualEditor from './visual_editor.js';
 
-function create_else_block_1(ctx) {
+function create_else_block_2(ctx) {
 	let svg;
 	let path0;
 	let path1;
@@ -94,7 +96,7 @@ function create_else_block_1(ctx) {
 			attr(line, "x2", "17.5");
 			attr(line, "y2", "10.5");
 			attr(svg, "xmlns", "http://www.w3.org/2000/svg");
-			attr(svg, "class", "icon icon-tabler icon-tabler-pencil svelte-dxauv5");
+			attr(svg, "class", "icon icon-tabler icon-tabler-pencil svelte-i6ck5l");
 			attr(svg, "width", "30");
 			attr(svg, "height", "30");
 			attr(svg, "viewBox", "0 0 24 24");
@@ -118,8 +120,8 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (27:4) {#if showEditor}
-function create_if_block_2(ctx) {
+// (38:4) {#if showEditor}
+function create_if_block_4(ctx) {
 	let svg;
 	let path0;
 	let circle;
@@ -174,7 +176,7 @@ function create_if_block_2(ctx) {
 			attr(circle, "r", "2");
 			attr(path1, "d", "M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7");
 			attr(svg, "xmlns", "http://www.w3.org/2000/svg");
-			attr(svg, "class", "icon icon-tabler icon-tabler-eye svelte-dxauv5");
+			attr(svg, "class", "icon icon-tabler icon-tabler-eye svelte-i6ck5l");
 			attr(svg, "width", "30");
 			attr(svg, "height", "30");
 			attr(svg, "viewBox", "0 0 24 24");
@@ -198,8 +200,8 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (73:0) {#if showEditor}
-function create_if_block(ctx) {
+// (84:0) {#if showEditor}
+function create_if_block_2(ctx) {
 	let div3;
 	let div2;
 	let div0;
@@ -228,11 +230,11 @@ function create_if_block(ctx) {
 	let current;
 	let mounted;
 	let dispose;
-	const if_block_creators = [create_if_block_1, create_else_block];
+	const if_block_creators = [create_if_block_3, create_else_block_1];
 	const if_blocks = [];
 
 	function select_block_type_1(ctx, dirty) {
-		if (/*active*/ ctx[3] === "code") return 0;
+		if (/*activeEditor*/ ctx[5] === "code") return 0;
 		return 1;
 	}
 
@@ -380,7 +382,7 @@ function create_if_block(ctx) {
 			attr(line1, "x2", "10");
 			attr(line1, "y2", "20");
 			attr(svg0, "xmlns", "http://www.w3.org/2000/svg");
-			attr(svg0, "class", "icon icon-tabler icon-tabler-table svelte-dxauv5");
+			attr(svg0, "class", "icon icon-tabler icon-tabler-table svelte-i6ck5l");
 			attr(svg0, "width", "30");
 			attr(svg0, "height", "30");
 			attr(svg0, "viewBox", "0 0 24 24");
@@ -389,14 +391,14 @@ function create_if_block(ctx) {
 			attr(svg0, "fill", "none");
 			attr(svg0, "stroke-linecap", "round");
 			attr(svg0, "stroke-linejoin", "round");
-			attr(div0, "class", div0_class_value = "selector " + (/*active*/ ctx[3] === "visual" ? "active" : "") + " svelte-dxauv5");
+			attr(div0, "class", div0_class_value = "selector " + (/*activeEditor*/ ctx[5] === "visual" ? "active" : "") + " svelte-i6ck5l");
 			attr(path1, "stroke", "none");
 			attr(path1, "d", "M0 0h24v24H0z");
 			attr(path1, "fill", "none");
 			attr(path2, "d", "M7 4a2 2 0 0 0 -2 2v3a2 3 0 0 1 -2 3a2 3 0 0 1 2 3v3a2 2 0 0 0 2 2");
 			attr(path3, "d", "M17 4a2 2 0 0 1 2 2v3a2 3 0 0 0 2 3a2 3 0 0 0 -2 3v3a2 2 0 0 1 -2 2");
 			attr(svg1, "xmlns", "http://www.w3.org/2000/svg");
-			attr(svg1, "class", "icon icon-tabler icon-tabler-braces svelte-dxauv5");
+			attr(svg1, "class", "icon icon-tabler icon-tabler-braces svelte-i6ck5l");
 			attr(svg1, "width", "30");
 			attr(svg1, "height", "30");
 			attr(svg1, "viewBox", "0 0 24 24");
@@ -405,9 +407,9 @@ function create_if_block(ctx) {
 			attr(svg1, "fill", "none");
 			attr(svg1, "stroke-linecap", "round");
 			attr(svg1, "stroke-linejoin", "round");
-			attr(div1, "class", div1_class_value = "selector " + (/*active*/ ctx[3] === "code" ? "active" : "") + " svelte-dxauv5");
-			attr(div2, "class", "selectors svelte-dxauv5");
-			attr(div3, "class", "sidenav svelte-dxauv5");
+			attr(div1, "class", div1_class_value = "selector " + (/*activeEditor*/ ctx[5] === "code" ? "active" : "") + " svelte-i6ck5l");
+			attr(div2, "class", "selectors svelte-i6ck5l");
+			attr(div3, "class", "sidenav svelte-i6ck5l");
 		},
 		m(target, anchor) {
 			insert(target, div3, anchor);
@@ -436,19 +438,19 @@ function create_if_block(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(div0, "click", /*click_handler*/ ctx[7]),
-					listen(div1, "click", /*click_handler_1*/ ctx[8])
+					listen(div0, "click", /*click_handler*/ ctx[11]),
+					listen(div1, "click", /*click_handler_1*/ ctx[12])
 				];
 
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if (!current || dirty & /*active*/ 8 && div0_class_value !== (div0_class_value = "selector " + (/*active*/ ctx[3] === "visual" ? "active" : "") + " svelte-dxauv5")) {
+			if (!current || dirty & /*activeEditor*/ 32 && div0_class_value !== (div0_class_value = "selector " + (/*activeEditor*/ ctx[5] === "visual" ? "active" : "") + " svelte-i6ck5l")) {
 				attr(div0, "class", div0_class_value);
 			}
 
-			if (!current || dirty & /*active*/ 8 && div1_class_value !== (div1_class_value = "selector " + (/*active*/ ctx[3] === "code" ? "active" : "") + " svelte-dxauv5")) {
+			if (!current || dirty & /*activeEditor*/ 32 && div1_class_value !== (div1_class_value = "selector " + (/*activeEditor*/ ctx[5] === "code" ? "active" : "") + " svelte-i6ck5l")) {
 				attr(div1, "class", div1_class_value);
 			}
 
@@ -496,14 +498,14 @@ function create_if_block(ctx) {
 	};
 }
 
-// (96:4) {:else}
-function create_else_block(ctx) {
+// (107:4) {:else}
+function create_else_block_1(ctx) {
 	let visualeditor;
 	let updating_content;
 	let current;
 
 	function visualeditor_content_binding(value) {
-		/*visualeditor_content_binding*/ ctx[10](value);
+		/*visualeditor_content_binding*/ ctx[14](value);
 	}
 
 	let visualeditor_props = {};
@@ -552,14 +554,14 @@ function create_else_block(ctx) {
 	};
 }
 
-// (94:4) {#if active === 'code'}
-function create_if_block_1(ctx) {
+// (105:4) {#if activeEditor === 'code'}
+function create_if_block_3(ctx) {
 	let jsoneditor;
 	let updating_content;
 	let current;
 
 	function jsoneditor_content_binding(value) {
-		/*jsoneditor_content_binding*/ ctx[9](value);
+		/*jsoneditor_content_binding*/ ctx[13](value);
 	}
 
 	let jsoneditor_props = {};
@@ -608,6 +610,426 @@ function create_if_block_1(ctx) {
 	};
 }
 
+// (113:0) {#if showMedia}
+function create_if_block(ctx) {
+	let div3;
+	let div2;
+	let div0;
+	let svg0;
+	let path0;
+	let path1;
+	let polyline;
+	let line;
+	let t0;
+	let span0;
+	let t1;
+	let div0_class_value;
+	let t2;
+	let div1;
+	let svg1;
+	let path2;
+	let rect0;
+	let rect1;
+	let rect2;
+	let rect3;
+	let t3;
+	let span1;
+	let t4;
+	let div1_class_value;
+	let t5;
+	let current_block_type_index;
+	let if_block;
+	let current;
+	let mounted;
+	let dispose;
+	const if_block_creators = [create_if_block_1, create_else_block];
+	const if_blocks = [];
+
+	function select_block_type_2(ctx, dirty) {
+		if (/*activeMedia*/ ctx[3] === "library") return 0;
+		return 1;
+	}
+
+	current_block_type_index = select_block_type_2(ctx, -1);
+	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+	return {
+		c() {
+			div3 = element("div");
+			div2 = element("div");
+			div0 = element("div");
+			svg0 = svg_element("svg");
+			path0 = svg_element("path");
+			path1 = svg_element("path");
+			polyline = svg_element("polyline");
+			line = svg_element("line");
+			t0 = space();
+			span0 = element("span");
+			t1 = text("Upload");
+			t2 = space();
+			div1 = element("div");
+			svg1 = svg_element("svg");
+			path2 = svg_element("path");
+			rect0 = svg_element("rect");
+			rect1 = svg_element("rect");
+			rect2 = svg_element("rect");
+			rect3 = svg_element("rect");
+			t3 = space();
+			span1 = element("span");
+			t4 = text("Library");
+			t5 = space();
+			if_block.c();
+			this.h();
+		},
+		l(nodes) {
+			div3 = claim_element(nodes, "DIV", { class: true });
+			var div3_nodes = children(div3);
+			div2 = claim_element(div3_nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			div0 = claim_element(div2_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+
+			svg0 = claim_element(
+				div0_nodes,
+				"svg",
+				{
+					xmlns: true,
+					class: true,
+					width: true,
+					height: true,
+					viewBox: true,
+					"stroke-width": true,
+					stroke: true,
+					fill: true,
+					"stroke-linecap": true,
+					"stroke-linejoin": true
+				},
+				1
+			);
+
+			var svg0_nodes = children(svg0);
+			path0 = claim_element(svg0_nodes, "path", { stroke: true, d: true, fill: true }, 1);
+			children(path0).forEach(detach);
+			path1 = claim_element(svg0_nodes, "path", { d: true }, 1);
+			children(path1).forEach(detach);
+			polyline = claim_element(svg0_nodes, "polyline", { points: true }, 1);
+			children(polyline).forEach(detach);
+			line = claim_element(svg0_nodes, "line", { x1: true, y1: true, x2: true, y2: true }, 1);
+			children(line).forEach(detach);
+			svg0_nodes.forEach(detach);
+			t0 = claim_space(div0_nodes);
+			span0 = claim_element(div0_nodes, "SPAN", {});
+			var span0_nodes = children(span0);
+			t1 = claim_text(span0_nodes, "Upload");
+			span0_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			t2 = claim_space(div2_nodes);
+			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+
+			svg1 = claim_element(
+				div1_nodes,
+				"svg",
+				{
+					xmlns: true,
+					class: true,
+					width: true,
+					height: true,
+					viewBox: true,
+					"stroke-width": true,
+					stroke: true,
+					fill: true,
+					"stroke-linecap": true,
+					"stroke-linejoin": true
+				},
+				1
+			);
+
+			var svg1_nodes = children(svg1);
+			path2 = claim_element(svg1_nodes, "path", { stroke: true, d: true, fill: true }, 1);
+			children(path2).forEach(detach);
+
+			rect0 = claim_element(
+				svg1_nodes,
+				"rect",
+				{
+					x: true,
+					y: true,
+					width: true,
+					height: true,
+					rx: true
+				},
+				1
+			);
+
+			children(rect0).forEach(detach);
+
+			rect1 = claim_element(
+				svg1_nodes,
+				"rect",
+				{
+					x: true,
+					y: true,
+					width: true,
+					height: true,
+					rx: true
+				},
+				1
+			);
+
+			children(rect1).forEach(detach);
+
+			rect2 = claim_element(
+				svg1_nodes,
+				"rect",
+				{
+					x: true,
+					y: true,
+					width: true,
+					height: true,
+					rx: true
+				},
+				1
+			);
+
+			children(rect2).forEach(detach);
+
+			rect3 = claim_element(
+				svg1_nodes,
+				"rect",
+				{
+					x: true,
+					y: true,
+					width: true,
+					height: true,
+					rx: true
+				},
+				1
+			);
+
+			children(rect3).forEach(detach);
+			svg1_nodes.forEach(detach);
+			t3 = claim_space(div1_nodes);
+			span1 = claim_element(div1_nodes, "SPAN", {});
+			var span1_nodes = children(span1);
+			t4 = claim_text(span1_nodes, "Library");
+			span1_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
+			t5 = claim_space(div3_nodes);
+			if_block.l(div3_nodes);
+			div3_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(path0, "stroke", "none");
+			attr(path0, "d", "M0 0h24v24H0z");
+			attr(path0, "fill", "none");
+			attr(path1, "d", "M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2");
+			attr(polyline, "points", "7 9 12 4 17 9");
+			attr(line, "x1", "12");
+			attr(line, "y1", "4");
+			attr(line, "x2", "12");
+			attr(line, "y2", "16");
+			attr(svg0, "xmlns", "http://www.w3.org/2000/svg");
+			attr(svg0, "class", "icon icon-tabler icon-tabler-upload svelte-i6ck5l");
+			attr(svg0, "width", "30");
+			attr(svg0, "height", "30");
+			attr(svg0, "viewBox", "0 0 24 24");
+			attr(svg0, "stroke-width", "1.5");
+			attr(svg0, "stroke", "#2c3e50");
+			attr(svg0, "fill", "none");
+			attr(svg0, "stroke-linecap", "round");
+			attr(svg0, "stroke-linejoin", "round");
+			attr(div0, "class", div0_class_value = "selector " + (/*activeMedia*/ ctx[3] === "upload" ? "active" : "") + " svelte-i6ck5l");
+			attr(path2, "stroke", "none");
+			attr(path2, "d", "M0 0h24v24H0z");
+			attr(path2, "fill", "none");
+			attr(rect0, "x", "4");
+			attr(rect0, "y", "4");
+			attr(rect0, "width", "6");
+			attr(rect0, "height", "6");
+			attr(rect0, "rx", "1");
+			attr(rect1, "x", "14");
+			attr(rect1, "y", "4");
+			attr(rect1, "width", "6");
+			attr(rect1, "height", "6");
+			attr(rect1, "rx", "1");
+			attr(rect2, "x", "4");
+			attr(rect2, "y", "14");
+			attr(rect2, "width", "6");
+			attr(rect2, "height", "6");
+			attr(rect2, "rx", "1");
+			attr(rect3, "x", "14");
+			attr(rect3, "y", "14");
+			attr(rect3, "width", "6");
+			attr(rect3, "height", "6");
+			attr(rect3, "rx", "1");
+			attr(svg1, "xmlns", "http://www.w3.org/2000/svg");
+			attr(svg1, "class", "icon icon-tabler icon-tabler-layout-grid svelte-i6ck5l");
+			attr(svg1, "width", "30");
+			attr(svg1, "height", "30");
+			attr(svg1, "viewBox", "0 0 24 24");
+			attr(svg1, "stroke-width", "1.5");
+			attr(svg1, "stroke", "#2c3e50");
+			attr(svg1, "fill", "none");
+			attr(svg1, "stroke-linecap", "round");
+			attr(svg1, "stroke-linejoin", "round");
+			attr(div1, "class", div1_class_value = "selector " + (/*activeMedia*/ ctx[3] === "library" ? "active" : "") + " svelte-i6ck5l");
+			attr(div2, "class", "selectors svelte-i6ck5l");
+			attr(div3, "class", "sidenav right svelte-i6ck5l");
+		},
+		m(target, anchor) {
+			insert(target, div3, anchor);
+			append(div3, div2);
+			append(div2, div0);
+			append(div0, svg0);
+			append(svg0, path0);
+			append(svg0, path1);
+			append(svg0, polyline);
+			append(svg0, line);
+			append(div0, t0);
+			append(div0, span0);
+			append(span0, t1);
+			append(div2, t2);
+			append(div2, div1);
+			append(div1, svg1);
+			append(svg1, path2);
+			append(svg1, rect0);
+			append(svg1, rect1);
+			append(svg1, rect2);
+			append(svg1, rect3);
+			append(div1, t3);
+			append(div1, span1);
+			append(span1, t4);
+			append(div3, t5);
+			if_blocks[current_block_type_index].m(div3, null);
+			current = true;
+
+			if (!mounted) {
+				dispose = [
+					listen(div0, "click", /*click_handler_2*/ ctx[15]),
+					listen(div1, "click", /*click_handler_3*/ ctx[16])
+				];
+
+				mounted = true;
+			}
+		},
+		p(ctx, dirty) {
+			if (!current || dirty & /*activeMedia*/ 8 && div0_class_value !== (div0_class_value = "selector " + (/*activeMedia*/ ctx[3] === "upload" ? "active" : "") + " svelte-i6ck5l")) {
+				attr(div0, "class", div0_class_value);
+			}
+
+			if (!current || dirty & /*activeMedia*/ 8 && div1_class_value !== (div1_class_value = "selector " + (/*activeMedia*/ ctx[3] === "library" ? "active" : "") + " svelte-i6ck5l")) {
+				attr(div1, "class", div1_class_value);
+			}
+
+			let previous_block_index = current_block_type_index;
+			current_block_type_index = select_block_type_2(ctx, dirty);
+
+			if (current_block_type_index !== previous_block_index) {
+				group_outros();
+
+				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+					if_blocks[previous_block_index] = null;
+				});
+
+				check_outros();
+				if_block = if_blocks[current_block_type_index];
+
+				if (!if_block) {
+					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+					if_block.c();
+				} else {
+					
+				}
+
+				transition_in(if_block, 1);
+				if_block.m(div3, null);
+			}
+		},
+		i(local) {
+			if (current) return;
+			transition_in(if_block);
+			current = true;
+		},
+		o(local) {
+			transition_out(if_block);
+			current = false;
+		},
+		d(detaching) {
+			if (detaching) detach(div3);
+			if_blocks[current_block_type_index].d();
+			mounted = false;
+			run_all(dispose);
+		}
+	};
+}
+
+// (138:4) {:else}
+function create_else_block(ctx) {
+	let fileupload;
+	let current;
+	fileupload = new FileUpload({});
+
+	return {
+		c() {
+			create_component(fileupload.$$.fragment);
+		},
+		l(nodes) {
+			claim_component(fileupload.$$.fragment, nodes);
+		},
+		m(target, anchor) {
+			mount_component(fileupload, target, anchor);
+			current = true;
+		},
+		i(local) {
+			if (current) return;
+			transition_in(fileupload.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(fileupload.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(fileupload, detaching);
+		}
+	};
+}
+
+// (136:4) {#if activeMedia === 'library'}
+function create_if_block_1(ctx) {
+	let mediabrowser;
+	let current;
+	mediabrowser = new MediaBrowser({});
+
+	return {
+		c() {
+			create_component(mediabrowser.$$.fragment);
+		},
+		l(nodes) {
+			claim_component(mediabrowser.$$.fragment, nodes);
+		},
+		m(target, anchor) {
+			mount_component(mediabrowser, target, anchor);
+			current = true;
+		},
+		i(local) {
+			if (current) return;
+			transition_in(mediabrowser.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(mediabrowser.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(mediabrowser, detaching);
+		}
+	};
+}
+
 function create_fragment(ctx) {
 	let div;
 	let t0;
@@ -647,19 +1069,21 @@ function create_fragment(ctx) {
 	let path8;
 	let t9;
 	let t10;
-	let if_block1_anchor;
+	let t11;
+	let if_block2_anchor;
 	let current;
 	let mounted;
 	let dispose;
 
 	function select_block_type(ctx, dirty) {
-		if (/*showEditor*/ ctx[2]) return create_if_block_2;
-		return create_else_block_1;
+		if (/*showEditor*/ ctx[4]) return create_if_block_4;
+		return create_else_block_2;
 	}
 
 	let current_block_type = select_block_type(ctx, -1);
 	let if_block0 = current_block_type(ctx);
-	let if_block1 = /*showEditor*/ ctx[2] && create_if_block(ctx);
+	let if_block1 = /*showEditor*/ ctx[4] && create_if_block_2(ctx);
+	let if_block2 = /*showMedia*/ ctx[2] && create_if_block(ctx);
 
 	return {
 		c() {
@@ -703,7 +1127,9 @@ function create_fragment(ctx) {
 			t9 = text("\n    Logout");
 			t10 = space();
 			if (if_block1) if_block1.c();
-			if_block1_anchor = empty();
+			t11 = space();
+			if (if_block2) if_block2.c();
+			if_block2_anchor = empty();
 			this.h();
 		},
 		l(nodes) {
@@ -869,18 +1295,20 @@ function create_fragment(ctx) {
 			nav_nodes.forEach(detach);
 			t10 = claim_space(nodes);
 			if (if_block1) if_block1.l(nodes);
-			if_block1_anchor = empty();
+			t11 = claim_space(nodes);
+			if (if_block2) if_block2.l(nodes);
+			if_block2_anchor = empty();
 			this.h();
 		},
 		h() {
-			attr(div, "class", "spacer svelte-dxauv5");
+			attr(div, "class", "spacer svelte-i6ck5l");
 			attr(path0, "stroke", "none");
 			attr(path0, "d", "M0 0h24v24H0z");
 			attr(path0, "fill", "none");
 			attr(polyline, "points", "5 12 3 12 12 3 21 12 19 12");
 			attr(path1, "d", "M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7");
 			attr(svg0, "xmlns", "http://www.w3.org/2000/svg");
-			attr(svg0, "class", "icon icon-tabler icon-tabler-home-2 svelte-dxauv5");
+			attr(svg0, "class", "icon icon-tabler icon-tabler-home-2 svelte-i6ck5l");
 			attr(svg0, "width", "30");
 			attr(svg0, "height", "30");
 			attr(svg0, "viewBox", "0 0 24 24");
@@ -891,10 +1319,10 @@ function create_fragment(ctx) {
 			attr(svg0, "stroke-linejoin", "round");
 			attr(a0, "href", ".");
 			attr(a0, "id", "home");
-			attr(a0, "class", "svelte-dxauv5");
+			attr(a0, "class", "svelte-i6ck5l");
 			attr(a1, "href", ".");
-			attr(a1, "class", "svelte-dxauv5");
-			attr(span, "class", "gap svelte-dxauv5");
+			attr(a1, "class", "svelte-i6ck5l");
+			attr(span, "class", "gap svelte-i6ck5l");
 			attr(path2, "stroke", "none");
 			attr(path2, "d", "M0 0h24v24H0z");
 			attr(path2, "fill", "none");
@@ -910,7 +1338,7 @@ function create_fragment(ctx) {
 			attr(line1, "x2", "12");
 			attr(line1, "y2", "15");
 			attr(svg1, "xmlns", "http://www.w3.org/2000/svg");
-			attr(svg1, "class", "icon icon-tabler icon-tabler-circle-plus svelte-dxauv5");
+			attr(svg1, "class", "icon icon-tabler icon-tabler-circle-plus svelte-i6ck5l");
 			attr(svg1, "width", "30");
 			attr(svg1, "height", "30");
 			attr(svg1, "viewBox", "0 0 24 24");
@@ -920,7 +1348,7 @@ function create_fragment(ctx) {
 			attr(svg1, "stroke-linecap", "round");
 			attr(svg1, "stroke-linejoin", "round");
 			attr(a2, "href", ".");
-			attr(a2, "class", "svelte-dxauv5");
+			attr(a2, "class", "svelte-i6ck5l");
 			attr(path3, "stroke", "none");
 			attr(path3, "d", "M0 0h24v24H0z");
 			attr(path3, "fill", "none");
@@ -936,7 +1364,7 @@ function create_fragment(ctx) {
 			attr(path4, "d", "M4 15l4 -4a3 5 0 0 1 3 0l5 5");
 			attr(path5, "d", "M14 14l1 -1a3 5 0 0 1 3 0l2 2");
 			attr(svg2, "xmlns", "http://www.w3.org/2000/svg");
-			attr(svg2, "class", "icon icon-tabler icon-tabler-photo svelte-dxauv5");
+			attr(svg2, "class", "icon icon-tabler icon-tabler-photo svelte-i6ck5l");
 			attr(svg2, "width", "30");
 			attr(svg2, "height", "30");
 			attr(svg2, "viewBox", "0 0 24 24");
@@ -946,14 +1374,14 @@ function create_fragment(ctx) {
 			attr(svg2, "stroke-linecap", "round");
 			attr(svg2, "stroke-linejoin", "round");
 			attr(a3, "href", ".");
-			attr(a3, "class", "svelte-dxauv5");
+			attr(a3, "class", "svelte-i6ck5l");
 			attr(path6, "stroke", "none");
 			attr(path6, "d", "M0 0h24v24H0z");
 			attr(path6, "fill", "none");
 			attr(path7, "d", "M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2");
 			attr(path8, "d", "M7 12h14l-3 -3m0 6l3 -3");
 			attr(svg3, "xmlns", "http://www.w3.org/2000/svg");
-			attr(svg3, "class", "icon icon-tabler icon-tabler-logout svelte-dxauv5");
+			attr(svg3, "class", "icon icon-tabler icon-tabler-logout svelte-i6ck5l");
 			attr(svg3, "width", "30");
 			attr(svg3, "height", "30");
 			attr(svg3, "viewBox", "0 0 24 24");
@@ -963,8 +1391,8 @@ function create_fragment(ctx) {
 			attr(svg3, "stroke-linecap", "round");
 			attr(svg3, "stroke-linejoin", "round");
 			attr(a4, "href", ".");
-			attr(a4, "class", "svelte-dxauv5");
-			attr(nav, "class", "svelte-dxauv5");
+			attr(a4, "class", "svelte-i6ck5l");
+			attr(nav, "class", "svelte-i6ck5l");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -1007,14 +1435,17 @@ function create_fragment(ctx) {
 			append(a4, t9);
 			insert(target, t10, anchor);
 			if (if_block1) if_block1.m(target, anchor);
-			insert(target, if_block1_anchor, anchor);
+			insert(target, t11, anchor);
+			if (if_block2) if_block2.m(target, anchor);
+			insert(target, if_block2_anchor, anchor);
 			current = true;
 
 			if (!mounted) {
 				dispose = [
-					listen(a1, "click", prevent_default(/*toggleEditor*/ ctx[5])),
+					listen(a1, "click", prevent_default(/*toggleEditor*/ ctx[9])),
+					listen(a3, "click", prevent_default(/*toggleMedia*/ ctx[7])),
 					listen(a4, "click", prevent_default(function () {
-						if (is_function(/*$user*/ ctx[4].logout)) /*$user*/ ctx[4].logout.apply(this, arguments);
+						if (is_function(/*$user*/ ctx[6].logout)) /*$user*/ ctx[6].logout.apply(this, arguments);
 					}))
 				];
 
@@ -1034,18 +1465,18 @@ function create_fragment(ctx) {
 				}
 			}
 
-			if (/*showEditor*/ ctx[2]) {
+			if (/*showEditor*/ ctx[4]) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 
-					if (dirty & /*showEditor*/ 4) {
+					if (dirty & /*showEditor*/ 16) {
 						transition_in(if_block1, 1);
 					}
 				} else {
-					if_block1 = create_if_block(ctx);
+					if_block1 = create_if_block_2(ctx);
 					if_block1.c();
 					transition_in(if_block1, 1);
-					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
+					if_block1.m(t11.parentNode, t11);
 				}
 			} else if (if_block1) {
 				group_outros();
@@ -1056,14 +1487,39 @@ function create_fragment(ctx) {
 
 				check_outros();
 			}
+
+			if (/*showMedia*/ ctx[2]) {
+				if (if_block2) {
+					if_block2.p(ctx, dirty);
+
+					if (dirty & /*showMedia*/ 4) {
+						transition_in(if_block2, 1);
+					}
+				} else {
+					if_block2 = create_if_block(ctx);
+					if_block2.c();
+					transition_in(if_block2, 1);
+					if_block2.m(if_block2_anchor.parentNode, if_block2_anchor);
+				}
+			} else if (if_block2) {
+				group_outros();
+
+				transition_out(if_block2, 1, 1, () => {
+					if_block2 = null;
+				});
+
+				check_outros();
+			}
 		},
 		i(local) {
 			if (current) return;
 			transition_in(if_block1);
+			transition_in(if_block2);
 			current = true;
 		},
 		o(local) {
 			transition_out(if_block1);
+			transition_out(if_block2);
 			current = false;
 		},
 		d(detaching) {
@@ -1073,7 +1529,9 @@ function create_fragment(ctx) {
 			if_block0.d();
 			if (detaching) detach(t10);
 			if (if_block1) if_block1.d(detaching);
-			if (detaching) detach(if_block1_anchor);
+			if (detaching) detach(t11);
+			if (if_block2) if_block2.d(detaching);
+			if (detaching) detach(if_block2_anchor);
 			mounted = false;
 			run_all(dispose);
 		}
@@ -1083,25 +1541,37 @@ function create_fragment(ctx) {
 function instance($$self, $$props, $$invalidate) {
 	let $user,
 		$$unsubscribe_user = noop,
-		$$subscribe_user = () => ($$unsubscribe_user(), $$unsubscribe_user = subscribe(user, $$value => $$invalidate(4, $user = $$value)), user);
+		$$subscribe_user = () => ($$unsubscribe_user(), $$unsubscribe_user = subscribe(user, $$value => $$invalidate(6, $user = $$value)), user);
 
 	$$self.$$.on_destroy.push(() => $$unsubscribe_user());
 	let { user } = $$props, { content } = $$props;
 	$$subscribe_user();
+	let showMedia = false;
+
+	const toggleMedia = () => {
+		$$invalidate(2, showMedia = !showMedia);
+	};
+
+	let activeMedia = "upload";
+
+	const setActiveMedia = selected => {
+		$$invalidate(3, activeMedia = selected);
+	};
+
 	let showEditor = false;
 
 	const toggleEditor = () => {
-		$$invalidate(2, showEditor = showEditor ? false : true);
+		$$invalidate(4, showEditor = !showEditor);
 	};
 
-	let active = "visual";
+	let activeEditor = "visual";
 
-	const setActive = selected => {
-		$$invalidate(3, active = selected);
+	const setActiveEditor = selected => {
+		$$invalidate(5, activeEditor = selected);
 	};
 
-	const click_handler = () => setActive("visual");
-	const click_handler_1 = () => setActive("code");
+	const click_handler = () => setActiveEditor("visual");
+	const click_handler_1 = () => setActiveEditor("code");
 
 	function jsoneditor_content_binding(value) {
 		content = value;
@@ -1113,6 +1583,9 @@ function instance($$self, $$props, $$invalidate) {
 		$$invalidate(0, content);
 	}
 
+	const click_handler_2 = () => setActiveMedia("upload");
+	const click_handler_3 = () => setActiveMedia("library");
+
 	$$self.$$set = $$props => {
 		if ("user" in $$props) $$subscribe_user($$invalidate(1, user = $$props.user));
 		if ("content" in $$props) $$invalidate(0, content = $$props.content);
@@ -1121,15 +1594,21 @@ function instance($$self, $$props, $$invalidate) {
 	return [
 		content,
 		user,
+		showMedia,
+		activeMedia,
 		showEditor,
-		active,
+		activeEditor,
 		$user,
+		toggleMedia,
+		setActiveMedia,
 		toggleEditor,
-		setActive,
+		setActiveEditor,
 		click_handler,
 		click_handler_1,
 		jsoneditor_content_binding,
-		visualeditor_content_binding
+		visualeditor_content_binding,
+		click_handler_2,
+		click_handler_3
 	];
 }
 

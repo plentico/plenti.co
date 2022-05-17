@@ -1,7 +1,8 @@
 const allContent = [{
 "pager": 1,
-"path": "docs/allcomponents",
 "type": "docs",
+"path": "docs/allcomponents",
+"filepath": "content/docs/allComponents.json",
 "filename": "allComponents.json",
 "fields": {
     "title": "allComponents",
@@ -54,8 +55,9 @@ const allContent = [{
 
 },{
 "pager": 1,
-"path": "docs/allcontent",
 "type": "docs",
+"path": "docs/allcontent",
+"filepath": "content/docs/allContent.json",
 "filename": "allContent.json",
 "fields": {
     "title": "allContent",
@@ -90,8 +92,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/alllayouts",
 "type": "docs",
+"path": "docs/alllayouts",
+"filepath": "content/docs/allLayouts.json",
 "filename": "allLayouts.json",
 "fields": {
     "title": "allLayouts",
@@ -162,8 +165,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/assets",
 "type": "docs",
+"path": "docs/assets",
+"filepath": "content/docs/assets.json",
 "filename": "assets.json",
 "fields": {
     "title": "Assets",
@@ -193,8 +197,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/baseurl",
 "type": "docs",
+"path": "docs/baseurl",
+"filepath": "content/docs/baseurl.json",
 "filename": "baseurl.json",
 "fields": {
     "title": "Baseurl",
@@ -246,8 +251,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/build",
 "type": "docs",
+"path": "docs/build",
+"filepath": "content/docs/build.json",
 "filename": "build.json",
 "fields": {
     "title": "Build",
@@ -309,8 +315,9 @@ const allContent = [{
 
 },{
 "pager": 1,
-"path": "docs/eject",
 "type": "docs",
+"path": "docs/eject",
+"filepath": "content/docs/eject.json",
 "filename": "eject.json",
 "fields": {
     "title": "Eject",
@@ -351,8 +358,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/github-actions",
 "type": "docs",
+"path": "docs/github-actions",
+"filepath": "content/docs/github-actions.json",
 "filename": "github-actions.json",
 "fields": {
     "title": "GitHub Actions",
@@ -391,8 +399,9 @@ const allContent = [{
 
 },{
 "pager": 1,
-"path": "docs/gitlab-piplines",
 "type": "docs",
+"path": "docs/gitlab-piplines",
+"filepath": "content/docs/gitlab-piplines.json",
 "filename": "gitlab-piplines.json",
 "fields": {
     "title": "GitLab Pipelines",
@@ -421,8 +430,9 @@ const allContent = [{
 
 },{
 "pager": 1,
-"path": "docs",
 "type": "docs",
+"path": "docs",
+"filepath": "content/docs/index.json",
 "filename": "index.json",
 "fields": {
     "title": "Introduction",
@@ -468,8 +478,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/installation",
 "type": "docs",
+"path": "docs/installation",
+"filepath": "content/docs/installation.json",
 "filename": "installation.json",
 "fields": {
     "title": "Installation",
@@ -536,8 +547,9 @@ const allContent = [{
 
 },{
 "pager": 1,
-"path": "docs/layout",
 "type": "docs",
+"path": "docs/layout",
+"filepath": "content/docs/layout.json",
 "filename": "layout.json",
 "fields": {
     "title": "Layout",
@@ -592,8 +604,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/layouts",
 "type": "docs",
+"path": "docs/layouts",
+"filepath": "content/docs/layouts.json",
 "filename": "layouts.json",
 "fields": {
     "title": "Layouts",
@@ -647,8 +660,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/new-site",
 "type": "docs",
+"path": "docs/new-site",
+"filepath": "content/docs/new-site.json",
 "filename": "new-site.json",
 "fields": {
     "title": "New Site",
@@ -689,8 +703,8 @@ const allContent = [{
                                 "Creates a minimalist site scaffolding with less default content."
                             ],
                             [
-                                "<code>--theme=\"git@github.com:user/repo\"</code>",
-                                "<code>-t=\"git@github.com:user/repo\"</code>",
+                                "<code>--theme=\"https://github.com/user/repo\"</code>",
+                                "<code>-t=\"https://github.com/user/repo\"</code>",
                                 "Point to a Git repository to use a base theme for your site."
                             ]
                         ]
@@ -700,10 +714,12 @@ const allContent = [{
         }
     ]
 }
+
 },{
 "pager": 1,
-"path": "docs/new-type",
 "type": "docs",
+"path": "docs/new-type",
+"filepath": "content/docs/new-type.json",
 "filename": "new-type.json",
 "fields": {
     "title": "New Type",
@@ -753,8 +769,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/pagination",
 "type": "docs",
+"path": "docs/pagination",
+"filepath": "content/docs/pagination.json",
 "filename": "pagination.json",
 "fields": {
     "title": "Pagination",
@@ -819,8 +836,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/paths",
 "type": "docs",
+"path": "docs/paths",
+"filepath": "content/docs/paths.json",
 "filename": "paths.json",
 "fields": {
     "title": "Paths",
@@ -873,8 +891,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/serve",
 "type": "docs",
+"path": "docs/serve",
+"filepath": "content/docs/serve.json",
 "filename": "serve.json",
 "fields": {
     "title": "Serve",
@@ -950,8 +969,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/theme-add",
 "type": "docs",
+"path": "docs/theme-add",
+"filepath": "content/docs/theme-add.json",
 "filename": "theme-add.json",
 "fields": {
     "title": "Theme Add",
@@ -1004,8 +1024,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/theme-disable",
 "type": "docs",
+"path": "docs/theme-disable",
+"filepath": "content/docs/theme-disable.json",
 "filename": "theme-disable.json",
 "fields": {
     "title": "Theme Disable",
@@ -1038,8 +1059,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/theme-enable",
 "type": "docs",
+"path": "docs/theme-enable",
+"filepath": "content/docs/theme-enable.json",
 "filename": "theme-enable.json",
 "fields": {
     "title": "Theme Enable",
@@ -1074,8 +1096,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/theme-remove",
 "type": "docs",
+"path": "docs/theme-remove",
+"filepath": "content/docs/theme-remove.json",
 "filename": "theme-remove.json",
 "fields": {
     "title": "Theme Remove",
@@ -1110,8 +1133,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/theme-update",
 "type": "docs",
+"path": "docs/theme-update",
+"filepath": "content/docs/theme-update.json",
 "filename": "theme-update.json",
 "fields": {
     "title": "Theme Update",
@@ -1161,8 +1185,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/themes",
 "type": "docs",
+"path": "docs/themes",
+"filepath": "content/docs/themes.json",
 "filename": "themes.json",
 "fields": {
     "title": "Themes",
@@ -1203,8 +1228,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/types",
 "type": "docs",
+"path": "docs/types",
+"filepath": "content/docs/types.json",
 "filename": "types.json",
 "fields": {
     "title": "Types",
@@ -1259,8 +1285,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "docs/upgrading",
 "type": "docs",
+"path": "docs/upgrading",
+"filepath": "content/docs/upgrading.json",
 "filename": "upgrading.json",
 "fields": {
     "title": "Upgrading",
@@ -1315,8 +1342,9 @@ const allContent = [{
 
 },{
 "pager": 1,
-"path": "/",
 "type": "index",
+"path": "/",
+"filepath": "content/index.json",
 "filename": "index.json",
 "fields": {
 	"title": "Plenti: Svelte websites without hassle.",
@@ -1417,8 +1445,9 @@ const allContent = [{
 
 },{
 "pager": 1,
-"path": "/about",
 "type": "pages",
+"path": "/about",
+"filepath": "content/pages/about.json",
 "filename": "about.json",
 "fields": {
 	"title": "About Plenti",
@@ -1433,8 +1462,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "/contact",
 "type": "pages",
+"path": "/contact",
+"filepath": "content/pages/contact.json",
 "filename": "contact.json",
 "fields": {
 	"title": "Contact",
@@ -1446,8 +1476,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "/download",
 "type": "pages",
+"path": "/download",
+"filepath": "content/pages/download.json",
 "filename": "download.json",
 "fields": {
     "title": "Download",
@@ -1473,8 +1504,9 @@ const allContent = [{
 
 },{
 "pager": 1,
-"path": "/themes",
 "type": "pages",
+"path": "/themes",
+"filepath": "content/pages/themes.json",
 "filename": "themes.json",
 "fields": {
   "title": "Themes",
@@ -1498,8 +1530,9 @@ const allContent = [{
 
 },{
 "pager": 1,
-"path": "themes/bigspring",
 "type": "themes",
+"path": "themes/bigspring",
+"filepath": "content/themes/bigspring.json",
 "filename": "bigspring.json",
 "fields": {
     "name": "Bigspring",
@@ -1508,8 +1541,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "themes/compendium",
 "type": "themes",
+"path": "themes/compendium",
+"filepath": "content/themes/compendium.json",
 "filename": "compendium.json",
 "fields": {
     "name": "Compendium",
@@ -1519,8 +1553,9 @@ const allContent = [{
 
 },{
 "pager": 1,
-"path": "themes/maxim",
 "type": "themes",
+"path": "themes/maxim",
+"filepath": "content/themes/maxim.json",
 "filename": "maxim.json",
 "fields": {
     "name": "Maxim",
@@ -1529,8 +1564,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "themes/papermod",
 "type": "themes",
+"path": "themes/papermod",
+"filepath": "content/themes/papermod.json",
 "filename": "papermod.json",
 "fields": {
     "name": "Papermod",
@@ -1539,8 +1575,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "themes/roxo",
 "type": "themes",
+"path": "themes/roxo",
+"filepath": "content/themes/roxo.json",
 "filename": "roxo.json",
 "fields": {
     "name": "Roxo",
@@ -1549,8 +1586,9 @@ const allContent = [{
 }
 },{
 "pager": 1,
-"path": "themes/userbase",
 "type": "themes",
+"path": "themes/userbase",
+"filepath": "content/themes/userbase.json",
 "filename": "userbase.json",
 "fields": {
     "name": "Userbase",

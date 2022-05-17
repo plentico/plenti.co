@@ -5,80 +5,96 @@ import {
 	attr,
 	binding_callbacks,
 	children,
+	claim_component,
 	claim_element,
 	claim_space,
 	claim_text,
+	create_component,
+	destroy_component,
 	detach,
 	element,
 	init,
 	insert,
-	listen,
-	noop,
-	prevent_default,
+	mount_component,
 	query_selector_all,
 	safe_not_equal,
 	space,
-	text
+	text,
+	transition_in,
+	transition_out
 } from '../../web_modules/svelte/internal/index.mjs';
 
 import { onMount } from '../../web_modules/svelte/index.mjs';
-import { publish } from './publish.js';
+import Buttons from './buttons/buttons.js';
+import Save from './buttons/save.js';
 
-function create_if_block_2(ctx) {
-	let t;
+function create_default_slot(ctx) {
+	let save;
+	let t0;
+	let button;
+	let t1;
+	let current;
 
-	return {
-		c() {
-			t = text("Sending...");
-		},
-		l(nodes) {
-			t = claim_text(nodes, "Sending...");
-		},
-		m(target, anchor) {
-			insert(target, t, anchor);
-		},
-		d(detaching) {
-			if (detaching) detach(t);
-		}
-	};
-}
-
-// (83:4) {#if failed}
-function create_if_block_1(ctx) {
-	let t;
+	save = new Save({
+			props: {
+				mediaList: [
+					{
+						file: /*content*/ ctx[0].filepath,
+						contents: JSON.stringify(/*content*/ ctx[0].fields, undefined, "\t")
+					}
+				],
+				action: "update",
+				encoding: "text"
+			}
+		});
 
 	return {
 		c() {
-			t = text("Could not commit the changes.");
+			create_component(save.$$.fragment);
+			t0 = space();
+			button = element("button");
+			t1 = text("Reset");
 		},
 		l(nodes) {
-			t = claim_text(nodes, "Could not commit the changes.");
+			claim_component(save.$$.fragment, nodes);
+			t0 = claim_space(nodes);
+			button = claim_element(nodes, "BUTTON", {});
+			var button_nodes = children(button);
+			t1 = claim_text(button_nodes, "Reset");
+			button_nodes.forEach(detach);
 		},
 		m(target, anchor) {
-			insert(target, t, anchor);
+			mount_component(save, target, anchor);
+			insert(target, t0, anchor);
+			insert(target, button, anchor);
+			append(button, t1);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const save_changes = {};
+
+			if (dirty & /*content*/ 1) save_changes.mediaList = [
+				{
+					file: /*content*/ ctx[0].filepath,
+					contents: JSON.stringify(/*content*/ ctx[0].fields, undefined, "\t")
+				}
+			];
+
+			save.$set(save_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(save.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(save.$$.fragment, local);
+			current = false;
 		},
 		d(detaching) {
-			if (detaching) detach(t);
-		}
-	};
-}
-
-// (84:4) {#if sent}
-function create_if_block(ctx) {
-	let t;
-
-	return {
-		c() {
-			t = text("Changes committed.");
-		},
-		l(nodes) {
-			t = claim_text(nodes, "Changes committed.");
-		},
-		m(target, anchor) {
-			insert(target, t, anchor);
-		},
-		d(detaching) {
-			if (detaching) detach(t);
+			destroy_component(save, detaching);
+			if (detaching) detach(t0);
+			if (detaching) detach(button);
 		}
 	};
 }
@@ -89,16 +105,15 @@ function create_fragment(ctx) {
 	let form;
 	let div;
 	let t1;
-	let button;
-	let t2;
-	let t3;
-	let t4;
-	let t5;
-	let mounted;
-	let dispose;
-	let if_block0 = /*sending*/ ctx[1] && create_if_block_2(ctx);
-	let if_block1 = /*failed*/ ctx[3] && create_if_block_1(ctx);
-	let if_block2 = /*sent*/ ctx[2] && create_if_block(ctx);
+	let buttons;
+	let current;
+
+	buttons = new Buttons({
+			props: {
+				$$slots: { default: [create_default_slot] },
+				$$scope: { ctx }
+			}
+		});
 
 	return {
 		c() {
@@ -107,14 +122,7 @@ function create_fragment(ctx) {
 			form = element("form");
 			div = element("div");
 			t1 = space();
-			button = element("button");
-			t2 = text("Publish");
-			t3 = space();
-			if (if_block0) if_block0.c();
-			t4 = space();
-			if (if_block1) if_block1.c();
-			t5 = space();
-			if (if_block2) if_block2.c();
+			create_component(buttons.$$.fragment);
 			this.h();
 		},
 		l(nodes) {
@@ -127,104 +135,50 @@ function create_fragment(ctx) {
 			div = claim_element(form_nodes, "DIV", { class: true });
 			children(div).forEach(detach);
 			t1 = claim_space(form_nodes);
-			button = claim_element(form_nodes, "BUTTON", { type: true });
-			var button_nodes = children(button);
-			t2 = claim_text(button_nodes, "Publish");
-			button_nodes.forEach(detach);
-			t3 = claim_space(form_nodes);
-			if (if_block0) if_block0.l(form_nodes);
-			t4 = claim_space(form_nodes);
-			if (if_block1) if_block1.l(form_nodes);
-			t5 = claim_space(form_nodes);
-			if (if_block2) if_block2.l(form_nodes);
+			claim_component(buttons.$$.fragment, form_nodes);
 			form_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
 			attr(link, "rel", "stylesheet");
 			attr(link, "href", "https://unpkg.com/codemirror@5.65.1/lib/codemirror.css");
-			attr(div, "class", "editor-container svelte-1qxz88b");
-			attr(button, "type", "submit");
-			button.disabled = /*sending*/ ctx[1];
-			attr(form, "class", "svelte-1qxz88b");
+			attr(div, "class", "editor-container svelte-1kxexd2");
+			attr(form, "class", "svelte-1kxexd2");
 		},
 		m(target, anchor) {
 			append(document.head, link);
 			insert(target, t0, anchor);
 			insert(target, form, anchor);
 			append(form, div);
-			/*div_binding*/ ctx[7](div);
+			/*div_binding*/ ctx[3](div);
 			append(form, t1);
-			append(form, button);
-			append(button, t2);
-			append(form, t3);
-			if (if_block0) if_block0.m(form, null);
-			append(form, t4);
-			if (if_block1) if_block1.m(form, null);
-			append(form, t5);
-			if (if_block2) if_block2.m(form, null);
-
-			if (!mounted) {
-				dispose = listen(form, "submit", prevent_default(/*onSubmit*/ ctx[4]));
-				mounted = true;
-			}
+			mount_component(buttons, form, null);
+			current = true;
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*sending*/ 2) {
-				button.disabled = /*sending*/ ctx[1];
+			const buttons_changes = {};
+
+			if (dirty & /*$$scope, content*/ 33) {
+				buttons_changes.$$scope = { dirty, ctx };
 			}
 
-			if (/*sending*/ ctx[1]) {
-				if (if_block0) {
-					
-				} else {
-					if_block0 = create_if_block_2(ctx);
-					if_block0.c();
-					if_block0.m(form, t4);
-				}
-			} else if (if_block0) {
-				if_block0.d(1);
-				if_block0 = null;
-			}
-
-			if (/*failed*/ ctx[3]) {
-				if (if_block1) {
-					
-				} else {
-					if_block1 = create_if_block_1(ctx);
-					if_block1.c();
-					if_block1.m(form, t5);
-				}
-			} else if (if_block1) {
-				if_block1.d(1);
-				if_block1 = null;
-			}
-
-			if (/*sent*/ ctx[2]) {
-				if (if_block2) {
-					
-				} else {
-					if_block2 = create_if_block(ctx);
-					if_block2.c();
-					if_block2.m(form, null);
-				}
-			} else if (if_block2) {
-				if_block2.d(1);
-				if_block2 = null;
-			}
+			buttons.$set(buttons_changes);
 		},
-		i: noop,
-		o: noop,
+		i(local) {
+			if (current) return;
+			transition_in(buttons.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(buttons.$$.fragment, local);
+			current = false;
+		},
 		d(detaching) {
 			detach(link);
 			if (detaching) detach(t0);
 			if (detaching) detach(form);
-			/*div_binding*/ ctx[7](null);
-			if (if_block0) if_block0.d();
-			if (if_block1) if_block1.d();
-			if (if_block2) if_block2.d();
-			mounted = false;
-			dispose();
+			/*div_binding*/ ctx[3](null);
+			destroy_component(buttons);
 		}
 	};
 }
@@ -237,11 +191,11 @@ function instance($$self, $$props, $$invalidate) {
 
 	onMount(async () => {
 		await loaded;
-		$$invalidate(6, editor = new CodeMirror(container, { mode: "javascript" }));
+		$$invalidate(2, editor = new CodeMirror(container, { mode: "javascript" }));
 
 		editor.on("change", () => {
 			try {
-				$$invalidate(5, content.fields = JSON.parse(editor.getValue()), content);
+				$$invalidate(0, content.fields = JSON.parse(editor.getValue()), content);
 			} catch(error) {
 				if (!(error instanceof SyntaxError)) {
 					throw error;
@@ -250,54 +204,32 @@ function instance($$self, $$props, $$invalidate) {
 		});
 	});
 
-	let sending = false;
-	let sent = false;
-	let failed = false;
-
-	async function onSubmit() {
-		const { type, filename } = content;
-		const filePath = "content/" + (type != "index" ? type + "/" : "") + filename;
-		$$invalidate(1, sending = true);
-		$$invalidate(2, sent = false);
-		$$invalidate(3, failed = false);
-
-		try {
-			await publish(filePath, JSON.stringify(content.fields, undefined, "\t"));
-			$$invalidate(1, sending = false);
-			$$invalidate(2, sent = true);
-		} catch(error) {
-			$$invalidate(1, sending = false);
-			$$invalidate(3, failed = true);
-			throw error;
-		}
-	}
-
 	function div_binding($$value) {
 		binding_callbacks[$$value ? "unshift" : "push"](() => {
 			container = $$value;
-			$$invalidate(0, container);
+			$$invalidate(1, container);
 		});
 	}
 
 	$$self.$$set = $$props => {
-		if ("content" in $$props) $$invalidate(5, content = $$props.content);
+		if ("content" in $$props) $$invalidate(0, content = $$props.content);
 	};
 
 	$$self.$$.update = () => {
-		if ($$self.$$.dirty & /*editor, content*/ 96) {
+		if ($$self.$$.dirty & /*editor, content*/ 5) {
 			$: if (editor && !editor.hasFocus()) {
 				editor.setValue(JSON.stringify(content.fields, undefined, 4));
 			}
 		}
 	};
 
-	return [container, sending, sent, failed, onSubmit, content, editor, div_binding];
+	return [content, container, editor, div_binding];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { content: 5 });
+		init(this, options, instance, create_fragment, safe_not_equal, { content: 0 });
 	}
 }
 
