@@ -217,7 +217,9 @@
   .cta {
     background-image: linear-gradient(to right,var(--accent) , var(--accent-dark));
     color: var(--base-lightest);
-    padding: 50px 100px;
+    padding: 50px 0;
+    width: 100%;
+    max-width: 500px;
     margin: 50px 0 25px;
     display: inline-block;
     border-radius: 10px;
