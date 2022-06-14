@@ -9,10 +9,9 @@
 
 <div class="docs-wrapper">
     <input type="checkbox" id="nav-toggle" class="hidden" bind:checked={checked}>
-    <DocsNav allContent={allContent} />
+    <DocsNav allContent={allContent} bind:checked />
     <div class="docs-container">
-
-        <div>
+        <div id="hamburger-wrapper">
             <label for="nav-toggle" id="hamburger">
                 <span></span>
                 <span></span>
@@ -169,25 +168,38 @@
         width: 0%;
         left: 50%;
     }
+    #nav-toggle:checked~.docs-container #hamburger-wrapper {
+        position: fixed;
+        top: 0;
+        left: 240px;
+        z-index: 2;
+    }
+    #nav-toggle:checked~.docs-container #hamburger-wrapper span {
+        background-color: white;
+    }
     @media (max-width: 600px) {
         #hamburger {
             display: block;
         }
         .docs-wrapper {
-            padding: 0;
+            padding: 0 20px;
         }
         .docs-wrapper :global(.sidebar) {
             overflow: initial;
             margin-top: 0;
+            top: 0;
+            left: 0;
+            position: fixed;
             max-height: 100%;
             background-color: var(--base-lightest);
-            padding: 20px;
+            padding: 25px;
             z-index: 2;
             -webkit-transition: margin-left .4s ease-in-out;
             -moz-transition: margin-left .4s ease-in-out;
             -o-transition: margin-left .4s ease-in-out;
             transition: margin-left .4s ease-in-out;
-            margin-left: -200px;
+            margin-left: -240px;
+            overflow-y: scroll;
         }
         .docs-container {
             flex-direction: column;

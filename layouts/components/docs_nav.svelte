@@ -1,5 +1,8 @@
 <script>
-    export let allContent;
+    export let allContent, checked;
+    const uncheck = () => {
+        checked=false;
+    }
     let group = [];
     const addGroup = newGroup => {
         group.push(newGroup);
@@ -38,7 +41,7 @@
             {#if !group.includes(content.fields.group)}
                 <strong>{addGroup(content.fields.group)}</strong>
             {/if}
-            <a on:click={() => setActive("/" + content.path)} class:active={active["/" + content.path]} href="/{content.path}" class="nav-link">{content.fields.title}</a>
+            <a on:click={() => setActive("/" + content.path)} on:click={uncheck} class:active={active["/" + content.path]} href="/{content.path}" class="nav-link">{content.fields.title}</a>
         {/if}
     {/each}
 </div>
@@ -51,7 +54,6 @@
         height: 100%;
         max-height: 500px;
         min-width: 170px;
-        margin-right: 20px;
     }
     .sidebar::-webkit-scrollbar {
         width: 6px;
