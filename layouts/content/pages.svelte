@@ -153,16 +153,14 @@
     text-align: center;
   }
   #themes {
-    justify-content: center;
-    display: inline-flex;
-    flex-wrap: wrap;
-    margin: -40px 0 0 -40px;
-    width: calc(100% + 40px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
   #themes img {
 		box-shadow: 0 10px 36px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.06);
     max-width: 580px;
-    margin: 40px 0 0 40px;
+    width: 100%;
   }
   #download {
     display: flex;
@@ -243,6 +241,11 @@
     }
     .os.primary {
       display: block;
+    }
+  }
+  @media (max-width: 599px) {
+    #themes {
+      grid-template-columns: 1fr;
     }
   }
 </style>
