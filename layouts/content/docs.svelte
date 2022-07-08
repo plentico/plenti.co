@@ -34,7 +34,11 @@
                     <p class="section-body">
                         {#if paragraph.p}
                             {#each paragraph.p as line}
-                                {@html line}&nbsp;
+                                {#if line.slice(-1) !== ">"}
+                                  {@html line}&nbsp;
+                                {:else}
+                                  {@html line}
+                                {/if}
                             {/each}
                         {/if}
                         {#if paragraph.t}

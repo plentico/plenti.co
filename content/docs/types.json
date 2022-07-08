@@ -53,22 +53,12 @@
                     "p": [
                         "There is an optional, specially named file that goes inside your individual type folders named <code>_blueprint.json</code>.",
                         "This defines the default content for that specific type (see <a href='https://github.com/plentico/plenti/issues/15#issuecomment-760395673'>issue 15</a>).",
-                        "The keys of the blueprint correspond to field names used in the content files and the values tell the kind of field that is being used."
+                        "The Plenti Git-CMS uses this to create new content of a particular type.",
+                        "If you have a type that you don't want editors to be able to add new instances of, simply omit the <code>_blueprint.json</code> file.",
+                        "Note that <code>--single</code> content is not meant to be repeated and does not have a corresponding blueprint file."
                     ]
                 }
             ]
-        },
-        {
-          "title": "Conventions",
-          "body": [
-            {
-              "p": [
-                "It is common practice (but not required) to use a <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax' target='_blank' rel='noopener noreferrer'>JS spread operator</a> <code>{...content.fields}</code> inside a <a href='https://svelte.dev/tutorial/svelte-component' target='_blank' rel='noopener noreferrer'>dynamic component</a> <code>&lt;svelte:component this={layout}/&gt;</code> in your <code>layouts/global/html.svelte</code> file to make accessing the keys you define in your content source easier.",
-                "That resolves routes without requiring you to manually check them and load the corresponding layout and allows you to access keys defined in your content source directly at the top level of your <code>layouts/content/YOUR_TYPE.svelte</code> templates like:",
-                "<br><br><codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let title;<br>&lt;/script&gt;<br><br>&lt;h1&gt;{title}&lt;/h1&gt;</codeblock>"
-              ]
-            }
-          ]
         }
     ]
 }
