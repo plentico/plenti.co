@@ -21,6 +21,18 @@
             ]
         },
         {
+          "title": "Accessing content in layouts",
+          "body": [
+            {
+              "p": [
+                  "Any user defined fields in your json files are accessed by the <code>content.fields</code> prop in your layouts.",
+                  "The top level content prop has the following defined keys that are available for all content sources:",
+                  "<ul><li><code>content.pager</code></li><li><code>content.type</code></li><li><code>content.path</code></li><li><code>content.filepath</code></li><li><code>content.filename</code></li><li><code>content.fields</code></li></ul>"
+              ]
+            }
+          ]
+        },
+        {
             "title": "Single file types",
             "body": [
                 {
@@ -28,7 +40,8 @@
                         "Anything that appears at the first level within the content folder is a type.",
                         "This can include single files such as <code>index.json</code> and <code>404.json</code>,",
                         "which are also types, but only have a one-off data source.",
-                        "You can define your own single file types this way if you'd like."
+                        "You can define your own single file types this way if you'd like.",
+                        "You can also generate a single type using the CLI: <code>plenti new type YOUR_TYPE --single=true</code>"
                     ]
                 }
             ]
@@ -39,13 +52,23 @@
                 {
                     "p": [
                         "There is an optional, specially named file that goes inside your individual type folders named <code>_blueprint.json</code>.",
-                        "This defines the default field schema for that specific type.",
-                        "The keys of the blueprint correspond to field names used in the content files and the values tell the kind of field that is being used.",
-                        "<strong>TODO:</strong> Currently the blueprint doesn't do much and there is no list of standardized values, but in the future this will",
-                        "be fleshed out and it will aid in generating scaffolding and tying into the CMS (see <a href='https://github.com/plentico/plenti/issues/15'>this issue</a>)."
+                        "This defines the default content for that specific type (see <a href='https://github.com/plentico/plenti/issues/15#issuecomment-760395673'>issue 15</a>).",
+                        "The keys of the blueprint correspond to field names used in the content files and the values tell the kind of field that is being used."
                     ]
                 }
             ]
+        },
+        {
+          "title": "Conventions",
+          "body": [
+            {
+              "p": [
+                "It is common practice (but not required) to use a <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax' target='_blank' rel='noopener noreferrer'>JS spread operator</a> <code>{...content.fields}</code> inside a <a href='https://svelte.dev/tutorial/svelte-component' target='_blank' rel='noopener noreferrer'>dynamic component</a> <code>&lt;svelte:component this={layout}/&gt;</code> in your <code>layouts/global/html.svelte</code> file to make accessing the keys you define in your content source easier.",
+                "That resolves routes without requiring you to manually check them and load the corresponding layout and allows you to access keys defined in your content source directly at the top level of your <code>layouts/content/YOUR_TYPE.svelte</code> templates like:",
+                "<br><br><codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let title;<br>&lt;/script&gt;<br><br>&lt;h1&gt;{title}&lt;/h1&gt;</codeblock>"
+              ]
+            }
+          ]
         }
     ]
 }

@@ -36,6 +36,11 @@
                                 "<code>--endpoint=true</code>",
                                 "<code>-e=true</code>",
                                 "Pass \"false\" if you don't want your new type to have an endpoint that site visitors can access directly"
+                            ],
+                            [
+                                "<code>--single=false</code>",
+                                "<code>-s=false</code>",
+                                "Pass \"true\" if you want your new type to be a one-off route that is different structurally from other content"
                             ]
                         ]
                     }
