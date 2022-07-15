@@ -9,6 +9,6 @@
   "dependencies": {
     "navaid": "^1.0.5",
     "regexparam": "^1.3.0",
-    "svelte": "^3.21.0"
+    "svelte": "^3.49.0"
   }
 }
