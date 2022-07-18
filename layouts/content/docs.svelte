@@ -74,10 +74,9 @@
     .docs-container {
         display: flex;
     }
-    .docs-wrapper {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
+    .docs-container {
+        min-height: 100vh;
+        padding: 0 20px;
     }
     #deprecated {
         border: 1px solid var(--accent);
@@ -97,14 +96,18 @@
         font-weight: bold;
         color: var(--primary);
     }
+    h1 {
+        font-family: 'Noto Sans', sans-serif;
+        font-weight: 300;
+        font-size: 2rem;
+    }
     .section-body :global(table) {
         width: 100%;
         text-align: left;
     }
     .title {
-        font-size: 2rem;
-        margin-top: 40px;
-        display: block;
+        font-weight: 300;
+        font-size: 1.5rem;
     }
     p {
         line-height: 1.75rem;
@@ -216,7 +219,7 @@
             height: 100%;
             width: 100%;
             left: 0;
-            top: 0;
+            top: -60px;
             position: absolute;
             z-index: 1;
         }

@@ -21,15 +21,13 @@
 
 <style>
   body {
-    font-family: 'NTR', sans-serif;
-    font-size: 1.25rem;
-    line-height: 1.25rem;
+    font-family: 'Noto Sans', sans-serif;
     color: var(--base-dark);
-    display: flex;
-    flex-direction: column;
     margin: 0;
   }
   main {
+    margin-top: 60px;
+    padding-top: 20px;
     flex-grow: 1;
   }
 </style>

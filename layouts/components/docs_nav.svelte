@@ -48,27 +48,38 @@
 
 <style>
     .sidebar {
+        position: sticky;
+        top: 60px;
         border-right: 1px solid var(--base);
         overflow: scroll;
         overflow-x: auto;
         height: 100%;
-        max-height: 500px;
+        max-height: 100vh;
         min-width: 170px;
-        margin-right: 20px;
+        padding: 20px;
     }
     .sidebar::-webkit-scrollbar {
         width: 6px;
     }
     .sidebar::-webkit-scrollbar-track {
-        background: var(--base);
+        background: var(--base-light);
+        border-radius: 8px;
     }
     .sidebar::-webkit-scrollbar-thumb {
-        background-color: var(--primary);
+        background-color: var(--base);
+        border-radius: 8px;
     }
     strong, .nav-link {
         display: block;
         margin-bottom: 10px;
         white-space: nowrap;
+    }
+    a {
+        padding: 5px 10px;
+    }
+    a:hover {
+        background: #f7f7f7;
+        border-radius: 6px;
     }
     .active {
         color: var(--accent-dark);

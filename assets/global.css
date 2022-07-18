@@ -1,11 +1,13 @@
-<style>
-  :global(.container) {
+html, body, main {
+    min-height: 100%;
+}
+.container {
     max-width: 1200px;
     margin: 0 auto;
     flex-grow: 1;
     padding: 0 20px;
-  }
-  :global(:root) {
+}
+:root {
     --primary-lightest: rgb(235, 249, 255);
     --primary-lighter: rgb(171, 226, 255);
     --primary-light: rgb(68, 175, 232);
@@ -18,29 +20,29 @@
     --base-light: rgb(245, 245, 245);
     --base: rgb(212, 212, 212);
     --base-dark: rgb(60, 60, 60);
-  }
-  :global(main a) {
+}
+main a {
     position: relative;
     text-decoration: none;
     color: var(--base-dark);
     padding-bottom: 5px;
-  }
-  :global(.button) {
+}
+.button {
     background-image: linear-gradient(to right,var(--accent) , var(--accent-dark));
     color: var(--base-lightest);
     padding: 10px;
     border-radius: 5px;
-  }
-  :global(.text-primary) {
+}
+.text-primary {
     color: var(--primary);
-  }
-  :global(.text-accent-dark) {
+}
+.text-accent-dark {
     color: var(--accent-dark);
-  }
-  :global(h1), :global(h2), :global(h3) {
+}
+h1, h2, h3 {
     font-family: 'Heebo', sans-serif;
-  }
-  :global(code) {
+}
+code {
     font-size: 1rem;
     color: var(--accent-dark);
     background-color: var(--base-light);
@@ -48,8 +50,8 @@
     font-family: 'Inconsolata', monospace;
     font-weight: bold;
     border-radius: 5px;
-  }
-  :global(codeblock) {
+}
+codeblock {
     background: #f4f4f4;
     border: 1px solid #ddd;
     border-left: 3px solid var(--accent-dark);
@@ -63,5 +65,4 @@
     display: block;
     word-wrap: break-word;
     border-radius: 5px;
-  }
-</style>
+}

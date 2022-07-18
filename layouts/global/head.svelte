@@ -28,6 +28,8 @@
   <script type="module" src="/spa/ejected/main.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/p.svg">
+  <link rel='stylesheet' href='/assets/global.css'>
   <link rel='stylesheet' href='/spa/bundle.css'>
 </head>

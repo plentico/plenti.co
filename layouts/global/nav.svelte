@@ -29,8 +29,13 @@
     display: flex;
   }
   nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
     min-height: 60px;
     box-shadow: 0px 2px 3px var(--base-light);
+    background-color: var(--base-lightest);
+    z-index: 1;
   }
   #brand {
     flex: 1;

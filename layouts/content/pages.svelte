@@ -182,7 +182,8 @@
   }
   .os-name {
     position: absolute;
-    bottom: 35px;
+    font-family: 'NTR', sans-serif;
+    bottom: 10px;
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
@@ -211,7 +212,7 @@
     text-align: center;
   }
   #detection .selected {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 2rem;
   }
   .cta {

@@ -92,7 +92,7 @@
 		{#each setup as item}
 			<div class="item">
 				<div class="content">
-					<strong><span>{item.title_accent}</span>&nbsp;{item.title}</strong>
+					<strong><span class="accent">{item.title_accent}</span> <span class="title">{item.title}</span></strong>
 					<p>{item.body}</p>
 				</div>
 				<div class="img">
@@ -118,8 +118,11 @@
 		padding: 60px 0;
 	}
 	#intro-text {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		line-height: 3rem;
+	}
+	h1 {
+		font-size: 3rem;
 	}
 	#cursor {
 		display: inline-block;
@@ -140,9 +143,7 @@
 		align-self: center;
 	}
 	a.button {
-		font-size: 1.5rem;
-    	display: inline-block;
-    	height: 40px;
+		font-size: 1.25rem;
 		margin-right: 20px;
 	}
 	a.button:last-of-type {
@@ -153,8 +154,11 @@
 	#editor {
 		background-image: linear-gradient(var(--primary-light), var(--primary));
 		color: var(--base-lightest);
-		font-size: 2rem;
+		font-size: 1.5rem;
 		line-height: 3rem;
+	}
+	#editor h3 {
+		font-size: 2.25rem;
 	}
 	#editor > div {
 		display: flex;
@@ -178,6 +182,7 @@
 		margin: 40px 0;
 	}
 	.feature .title {
+		font-family: 'NTR', sans-serif;
 		font-weight: bold;
 		font-size: 2rem;
 		margin: 20px 0;
@@ -201,9 +206,15 @@
 		flex-basis: 0;
     	flex-grow: 1;
 	}
-	#setup strong span {
+	#setup strong span.accent {
 		font-family: 'Kalam', cursive;
 		color: var(--accent-dark);
+	}
+	#setup strong span.title {
+		font-family: 'NTR', sans-serif;
+	}
+	#setup p {
+		font-size: 1.5rem;
 	}
 	#setup img {
 		box-shadow: 0 10px 36px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.06);
@@ -239,6 +250,7 @@
 		color: var(--accent-dark);
 		padding: 0 20px;
 		border-radius: 5px;
+		font-family: 'NTR', sans-serif;
 		font-weight: bold;
 		font-size: 1.5rem;
 	}
