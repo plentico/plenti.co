@@ -1,7 +1,7 @@
 <script>
     export let name, built_by, designed_by;
 
-    let machine_name = name.toLowerCase();
+    let machine_name = name.toLowerCase().replaceAll(' ', '-');
 </script>
 
 <div class="container">

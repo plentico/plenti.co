@@ -56,7 +56,7 @@
   {#if themes}
     <section id="themes">
       {#each allContent.filter(content => content.type == "themes") as theme}
-        <a href="/themes/{theme.fields.name.toLowerCase()}"><img src="/assets/themes/{theme.fields.name.toLowerCase()}.png" /></a> 
+        <a href="/themes/{theme.fields.name.toLowerCase().replaceAll(' ', '-')}"><img src="/assets/themes/{theme.fields.name.toLowerCase().replaceAll(' ', '-')}.png" /></a> 
       {/each}
     </section>
   {/if}
