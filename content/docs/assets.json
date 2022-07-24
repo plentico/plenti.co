@@ -21,6 +21,28 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Media Browser",
+            "body": [
+                {
+                    "p": [
+                        "When referencing assets in your JSON content source, you should use the full path",
+                        "(e.g. <code>assets/path/to/file.jpg</code>) instead of just the filename and then",
+                        "hardcoding the prefex and suffix in your template. This allows the Plenti CMS to recognize",
+                        "the file as an asset and gives you a widget for interacting with the Media Browser to change assets",
+                        "or upload new ones."
+                    ]
+                },
+                {
+                    "p": [
+                        "The nested folder structure you use inside your top-level assets folder becomes the filtering",
+                        "mechanism of the Media Browser. This can be used for narrowing down results in the Library view or",
+                        "setting the path of new files in the Upload view. Note that only folders with a file inside of",
+                        "them will appear this way (similar to how Git doesn't tracking empty folders)."
+                    ]
+                }
+            ]
         }
     ]
 }
