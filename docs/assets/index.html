@@ -70,6 +70,11 @@
                         
                     </p><p class="section-body svelte-1wche50">You can also use a path relative to the specific template. For instance if you were adding an image to <code>layouts/components/my-component.svelte</code>, you could reference the same image like <code>&lt;img src=&quot;../../assets/my-image.jpg&quot; /&gt;</code> if you'd like. 
                         
+                    </p><strong class="title svelte-1wche50">Media Browser</strong>
+                <p class="section-body svelte-1wche50">When referencing assets in your JSON content source, you should use the full path (e.g. <code>assets/path/to/file.jpg</code>) instead of just the filename and then hardcoding the prefex and suffix in your template. This allows the Plenti CMS to recognize the file as an asset and gives you a widget for interacting with the Media Browser to change assets or upload new ones. 
+                        
+                    </p><p class="section-body svelte-1wche50">The nested folder structure you use inside your top-level assets folder becomes the filtering mechanism of the Media Browser. This can be used for narrowing down results in the Library view or setting the path of new files in the Upload view. Note that only folders with a file inside of them will appear this way (similar to how Git doesn't tracking empty folders). 
+                        
                     </p></div></div>
 </div>
     <br></main>
