@@ -1,0 +1,32 @@
+{
+    "title": "params",
+    "group": "Magic Variables",
+    "order": 3.05,
+    "sections": [
+        {
+            "title": "Description",
+            "body": [
+                {
+                    "p": [
+                        "The <code>params</code> variable is a default prop loaded by the Plenti generator automatically. It holds all the",
+                        "key/value pairs from the query string (everything after a <code>?</code>) of the URL in a <a href='https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams' rel='noopener noreferrer'>URLSearchParams</a> object.",
+                        "This can be helpful when interacting with APIs that use callback URLs with specific parameters."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Getting values out of params",
+            "body": [
+                {
+                    "p": [
+                        "The <strong>params</strong> prop won't work with server-side rendering (SSR) so you need to check if", 
+                        "the params are available first, before trying to use them. If you have a URL like",
+                        "<code>http://localhost:3000/?cat=nemo&dog=pepper</code>, you could access those values in your template like this:",
+                        "<br><br><codeblock>{#if params}<br>&nbsp;&nbsp;{params.get('cat')}<br>&nbsp;&nbsp;{params.get('dog')}<br>{/if}</codeblock>"
+                    ]
+                }
+            ]
+        }
+    ]
+}
