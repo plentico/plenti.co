@@ -1,5 +1,5 @@
 <script>
-  export let title, description, themes, os, upcoming_themes, allContent;
+  export let title, description, themes, os, upcoming_themes, login, user, allContent;
 
   import Linux from '../components/linux.svelte';
   import Mac from '../components/mac.svelte';
@@ -51,6 +51,10 @@
       <p>{@html paragraph}</p>
     {/each}
   </div>
+  {/if}
+
+  {#if login}
+    <button on:click|preventDefault={$user.login}>Login</button>
   {/if}
 
   {#if themes}

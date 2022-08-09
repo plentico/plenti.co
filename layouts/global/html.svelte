@@ -3,20 +3,23 @@
   import Nav from './nav.svelte';
   import Footer from './footer.svelte';
 
-  export let layout, content, allContent;
+  export let layout, content, allContent, user, adminMenu;
 </script>
 
 <html lang="en">
   <Head {content} />
-<body>
-  <Nav />
-  <main>
-    <svelte:component this={layout} {...content.fields} {allContent} />
-    <br />
-  </main>
-  <Footer />
-  <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/{content.path}" /></noscript>
-</body>
+  <body>
+    {#if user && $user.isAuthenticated}
+      <svelte:component this={adminMenu} bind:content {user} />
+    {/if}
+    <main>
+      <Nav />
+      <svelte:component this={layout} {...content.fields} {allContent} {user} />
+      <br />
+    </main>
+    <Footer />
+    <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/{content.path}" /></noscript>
+  </body>
 </html>
 
 <style>
