@@ -33,4 +33,7 @@
     padding-top: 20px;
     flex-grow: 1;
   }
+  :global(nav~main > nav) {
+    top: 40px !important;
+  }
 </style>
