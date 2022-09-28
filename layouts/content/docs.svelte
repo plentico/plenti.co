@@ -1,5 +1,5 @@
 <script>
-    export let title, sections, deprecated, allContent;
+    export let title, body, deprecated, allContent;
     import DocsNav from "../components/docs_nav.svelte";
     let checked=false;
     const uncheck = () => {
@@ -28,48 +28,41 @@
             {/if}
             <h1>{title}</h1>
 
-            {#each sections as section}
-                <strong class="title">{section.title}</strong>
-                {#each section.body as paragraph}
-                    <p class="section-body">
-                        {#if paragraph.p}
-                            {#each paragraph.p as line}
-                                {#if line.slice(-1) !== ">"}
-                                  {@html line}&nbsp;
-                                {:else}
-                                  {@html line}
-                                {/if}
-                            {/each}
-                        {/if}
-                        {#if paragraph.t}
-                            <table>
-                                <thead>
-                                    <tr>
-                                    {#each paragraph.t.head as th}
-                                        <th>{@html th}</th>
-                                    {/each}
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {#each paragraph.t.data as tr}
-                                    <tr>
-                                        {#each tr as td}
-                                            <td>{@html td}</td>
-                                        {/each}
-                                    </tr>
-                                    {/each}
-                                </tbody>
-                            </table>
-                        {/if}
-                    </p>
-                {/each}
-            {/each}
+            <div class="body">{@html body}</div>
         </div>
 
     </div>
 </div>
 
 <style>
+    .body {
+      font-family: 'Noto Sans', sans-serif;
+      line-height: 1.75rem;
+    }
+    .body :global(table) {
+        width: 100%;
+        text-align: left;
+    }
+    .body :global(a) {
+      font-weight: bold;
+      color: var(--primary);
+    }
+    .body :global(h1),
+    .body :global(h2),
+    .body :global(h3) {
+      font-weight: 300;
+      font-family: 'Noto Sans', sans-serif;
+    }
+    .body :global(h1) {
+      font-size: 2rem;
+    }
+    .body :global(h2) {
+      font-size: 1.5rem;
+    }
+    .body :global(h3) {
+      font-size: 1rem;
+    }
+
     .docs-wrapper,
     .docs-container {
         display: flex;
