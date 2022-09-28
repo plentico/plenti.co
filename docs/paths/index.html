@@ -30,7 +30,7 @@
       <a class="nav-link button svelte-gfe0x9" href="/download">Download</a>
       <a class="nav-link svelte-gfe0x9" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" alt="GitHub Octocat Icon" class="svelte-gfe0x9"></a></div></div>
 </nav>
-      <div class="docs-wrapper svelte-1wche50"><input type="checkbox" id="nav-toggle" class="hidden svelte-1wche50">
+      <div class="docs-wrapper svelte-i31ht0"><input type="checkbox" id="nav-toggle" class="hidden svelte-i31ht0">
     <div class="sidebar svelte-1u7z67y"><strong class="svelte-1u7z67y">Getting Started</strong>
             <a href="/docs" class="nav-link svelte-1u7z67y">Introduction</a>
             <a href="/docs/installation" class="nav-link svelte-1u7z67y">Installation</a>
@@ -58,25 +58,15 @@
             <a href="/docs/github-actions" class="nav-link svelte-1u7z67y">GitHub Actions</a>
             <a href="/docs/gitlab-piplines" class="nav-link svelte-1u7z67y">GitLab Pipelines</a>
 </div>
-    <div class="docs-container svelte-1wche50"><div id="hamburger-wrapper" class="svelte-1wche50"><label for="nav-toggle" id="hamburger" class="svelte-1wche50"><span class="svelte-1wche50"></span>
-                <span class="svelte-1wche50"></span>
-                <span class="svelte-1wche50"></span>
-                <span class="svelte-1wche50"></span></label></div>
+    <div class="docs-container svelte-i31ht0"><div id="hamburger-wrapper" class="svelte-i31ht0"><label for="nav-toggle" id="hamburger" class="svelte-i31ht0"><span class="svelte-i31ht0"></span>
+                <span class="svelte-i31ht0"></span>
+                <span class="svelte-i31ht0"></span>
+                <span class="svelte-i31ht0"></span></label></div>
         
         <div class="docs">
-            <h1 class="svelte-1wche50">Paths</h1>
+            <h1 class="svelte-i31ht0">Paths</h1>
 
-            <strong class="title svelte-1wche50">Endpoints</strong>
-                <p class="section-body svelte-1wche50">The endpoint nodes for your pages (of whatever type) will be defined by your data source. By default this corresponds to the structure of folders and files in your <code>content/</code> folder, for example:<ul><li><code>content/index.json</code> = <code>https://example.com/</code></li><li><code>content/blog/post1.json</code> = <code>https://example.com/blog/post1</code></li><li><code>content/events/My_Event.json</code> = <code>https://example.com/events/my-event</code></li>
-                        
-                    </p><p class="section-body svelte-1wche50">If you want to have a content source without a path (no node endpoint that site visitors can access), simply delete the corresponding svelte template in <code>layouts/content/</code>. You can do this automatically use the "endpoint" flag when creating a new type, for example: <code>plenti new type YOUR_TYPE --endpoint=false</code>
-                        
-                    </p><strong class="title svelte-1wche50">Overriding Paths</strong>
-                <p class="section-body svelte-1wche50">You can overide the default path structure in the site's configuration file (<code>plenti.json</code>). For example if you had a type called <code>pages</code> and you wanted it to appear at the top level of the site and not in the format <code>https://example.com/pages/page1</code>, you could add the following to <code>plenti.json</code>: <br /><br /><codeblock>"routes": {<br />&nbsp;&nbsp;"pages": "/:filename"<br />}</codeblock><br>This would allow a content file located at <code>content/pages/page1.json</code> to appear in the following format: <code>https://example.com/page1</code>. 
-                        
-                    </p><p class="section-body svelte-1wche50">You can use any custom key that you define in your content source, e.g. <code>:title</code>, <code>:date</code>, etc. in your path, for example: <br /><br /><codeblock>"routes": {<br />&nbsp;&nbsp;"blog": "/blog/:fields(author)/:fields(title)"<br />} 
-                        
-                    </p></div></div>
+            <div class="body svelte-i31ht0"><h2>Endpoints</h2>The endpoint nodes for your pages (of whatever type) will be defined by your data source. By default this corresponds to the structure of folders and files in your <code>content/</code> folder, for example:<ul><li><code>content/index.json</code> = <code>https://example.com/</code></li><li><code>content/blog/post1.json</code> = <code>https://example.com/blog/post1</code></li><li><code>content/events/My_Event.json</code> = <code>https://example.com/events/my-event</code></li></ul>If you want to have a content source without a path (no node endpoint that site visitors can access), simply delete the corresponding svelte template in <code>layouts/content/</code>. You can do this automatically use the "endpoint" flag when creating a new type, for example:&nbsp;<code>plenti new type YOUR_TYPE --endpoint=false</code><br><h2>Overriding Paths</h2>You can overide the default path structure in the site's configuration file (<code>plenti.json</code>). For example if you had a type called <code>pages</code> and you wanted it to appear at the top level of the site and not in the format <code>https://example.com/pages/page1</code>, you could add the following to <code>plenti.json</code>:<br><br><codeblock>"routes": {<br>&nbsp;&nbsp;"pages": "/:filename"<br>}</codeblock><br>This would allow a content file located at <code>content/pages/page1.json</code> to appear in the following format: <code>https://example.com/page1</code>.<div><br></div><div>You can use any custom key that you define in your content source, e.g. <code>:title</code>, <code>:date</code>, etc. in your path, for example:<br><br><codeblock>"routes": {<br>&nbsp;&nbsp;"blog": "/blog/:fields(author)/:fields(title)"<br>}</codeblock></div></div></div></div>
 </div>
       <br></main>
     <footer class="svelte-bfmma5"><div class="container svelte-bfmma5"><section id="plentico" class="svelte-bfmma5"><strong class="svelte-bfmma5">Plentico</strong>

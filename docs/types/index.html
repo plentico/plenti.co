@@ -30,7 +30,7 @@
       <a class="nav-link button svelte-gfe0x9" href="/download">Download</a>
       <a class="nav-link svelte-gfe0x9" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" alt="GitHub Octocat Icon" class="svelte-gfe0x9"></a></div></div>
 </nav>
-      <div class="docs-wrapper svelte-1wche50"><input type="checkbox" id="nav-toggle" class="hidden svelte-1wche50">
+      <div class="docs-wrapper svelte-i31ht0"><input type="checkbox" id="nav-toggle" class="hidden svelte-i31ht0">
     <div class="sidebar svelte-1u7z67y"><strong class="svelte-1u7z67y">Getting Started</strong>
             <a href="/docs" class="nav-link svelte-1u7z67y">Introduction</a>
             <a href="/docs/installation" class="nav-link svelte-1u7z67y">Installation</a>
@@ -58,27 +58,15 @@
             <a href="/docs/github-actions" class="nav-link svelte-1u7z67y">GitHub Actions</a>
             <a href="/docs/gitlab-piplines" class="nav-link svelte-1u7z67y">GitLab Pipelines</a>
 </div>
-    <div class="docs-container svelte-1wche50"><div id="hamburger-wrapper" class="svelte-1wche50"><label for="nav-toggle" id="hamburger" class="svelte-1wche50"><span class="svelte-1wche50"></span>
-                <span class="svelte-1wche50"></span>
-                <span class="svelte-1wche50"></span>
-                <span class="svelte-1wche50"></span></label></div>
+    <div class="docs-container svelte-i31ht0"><div id="hamburger-wrapper" class="svelte-i31ht0"><label for="nav-toggle" id="hamburger" class="svelte-i31ht0"><span class="svelte-i31ht0"></span>
+                <span class="svelte-i31ht0"></span>
+                <span class="svelte-i31ht0"></span>
+                <span class="svelte-i31ht0"></span></label></div>
         
         <div class="docs">
-            <h1 class="svelte-1wche50">Types</h1>
+            <h1 class="svelte-i31ht0">Types</h1>
 
-            <strong class="title svelte-1wche50">Data Source</strong>
-                <p class="section-body svelte-1wche50">The <code>content/</code> folder in a project is where all your data lives (in JSON format). This is typically divided into multiple subfolders that define your types. Types are just a way to group content of a similar structure. Individual files inside a type are very flexible, in fact you can define any field schema you'd like and there are no required keys. Even though files may be grouped together as a type, they can actually have variability between them in terms of their field structure - just make sure you account for this in your corresponding <code>layouts/content/</code> files! 
-                        
-                    </p><strong class="title svelte-1wche50">Accessing content in layouts</strong>
-                <p class="section-body svelte-1wche50">Any user defined fields in your json files are accessed by the <code>content.fields</code> prop in your layouts. The top level content prop has the following defined keys that are available for all content sources: <ul><li><code>content.pager</code></li><li><code>content.type</code></li><li><code>content.path</code></li><li><code>content.filepath</code></li><li><code>content.filename</code></li><li><code>content.fields</code></li></ul>
-                        
-                    </p><strong class="title svelte-1wche50">Single file types</strong>
-                <p class="section-body svelte-1wche50">Anything that appears at the first level within the content folder is a type. This can include single files such as <code>index.json</code> and <code>404.json</code>, which are also types, but only have a one-off data source. You can define your own single file types this way if you'd like. You can also generate a single type using the CLI: <code>plenti new type YOUR_TYPE --single=true</code>
-                        
-                    </p><strong class="title svelte-1wche50">Blueprints</strong>
-                <p class="section-body svelte-1wche50">There is an optional, specially named file that goes inside your individual type folders named <code>_blueprint.json</code>. This defines the default content for that specific type (see <a href='https://github.com/plentico/plenti/issues/15#issuecomment-760395673'>issue 15</a>). The Plenti Git-CMS uses this to create new content of a particular type. If you have a type that you don't want editors to be able to add new instances of, simply omit the <code>_blueprint.json</code> file. Note that <code>--single</code> content is not meant to be repeated and does not have a corresponding blueprint file. 
-                        
-                    </p></div></div>
+            <div class="body svelte-i31ht0"><h2>Data Source</h2>The <code>content/</code> folder in a project is where all your data lives (in JSON format). This is typically divided into multiple subfolders that define your types. Types are just a way to group content of a similar structure. Individual files inside a type are very flexible, in fact you can define any field schema you'd like and there are no required keys. Even though files may be grouped together as a type, they can actually have variability between them in terms of their field structure - just make sure you account for this in your corresponding <code>layouts/content/</code> files!<div><h2>Accessing content in layouts</h2>Any user defined fields in your json files are accessed by the <code>content.fields</code> prop in your layouts. The top level content prop has the following defined keys that are available for all content sources:<ul><li><code>content.pager</code></li><li><code>content.type</code></li><li><code>content.path</code></li><li><code>content.filepath</code></li><li><code>content.filename</code></li><li><code>content.fields</code></li></ul><h2>Single file types</h2>Anything that appears at the first level within the content folder is a type. This can include single files such as <code>index.json</code> and <code>404.json</code>, which are also types, but only have a one-off data source. You can define your own single file types this way if you'd like. You can also generate a single type using the CLI: <code>plenti new type YOUR_TYPE --single=true</code></div><div><h2>Blueprints</h2>There is an optional, specially named file that goes inside your individual type folders named <code>_blueprint.json</code>. This defines the default content for that specific type (see <a href="https://github.com/plentico/plenti/issues/15#issuecomment-760395673">issue 15</a>). The Plenti Git-CMS uses this to create new content of a particular type. If you have a type that you don't want editors to be able to add new instances of,&nbsp; simply omit the <code>_blueprint.json</code> file. Note that <code>--single</code> content is not meant to be repeated and does not have a corresponding blueprint file.</div></div></div></div>
 </div>
       <br></main>
     <footer class="svelte-bfmma5"><div class="container svelte-bfmma5"><section id="plentico" class="svelte-bfmma5"><strong class="svelte-bfmma5">Plentico</strong>

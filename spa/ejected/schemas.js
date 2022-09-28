@@ -1,0 +1,1 @@
+const allSchemas={docs:{body:{type:"wysiwyg",options:["all"]}}};export default allSchemas
