@@ -1,50 +1,6 @@
 {
-    "title": "New Site",
-    "group": "Commands",
-    "order": 4.01,
-    "sections": [
-        {
-            "title": "Description",
-            "body": [
-                {
-                    "p": [
-                        "This is the first command you'll want to run for a new project.",
-                        "It creates the default folders and files for your website."
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Usage",
-            "body": [
-                {
-                    "p": [
-                        "You can create a new project by running <code>plenti new site YOUR_SITE_NAME</code>."
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Flags",
-            "body": [
-                {
-                    "t": {
-                        "head": ["Long", "Short", "Description"],
-                        "data": [
-                            [
-                                "<code>--bare</code>",
-                                "<code>-b</code>",
-                                "Creates a minimalist site scaffolding with less default content."
-                            ],
-                            [
-                                "<code>--theme=\"https://github.com/user/repo\"</code>",
-                                "<code>-t=\"https://github.com/user/repo\"</code>",
-                                "Point to a Git repository to use a base theme for your site."
-                            ]
-                        ]
-                    }
-                }
-            ]
-        }
-    ]
+	"title": "New Site",
+	"group": "Commands",
+	"order": 4.01,
+	"body": "<h2>Description</h2>This is the first command you'll want to run for a new project. It creates the default folders and files for your website.<div><h2>Usage</h2>You can create a new project by running <code>plenti new site YOUR_SITE_NAME</code>.</div><div><h2>Flags</h2></div><table><thead><tr><th>Long</th><th>Short</th><th>Description</th></tr></thead><tbody><tr><td><code>--bare<br></code></td><td><code>-b</code></td><td>Creates a minimalist site scaffolding with less default content.</td></tr><tr><td><code>--theme=\"https://github.com/user/repo\"<br></code></td><td><code>-t=\"https://github.com/user/repo\"<br></code></td><td>Point to a Git repository to use a base theme for your site.</td></tr></tbody></table>"
 }

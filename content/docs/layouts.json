@@ -1,57 +1,6 @@
 {
-    "title": "Layouts",
-    "group": "Structure",
-    "order": 2.01,
-    "sections": [
-        {
-            "title": "Svelte",
-            "body": [
-                {
-                    "p": [
-                        "All the templating is done in a reactive UI component framework called <a href='https://svelte.dev/'>Svelte</a>.",
-                        "Svelte offers a simplified syntax and creates a welcoming developer experience for folks coming directly from an HTML/CSS background.",
-                        "It also offers some performance benefits over similar frameworks since it doesn't require a virtual DOM and its runtime is rather small."
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "layouts/global/html.svelte",
-            "body": [
-                {
-                    "p": [
-                        "The <code>layouts/global/html.svelte</code> file is important and changing its name will break your app.",
-                        "You could also potentially break your routing if you're not careful with <code>&lt;svelte:component this={layout} {...content.fields} {allContent} /&gt;</code>.",
-                        "Once you're aware of those two things, this file shouldn't be too scary and is meant for you to customize."
-                    ]
-                },
-                {
-                    "p": [
-                      "It is common practice (but not required) to use a <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax' target='_blank' rel='noopener noreferrer'>JS spread operator</a> <code>{...content.fields}</code> inside a <a href='https://svelte.dev/tutorial/svelte-component' target='_blank' rel='noopener noreferrer'>dynamic component</a> <code>&lt;svelte:component this={layout}/&gt;</code> in your <code>layouts/global/html.svelte</code> file to make the keys you define in your content source easier to access.",
-                      "That resolves routes without requiring you to manually check them and load the corresponding layout and allows you to access keys defined in your content source directly at the top level of your <code>layouts/content/YOUR_TYPE.svelte</code> templates like:",
-                      "<br><br><codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let title;<br>&lt;/script&gt;<br><br>&lt;h1&gt;{title}&lt;/h1&gt;</codeblock>"
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "layouts/content/",
-            "body": [
-                {
-                    "p": [
-                        "Files that live in this folder correspond directly to the types defined in your content source.",
-                        "For example if you have <em>blog</em> type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layouts/content/blog.svelte</code>.",
-                        "One template should be used per type and it will feed many content files to create individual nodes (endpoints)."
-                    ]
-                },
-                {
-                    "p": [
-                        "The rest of the structure is really up to you.",
-                        "We try to create logical default folders, such as <code>layouts/components/</code> for reusable widgets and <code>layouts/scripts/</code> for helper functions,",
-                        "but feel free to completely change these and make the structure your own."
-                    ]
-                }
-            ]
-        }
-    ]
+	"title": "Layouts",
+	"group": "Structure",
+	"order": 2.01,
+	"body": "<h2>Svelte</h2>All the templating is done in a reactive UI component framework called <a href=\"https://svelte.dev/\">Svelte</a>. Svelte offers a simplified syntax and creates a welcoming developer experience for folks coming directly from an HTML/CSS background. It also offers some performance benefits over similar frameworks since it doesn't require a virtual DOM and its runtime is rather small.<div><h2>layouts/global/html.svelte</h2>The <code>layouts/global/html.svelte</code> file is important and changing its name will break your app. You could also potentially break your routing if you're not careful with <code>&lt;svelte:component this={layout} {...content.fields} {allContent} /&gt;</code>. Once you're aware of those two things, this file shouldn't be too scary and is meant for you to customize.</div><div><br></div><div><span style=\"color: var(--base-dark);\">It is common practice (but not required) to use a </span><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax\" target=\"_blank\" rel=\"noopener noreferrer\">JS spread operator</a><span style=\"color: var(--base-dark);\"> </span><code>{...content.fields}</code><span style=\"color: var(--base-dark);\"> inside a </span><a href=\"https://svelte.dev/tutorial/svelte-component\" target=\"_blank\" rel=\"noopener noreferrer\">dynamic component</a><span style=\"color: var(--base-dark);\"> </span><code>&lt;svelte:component this={layout}/&gt;</code><span style=\"color: var(--base-dark);\"> in your </span><code>layouts/global/html.svelte</code><span style=\"color: var(--base-dark);\"> file to make the keys you define in your content source easier to access. That resolves routes without requiring you to manually check them and load the corresponding layout and allows you to access keys defined in your content source directly at the top level of your </span><code>layouts/content/YOUR_TYPE.svelte</code><span style=\"color: var(--base-dark);\"> templates like:</span><br></div><div><br><codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let title;<br>&lt;/script&gt;<br><br>&lt;h1&gt;{title}&lt;/h1&gt;</codeblock><h2>layouts/content/</h2>Files that live in this folder correspond directly to the types defined in your content source. For example if you have <em>blog</em> type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layouts/content/blog.svelte</code>. One template should be used per type and it will feed many content files to create individual nodes (endpoints).</div><div><br></div><div>The rest of the structure is really up to you. We try to create logical default folders, such as <code>layouts/components/</code> for reusable widgets and <code>layouts/scripts/</code> for helper functions, but feel free to completely change these and make the structure your own.</div>"
 }

@@ -1,51 +1,6 @@
 {
-    "title": "New Type",
-    "group": "Commands",
-    "order": 4.02,
-    "sections": [
-        {
-            "title": "Description",
-            "body": [
-                {
-                    "p": [
-                        "This command will automatically create a folder in your <code>content/</code> directory with the",
-                        "type name, a <code>_blueprint.json</code> file inside that folder that describes the type's field",
-                        "structure, and a corresponding template in <code>layouts/content/</code> that has the same name as the type."
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Usage",
-            "body": [
-                {
-                    "p": [
-                        "You can create a new content type by running <code>plenti new type YOUR_NEW_TYPE</code>."
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Flags",
-            "body": [
-                {
-                    "t": {
-                        "head": ["Long", "Short", "Description"],
-                        "data": [
-                            [
-                                "<code>--endpoint=true</code>",
-                                "<code>-e=true</code>",
-                                "Pass \"false\" if you don't want your new type to have an endpoint that site visitors can access directly"
-                            ],
-                            [
-                                "<code>--single=false</code>",
-                                "<code>-s=false</code>",
-                                "Pass \"true\" if you want your new type to be a one-off route that is different structurally from other content"
-                            ]
-                        ]
-                    }
-                }
-            ]
-        }
-    ]
+	"title": "New Type",
+	"group": "Commands",
+	"order": 4.02,
+	"body": "<h2>Description</h2>This command will automatically create a folder in your <code>content/</code> directory with the type name, a <code>_blueprint.json</code> file inside that folder that describes the type's field structure, and a corresponding template in <code>layouts/content/</code> that has the same name as the type.<div><h2>Usage</h2>You can create a new content type by running <code>plenti new type YOUR_NEW_TYPE</code>.</div><div><h2>Flags</h2></div><table><thead><tr><th>Long</th><th>Short</th><th>Description</th></tr></thead><tbody><tr><td><code>--endpoint=true</code></td><td><code>-e=true</code></td><td>Pass \"false\" if you don't want your new type to have an endpoint that site visitors can access directly</td></tr><tr><td><code>--single=false</code></td><td><code>-s=false</code></td><td>Pass \"true\" if you want your new type to be a one-off route that is different structurally from other content</td></tr></tbody></table>"
 }
