@@ -16,8 +16,8 @@
       <Nav />
       <svelte:component this={layout} {...content.fields} {allContent} {user} />
       <br />
+      <Footer />
     </main>
-    <Footer />
     <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/{content.path}" /></noscript>
   </body>
 </html>
