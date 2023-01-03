@@ -27,7 +27,7 @@ main a {
     color: var(--base-dark);
     padding-bottom: 5px;
 }
-.button {
+main .button {
     background-image: linear-gradient(to right,var(--accent) , var(--accent-dark));
     color: var(--base-lightest);
     padding: 10px;

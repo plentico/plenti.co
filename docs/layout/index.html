@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<!DOCTYPE html><html data-content-filepath='content/docs/layout.json'  lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <title>Layout | Plenti - A Static Site Generator for Svelte</title>
@@ -68,8 +68,8 @@
 
             <div class="body svelte-i31ht0">Svelte<br>All the templating is done in the "disappearing" JS component framework called <a href='https://svelte.dev/'>Svelte</a>.Svelte offers a simplified syntax and creates a welcoming developer experience for folks coming directly from an HTML/CSS background.It also offers some performance benefits over similar frameworks since it doesn't require a virtual DOM and its runtime is rather small.layout/global/html.svelte<br>The <code>layout/global/html.svelte</code> file is important and changing its name will break your app.You could also potentially break your routing if you're not careful with <code>&lt;svelte:component this={route} {...node.fields} {allNodes} /&gt;</code>.Once you're aware of those two things, this file shouldn't be too scary and is meant for you to customize.layout/content/<br>Files that live in this folder correspond directly to the types defined in your content source.For example if you have <em>blog</em> type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layout/content/blog.svelte</code>.One template should be used per type and it will feed many content files to create individual nodes (endpoints).The rest of the structure is really up to you.We try to create logical default folders, such as <code>layout/components/</code> for reusable widgets and <code>layout/scripts/</code> for helper functions,but feel free to completely change these and make the structure your own.</div></div></div>
 </div>
-      <br></main>
-    <footer class="svelte-bfmma5"><div class="container svelte-bfmma5"><section id="plentico" class="svelte-bfmma5"><strong class="svelte-bfmma5">Plentico</strong>
+      <br>
+      <footer class="svelte-bfmma5"><div class="container svelte-bfmma5"><section id="plentico" class="svelte-bfmma5"><strong class="svelte-bfmma5">Plentico</strong>
       <div><a href="/about" class="svelte-bfmma5">About</a></div>
       <div><a href="/contact" class="svelte-bfmma5">Contact</a></div></section>
     <section id="products" class="svelte-bfmma5"><strong class="svelte-bfmma5">Products</strong>
@@ -82,6 +82,6 @@
     <section id="copyright" class="svelte-bfmma5"><div id="social" class="svelte-bfmma5"><a href="https://twitter.com/plentico" class="svelte-bfmma5"><img src="/assets/social/twitter.svg"></a><a href="https://youtube.com/jantcu" class="svelte-bfmma5"><img src="/assets/social/youtube.svg"></a><a href="https://github.com/plentico/plenti" class="svelte-bfmma5"><img src="/assets/social/github.svg"></a></div>
       <div id="copyright">© Plentico 2022</div>
       <a href="https://jantcu.com" class="svelte-bfmma5">By Jantcu LLC</a></section></div>
-</footer>
+</footer></main>
     <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/docs/layout"></noscript></body>
 </html>

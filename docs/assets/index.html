@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<!DOCTYPE html><html data-content-filepath='content/docs/assets.json'  lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <title>Assets | Plenti - A Static Site Generator for Svelte</title>
@@ -68,8 +68,8 @@
 
             <div class="body svelte-i31ht0"><h2>Static Files</h2>Static files like images and PDFs can be stored in the top level <code>assets/</code> directory. You can reference these assets from any template from the root of the site, for example:<code>&lt;img src="/assets/my-image.jpg" /&gt;</code>.<div><br></div><div>You can also use a path relative to the specific template. For instance if you were adding an image to<code>layouts/components/my-component.svelte</code>,&nbsp; you could reference the same image like<code>&lt;img src="../../assets/my-image.jpg" /&gt;</code> if you'd like.</div><div><h2>Media Browser</h2>When referencing assets in your JSON content source, you should use the full path (e.g. <code>assets/path/to/file.jpg</code>) instead of just the filename and thenhardcoding the prefex and suffix in your template. This allows the Plenti CMS to recognize the file as an asset and gives you a widget for interacting with the Media Browser to change assetsor upload new ones.</div><div><br></div><div>The nested folder structure you use inside your top-level assets folder becomes the filtering mechanism of the Media Browser. This can be used for narrowing down results in the Library view or setting the path of new files in the Upload view. Note that only folders with a file inside of them will appear this way (similar to how Git doesn't tracking empty folders).</div></div></div></div>
 </div>
-      <br></main>
-    <footer class="svelte-bfmma5"><div class="container svelte-bfmma5"><section id="plentico" class="svelte-bfmma5"><strong class="svelte-bfmma5">Plentico</strong>
+      <br>
+      <footer class="svelte-bfmma5"><div class="container svelte-bfmma5"><section id="plentico" class="svelte-bfmma5"><strong class="svelte-bfmma5">Plentico</strong>
       <div><a href="/about" class="svelte-bfmma5">About</a></div>
       <div><a href="/contact" class="svelte-bfmma5">Contact</a></div></section>
     <section id="products" class="svelte-bfmma5"><strong class="svelte-bfmma5">Products</strong>
@@ -82,6 +82,6 @@
     <section id="copyright" class="svelte-bfmma5"><div id="social" class="svelte-bfmma5"><a href="https://twitter.com/plentico" class="svelte-bfmma5"><img src="/assets/social/twitter.svg"></a><a href="https://youtube.com/jantcu" class="svelte-bfmma5"><img src="/assets/social/youtube.svg"></a><a href="https://github.com/plentico/plenti" class="svelte-bfmma5"><img src="/assets/social/github.svg"></a></div>
       <div id="copyright">© Plentico 2022</div>
       <a href="https://jantcu.com" class="svelte-bfmma5">By Jantcu LLC</a></section></div>
-</footer>
+</footer></main>
     <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/docs/assets"></noscript></body>
 </html>
