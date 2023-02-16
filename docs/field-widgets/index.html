@@ -1,11 +1,11 @@
-<!DOCTYPE html><html data-content-filepath='content/docs/allLayouts.json'  lang="en"><head><meta charset="utf-8">
+<!DOCTYPE html><html data-content-filepath='content/docs/field-widgets.json'  lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>AllLayouts | Plenti - A Static Site Generator for Svelte</title>
+  <title>Field Widgets | Plenti - A Static Site Generator for Svelte</title>
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@plentico">
-  <meta name="twitter:title" content="allLayouts">
+  <meta name="twitter:title" content="Field Widgets">
     <meta name="twitter:description" content="Build more sites, manage less overhead.">
 
   <script async defer src="https://nullitics.com/script.js"></script>
@@ -65,9 +65,9 @@
                 <span class="svelte-i31ht0"></span></label></div>
         
         <div class="docs">
-            <h1 class="svelte-i31ht0">allLayouts</h1>
+            <h1 class="svelte-i31ht0">Field Widgets</h1>
 
-            <div class="body svelte-i31ht0"><h2>Description</h2>The <code>allLayouts</code> variable is a default prop loaded by the Plenti generator automatically. It holds class constructors for every svelte template on your site. This is allows you to dynamically load any component without having to import it explicitly or worry about SSR issues when generating HTML fallbacks.<div><h2>Understanding Component Signatures</h2>Each entry in <code>allLayouts</code> is saved as a "component signature" to ensure uniqueness. The component signature for a template is simply its path with any forward slashes "/" or periods "." converted into underscores "_". For example <code>layouts/components/grid.svelte</code> would become&nbsp;<code>layouts_components_grid_svelte</code>. The signatures are absolute, not relative, so they should always start with "layouts" and end with "svelte".</div><div><h2>Accessing templates in allLayouts</h2>To access a particular template in the <code>allLayouts</code>&nbsp;object, use the component signature with either dot notation (e.g. <code>allLayouts.layouts_components_grid_svelte</code> or bracket notation<code>allLayouts["layouts_components_grid_svelte"]</code>. It's common to use variables provided from your JSON data source to target a particular component, so you'd use bracket notation for that: <code>allLayouts[someVariable]</code> (where "someVariable" is equal to a component signature).</div><div><h2>Dynamic components</h2>Svelte has <a href="https://svelte.dev/tutorial/svelte-component" rel="noopener noreferrer">dynamic components</a> that allows you to load templates without explicitly importing them. Combine this with the <code>allLayouts</code> magic prop and you can have a content driven component architecture where you can add/remove/rearrange components without touching your Svelte templates and it will have complete SSR builds so you still get HTML fallbacks for every component.&nbsp;</div><div><br></div><div>Given a content source that looks like this:</div><div><br><codeblock>{<br>&nbsp;&nbsp;"components": [<br>&nbsp;&nbsp;&nbsp;&nbsp;{"name": "ball"},<br>&nbsp;&nbsp;&nbsp;&nbsp;{"name": "block"}<br>&nbsp;&nbsp;]<br>}</codeblock><br>You could dynamically load the components like this:</div><div><br><codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let components, allLayouts;<br>&lt;/script&gt;<br><br>{#if components}<br>&nbsp;&nbsp;{#each components as { name }}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;svelte:component this="{allLayouts["layouts_components_" + name + "_svelte"]}" /&gt;<br>&nbsp;&nbsp;{/each}<br>{/if}</codeblock></div></div></div></div>
+            <div class="body svelte-i31ht0">Sometimes you may want to override the default field widgets that are used for editing content. You can do this in the <code>_schema.json</code> file for your content type or component. All field widget overrides use the following format (replace "myfield" with the JSON key from your content source):<div><div><br><div><codeblock>{<br>&nbsp; myfield: {<br>&nbsp; &nbsp; "type": "",<br>&nbsp; &nbsp; "options": []<br>&nbsp; }<br>}<br></codeblock><div><br></div>Here's a list of widget types that ship with the CMS by default:</div></div></div><div><ul><li>text</li><li>number</li><li>boolean</li><li>date</li><li>time</li><li>wysiwyg</li><li>select</li><li>checkbox</li><li>radio</li><li>reference / references</li><li>id</li><li>media</li><li>component</li></ul></div></div></div></div>
 </div>
       <br>
       <footer class="svelte-bfmma5"><div class="container svelte-bfmma5"><section id="plentico" class="svelte-bfmma5"><strong class="svelte-bfmma5">Plentico</strong>
@@ -86,5 +86,5 @@
       <div id="copyright">© Plentico 2022</div>
       <a href="https://jantcu.com" class="svelte-bfmma5">By Jantcu LLC</a></section></div>
 </footer></main>
-    <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/docs/alllayouts"></noscript></body>
+    <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/docs/field-widgets"></noscript></body>
 </html>

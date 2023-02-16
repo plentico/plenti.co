@@ -1,1 +1,1 @@
-const allSchemas={docs:{body:{type:"wysiwyg",options:["all"]}}};export default allSchemas
+const allSchemas={docs:{body:{type:"wysiwyg",options:["all"]},group:{type:"reference",options:[{type:"docs",search:["group"],result:"fields.group"}]}}};export default allSchemas
