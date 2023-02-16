@@ -60,7 +60,12 @@
   {#if themes}
     <section id="themes">
       {#each allContent.filter(content => content.type == "themes") as theme}
-        <a href="/themes/{theme.fields.name.toLowerCase().replaceAll(' ', '-')}"><img src="/assets/themes/{theme.fields.name.toLowerCase().replaceAll(' ', '-')}.png" /></a> 
+        <a href="/themes/{theme.fields.name.toLowerCase().replaceAll(' ', '-')}">
+          <img
+            src="/media/themes/{theme.fields.name.toLowerCase().replaceAll(' ', '-')}.png"
+            alt="Screenshot for {theme.fields.name}"
+          />
+        </a> 
       {/each}
     </section>
   {/if}
@@ -69,7 +74,7 @@
     <div class="upcoming-themes">(More themes coming soon)</div>
     <section id="themes">
     {#each upcoming_themes as theme}
-      <img src="/assets/themes/{theme}" />
+      <img src="/media/themes/{theme}" alt="Screenshot for {theme}" />
     {/each}
     </section>
   {/if}

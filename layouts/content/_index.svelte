@@ -58,7 +58,9 @@
 			<a href="{cta.link}" class="button">{cta.text}</a>
 		{/each}
 		</div>
-		<div id="intro-hero"><img src="/assets/hero.svg" alt="planarian looking at screen" /></div>
+		<div id="intro-hero">
+			<img src="{intro.image.src}" alt="{intro.image.alt}" />
+		</div>
 	</section>
 </div>
 
@@ -67,7 +69,7 @@
 <section id="editor">
 	<div class="container">
 		<div class="editor-graphic">
-			<img src="/assets/edit.gif" alt="Animation of typing on a computer" />
+			<img src="{editor.image.src}" alt="{editor.image.alt}" />
 		</div>
 		<div class="editor-content">
 			<h3>{editor.title}</h3>
@@ -77,8 +79,10 @@
 </section>
 
 <svelte:window bind:scrollY={by}/>
-<section id="features" style="background-position-y:{by/5 - 300}px;">
-	{#each features as feature}
+<section
+	id="features"
+	style="background-image: url('{features.background}'); background-position-y:{by/5 - 300}px;">
+	{#each features.items as feature}
 		<div class="feature">
 			<img src="{feature.img}" alt="{feature.title}" />
 			<div class="title">{feature.title}</div>
@@ -169,8 +173,7 @@
 		flex-basis: 0;
 		flex-grow: 1;
 	}
-	#features {
-		background-image: url("/assets/planarian-background.svg");
+	#features {	
 		display: flex;
 		flex-wrap: wrap;
 		padding: 100px 0;

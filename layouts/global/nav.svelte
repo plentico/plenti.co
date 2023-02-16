@@ -6,7 +6,7 @@
 </script>
 <nav>
   <div class="container">
-    <span id="brand"><a href="/"><img alt="planarian" src="/assets/plentico.svg" /></a></span>
+    <span id="brand"><a href="/"><img alt="planarian" src="/plentico.svg" /></a></span>
     <input type="checkbox" id="toggle" class="hidden" bind:checked={checked}>
     <label for="toggle" id="hamburger">
       <span></span>
@@ -19,7 +19,7 @@
       <a on:click={uncheck} class="nav-link" href="/themes">Themes</a>
       <a on:click={uncheck} class="nav-link" href="https://github.com/sponsors/plentico">Donate</a>
       <a on:click={uncheck} class="nav-link button" href="/download">Download</a>
-      <a class="nav-link" href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg" alt="GitHub Octocat Icon" /></a>
+      <a class="nav-link" href="https://github.com/plentico/plenti"><img src="/social/github.svg" alt="GitHub Octocat Icon" /></a>
     </div>
   </div>
 </nav>

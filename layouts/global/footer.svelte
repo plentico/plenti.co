@@ -1,7 +1,3 @@
-<script>
-  import { makeTitle } from '../scripts/make_title.svelte';
-</script>
-
 <footer>
   <div class="container">
     <section id="plentico">
@@ -21,7 +17,17 @@
       <div><a href="/download">Download</a></div>
     </section>
     <section id="copyright">
-      <div id="social"><a href="https://twitter.com/plentico"><img src="/assets/social/twitter.svg"></a><a href="https://youtube.com/jantcu"><img src="/assets/social/youtube.svg"></a><a href="https://github.com/plentico/plenti"><img src="/assets/social/github.svg"></a></div>
+      <div id="social">
+        <a href="https://twitter.com/plentico">
+          <img src="/social/twitter.svg" alt="Twitter bird logo">
+        </a>
+        <a href="https://youtube.com/jantcu">
+          <img src="/social/youtube.svg" alt="Toutube play button logo">
+        </a>
+        <a href="https://github.com/plentico/plenti">
+          <img src="/social/github.svg" alt="GitHub octocat logo">
+        </a>
+      </div>
       <div id="copyright">© Plentico 2022</div>
       <a href="https://jantcu.com">By Jantcu LLC</a>
     </section>

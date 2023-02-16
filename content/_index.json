@@ -8,6 +8,10 @@
 			"with deadlines in mind",
 			"ready for editors"
 		],
+		"image": {
+			"src": "/media/hero.svg",
+			"alt": "planarian looking at screen"
+		},
 		"body": "We're an open source Svelte SSG that handles routing, pagination, HTML fallbacks, and more so you can build apps with less hassle.",
 		"cta": [
 			{
@@ -22,64 +26,71 @@
 	},
 	"editor": {
 		"title": "Edit right on the page",
+		"image": {
+			"src": "/media/edit.gif",
+			"alt": "Animation of typing on a computer"
+		},
 		"body": "Seriously, give it a shot! You can edit this text directly. That's how easy it will be to maintain the content on your site."
 	},
-	"features": [
-		{
-			"title": "No Security Updates",
-			"img": "/assets/features/security.svg"
-		},
-		{
-			"title": "Cheap / Free Hosting",
-			"img": "/assets/features/hosting.svg"
-		},
-		{
-			"title": "Fast Page Loads",
-			"img": "/assets/features/speed.svg"
-		},
-		{
-			"title": "Fast Build Times",
-			"img": "/assets/features/builds.svg"
-		},
-		{
-			"title": "Distributed Sites",
-			"img": "/assets/features/cdn.svg"
-		},
-		{
-			"title": "No Vendor Lock-In",
-			"img": "/assets/features/vendor.svg"
-		}
-	],
+	"features": {
+		"background": "/media/planarian-background.svg",
+		"items": [
+			{
+				"title": "No Security Updates",
+				"img": "/media/features/security.svg"
+			},
+			{
+				"title": "Cheap / Free Hosting",
+				"img": "/media/features/hosting.svg"
+			},
+			{
+				"title": "Fast Page Loads",
+				"img": "/media/features/speed.svg"
+			},
+			{
+				"title": "Fast Build Times",
+				"img": "/media/features/builds.svg"
+			},
+			{
+				"title": "Distributed Sites",
+				"img": "/media/features/cdn.svg"
+			},
+			{
+				"title": "No Vendor Lock-In",
+				"img": "/media/features/vendor.svg"
+			}
+		]
+	},
 	"setup": [
 		{
 			"title": "Out-of-the-Box",
 			"title_accent": "Content Editing",
 			"body": "Ship sites with a lightweight Content Management System. No extra software is needed to handoff to editors.",
-			"img": "/assets/setup/edit.png"
+			"img": "/media/setup/edit.png"
 		},
 		{
 			"title": "Git Backend",
 			"title_accent": "No Database",
 			"body": "Ditch the SQL headaches and simply connect to a Git backend. Finally content editors and developers can speak the same language.",
-			"img": "/assets/setup/git.png"
+			"img": "/media/setup/git.png"
 		},
 		{
 			"title": "Content Structure",
 			"title_accent": "Flexible",
 			"body": "There are no required fields or content types in Plenti. You define whatever structure works best for you and your project.",
-			"img": "/assets/setup/json.png"
+			"img": "/media/setup/json.png"
 		},
 		{
 			"title": "Svelte Components",
 			"title_accent": "Reactive",
 			"body": "Build with a fast and easy to understand component framework. Enjoy automatic HTML fallbacks for your single page apps.",
-			"img": "/assets/setup/svelte.png"
+			"img": "/media/setup/svelte.png"
 		},
 		{
 			"title": "Commandline Tool",
 			"title_accent": "Fast",
 			"body": "Save time with automatic scaffolding for repetitive tasks. The CLI tool doesn't require internet access or dependencies.",
-			"img": "/assets/setup/cli.png"
+			"img": "/media/setup/cli.png"
 		}
 	],
 	"cta": {
