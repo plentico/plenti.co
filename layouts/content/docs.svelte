@@ -69,7 +69,7 @@
     }
     .docs-container {
         min-height: 100vh;
-        padding: 0 20px;
+        padding: 0 60px;
     }
     #deprecated {
         border: 1px solid var(--accent);
@@ -77,14 +77,9 @@
         margin-top: 20px;
     }
     #deprecated ~ h1,
-    #deprecated ~ div,
-    #deprecated ~ strong,
-    #deprecated ~ p,
-    #deprecated ~ p :global(a),
-    #deprecated ~ p :global(code) {
+    #deprecated ~ div {
         color: gainsboro;
     }
-    .section-body :global(a),
     #deprecated :global(a) {
         font-weight: bold;
         color: var(--primary);
@@ -93,17 +88,6 @@
         font-family: 'Noto Sans', sans-serif;
         font-weight: 300;
         font-size: 2rem;
-    }
-    .section-body :global(table) {
-        width: 100%;
-        text-align: left;
-    }
-    .title {
-        font-weight: 300;
-        font-size: 1.5rem;
-    }
-    p {
-        line-height: 1.75rem;
     }
     .hidden {
         display: none;
@@ -203,6 +187,7 @@
         }
         .docs-container {
             flex-direction: column;
+            padding: 0 20px;
         }
         #nav-toggle:checked~:global(.sidebar) {
             margin-left: 0;

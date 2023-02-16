@@ -149,6 +149,8 @@
 	a.button {
 		font-size: 1.25rem;
 		margin-right: 20px;
+		margin-bottom: 20px;
+		display: inline-block;
 	}
 	a.button:last-of-type {
 		background-image: none;
