@@ -1,6 +1,6 @@
 {
 	"title": "Static",
 	"group": "Structure",
-	"order": 3.05,
+	"order": 2.3,
 	"body": "There is a top-level folder called <code>static/</code> that you can use to store theme related files that you don't want editors to be able to change.<div><br></div><div>It's common to put the following files in this folder:<div><ul><li>global CSS</li><li>site logo</li><li>favicon</li><li>robots.txt</li><li>hosting specific files that need to be shipped with the deployed site (e.g. <code>.domains</code>)</li></ul><div><h2>Accessing files in Layouts</h2></div></div></div><div>You can target these files directly off the root of your domain, for example if adding a global stylesheet that is saved as&nbsp;<code>static/global.css</code>&nbsp;you can reference it by:</div><div><br><codeblock>&lt;head&gt;<br>&nbsp; &lt;link rel='stylesheet' href='/global.css'&gt;<br>&lt;/head&gt;</codeblock></div>"
 }
