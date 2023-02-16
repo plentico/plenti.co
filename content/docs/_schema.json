@@ -4,5 +4,17 @@
     "options": [
       "all"
     ]
+  },
+  "group": {
+    "type": "reference",
+    "options": [
+      {
+        "type": "docs",
+        "search": [
+          "group"
+        ],
+        "result": "fields.group"
+      }
+    ]
   }
 }
