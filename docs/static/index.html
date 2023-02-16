@@ -1,11 +1,11 @@
-<!DOCTYPE html><html data-content-filepath='content/docs/gitea-actions.json'  lang="en"><head><meta charset="utf-8">
+<!DOCTYPE html><html data-content-filepath='content/docs/static.json'  lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Gitea Actions | Plenti - A Static Site Generator for Svelte</title>
+  <title>Static | Plenti - A Static Site Generator for Svelte</title>
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@plentico">
-  <meta name="twitter:title" content="Gitea Actions">
+  <meta name="twitter:title" content="Static">
     <meta name="twitter:description" content="Build more sites, manage less overhead.">
 
   <script async defer src="https://nullitics.com/script.js"></script>
@@ -69,9 +69,9 @@
                 <span class="svelte-8cuaw2"></span></label></div>
         
         <div class="docs">
-            <h1 class="svelte-8cuaw2">Gitea Actions</h1>
+            <h1 class="svelte-8cuaw2">Static</h1>
 
-            <div class="body svelte-8cuaw2"><h2>Description</h2><a href="https://gitea.io/en-us/" target="_blank" rel="noreferrer noopener">Gitea</a>&nbsp;is a <em>free and open source</em>&nbsp;git repository service that you can self-host (similar to GitLab but less moving parts). It does not offer a static website hosting solution out of the box, but you could always implement your own using something like&nbsp;<a href="https://codeberg.org/Codeberg/pages-server" target="_blank" rel="noreferrer noopener">pages-server</a>. Gitea also offers a built-in CI solution that is&nbsp;<a href="https://blog.gitea.io/2022/12/feature-preview-gitea-actions/" target="_blank" rel="noreferrer noopener">compatible with GitHub Actions</a>.<div><br></div><div>You can have your Plenti websites automatically build and deploy to a specific branch in your repo by adding a <code>.gitea/workflows/build.yml</code>&nbsp;file to your project that will run automatically every time you push to your main branch on GitHub.<div><br><codeblock>name:&nbsp;Plenti Build<br>run-name: ${{ github.actor }} deployed to build branch<br>on:<br>&nbsp;&nbsp;push:<br>&nbsp;&nbsp;&nbsp;&nbsp;branches:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main<br><br>jobs:<br>&nbsp;&nbsp;deploy:<br>&nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest<br>&nbsp;&nbsp;&nbsp;&nbsp;steps:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v2<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Build<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: docker://plentico/plenti:latest<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entrypoint: /plenti<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args: build&nbsp;--output="temp"<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Deploy<br>&nbsp; &nbsp; &nbsp; &nbsp; run: |<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /usr/bin/git config user.name ${{ github.actor }}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/usr/bin/git config user.email ci@plenti.co<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/usr/bin/git remote rm origin<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/usr/bin/git remote add origin https://x-access-token:${{ secrets.GITEA_TOKEN }}@your-gitea-instance.com/${{ github.repository }}<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;/usr/bin/git add -A<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;/usr/bin/git commit -m "Commit temp folder."<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;/usr/bin/git push origin `git subtree split --prefix temp master`:prod --no-verify --force&nbsp;</codeblock><div><br></div><br></div></div></div></div></div>
+            <div class="body svelte-8cuaw2">There is a top-level folder called <code>static/</code> that you can use to store theme related files that you don't want editors to be able to change.<div><br></div><div>It's common to put the following files in this folder:<div><ul><li>global CSS</li><li>site logo</li><li>favicon</li><li>robots.txt</li><li>hosting specific files that need to be shipped with the deployed site (e.g. <code>.domains</code>)</li></ul><div><h2>Accessing files in Layouts</h2></div></div></div><div>You can target these files directly off the root of your domain, for example if adding a global stylesheet that is saved as&nbsp;<code>static/global.css</code>&nbsp;you can reference it by:</div><div><br><codeblock>&lt;head&gt;<br>&nbsp; &lt;link rel='stylesheet' href='/global.css'&gt;<br>&lt;/head&gt;</codeblock></div></div></div></div>
 </div>
       <br>
       <footer class="svelte-bfmma5"><div class="container svelte-bfmma5"><section id="plentico" class="svelte-bfmma5"><strong class="svelte-bfmma5">Plentico</strong>
@@ -90,5 +90,5 @@
       <div id="copyright">© Plentico 2022</div>
       <a href="https://jantcu.com" class="svelte-bfmma5">By Jantcu LLC</a></section></div>
 </footer></main>
-    <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/docs/gitea-actions"></noscript></body>
+    <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/docs/static"></noscript></body>
 </html>
