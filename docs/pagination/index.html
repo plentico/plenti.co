@@ -1,94 +1,48 @@
-<!DOCTYPE html><html data-content-filepath='content/docs/pagination.json'  lang="en"><head><meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <title>Pagination | Plenti - A Static Site Generator for Svelte</title>
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@plentico">
-  <meta name="twitter:title" content="Pagination">
-    <meta name="twitter:description" content="Build more sites, manage less overhead.">
-
-  <script async defer src="https://nullitics.com/script.js"></script>
-  <script type="module" src="/spa/core/main.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="/p.svg">
-  <link rel="stylesheet" href="/global.css">
-  <link rel="stylesheet" href="/spa/bundle.css"></head>
-  <body class="svelte-5glvo">
-    <main class="svelte-5glvo"><nav class="svelte-gfe0x9"><div class="container svelte-gfe0x9"><span id="brand" class="svelte-gfe0x9"><a href="/" class="svelte-gfe0x9"><img alt="planarian" src="/plentico.svg" class="svelte-gfe0x9"></a></span>
-    <input type="checkbox" id="toggle" class="hidden svelte-gfe0x9">
-    <label for="toggle" id="hamburger" class="svelte-gfe0x9"><span class="svelte-gfe0x9"></span>
-      <span class="svelte-gfe0x9"></span>
-      <span class="svelte-gfe0x9"></span>
-      <span class="svelte-gfe0x9"></span></label>
-    <div id="menu" class="svelte-gfe0x9"><a class="nav-link svelte-gfe0x9" href="/docs">Docs</a>
-      <a class="nav-link svelte-gfe0x9" href="/themes">Themes</a>
-      <a class="nav-link svelte-gfe0x9" href="https://github.com/sponsors/plentico">Donate</a>
-      <a class="nav-link button svelte-gfe0x9" href="/download">Download</a>
-      <a class="nav-link svelte-gfe0x9" href="https://github.com/plentico/plenti"><img src="/social/github.svg" alt="GitHub Octocat Icon" class="svelte-gfe0x9"></a></div></div>
-</nav>
-      <div class="docs-wrapper svelte-8cuaw2"><input type="checkbox" id="nav-toggle" class="hidden svelte-8cuaw2">
-    <div class="sidebar svelte-1u7z67y"><strong class="svelte-1u7z67y">Getting Started</strong>
-            <a href="/docs" class="nav-link svelte-1u7z67y">Introduction</a>
-            <a href="/docs/installation" class="nav-link svelte-1u7z67y">Installation</a>
-            <a href="/docs/upgrading" class="nav-link svelte-1u7z67y">Upgrading</a><strong class="svelte-1u7z67y">Content</strong>
-            <a href="/docs/types" class="nav-link svelte-1u7z67y">Types</a>
-            <a href="/docs/paths" class="nav-link svelte-1u7z67y">Paths</a><strong class="svelte-1u7z67y">Structure</strong>
-            <a href="/docs/layouts" class="nav-link svelte-1u7z67y">Layouts</a>
-            <a href="/docs/media" class="nav-link svelte-1u7z67y">Media</a>
-            <a href="/docs/themes" class="nav-link svelte-1u7z67y">Themes</a>
-            <a href="/docs/static" class="nav-link svelte-1u7z67y">Static</a><strong class="svelte-1u7z67y">Configuration</strong>
-            <a href="/docs/baseurl" class="nav-link svelte-1u7z67y">Baseurl</a>
-            <a href="/docs/pagination" class="nav-link svelte-1u7z67y">Pagination</a><strong class="svelte-1u7z67y">Magic Variables</strong>
-            <a href="/docs/allcontent" class="nav-link svelte-1u7z67y">allContent</a>
-            <a href="/docs/alllayouts" class="nav-link svelte-1u7z67y">allLayouts</a>
-            <a href="/docs/params" class="nav-link svelte-1u7z67y">params</a><strong class="svelte-1u7z67y">Commands</strong>
-            <a href="/docs/new-site" class="nav-link svelte-1u7z67y">New Site</a>
-            <a href="/docs/new-type" class="nav-link svelte-1u7z67y">New Type</a>
-            <a href="/docs/build" class="nav-link svelte-1u7z67y">Build</a>
-            <a href="/docs/serve" class="nav-link svelte-1u7z67y">Serve</a>
-            <a href="/docs/eject" class="nav-link svelte-1u7z67y">Eject</a><strong class="svelte-1u7z67y">Theme Commands</strong>
-            <a href="/docs/theme-add" class="nav-link svelte-1u7z67y">Theme Add</a>
-            <a href="/docs/theme-enable" class="nav-link svelte-1u7z67y">Theme Enable</a>
-            <a href="/docs/theme-disable" class="nav-link svelte-1u7z67y">Theme Disable</a>
-            <a href="/docs/theme-update" class="nav-link svelte-1u7z67y">Theme Update</a>
-            <a href="/docs/theme-remove" class="nav-link svelte-1u7z67y">Theme Remove</a><strong class="svelte-1u7z67y">Deployment</strong>
-            <a href="/docs/github-actions" class="nav-link svelte-1u7z67y">GitHub Actions</a>
-            <a href="/docs/gitlab-piplines" class="nav-link svelte-1u7z67y">GitLab Pipelines</a>
-            <a href="/docs/gitea-actions" class="nav-link svelte-1u7z67y">Gitea Actions</a><strong class="svelte-1u7z67y">CMS</strong>
-            <a href="/docs/cms-setup" class="nav-link svelte-1u7z67y">Setup</a>
-            <a href="/docs/cms-config" class="nav-link svelte-1u7z67y">Configuration</a>
-            <a href="/docs/cms-media" class="nav-link svelte-1u7z67y">Media</a>
-            <a href="/docs/field-widgets" class="nav-link svelte-1u7z67y">Field Widgets</a>
-</div>
-    <div class="docs-container svelte-8cuaw2"><div id="hamburger-wrapper" class="svelte-8cuaw2"><label for="nav-toggle" id="hamburger" class="svelte-8cuaw2"><span class="svelte-8cuaw2"></span>
-                <span class="svelte-8cuaw2"></span>
-                <span class="svelte-8cuaw2"></span>
-                <span class="svelte-8cuaw2"></span></label></div>
-        
-        <div class="docs">
-            <h1 class="svelte-8cuaw2">Pagination</h1>
-
-            <div class="body svelte-8cuaw2"><h2>What is pagination?</h2>Sometimes you want to aggregate many individual pieces of content onto a single page. This is common for things like blog posts and event pages; there are many individual nodes, but one landing page that collects them all so people can browse what is available. If there are too many items to display on a single page, often times they are broken up into individual pages that people can cycle through by clicking a "next" or "previous" button (a pager). This increments the current page and loads a new set of items while clearing out the previous set.<div><h2>Implementation</h2>In your sitewide <code>plenti.json</code> configuration file, you can create pagination, for your homepage for example, like this:</div><div><br><codeblock>{<br>&nbsp;&nbsp;"routes": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"index": ":paginate(totalPages)"<br>&nbsp;&nbsp;}<br>}</codeblock><br>The value of <code>totalPages</code> in this example <em>must</em> be defined in the template for this route, which in this case is <code>layouts/content/index.svelte</code>. You have complete flexibility to set up your pagination to work in any way that you see fit. We don't force you to use any particular pattern, at build time we simply evaluate the value of whatever variable name you put in your route to determine how many server rendered pages you need. For example you might create pagination in your template to work with the route specified above like this:</div><div><br><codeblock>&lt;script&gt;<br>&nbsp;&nbsp;import Grid from '../components/grid.svelte';<br>&nbsp;&nbsp;import Pager from '../components/pager.svelte';<br>&nbsp;&nbsp;export let content, allContent;<br><br>&nbsp;&nbsp;$: currentPage = content.pager ? content.pager : 1;<br>&nbsp;&nbsp;let postsPerPage = 3;<br>&nbsp;&nbsp;let allPosts = allContent.filter(content =&gt; content.type == "blog");<br>&nbsp;&nbsp;let totalPosts = allPosts.length;<br>&nbsp;&nbsp;let totalPages = Math.ceil(totalPosts / postsPerPage); <strong>// This is the variable you set in your route</strong><br>&nbsp;&nbsp;$: postRangeHigh = currentPage * postsPerPage;<br>&nbsp;&nbsp;$: postRangeLow = postRangeHigh - postsPerPage;<br>&lt;/script&gt;<br><br>&lt;Grid {allPosts} {postRangeLow} {postRangeHigh} /&gt;<br>&lt;Pager {currentPage} {totalPages} /&gt;</codeblock><br>(<strong>Note:</strong> the <code>content.pager</code> ships with each node on your site to help keep track of which page you're on)</div><div><h2>Displaying paged items</h2>To display the correct items, you'll want to check if the position of the current post is within the expected range of the items that should be displayed. Keeping with the example above, you could create a <code>layouts/components/grid.svelte</code> file that looks something like this:</div><div><br><codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let allPosts, postRangeLow, postRangeHigh;<br>&lt;/script&gt;<br><br>&lt;div class='grid'&gt;<br>&nbsp;&nbsp;{#each allPosts as post, i}<br>&nbsp;&nbsp;&nbsp;&nbsp;{#if i &gt;= postRangeLow &amp;&amp; i &lt; postRangeHigh}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class='grid-item' href='{post.path}'&gt;{post.fields.title}&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;{/if}<br>&nbsp;&nbsp;{/each}<br>&lt;/div&gt;</codeblock><h2>Creating a pager</h2>The pager is the actual controls used to navigate forward and backward through the paged output. You have ultimate flexibility of how this is implemented, but it might look something like this:</div><div><br><codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let currentPage, totalPages;<br>&lt;/script&gt;<br><br>&lt;ul&gt;<br>&nbsp;&nbsp;{#if currentPage &gt; 1}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href='.'&gt;first&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href='{currentPage - 1}'&gt;prev&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;{:else}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;span&gt;first&lt;/span&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;span&gt;prev&lt;/span&gt;&lt;/li&gt;<br>&nbsp;&nbsp;{/if}<br>&nbsp;&nbsp;{#each [3,2,1] as i}<br>&nbsp;&nbsp;&nbsp;&nbsp;{#if currentPage - i &gt; 0}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="{currentPage - i}"&gt;{currentPage - i}&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;{/if}<br>&nbsp;&nbsp;{/each}<br>&nbsp;&nbsp;&lt;li&gt;&lt;span&gt;{currentPage}&lt;/span&gt;&lt;/li&gt;<br>&nbsp;&nbsp;{#each Array(3) as _, i}<br>&nbsp;&nbsp;&nbsp;&nbsp;{#if currentPage + (i+1) &lt;= totalPages}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="{currentPage + (i+1)}"&gt;{currentPage + (i+1)}&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;{/if}<br>&nbsp;&nbsp;{/each}<br>&nbsp;&nbsp;{#if currentPage &lt; totalPages}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="{currentPage + 1}"&gt;next&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="{totalPages}"&gt;last&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;{:else}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;span&gt;next&lt;/span&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;span&gt;last&lt;/span&gt;&lt;/li&gt;<br>&nbsp;&nbsp;{/if}<br>&lt;/ul&gt;</codeblock></div></div></div></div>
-</div>
-      <br>
-      <footer class="svelte-bfmma5"><div class="container svelte-bfmma5"><section id="plentico" class="svelte-bfmma5"><strong class="svelte-bfmma5">Plentico</strong>
-      <div><a href="/about" class="svelte-bfmma5">About</a></div>
-      <div><a href="/contact" class="svelte-bfmma5">Contact</a></div></section>
-    <section id="products" class="svelte-bfmma5"><strong class="svelte-bfmma5">Products</strong>
-      <div><a href="https://github.com/plentico/plenti" class="svelte-bfmma5">Plenti</a></div>
-      <div><a href="https://plentiform.com" class="svelte-bfmma5">Plentiform</a></div></section>
-    <section id="resources" class="svelte-bfmma5"><strong class="svelte-bfmma5">Resources</strong>
-      <div><a href="/docs" class="svelte-bfmma5">Documentation</a></div>
-      <div><a href="/themes" class="svelte-bfmma5">Themes</a></div>
-      <div><a href="/download" class="svelte-bfmma5">Download</a></div></section>
-    <section id="copyright" class="svelte-bfmma5"><div id="social" class="svelte-bfmma5"><a href="https://twitter.com/plentico" class="svelte-bfmma5"><img src="/social/twitter.svg" alt="Twitter bird logo"></a>
-        <a href="https://youtube.com/jantcu" class="svelte-bfmma5"><img src="/social/youtube.svg" alt="Toutube play button logo"></a>
-        <a href="https://github.com/plentico/plenti" class="svelte-bfmma5"><img src="/social/github.svg" alt="GitHub octocat logo"></a></div>
-      <div id="copyright">© Plentico 2022</div>
-      <a href="https://jantcu.com" class="svelte-bfmma5">By Jantcu LLC</a></section></div>
-</footer></main>
-    <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/docs/pagination"></noscript></body>
-</html>
+<!doctype html><html data-content-filepath=content/docs/pagination.json lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Pagination | Plenti - A Static Site Generator for Svelte</title><meta name=twitter:card content="summary"><meta name=twitter:site content="@plentico"><meta name=twitter:title content="Pagination"><meta name=twitter:description content="Build more sites, manage less overhead."><script async defer src=https://nullitics.com/script.js></script>
+<script type=module src=/spa/core/main.js></script>
+<link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel=stylesheet><link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel=stylesheet><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel=stylesheet><link rel=icon type=image/svg+xml href=/p.svg><link rel=stylesheet href=/global.css><link rel=stylesheet href=/spa/bundle.css><body class=svelte-5glvo><main class=svelte-5glvo><nav class=svelte-gfe0x9><div class="container svelte-gfe0x9"><span id=brand class=svelte-gfe0x9><a href=/ class=svelte-gfe0x9><img alt=planarian src=/plentico.svg class=svelte-gfe0x9></a></span>
+<input type=checkbox id=toggle class="hidden svelte-gfe0x9">
+<label for=toggle id=hamburger class=svelte-gfe0x9><span class=svelte-gfe0x9></span>
+<span class=svelte-gfe0x9></span>
+<span class=svelte-gfe0x9></span>
+<span class=svelte-gfe0x9></span></label><div id=menu class=svelte-gfe0x9><a class="nav-link svelte-gfe0x9" href=/docs>Docs</a>
+<a class="nav-link svelte-gfe0x9" href=/themes>Themes</a>
+<a class="nav-link svelte-gfe0x9" href=https://github.com/sponsors/plentico>Donate</a>
+<a class="nav-link button svelte-gfe0x9" href=/download>Download</a>
+<a class="nav-link svelte-gfe0x9" href=https://github.com/plentico/plenti><img src=/social/github.svg alt="GitHub Octocat Icon" class=svelte-gfe0x9></a></div></div></nav><div class="docs-wrapper svelte-8cuaw2"><input type=checkbox id=nav-toggle class="hidden svelte-8cuaw2"><div class="sidebar svelte-1u7z67y"><strong class=svelte-1u7z67y>Getting Started</strong>
+<a href=/docs class="nav-link svelte-1u7z67y">Introduction</a>
+<a href=/docs/installation class="nav-link svelte-1u7z67y">Installation</a>
+<a href=/docs/upgrading class="nav-link svelte-1u7z67y">Upgrading</a><strong class=svelte-1u7z67y>Content</strong>
+<a href=/docs/types class="nav-link svelte-1u7z67y">Types</a>
+<a href=/docs/paths class="nav-link svelte-1u7z67y">Paths</a><strong class=svelte-1u7z67y>Structure</strong>
+<a href=/docs/layouts class="nav-link svelte-1u7z67y">Layouts</a>
+<a href=/docs/media class="nav-link svelte-1u7z67y">Media</a>
+<a href=/docs/themes class="nav-link svelte-1u7z67y">Themes</a>
+<a href=/docs/static class="nav-link svelte-1u7z67y">Static</a><strong class=svelte-1u7z67y>Configuration</strong>
+<a href=/docs/baseurl class="nav-link svelte-1u7z67y">Baseurl</a>
+<a href=/docs/pagination class="nav-link svelte-1u7z67y">Pagination</a><strong class=svelte-1u7z67y>Magic Variables</strong>
+<a href=/docs/allcontent class="nav-link svelte-1u7z67y">allContent</a>
+<a href=/docs/alllayouts class="nav-link svelte-1u7z67y">allLayouts</a>
+<a href=/docs/params class="nav-link svelte-1u7z67y">params</a><strong class=svelte-1u7z67y>Commands</strong>
+<a href=/docs/new-site class="nav-link svelte-1u7z67y">New Site</a>
+<a href=/docs/new-type class="nav-link svelte-1u7z67y">New Type</a>
+<a href=/docs/build class="nav-link svelte-1u7z67y">Build</a>
+<a href=/docs/serve class="nav-link svelte-1u7z67y">Serve</a>
+<a href=/docs/eject class="nav-link svelte-1u7z67y">Eject</a><strong class=svelte-1u7z67y>Theme Commands</strong>
+<a href=/docs/theme-add class="nav-link svelte-1u7z67y">Theme Add</a>
+<a href=/docs/theme-enable class="nav-link svelte-1u7z67y">Theme Enable</a>
+<a href=/docs/theme-disable class="nav-link svelte-1u7z67y">Theme Disable</a>
+<a href=/docs/theme-update class="nav-link svelte-1u7z67y">Theme Update</a>
+<a href=/docs/theme-remove class="nav-link svelte-1u7z67y">Theme Remove</a><strong class=svelte-1u7z67y>Deployment</strong>
+<a href=/docs/github-actions class="nav-link svelte-1u7z67y">GitHub Actions</a>
+<a href=/docs/gitlab-piplines class="nav-link svelte-1u7z67y">GitLab Pipelines</a>
+<a href=/docs/gitea-actions class="nav-link svelte-1u7z67y">Gitea Actions</a><strong class=svelte-1u7z67y>CMS</strong>
+<a href=/docs/cms-setup class="nav-link svelte-1u7z67y">Setup</a>
+<a href=/docs/cms-config class="nav-link svelte-1u7z67y">Configuration</a>
+<a href=/docs/cms-media class="nav-link svelte-1u7z67y">Media</a>
+<a href=/docs/field-widgets class="nav-link svelte-1u7z67y">Field Widgets</a></div><div class="docs-container svelte-8cuaw2"><div id=hamburger-wrapper class=svelte-8cuaw2><label for=nav-toggle id=hamburger class=svelte-8cuaw2><span class=svelte-8cuaw2></span>
+<span class=svelte-8cuaw2></span>
+<span class=svelte-8cuaw2></span>
+<span class=svelte-8cuaw2></span></label></div><div class=docs><h1 class=svelte-8cuaw2>Pagination</h1><div class="body svelte-8cuaw2"><h2>What is pagination?</h2>Sometimes you want to aggregate many individual pieces of content onto a single page. This is common for things like blog posts and event pages; there are many individual nodes, but one landing page that collects them all so people can browse what is available. If there are too many items to display on a single page, often times they are broken up into individual pages that people can cycle through by clicking a "next" or "previous" button (a pager). This increments the current page and loads a new set of items while clearing out the previous set.<div><h2>Implementation</h2>In your sitewide <code>plenti.json</code> configuration file, you can create pagination, for your homepage for example, like this:</div><div><br><codeblock>{<br>&nbsp;&nbsp;"routes": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"index": ":paginate(totalPages)"<br>&nbsp;&nbsp;}<br>}</codeblock><br>The value of <code>totalPages</code> in this example <em>must</em> be defined in the template for this route, which in this case is <code>layouts/content/index.svelte</code>. You have complete flexibility to set up your pagination to work in any way that you see fit. We don't force you to use any particular pattern, at build time we simply evaluate the value of whatever variable name you put in your route to determine how many server rendered pages you need. For example you might create pagination in your template to work with the route specified above like this:</div><div><br><codeblock>&lt;script><br>&nbsp;&nbsp;import Grid from '../components/grid.svelte';<br>&nbsp;&nbsp;import Pager from '../components/pager.svelte';<br>&nbsp;&nbsp;export let content, allContent;<br><br>&nbsp;&nbsp;$: currentPage = content.pager ? content.pager : 1;<br>&nbsp;&nbsp;let postsPerPage = 3;<br>&nbsp;&nbsp;let allPosts = allContent.filter(content => content.type == "blog");<br>&nbsp;&nbsp;let totalPosts = allPosts.length;<br>&nbsp;&nbsp;let totalPages = Math.ceil(totalPosts / postsPerPage); <strong>// This is the variable you set in your route</strong><br>&nbsp;&nbsp;$: postRangeHigh = currentPage * postsPerPage;<br>&nbsp;&nbsp;$: postRangeLow = postRangeHigh - postsPerPage;<br>&lt;/script><br><br>&lt;Grid {allPosts} {postRangeLow} {postRangeHigh} /><br>&lt;Pager {currentPage} {totalPages} /></codeblock><br>(<strong>Note:</strong> the <code>content.pager</code> ships with each node on your site to help keep track of which page you're on)</div><div><h2>Displaying paged items</h2>To display the correct items, you'll want to check if the position of the current post is within the expected range of the items that should be displayed. Keeping with the example above, you could create a <code>layouts/components/grid.svelte</code> file that looks something like this:</div><div><br><codeblock>&lt;script><br>&nbsp;&nbsp;export let allPosts, postRangeLow, postRangeHigh;<br>&lt;/script><br><br>&lt;div class='grid'><br>&nbsp;&nbsp;{#each allPosts as post, i}<br>&nbsp;&nbsp;&nbsp;&nbsp;{#if i >= postRangeLow && i &lt; postRangeHigh}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class='grid-item' href='{post.path}'>{post.fields.title}&lt;/a><br>&nbsp;&nbsp;&nbsp;&nbsp;{/if}<br>&nbsp;&nbsp;{/each}<br>&lt;/div></codeblock><h2>Creating a pager</h2>The pager is the actual controls used to navigate forward and backward through the paged output. You have ultimate flexibility of how this is implemented, but it might look something like this:</div><div><br><codeblock>&lt;script><br>&nbsp;&nbsp;export let currentPage, totalPages;<br>&lt;/script><br><br>&lt;ul><br>&nbsp;&nbsp;{#if currentPage > 1}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>&lt;a href='.'>first&lt;/a>&lt;/li><br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>&lt;a href='{currentPage - 1}'>prev&lt;/a>&lt;/li><br>&nbsp;&nbsp;{:else}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>&lt;span>first&lt;/span>&lt;/li><br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>&lt;span>prev&lt;/span>&lt;/li><br>&nbsp;&nbsp;{/if}<br>&nbsp;&nbsp;{#each [3,2,1] as i}<br>&nbsp;&nbsp;&nbsp;&nbsp;{#if currentPage - i > 0}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>&lt;a href="{currentPage - i}">{currentPage - i}&lt;/a>&lt;/li><br>&nbsp;&nbsp;&nbsp;&nbsp;{/if}<br>&nbsp;&nbsp;{/each}<br>&nbsp;&nbsp;&lt;li>&lt;span>{currentPage}&lt;/span>&lt;/li><br>&nbsp;&nbsp;{#each Array(3) as _, i}<br>&nbsp;&nbsp;&nbsp;&nbsp;{#if currentPage + (i+1) &lt;= totalPages}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>&lt;a href="{currentPage + (i+1)}">{currentPage + (i+1)}&lt;/a>&lt;/li><br>&nbsp;&nbsp;&nbsp;&nbsp;{/if}<br>&nbsp;&nbsp;{/each}<br>&nbsp;&nbsp;{#if currentPage &lt; totalPages}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>&lt;a href="{currentPage + 1}">next&lt;/a>&lt;/li><br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>&lt;a href="{totalPages}">last&lt;/a>&lt;/li><br>&nbsp;&nbsp;{:else}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>&lt;span>next&lt;/span>&lt;/li><br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>&lt;span>last&lt;/span>&lt;/li><br>&nbsp;&nbsp;{/if}<br>&lt;/ul></codeblock></div></div></div></div></div><br><footer class=svelte-bfmma5><div class="container svelte-bfmma5"><section id=plentico class=svelte-bfmma5><strong class=svelte-bfmma5>Plentico</strong><div><a href=/about class=svelte-bfmma5>About</a></div><div><a href=/contact class=svelte-bfmma5>Contact</a></div></section><section id=products class=svelte-bfmma5><strong class=svelte-bfmma5>Products</strong><div><a href=https://github.com/plentico/plenti class=svelte-bfmma5>Plenti</a></div><div><a href=https://plentiform.com class=svelte-bfmma5>Plentiform</a></div></section><section id=resources class=svelte-bfmma5><strong class=svelte-bfmma5>Resources</strong><div><a href=/docs class=svelte-bfmma5>Documentation</a></div><div><a href=/themes class=svelte-bfmma5>Themes</a></div><div><a href=/download class=svelte-bfmma5>Download</a></div></section><section id=copyright class=svelte-bfmma5><div id=social class=svelte-bfmma5><a href=https://twitter.com/plentico class=svelte-bfmma5><img src=/social/twitter.svg alt="Twitter bird logo"></a>
+<a href=https://youtube.com/jantcu class=svelte-bfmma5><img src=/social/youtube.svg alt="Toutube play button logo"></a>
+<a href=https://github.com/plentico/plenti class=svelte-bfmma5><img src=/social/github.svg alt="GitHub octocat logo"></a></div><div id=copyright>© Plentico 2022</div><a href=https://jantcu.com class=svelte-bfmma5>By Jantcu LLC</a></section></div></footer></main><noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/docs/pagination"></noscript>

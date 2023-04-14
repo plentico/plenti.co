@@ -1,1 +1,90 @@
-import convert from"../../regexparam/dist/regexparam.mjs";export default function(t,n){var o,a,i=[],s={},r=s.format=function(e){return e&&(e="/"+e.replace(/^\/|\/$/g,""),o.test(e)&&e.replace(o,"/"))};return t="/"+(t||"").replace(/^\/|\/$/g,""),o=t=="/"?/^\/+/:new RegExp("^\\"+t+"(?=\\/|$)\\/?","i"),s.route=function(e,n){e[0]=="/"&&!o.test(e)&&(e=t+e),history[(e===a||n?"replace":"push")+"State"](e,null,e)},s.on=function(e,t){return(e=convert(e)).fn=t,i.push(e),s},s.run=function(e){var o,l,t=0,c={};if(e=r(e||location.pathname)){e=e.match(/[^?#]*/)[0];for(a=e;t<i.length;t++)if(l=(o=i[t]).pattern.exec(e)){for(t=0;t<o.keys.length;)c[o.keys[t]]=l[++t]||null;return o.fn(c),s}n&&n(e)}return s},s.listen=function(e){wrap("push"),wrap("replace");function t(){s.run()}function n(e){var n=e.target.closest("a"),t=n&&n.getAttribute("href");if(e.ctrlKey||e.metaKey||e.altKey||e.shiftKey||e.button||e.defaultPrevented)return;if(!t||n.target||n.host!==location.host||t[0]=="#")return;(t[0]!="/"||o.test(t))&&(e.preventDefault(),s.route(t))}return addEventListener("popstate",t),addEventListener("replacestate",t),addEventListener("pushstate",t),addEventListener("click",n),s.unlisten=function(){removeEventListener("popstate",t),removeEventListener("replacestate",t),removeEventListener("pushstate",t),removeEventListener("click",n)},s.run(e)},s}function wrap(e,t){if(history[e])return;history[e]=e,t=history[e+="State"],history[e]=function(n){var s=new Event(e.toLowerCase());return s.uri=n,t.apply(this,arguments),dispatchEvent(s)}}
+import convert from '../../regexparam/dist/regexparam.mjs';
+
+export default function Navaid(base, on404) {
+	var rgx, curr, routes=[], $={};
+
+	var fmt = $.format = function (uri) {
+		if (!uri) return uri;
+		uri = '/' + uri.replace(/^\/|\/$/g, '');
+		return rgx.test(uri) && uri.replace(rgx, '/');
+	}
+
+	base = '/' + (base || '').replace(/^\/|\/$/g, '');
+	rgx = base == '/' ? /^\/+/ : new RegExp('^\\' + base + '(?=\\/|$)\\/?', 'i');
+
+	$.route = function (uri, replace) {
+		if (uri[0] == '/' && !rgx.test(uri)) uri = base + uri;
+		history[(uri === curr || replace ? 'replace' : 'push') + 'State'](uri, null, uri);
+	}
+
+	$.on = function (pat, fn) {
+		(pat = convert(pat)).fn = fn;
+		routes.push(pat);
+		return $;
+	}
+
+	$.run = function (uri) {
+		var i=0, params={}, arr, obj;
+		if (uri = fmt(uri || location.pathname)) {
+			uri = uri.match(/[^\?#]*/)[0];
+			for (curr = uri; i < routes.length; i++) {
+				if (arr = (obj=routes[i]).pattern.exec(uri)) {
+					for (i=0; i < obj.keys.length;) {
+						params[obj.keys[i]] = arr[++i] || null;
+					}
+					obj.fn(params); // todo loop?
+					return $;
+				}
+			}
+			if (on404) on404(uri);
+		}
+		return $;
+	}
+
+	$.listen = function (u) {
+		wrap('push');
+		wrap('replace');
+
+		function run(e) {
+			$.run();
+		}
+
+		function click(e) {
+			var x = e.target.closest('a'), y = x && x.getAttribute('href');
+			if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey || e.button || e.defaultPrevented) return;
+			if (!y || x.target || x.host !== location.host || y[0] == '#') return;
+			if (y[0] != '/' || rgx.test(y)) {
+				e.preventDefault();
+				$.route(y);
+			}
+		}
+
+		addEventListener('popstate', run);
+		addEventListener('replacestate', run);
+		addEventListener('pushstate', run);
+		addEventListener('click', click);
+
+		$.unlisten = function () {
+			removeEventListener('popstate', run);
+			removeEventListener('replacestate', run);
+			removeEventListener('pushstate', run);
+			removeEventListener('click', click);
+		}
+
+		return $.run(u);
+	}
+
+	return $;
+}
+
+function wrap(type, fn) {
+	if (history[type]) return;
+	history[type] = type;
+	fn = history[type += 'State'];
+	history[type] = function (uri) {
+		var ev = new Event(type.toLowerCase());
+		ev.uri = uri;
+		fn.apply(this, arguments);
+		return dispatchEvent(ev);
+	}
+}

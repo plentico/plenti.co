@@ -1,1 +1,26 @@
-export default function(e,t){if(e instanceof RegExp)return{keys:!1,pattern:e};var n,s,o,a,r=[],i="",c=e.split("/");for(c[0]||c.shift();n=c.shift();)a=n[0],a==="*"?(r.push("wild"),i+="/(.*)"):a===":"?(o=n.indexOf("?",1),s=n.indexOf(".",1),r.push(n.substring(1,!!~o?o:!!~s?s:n.length)),i+=!!~o&&!~s?"(?:/([^/]+?))?":"/([^/]+?)",!~s||(i+=(!!~o?"?":"")+"\\"+n.substring(s))):i+="/"+n;return{keys:r,pattern:new RegExp("^"+i+(t?"(?=$|/)":"/?$"),"i")}}
+export default function (str, loose) {
+	if (str instanceof RegExp) return { keys:false, pattern:str };
+	var c, o, tmp, ext, keys=[], pattern='', arr = str.split('/');
+	arr[0] || arr.shift();
+
+	while (tmp = arr.shift()) {
+		c = tmp[0];
+		if (c === '*') {
+			keys.push('wild');
+			pattern += '/(.*)';
+		} else if (c === ':') {
+			o = tmp.indexOf('?', 1);
+			ext = tmp.indexOf('.', 1);
+			keys.push( tmp.substring(1, !!~o ? o : !!~ext ? ext : tmp.length) );
+			pattern += !!~o && !~ext ? '(?:/([^/]+?))?' : '/([^/]+?)';
+			if (!!~ext) pattern += (!!~o ? '?' : '') + '\\' + tmp.substring(ext);
+		} else {
+			pattern += '/' + tmp;
+		}
+	}
+
+	return {
+		keys: keys,
+		pattern: new RegExp('^' + pattern + (loose ? '(?=$|\/)' : '\/?$'), 'i')
+	};
+}

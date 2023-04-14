@@ -1,94 +1,48 @@
-<!DOCTYPE html><html data-content-filepath='content/docs/layouts.json'  lang="en"><head><meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <title>Layouts | Plenti - A Static Site Generator for Svelte</title>
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@plentico">
-  <meta name="twitter:title" content="Layouts">
-    <meta name="twitter:description" content="Build more sites, manage less overhead.">
-
-  <script async defer src="https://nullitics.com/script.js"></script>
-  <script type="module" src="/spa/core/main.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="/p.svg">
-  <link rel="stylesheet" href="/global.css">
-  <link rel="stylesheet" href="/spa/bundle.css"></head>
-  <body class="svelte-5glvo">
-    <main class="svelte-5glvo"><nav class="svelte-gfe0x9"><div class="container svelte-gfe0x9"><span id="brand" class="svelte-gfe0x9"><a href="/" class="svelte-gfe0x9"><img alt="planarian" src="/plentico.svg" class="svelte-gfe0x9"></a></span>
-    <input type="checkbox" id="toggle" class="hidden svelte-gfe0x9">
-    <label for="toggle" id="hamburger" class="svelte-gfe0x9"><span class="svelte-gfe0x9"></span>
-      <span class="svelte-gfe0x9"></span>
-      <span class="svelte-gfe0x9"></span>
-      <span class="svelte-gfe0x9"></span></label>
-    <div id="menu" class="svelte-gfe0x9"><a class="nav-link svelte-gfe0x9" href="/docs">Docs</a>
-      <a class="nav-link svelte-gfe0x9" href="/themes">Themes</a>
-      <a class="nav-link svelte-gfe0x9" href="https://github.com/sponsors/plentico">Donate</a>
-      <a class="nav-link button svelte-gfe0x9" href="/download">Download</a>
-      <a class="nav-link svelte-gfe0x9" href="https://github.com/plentico/plenti"><img src="/social/github.svg" alt="GitHub Octocat Icon" class="svelte-gfe0x9"></a></div></div>
-</nav>
-      <div class="docs-wrapper svelte-8cuaw2"><input type="checkbox" id="nav-toggle" class="hidden svelte-8cuaw2">
-    <div class="sidebar svelte-1u7z67y"><strong class="svelte-1u7z67y">Getting Started</strong>
-            <a href="/docs" class="nav-link svelte-1u7z67y">Introduction</a>
-            <a href="/docs/installation" class="nav-link svelte-1u7z67y">Installation</a>
-            <a href="/docs/upgrading" class="nav-link svelte-1u7z67y">Upgrading</a><strong class="svelte-1u7z67y">Content</strong>
-            <a href="/docs/types" class="nav-link svelte-1u7z67y">Types</a>
-            <a href="/docs/paths" class="nav-link svelte-1u7z67y">Paths</a><strong class="svelte-1u7z67y">Structure</strong>
-            <a href="/docs/layouts" class="nav-link svelte-1u7z67y">Layouts</a>
-            <a href="/docs/media" class="nav-link svelte-1u7z67y">Media</a>
-            <a href="/docs/themes" class="nav-link svelte-1u7z67y">Themes</a>
-            <a href="/docs/static" class="nav-link svelte-1u7z67y">Static</a><strong class="svelte-1u7z67y">Configuration</strong>
-            <a href="/docs/baseurl" class="nav-link svelte-1u7z67y">Baseurl</a>
-            <a href="/docs/pagination" class="nav-link svelte-1u7z67y">Pagination</a><strong class="svelte-1u7z67y">Magic Variables</strong>
-            <a href="/docs/allcontent" class="nav-link svelte-1u7z67y">allContent</a>
-            <a href="/docs/alllayouts" class="nav-link svelte-1u7z67y">allLayouts</a>
-            <a href="/docs/params" class="nav-link svelte-1u7z67y">params</a><strong class="svelte-1u7z67y">Commands</strong>
-            <a href="/docs/new-site" class="nav-link svelte-1u7z67y">New Site</a>
-            <a href="/docs/new-type" class="nav-link svelte-1u7z67y">New Type</a>
-            <a href="/docs/build" class="nav-link svelte-1u7z67y">Build</a>
-            <a href="/docs/serve" class="nav-link svelte-1u7z67y">Serve</a>
-            <a href="/docs/eject" class="nav-link svelte-1u7z67y">Eject</a><strong class="svelte-1u7z67y">Theme Commands</strong>
-            <a href="/docs/theme-add" class="nav-link svelte-1u7z67y">Theme Add</a>
-            <a href="/docs/theme-enable" class="nav-link svelte-1u7z67y">Theme Enable</a>
-            <a href="/docs/theme-disable" class="nav-link svelte-1u7z67y">Theme Disable</a>
-            <a href="/docs/theme-update" class="nav-link svelte-1u7z67y">Theme Update</a>
-            <a href="/docs/theme-remove" class="nav-link svelte-1u7z67y">Theme Remove</a><strong class="svelte-1u7z67y">Deployment</strong>
-            <a href="/docs/github-actions" class="nav-link svelte-1u7z67y">GitHub Actions</a>
-            <a href="/docs/gitlab-piplines" class="nav-link svelte-1u7z67y">GitLab Pipelines</a>
-            <a href="/docs/gitea-actions" class="nav-link svelte-1u7z67y">Gitea Actions</a><strong class="svelte-1u7z67y">CMS</strong>
-            <a href="/docs/cms-setup" class="nav-link svelte-1u7z67y">Setup</a>
-            <a href="/docs/cms-config" class="nav-link svelte-1u7z67y">Configuration</a>
-            <a href="/docs/cms-media" class="nav-link svelte-1u7z67y">Media</a>
-            <a href="/docs/field-widgets" class="nav-link svelte-1u7z67y">Field Widgets</a>
-</div>
-    <div class="docs-container svelte-8cuaw2"><div id="hamburger-wrapper" class="svelte-8cuaw2"><label for="nav-toggle" id="hamburger" class="svelte-8cuaw2"><span class="svelte-8cuaw2"></span>
-                <span class="svelte-8cuaw2"></span>
-                <span class="svelte-8cuaw2"></span>
-                <span class="svelte-8cuaw2"></span></label></div>
-        
-        <div class="docs">
-            <h1 class="svelte-8cuaw2">Layouts</h1>
-
-            <div class="body svelte-8cuaw2"><h2>Svelte</h2>All the templating is done in a reactive UI component framework called <a href="https://svelte.dev/">Svelte</a>. Svelte offers a simplified syntax and creates a welcoming developer experience for folks coming directly from an HTML/CSS background. It also offers some performance benefits over similar frameworks since it doesn't require a virtual DOM and its runtime is rather small.<div><h2>layouts/global/html.svelte</h2>The <code>layouts/global/html.svelte</code> file is important and changing its name will break your app. You could also potentially break your routing if you're not careful with <code>&lt;svelte:component this={layout} {...content.fields} {allContent} /&gt;</code>. Once you're aware of those two things, this file shouldn't be too scary and is meant for you to customize.</div><div><br></div><div><span style="color: var(--base-dark);">It is common practice (but not required) to use a </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank" rel="noopener noreferrer">JS spread operator</a><span style="color: var(--base-dark);"> </span><code>{...content.fields}</code><span style="color: var(--base-dark);"> inside a </span><a href="https://svelte.dev/tutorial/svelte-component" target="_blank" rel="noopener noreferrer">dynamic component</a><span style="color: var(--base-dark);"> </span><code>&lt;svelte:component this={layout}/&gt;</code><span style="color: var(--base-dark);"> in your </span><code>layouts/global/html.svelte</code><span style="color: var(--base-dark);"> file to make the keys you define in your content source easier to access. That resolves routes without requiring you to manually check them and load the corresponding layout and allows you to access keys defined in your content source directly at the top level of your </span><code>layouts/content/YOUR_TYPE.svelte</code><span style="color: var(--base-dark);"> templates like:</span><br></div><div><br><codeblock>&lt;script&gt;<br>&nbsp;&nbsp;export let title;<br>&lt;/script&gt;<br><br>&lt;h1&gt;{title}&lt;/h1&gt;</codeblock><h2>layouts/content/</h2>Files that live in this folder correspond directly to the types defined in your content source. For example if you have <em>blog</em> type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layouts/content/blog.svelte</code>. One template should be used per type and it will feed many content files to create individual nodes (endpoints).</div><div><br></div><div>The rest of the structure is really up to you. We try to create logical default folders, such as <code>layouts/components/</code> for reusable widgets and <code>layouts/scripts/</code> for helper functions, but feel free to completely change these and make the structure your own.</div></div></div></div>
-</div>
-      <br>
-      <footer class="svelte-bfmma5"><div class="container svelte-bfmma5"><section id="plentico" class="svelte-bfmma5"><strong class="svelte-bfmma5">Plentico</strong>
-      <div><a href="/about" class="svelte-bfmma5">About</a></div>
-      <div><a href="/contact" class="svelte-bfmma5">Contact</a></div></section>
-    <section id="products" class="svelte-bfmma5"><strong class="svelte-bfmma5">Products</strong>
-      <div><a href="https://github.com/plentico/plenti" class="svelte-bfmma5">Plenti</a></div>
-      <div><a href="https://plentiform.com" class="svelte-bfmma5">Plentiform</a></div></section>
-    <section id="resources" class="svelte-bfmma5"><strong class="svelte-bfmma5">Resources</strong>
-      <div><a href="/docs" class="svelte-bfmma5">Documentation</a></div>
-      <div><a href="/themes" class="svelte-bfmma5">Themes</a></div>
-      <div><a href="/download" class="svelte-bfmma5">Download</a></div></section>
-    <section id="copyright" class="svelte-bfmma5"><div id="social" class="svelte-bfmma5"><a href="https://twitter.com/plentico" class="svelte-bfmma5"><img src="/social/twitter.svg" alt="Twitter bird logo"></a>
-        <a href="https://youtube.com/jantcu" class="svelte-bfmma5"><img src="/social/youtube.svg" alt="Toutube play button logo"></a>
-        <a href="https://github.com/plentico/plenti" class="svelte-bfmma5"><img src="/social/github.svg" alt="GitHub octocat logo"></a></div>
-      <div id="copyright">© Plentico 2022</div>
-      <a href="https://jantcu.com" class="svelte-bfmma5">By Jantcu LLC</a></section></div>
-</footer></main>
-    <noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/docs/layouts"></noscript></body>
-</html>
+<!doctype html><html data-content-filepath=content/docs/layouts.json lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Layouts | Plenti - A Static Site Generator for Svelte</title><meta name=twitter:card content="summary"><meta name=twitter:site content="@plentico"><meta name=twitter:title content="Layouts"><meta name=twitter:description content="Build more sites, manage less overhead."><script async defer src=https://nullitics.com/script.js></script>
+<script type=module src=/spa/core/main.js></script>
+<link href="https://fonts.googleapis.com/css2?family=NTR&display=swap&family=Heebo:wght@900&family=Kalam&display=swap" rel=stylesheet><link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel=stylesheet><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel=stylesheet><link rel=icon type=image/svg+xml href=/p.svg><link rel=stylesheet href=/global.css><link rel=stylesheet href=/spa/bundle.css><body class=svelte-5glvo><main class=svelte-5glvo><nav class=svelte-gfe0x9><div class="container svelte-gfe0x9"><span id=brand class=svelte-gfe0x9><a href=/ class=svelte-gfe0x9><img alt=planarian src=/plentico.svg class=svelte-gfe0x9></a></span>
+<input type=checkbox id=toggle class="hidden svelte-gfe0x9">
+<label for=toggle id=hamburger class=svelte-gfe0x9><span class=svelte-gfe0x9></span>
+<span class=svelte-gfe0x9></span>
+<span class=svelte-gfe0x9></span>
+<span class=svelte-gfe0x9></span></label><div id=menu class=svelte-gfe0x9><a class="nav-link svelte-gfe0x9" href=/docs>Docs</a>
+<a class="nav-link svelte-gfe0x9" href=/themes>Themes</a>
+<a class="nav-link svelte-gfe0x9" href=https://github.com/sponsors/plentico>Donate</a>
+<a class="nav-link button svelte-gfe0x9" href=/download>Download</a>
+<a class="nav-link svelte-gfe0x9" href=https://github.com/plentico/plenti><img src=/social/github.svg alt="GitHub Octocat Icon" class=svelte-gfe0x9></a></div></div></nav><div class="docs-wrapper svelte-8cuaw2"><input type=checkbox id=nav-toggle class="hidden svelte-8cuaw2"><div class="sidebar svelte-1u7z67y"><strong class=svelte-1u7z67y>Getting Started</strong>
+<a href=/docs class="nav-link svelte-1u7z67y">Introduction</a>
+<a href=/docs/installation class="nav-link svelte-1u7z67y">Installation</a>
+<a href=/docs/upgrading class="nav-link svelte-1u7z67y">Upgrading</a><strong class=svelte-1u7z67y>Content</strong>
+<a href=/docs/types class="nav-link svelte-1u7z67y">Types</a>
+<a href=/docs/paths class="nav-link svelte-1u7z67y">Paths</a><strong class=svelte-1u7z67y>Structure</strong>
+<a href=/docs/layouts class="nav-link svelte-1u7z67y">Layouts</a>
+<a href=/docs/media class="nav-link svelte-1u7z67y">Media</a>
+<a href=/docs/themes class="nav-link svelte-1u7z67y">Themes</a>
+<a href=/docs/static class="nav-link svelte-1u7z67y">Static</a><strong class=svelte-1u7z67y>Configuration</strong>
+<a href=/docs/baseurl class="nav-link svelte-1u7z67y">Baseurl</a>
+<a href=/docs/pagination class="nav-link svelte-1u7z67y">Pagination</a><strong class=svelte-1u7z67y>Magic Variables</strong>
+<a href=/docs/allcontent class="nav-link svelte-1u7z67y">allContent</a>
+<a href=/docs/alllayouts class="nav-link svelte-1u7z67y">allLayouts</a>
+<a href=/docs/params class="nav-link svelte-1u7z67y">params</a><strong class=svelte-1u7z67y>Commands</strong>
+<a href=/docs/new-site class="nav-link svelte-1u7z67y">New Site</a>
+<a href=/docs/new-type class="nav-link svelte-1u7z67y">New Type</a>
+<a href=/docs/build class="nav-link svelte-1u7z67y">Build</a>
+<a href=/docs/serve class="nav-link svelte-1u7z67y">Serve</a>
+<a href=/docs/eject class="nav-link svelte-1u7z67y">Eject</a><strong class=svelte-1u7z67y>Theme Commands</strong>
+<a href=/docs/theme-add class="nav-link svelte-1u7z67y">Theme Add</a>
+<a href=/docs/theme-enable class="nav-link svelte-1u7z67y">Theme Enable</a>
+<a href=/docs/theme-disable class="nav-link svelte-1u7z67y">Theme Disable</a>
+<a href=/docs/theme-update class="nav-link svelte-1u7z67y">Theme Update</a>
+<a href=/docs/theme-remove class="nav-link svelte-1u7z67y">Theme Remove</a><strong class=svelte-1u7z67y>Deployment</strong>
+<a href=/docs/github-actions class="nav-link svelte-1u7z67y">GitHub Actions</a>
+<a href=/docs/gitlab-piplines class="nav-link svelte-1u7z67y">GitLab Pipelines</a>
+<a href=/docs/gitea-actions class="nav-link svelte-1u7z67y">Gitea Actions</a><strong class=svelte-1u7z67y>CMS</strong>
+<a href=/docs/cms-setup class="nav-link svelte-1u7z67y">Setup</a>
+<a href=/docs/cms-config class="nav-link svelte-1u7z67y">Configuration</a>
+<a href=/docs/cms-media class="nav-link svelte-1u7z67y">Media</a>
+<a href=/docs/field-widgets class="nav-link svelte-1u7z67y">Field Widgets</a></div><div class="docs-container svelte-8cuaw2"><div id=hamburger-wrapper class=svelte-8cuaw2><label for=nav-toggle id=hamburger class=svelte-8cuaw2><span class=svelte-8cuaw2></span>
+<span class=svelte-8cuaw2></span>
+<span class=svelte-8cuaw2></span>
+<span class=svelte-8cuaw2></span></label></div><div class=docs><h1 class=svelte-8cuaw2>Layouts</h1><div class="body svelte-8cuaw2"><h2>Svelte</h2>All the templating is done in a reactive UI component framework called <a href=https://svelte.dev/>Svelte</a>. Svelte offers a simplified syntax and creates a welcoming developer experience for folks coming directly from an HTML/CSS background. It also offers some performance benefits over similar frameworks since it doesn't require a virtual DOM and its runtime is rather small.<div><h2>layouts/global/html.svelte</h2>The <code>layouts/global/html.svelte</code> file is important and changing its name will break your app. You could also potentially break your routing if you're not careful with <code>&lt;svelte:component this={layout} {...content.fields} {allContent} /></code>. Once you're aware of those two things, this file shouldn't be too scary and is meant for you to customize.</div><div><br></div><div><span style=color:var(--base-dark)>It is common practice (but not required) to use a </span><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax target=_blank rel="noopener noreferrer">JS spread operator</a><span style=color:var(--base-dark)> </span><code>{...content.fields}</code><span style=color:var(--base-dark)> inside a </span><a href=https://svelte.dev/tutorial/svelte-component target=_blank rel="noopener noreferrer">dynamic component</a><span style=color:var(--base-dark)> </span><code>&lt;svelte:component this={layout}/></code><span style=color:var(--base-dark)> in your </span><code>layouts/global/html.svelte</code><span style=color:var(--base-dark)> file to make the keys you define in your content source easier to access. That resolves routes without requiring you to manually check them and load the corresponding layout and allows you to access keys defined in your content source directly at the top level of your </span><code>layouts/content/YOUR_TYPE.svelte</code><span style=color:var(--base-dark)> templates like:</span><br></div><div><br><codeblock>&lt;script><br>&nbsp;&nbsp;export let title;<br>&lt;/script><br><br>&lt;h1>{title}&lt;/h1></codeblock><h2>layouts/content/</h2>Files that live in this folder correspond directly to the types defined in your content source. For example if you have <em>blog</em> type (<code>content/blog/post-whatever.json</code>) you would create a corresponding template at <code>layouts/content/blog.svelte</code>. One template should be used per type and it will feed many content files to create individual nodes (endpoints).</div><div><br></div><div>The rest of the structure is really up to you. We try to create logical default folders, such as <code>layouts/components/</code> for reusable widgets and <code>layouts/scripts/</code> for helper functions, but feel free to completely change these and make the structure your own.</div></div></div></div></div><br><footer class=svelte-bfmma5><div class="container svelte-bfmma5"><section id=plentico class=svelte-bfmma5><strong class=svelte-bfmma5>Plentico</strong><div><a href=/about class=svelte-bfmma5>About</a></div><div><a href=/contact class=svelte-bfmma5>Contact</a></div></section><section id=products class=svelte-bfmma5><strong class=svelte-bfmma5>Products</strong><div><a href=https://github.com/plentico/plenti class=svelte-bfmma5>Plenti</a></div><div><a href=https://plentiform.com class=svelte-bfmma5>Plentiform</a></div></section><section id=resources class=svelte-bfmma5><strong class=svelte-bfmma5>Resources</strong><div><a href=/docs class=svelte-bfmma5>Documentation</a></div><div><a href=/themes class=svelte-bfmma5>Themes</a></div><div><a href=/download class=svelte-bfmma5>Download</a></div></section><section id=copyright class=svelte-bfmma5><div id=social class=svelte-bfmma5><a href=https://twitter.com/plentico class=svelte-bfmma5><img src=/social/twitter.svg alt="Twitter bird logo"></a>
+<a href=https://youtube.com/jantcu class=svelte-bfmma5><img src=/social/youtube.svg alt="Toutube play button logo"></a>
+<a href=https://github.com/plentico/plenti class=svelte-bfmma5><img src=/social/github.svg alt="GitHub octocat logo"></a></div><div id=copyright>© Plentico 2022</div><a href=https://jantcu.com class=svelte-bfmma5>By Jantcu LLC</a></section></div></footer></main><noscript><img alt="Analytics that respects your privacy" src="https://nullitics.com/file.gif?u=plenti.co/docs/layouts"></noscript>

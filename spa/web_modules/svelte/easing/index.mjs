@@ -1,1 +1,144 @@
-export{identity as linear}from"../internal/index.mjs";function backInOut(e){const t=1.70158*1.525;return(e*=2)<1?.5*(e*e*((t+1)*e-t)):.5*((e-=2)*e*((t+1)*e+t)+2)}function backIn(e){const t=1.70158;return e*e*((t+1)*e-t)}function backOut(e){const t=1.70158;return--e*e*((t+1)*e+t)+1}function bounceOut(e){const r=4/11,n=8/11,s=9/10,o=4356/361,i=35442/1805,a=16061/1805,t=e*e;return e<r?7.5625*t:e<n?9.075*t-9.9*e+3.4:e<s?o*t-i*e+a:10.8*e*e-20.52*e+10.72}function bounceInOut(e){return e<.5?.5*(1-bounceOut(1-e*2)):.5*bounceOut(e*2-1)+.5}function bounceIn(e){return 1-bounceOut(1-e)}function circInOut(e){return(e*=2)<1?-.5*(Math.sqrt(1-e*e)-1):.5*(Math.sqrt(1-(e-=2)*e)+1)}function circIn(e){return 1-Math.sqrt(1-e*e)}function circOut(e){return Math.sqrt(1- --e*e)}function cubicInOut(e){return e<.5?4*e*e*e:.5*Math.pow(2*e-2,3)+1}function cubicIn(e){return e*e*e}function cubicOut(e){const t=e-1;return t*t*t+1}function elasticInOut(e){return e<.5?.5*Math.sin(+13*Math.PI/2*2*e)*Math.pow(2,10*(2*e-1)):.5*Math.sin(-13*Math.PI/2*(2*e-1+1))*Math.pow(2,-10*(2*e-1))+1}function elasticIn(e){return Math.sin(13*e*Math.PI/2)*Math.pow(2,10*(e-1))}function elasticOut(e){return Math.sin(-13*(e+1)*Math.PI/2)*Math.pow(2,-10*e)+1}function expoInOut(e){return e===0||e===1?e:e<.5?+.5*Math.pow(2,20*e-10):-.5*Math.pow(2,10-e*20)+1}function expoIn(e){return e===0?e:Math.pow(2,10*(e-1))}function expoOut(e){return e===1?e:1-Math.pow(2,-10*e)}function quadInOut(e){return e/=.5,e<1?.5*e*e:(e--,-.5*(e*(e-2)-1))}function quadIn(e){return e*e}function quadOut(e){return-e*(e-2)}function quartInOut(e){return e<.5?+8*Math.pow(e,4):-8*Math.pow(e-1,4)+1}function quartIn(e){return Math.pow(e,4)}function quartOut(e){return Math.pow(e-1,3)*(1-e)+1}function quintInOut(e){return(e*=2)<1?.5*e*e*e*e*e:.5*((e-=2)*e*e*e*e+2)}function quintIn(e){return e*e*e*e*e}function quintOut(e){return--e*e*e*e*e+1}function sineInOut(e){return-.5*(Math.cos(Math.PI*e)-1)}function sineIn(e){const t=Math.cos(e*Math.PI*.5);return Math.abs(t)<1e-14?1:1-t}function sineOut(e){return Math.sin(e*Math.PI/2)}export{backIn,backInOut,backOut,bounceIn,bounceInOut,bounceOut,circIn,circInOut,circOut,cubicIn,cubicInOut,cubicOut,elasticIn,elasticInOut,elasticOut,expoIn,expoInOut,expoOut,quadIn,quadInOut,quadOut,quartIn,quartInOut,quartOut,quintIn,quintInOut,quintOut,sineIn,sineInOut,sineOut}
+export { identity as linear } from '../internal/index.mjs';
+
+/*
+Adapted from https://github.com/mattdesl
+Distributed under MIT License https://github.com/mattdesl/eases/blob/master/LICENSE.md
+*/
+function backInOut(t) {
+    const s = 1.70158 * 1.525;
+    if ((t *= 2) < 1)
+        return 0.5 * (t * t * ((s + 1) * t - s));
+    return 0.5 * ((t -= 2) * t * ((s + 1) * t + s) + 2);
+}
+function backIn(t) {
+    const s = 1.70158;
+    return t * t * ((s + 1) * t - s);
+}
+function backOut(t) {
+    const s = 1.70158;
+    return --t * t * ((s + 1) * t + s) + 1;
+}
+function bounceOut(t) {
+    const a = 4.0 / 11.0;
+    const b = 8.0 / 11.0;
+    const c = 9.0 / 10.0;
+    const ca = 4356.0 / 361.0;
+    const cb = 35442.0 / 1805.0;
+    const cc = 16061.0 / 1805.0;
+    const t2 = t * t;
+    return t < a
+        ? 7.5625 * t2
+        : t < b
+            ? 9.075 * t2 - 9.9 * t + 3.4
+            : t < c
+                ? ca * t2 - cb * t + cc
+                : 10.8 * t * t - 20.52 * t + 10.72;
+}
+function bounceInOut(t) {
+    return t < 0.5
+        ? 0.5 * (1.0 - bounceOut(1.0 - t * 2.0))
+        : 0.5 * bounceOut(t * 2.0 - 1.0) + 0.5;
+}
+function bounceIn(t) {
+    return 1.0 - bounceOut(1.0 - t);
+}
+function circInOut(t) {
+    if ((t *= 2) < 1)
+        return -0.5 * (Math.sqrt(1 - t * t) - 1);
+    return 0.5 * (Math.sqrt(1 - (t -= 2) * t) + 1);
+}
+function circIn(t) {
+    return 1.0 - Math.sqrt(1.0 - t * t);
+}
+function circOut(t) {
+    return Math.sqrt(1 - --t * t);
+}
+function cubicInOut(t) {
+    return t < 0.5 ? 4.0 * t * t * t : 0.5 * Math.pow(2.0 * t - 2.0, 3.0) + 1.0;
+}
+function cubicIn(t) {
+    return t * t * t;
+}
+function cubicOut(t) {
+    const f = t - 1.0;
+    return f * f * f + 1.0;
+}
+function elasticInOut(t) {
+    return t < 0.5
+        ? 0.5 *
+            Math.sin(((+13.0 * Math.PI) / 2) * 2.0 * t) *
+            Math.pow(2.0, 10.0 * (2.0 * t - 1.0))
+        : 0.5 *
+            Math.sin(((-13.0 * Math.PI) / 2) * (2.0 * t - 1.0 + 1.0)) *
+            Math.pow(2.0, -10.0 * (2.0 * t - 1.0)) +
+            1.0;
+}
+function elasticIn(t) {
+    return Math.sin((13.0 * t * Math.PI) / 2) * Math.pow(2.0, 10.0 * (t - 1.0));
+}
+function elasticOut(t) {
+    return (Math.sin((-13.0 * (t + 1.0) * Math.PI) / 2) * Math.pow(2.0, -10.0 * t) + 1.0);
+}
+function expoInOut(t) {
+    return t === 0.0 || t === 1.0
+        ? t
+        : t < 0.5
+            ? +0.5 * Math.pow(2.0, 20.0 * t - 10.0)
+            : -0.5 * Math.pow(2.0, 10.0 - t * 20.0) + 1.0;
+}
+function expoIn(t) {
+    return t === 0.0 ? t : Math.pow(2.0, 10.0 * (t - 1.0));
+}
+function expoOut(t) {
+    return t === 1.0 ? t : 1.0 - Math.pow(2.0, -10.0 * t);
+}
+function quadInOut(t) {
+    t /= 0.5;
+    if (t < 1)
+        return 0.5 * t * t;
+    t--;
+    return -0.5 * (t * (t - 2) - 1);
+}
+function quadIn(t) {
+    return t * t;
+}
+function quadOut(t) {
+    return -t * (t - 2.0);
+}
+function quartInOut(t) {
+    return t < 0.5
+        ? +8.0 * Math.pow(t, 4.0)
+        : -8.0 * Math.pow(t - 1.0, 4.0) + 1.0;
+}
+function quartIn(t) {
+    return Math.pow(t, 4.0);
+}
+function quartOut(t) {
+    return Math.pow(t - 1.0, 3.0) * (1.0 - t) + 1.0;
+}
+function quintInOut(t) {
+    if ((t *= 2) < 1)
+        return 0.5 * t * t * t * t * t;
+    return 0.5 * ((t -= 2) * t * t * t * t + 2);
+}
+function quintIn(t) {
+    return t * t * t * t * t;
+}
+function quintOut(t) {
+    return --t * t * t * t * t + 1;
+}
+function sineInOut(t) {
+    return -0.5 * (Math.cos(Math.PI * t) - 1);
+}
+function sineIn(t) {
+    const v = Math.cos(t * Math.PI * 0.5);
+    if (Math.abs(v) < 1e-14)
+        return 1;
+    else
+        return 1 - v;
+}
+function sineOut(t) {
+    return Math.sin((t * Math.PI) / 2);
+}
+
+export { backIn, backInOut, backOut, bounceIn, bounceInOut, bounceOut, circIn, circInOut, circOut, cubicIn, cubicInOut, cubicOut, elasticIn, elasticInOut, elasticOut, expoIn, expoInOut, expoOut, quadIn, quadInOut, quadOut, quartIn, quartInOut, quartOut, quintIn, quintInOut, quintOut, sineIn, sineInOut, sineOut };

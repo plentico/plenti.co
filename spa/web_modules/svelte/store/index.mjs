@@ -1,1 +1,107 @@
-import{noop,safe_not_equal,subscribe,run_all,is_function}from"../internal/index.mjs";export{get_store_value as get}from"../internal/index.mjs";const subscriber_queue=[];function readable(e,t){return{subscribe:writable(e,t).subscribe}}function writable(e,t=noop){let s;const n=[];function o(t){if(safe_not_equal(e,t)&&(e=t,s)){const t=!subscriber_queue.length;for(let t=0;t<n.length;t+=1){const s=n[t];s[1](),subscriber_queue.push(s,e)}if(t){for(let e=0;e<subscriber_queue.length;e+=2)subscriber_queue[e][0](subscriber_queue[e+1]);subscriber_queue.length=0}}}function i(t){o(t(e))}function a(i,a=noop){const r=[i,a];return n.push(r),n.length===1&&(s=t(o)||noop),i(e),()=>{const e=n.indexOf(r);e!==-1&&n.splice(e,1),n.length===0&&(s(),s=null)}}return{set:o,update:i,subscribe:a}}function derived(e,t,n){const s=!Array.isArray(e),o=s?[e]:e,i=t.length<2;return readable(n,e=>{let c=!1;const n=[];let a=0,r=noop;const l=()=>{if(a)return;r();const o=t(s?n[0]:n,e);i?e(o):r=is_function(o)?o:noop},d=o.map((e,t)=>subscribe(e,e=>{n[t]=e,a&=~(1<<t),c&&l()},()=>{a|=1<<t}));return c=!0,l(),function(){run_all(d),r()}})}export{derived,readable,writable}
+import { noop, safe_not_equal, subscribe, run_all, is_function } from '../internal/index.mjs';
+export { get_store_value as get } from '../internal/index.mjs';
+
+const subscriber_queue = [];
+/**
+ * Creates a `Readable` store that allows reading by subscription.
+ * @param value initial value
+ * @param {StartStopNotifier}start start and stop notifications for subscriptions
+ */
+function readable(value, start) {
+    return {
+        subscribe: writable(value, start).subscribe
+    };
+}
+/**
+ * Create a `Writable` store that allows both updating and reading by subscription.
+ * @param {*=}value initial value
+ * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+ */
+function writable(value, start = noop) {
+    let stop;
+    const subscribers = [];
+    function set(new_value) {
+        if (safe_not_equal(value, new_value)) {
+            value = new_value;
+            if (stop) { // store is ready
+                const run_queue = !subscriber_queue.length;
+                for (let i = 0; i < subscribers.length; i += 1) {
+                    const s = subscribers[i];
+                    s[1]();
+                    subscriber_queue.push(s, value);
+                }
+                if (run_queue) {
+                    for (let i = 0; i < subscriber_queue.length; i += 2) {
+                        subscriber_queue[i][0](subscriber_queue[i + 1]);
+                    }
+                    subscriber_queue.length = 0;
+                }
+            }
+        }
+    }
+    function update(fn) {
+        set(fn(value));
+    }
+    function subscribe(run, invalidate = noop) {
+        const subscriber = [run, invalidate];
+        subscribers.push(subscriber);
+        if (subscribers.length === 1) {
+            stop = start(set) || noop;
+        }
+        run(value);
+        return () => {
+            const index = subscribers.indexOf(subscriber);
+            if (index !== -1) {
+                subscribers.splice(index, 1);
+            }
+            if (subscribers.length === 0) {
+                stop();
+                stop = null;
+            }
+        };
+    }
+    return { set, update, subscribe };
+}
+function derived(stores, fn, initial_value) {
+    const single = !Array.isArray(stores);
+    const stores_array = single
+        ? [stores]
+        : stores;
+    const auto = fn.length < 2;
+    return readable(initial_value, (set) => {
+        let inited = false;
+        const values = [];
+        let pending = 0;
+        let cleanup = noop;
+        const sync = () => {
+            if (pending) {
+                return;
+            }
+            cleanup();
+            const result = fn(single ? values[0] : values, set);
+            if (auto) {
+                set(result);
+            }
+            else {
+                cleanup = is_function(result) ? result : noop;
+            }
+        };
+        const unsubscribers = stores_array.map((store, i) => subscribe(store, (value) => {
+            values[i] = value;
+            pending &= ~(1 << i);
+            if (inited) {
+                sync();
+            }
+        }, () => {
+            pending |= (1 << i);
+        }));
+        inited = true;
+        sync();
+        return function stop() {
+            run_all(unsubscribers);
+            cleanup();
+        };
+    });
+}
+
+export { derived, readable, writable };
