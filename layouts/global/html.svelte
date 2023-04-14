@@ -2,16 +2,18 @@
   import Head from './head.svelte';
   import Nav from './nav.svelte';
   import Footer from './footer.svelte';
+  import Login from './login.svelte';
 
-  export let layout, content, allContent, user, adminMenu;
+  export let layout, content, allContent, user;
 </script>
 
 <html lang="en">
   <Head {content} />
   <body>
     {#if user && $user.isAuthenticated}
-      <svelte:component this={adminMenu} bind:content {user} />
+      <svelte:component this={$user.menu} bind:content {user} />
     {/if}
+    <Login {user} />
     <main>
       <Nav />
       <svelte:component this={layout} {...content.fields} {allContent} {user} />
