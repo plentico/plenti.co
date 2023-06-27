@@ -62,7 +62,7 @@
       {#each allContent.filter(content => content.type == "themes") as theme}
         <a href="/themes/{theme.fields.name.toLowerCase().replaceAll(' ', '-')}">
           <img
-            src="/media/themes/{theme.fields.name.toLowerCase().replaceAll(' ', '-')}.png"
+            src="/media/themes/{theme.fields.name.toLowerCase().replaceAll(' ', '-')}.webp"
             alt="Screenshot for {theme.fields.name}"
           />
         </a> 

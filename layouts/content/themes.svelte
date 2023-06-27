@@ -37,7 +37,7 @@
             </div>
             <a class="button" href="https://plenti-themes.github.io/{machine_name}">See demo</a>
         </div>
-        <img src="/media/themes/{machine_name}.png" alt="{name} Plenti theme" />
+        <img src="/media/themes/{machine_name}.webp" alt="{name} Plenti theme" />
     </div>
 </div>
 
