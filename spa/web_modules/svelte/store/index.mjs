@@ -5,7 +5,7 @@ const subscriber_queue = [];
 /**
  * Creates a `Readable` store that allows reading by subscription.
  * @param value initial value
- * @param {StartStopNotifier}start start and stop notifications for subscriptions
+ * @param {StartStopNotifier} [start]
  */
 function readable(value, start) {
     return {
@@ -15,20 +15,19 @@ function readable(value, start) {
 /**
  * Create a `Writable` store that allows both updating and reading by subscription.
  * @param {*=}value initial value
- * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+ * @param {StartStopNotifier=} start
  */
 function writable(value, start = noop) {
     let stop;
-    const subscribers = [];
+    const subscribers = new Set();
     function set(new_value) {
         if (safe_not_equal(value, new_value)) {
             value = new_value;
             if (stop) { // store is ready
                 const run_queue = !subscriber_queue.length;
-                for (let i = 0; i < subscribers.length; i += 1) {
-                    const s = subscribers[i];
-                    s[1]();
-                    subscriber_queue.push(s, value);
+                for (const subscriber of subscribers) {
+                    subscriber[1]();
+                    subscriber_queue.push(subscriber, value);
                 }
                 if (run_queue) {
                     for (let i = 0; i < subscriber_queue.length; i += 2) {
@@ -44,17 +43,14 @@ function writable(value, start = noop) {
     }
     function subscribe(run, invalidate = noop) {
         const subscriber = [run, invalidate];
-        subscribers.push(subscriber);
-        if (subscribers.length === 1) {
+        subscribers.add(subscriber);
+        if (subscribers.size === 1) {
             stop = start(set) || noop;
         }
         run(value);
         return () => {
-            const index = subscribers.indexOf(subscriber);
-            if (index !== -1) {
-                subscribers.splice(index, 1);
-            }
-            if (subscribers.length === 0) {
+            subscribers.delete(subscriber);
+            if (subscribers.size === 0 && stop) {
                 stop();
                 stop = null;
             }
@@ -69,7 +65,7 @@ function derived(stores, fn, initial_value) {
         : stores;
     const auto = fn.length < 2;
     return readable(initial_value, (set) => {
-        let inited = false;
+        let started = false;
         const values = [];
         let pending = 0;
         let cleanup = noop;
@@ -89,19 +85,33 @@ function derived(stores, fn, initial_value) {
         const unsubscribers = stores_array.map((store, i) => subscribe(store, (value) => {
             values[i] = value;
             pending &= ~(1 << i);
-            if (inited) {
+            if (started) {
                 sync();
             }
         }, () => {
             pending |= (1 << i);
         }));
-        inited = true;
+        started = true;
         sync();
         return function stop() {
             run_all(unsubscribers);
             cleanup();
+            // We need to set this to false because callbacks can still happen despite having unsubscribed:
+            // Callbacks might already be placed in the queue which doesn't know it should no longer
+            // invoke this derived store.
+            started = false;
         };
     });
 }
+/**
+ * Takes a store and returns a new one derived from the old one that is readable.
+ *
+ * @param store - store to make readonly
+ */
+function readonly(store) {
+    return {
+        subscribe: store.subscribe.bind(store)
+    };
+}
 
-export { derived, readable, writable };
+export { derived, readable, readonly, writable };
