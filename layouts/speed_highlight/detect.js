@@ -19,7 +19,7 @@ const languages = [
 	//['pl', [/#!(\/usr)?\/bin\/perl/g, 500], [/\b(use|print)\b|\$/g, 10]],
 	['lua', [/#!(\/usr)?\/bin\/lua/g, 500]],
 	['make', [/\b(ifneq|endif|if|elif|then|fi|echo|.PHONY|^[a-z]+ ?:$)\b|\$/gm, 10]],
-	['uri', [/https?:|mailto:|tel:|ftp:/g, 30]],
+	//['uri', [/https?:|mailto:|tel:|ftp:/g, 30]],
 	['css', [/^(@import|@page|@media|(\.|#)[a-z]+)/gm, 20]],
 	//['diff', [/^[+><-]/gm, 10], [/^@@ ?[-+,0-9 ]+ ?@@/gm, 25]],
 	//['md', [/^(>|\t\*|\t\d+.)/gm, 10], [/\[.*\](.*)/g, 10]],
@@ -31,8 +31,8 @@ const languages = [
 	//['java', [/^import\s+java/gm, 500]],
 	//['asm', [/^(section|global main|extern|\t(call|mov|ret))/gm, 100]],
 	['css', [/^(@import|@page|@media|(\.|#)[a-z]+)/gm, 20]],
-	//['json', [/\b(true|false|null|\{})\b|\"[^"]+\":/g, 10]],
-	['json', [/((\[)?(\s*)?)({((\s*)?\"[^"]+\"(\s*)?:(\s*)?(\b(true|false|null|[0-9]+)\b|\"[^"]+\")(,)?(\s*)?)+})+(\s*)?(\])?/g, 10]],
+	['json', [/\b(true|false|null|\{})\b|\"[^"]+\":/g, 10]],
+	//['json', [/((\[)?(\s*)?)({((\s*)?\"[^"]+\"(\s*)?:(\s*)?(\b(true|false|null|[0-9]+)\b|\"[^"]+\")(,)?(\s*)?)+})+(\s*)?(\])?/g, 10]],
 	['yaml', [/^(\s+)?[a-z][a-z0-9]*:/gmi, 10]]
 ]
 
