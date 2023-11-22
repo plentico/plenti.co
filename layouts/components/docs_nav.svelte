@@ -1,4 +1,5 @@
 <script>
+    import { highlightAll } from '../speed_highlight/index.js';
     export let allContent, checked;
     const uncheck = () => {
         checked=false;
@@ -14,7 +15,7 @@
         }
         return -1;
     }
-    
+
     let active = [];
     const setActive = (path) => {
         active = [];
@@ -22,6 +23,7 @@
             if (path === window.location.pathname) {
                 active[path] = true;
             }
+            highlightAll(); // reload syntax highlighting
         }, 100);
     }
 

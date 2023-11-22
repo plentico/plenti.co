@@ -1,6 +1,14 @@
 <script>
-    export let title, body, deprecated, allContent;
     import DocsNav from "../components/docs_nav.svelte";
+    import { onMount } from 'svelte';
+    import { highlightAll } from '../speed_highlight/index.js';
+
+    onMount(async () => {
+        highlightAll();
+    });
+
+    export let title, body, deprecated, allContent;
+
     let checked=false;
     const uncheck = () => {
         checked=false;

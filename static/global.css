@@ -52,7 +52,7 @@ code {
     border-radius: 5px;
 }
 codeblock {
-    background: #f4f4f4;
+    /* background: #f4f4f4; */
     border: 1px solid #ddd;
     border-left: 3px solid var(--accent-dark);
     color: #666;
