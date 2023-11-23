@@ -194,6 +194,7 @@
             overflow-y: scroll;
         }
         .docs-container {
+            overflow: hidden;
             flex-direction: column;
             padding: 0 20px;
         }
