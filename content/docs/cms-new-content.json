@@ -1,0 +1,6 @@
+{
+	"title": "New Content",
+	"group": "CMS",
+	"order": 8.05,
+	"body": "<div>If you want to be able to create new content through the CMS, you need to define a <code>_defaults.json</code> within your content type (e.g. <code>content/pages/_defaults.json</code>). The CMS will pick up on this and provide a new option in the admin interface under \"Add\" in the top navbar. The widgets provided will be based on the types of content you use for your default scaffolding, however you can override these by also defining a <code>_schema.json</code> file for your content type (e.g. <code>content/pages/_schema.json</code>).</div><div><h2>Filename Conventions</h2></div><div>The CMS tries to check for filename conflicts and warns you if a file of that particular content type already exists with that name. It also enforeces certain rules like not using spaces or invalid characters.</div>"
+}
