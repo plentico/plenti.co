@@ -1,1 +1,1 @@
-export const makeUrl=e=>{try{return new URL(e)}catch(e){return new URL("https://gitlab.com")}}
+export const makeUrl=e=>{try{return new URL(e)}catch{return new URL("https://gitlab.com")}}
