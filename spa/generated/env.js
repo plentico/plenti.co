@@ -1,1 +1,1 @@
-export let env={local:!1,baseurl:"",routes:{pages:"/:filename"},fingerprint:"MZUvagYnsS",entrypointHTML:"global/html.svelte",entrypointJS:"spa",cms:{repo:"",redirectUrl:"",appId:"",branch:""}}
+export let env={local:!1,baseurl:"",routes:{pages:"/:filename"},types:["docs","pages","themes"],singleTypes:["_index"],fingerprint:"UhFqDlIJzP",entrypointHTML:"global/html.svelte",entrypointJS:"spa",sitevars:null,cms:{provider:"",repo:"",redirectUrl:"",appId:"",branch:""}}
