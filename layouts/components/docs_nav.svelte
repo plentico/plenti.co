@@ -43,7 +43,14 @@
             {#if !group.includes(content.fields.group)}
                 <strong>{addGroup(content.fields.group)}</strong>
             {/if}
-            <a on:click={() => setActive("/" + content.path)} on:click={uncheck} class:active={active["/" + content.path]} href="/{content.path}" class="nav-link">{content.fields.title}</a>
+            <a
+                on:click={() => setActive("/" + content.path)}
+                on:click={uncheck}
+                class:active={active["/" + content.path]}
+                href="{content.path}"
+                class="nav-link">
+                    {content.fields.title}
+            </a>
         {/if}
     {/each}
 </div>
